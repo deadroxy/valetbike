@@ -1,0 +1,58 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title" style="color: blueviolet;">
+      Welcome to Addie's ValetBike!
+    </div>
+    <h2>
+      Bikes
+    </h2>
+    <br>
+    <p style="color: white;"><a href="#all">All</a>--
+    <a href="#available">Availible</a>--
+    <a href="#unavailible">Unavailable</a>--
+    <a href="stations">Stations</a>
+  </p>
+
+    <br>
+    <h3 id="all">All Bikes:</h3>
+    <p>[bike id @ station id]</p>
+    <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes.
+      </div>
+      <% end %>
+    </div>
+    <br>
+    <h4 id="available">Available Bikes:</h4>
+    <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row-available", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes available.
+      </div>
+      <% end %>
+    </div>
+    <br>
+    <h4 id="unavailible">Unavailable Bikes:</h4>
+     <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row-unavailable", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes unavailible.
+      </div>
+      <% end %>
+    </div>
+	</div>
+</div>
+<p style="color: white;"><a href="#all">All</a>--
+    <a href="#available">Availible</a>--
+    <a href="#unavailible">Unavailable</a>--
+    <a href="stations">Stations</a>
+  </p>
+
+
