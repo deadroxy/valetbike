@@ -16,11 +16,11 @@ test:
   <<: *default
   database: valetbike_test
   username: root
-  password: Zxw_010115
+  password: 
 
 production:
   <<: *default
   database: valetbike_production
   username: root
-  password: Zxw_010115
+  password: 
  
