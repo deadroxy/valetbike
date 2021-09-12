@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_180952) do
     t.integer "identifier"
     t.string "name"
     t.string "address"
+    t.integer "numdocked"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

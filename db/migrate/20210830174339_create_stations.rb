@@ -4,6 +4,7 @@ class CreateStations < ActiveRecord::Migration[6.1]
       t.integer :identifier
       t.string :name
       t.string :address
+      t.integer :numdocked
 
       t.timestamps
     end
