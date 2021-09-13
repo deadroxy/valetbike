@@ -1,16 +1,112 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
-    </div>  
-    <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      Welcome to ValetBike 2021!
+    </div>
+<script type="text/javascript">
+
+
+  function changeView(view){
+      if(view==0){
+	  document.getElementById("view1").hidden = false;
+	  document.getElementById("view2").hidden = true;
+      }
+      else{
+	  document.getElementById("view2").hidden = false;
+	  document.getElementById("view1").hidden = true;
+      }
+  }
+
+    function changeSort(sort){
+      if(sort==false){
+	  document.getElementById("asc1").hidden = false;
+	  document.getElementById("asc2").hidden = false;
+	  document.getElementById("dsc1").hidden = true;
+	  document.getElementById("dsc2").hidden = true;
+      }
+      else{
+	  document.getElementById("dsc1").hidden = false;
+	  document.getElementById("dsc2").hidden = false;
+	  document.getElementById("asc1").hidden = true;
+	  document.getElementById("asc2").hidden = true;
+      }
+  }
+  
+  
+</script>
+
+    <div class="btn-group">
+
+
+      
+  <button id="station" onclick="changeView(0);" >Station View</button>
+  <button id="bike" onclick="changeView(1);"> Bike View</button>
+
+  
+    </div>
+    <br><br>
+    <label for="check"><input type="checkbox" id="check" onclick="changeSort(this.checked)"> Reverse sort </label>
+
+	<br> <br>
+	
+	<div id="view1">
+	  <h2>Stations: </h2><br>
+  
+ 
+    
+	  <div id="asc1">
+	     <div class="flexbox vertical stretch">
+      <% if @stationsasc.present? %>
+        <%= render(partial: "stations/row", collection: @stationsasc, as: :station) %>
       <% else %>
       <div class="empty">
         No stations found.
       </div>
       <% end %>
+	     </div>
+	     </div>
+     
+	     <div id="dsc1" hidden>
+	        <div class="flexbox vertical stretch">
+       <% if @stationsdsc.present? %>
+        <%= render(partial: "stations/row", collection: @stationsdsc, as: :station) %>
+      <% else %>
+      <div class="empty">
+        No stations found.
+      </div>
+      <% end %>
+     </div>
+     
     </div>
+      </div>
+
+
+      <div id="view2" hidden>	
+   <h2> Bikes:</h2><br>
+   <div class="flexbox vertical stretch">
+     <div id="asc2">
+      <% if @bikesasc.present? %>
+        <%= render(partial: "stations/bikerow", collection: @bikesasc, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+     </div><div id="dsc2" hidden>
+        <% if @bikesdsc.present? %>
+        <%= render(partial: "stations/bikerow", collection: @bikesdsc, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+      </div>
 	</div>
+      </div>
+
+       
+
+        
+  </div>
 </div>
+

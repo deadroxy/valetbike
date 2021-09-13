@@ -1,0 +1,56 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      Welcome to ValetBike 2021!
+    </div>
+<script type="text/javascript">
+  function changeView() {
+      var station = document.getElementById('station');
+      var bike = document.getElementById('bike');
+      if(bike.onclick="changeView();") {
+	  document.getElementById('view').innerHTML = "You pressed Button 2";
+      }
+      if(station.onclick="changeView();") {
+	  document.getElementById('view').innerHTML = "You pressed button 1";
+      }
+     
+  }
+</script>
+
+    <div class="btn-group">
+
+
+      
+  <button id="station" onclick="changeView();" >Station View</button>
+  <button id="bike" onclick="changeView();"> Bike View</button>
+
+  
+    </div>
+      <br>
+      <br>
+
+      <p id="view">    STATIONS:
+    <div class="flexbox vertical stretch">
+      <% if @stations.present? %>
+        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      <% else %>
+      <div class="empty">
+        No stations found.
+      </div>
+      <% end %> </p>
+
+    </div>
+    <br>
+    <br>
+    BIKES:
+        <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "stations/bikerow", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+    </div>
+	</div>
+</div>
