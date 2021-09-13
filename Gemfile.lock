@@ -69,6 +69,7 @@ GEM
     crass (1.0.6)
     erubi (1.10.0)
     ffi (1.15.3)
+    ffi (1.15.3-x64-mingw32)
     globalid (0.5.2)
       activesupport (>= 5.0)
     i18n (1.8.10)
@@ -95,6 +96,8 @@ GEM
     mysql2 (0.5.3)
     nio4r (2.5.8)
     nokogiri (1.12.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.12.4-x64-mingw32)
       racc (~> 1.4)
     puma (5.4.0)
       nio4r (~> 2.0)
@@ -142,6 +145,9 @@ GEM
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2021.1)
+      tzinfo (>= 1.0.0)
+    wdm (0.1.1)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -154,6 +160,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  x64-mingw32
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
@@ -165,10 +172,11 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 6.1.4)
   tzinfo-data
+  wdm (>= 0.1.0)
   web-console (>= 4.1.0)
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.22
+   2.2.27
