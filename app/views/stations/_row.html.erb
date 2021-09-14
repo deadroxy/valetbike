@@ -1,3 +1,13 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
+  <h4><%= station.identifier %>: <%= station.name %> (<%= station.address %>)</h4>
+  <ul>
+    <li>Number of docked bikes at this station: <%= station.docked_bikes.size %> </li>
+    <li> List of Docked Bikes: 
+      <ul>
+      <% station.docked_bikes.all.each do |docked_bike|  %>
+        <li> <%= docked_bike.identifier %> </li>
+      <% end %>
+      </ul>
+    </li>
+  </ul>
 </div>
