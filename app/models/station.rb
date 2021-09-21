@@ -1,6 +1,7 @@
 class Station < ApplicationRecord
   validates_presence_of    :identifier,
                            :name,
+                           #:docked_bike_count,
                            :address
   validates_uniqueness_of  :identifier
   
