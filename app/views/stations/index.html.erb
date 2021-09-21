@@ -4,6 +4,7 @@
       Welcome to Winnie's ValetBike!
     </div>  
     <div class="flexbox vertical stretch">
+      <h3> Stations </h3>
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
       <% else %>
@@ -12,6 +13,8 @@
       </div>
       <% end %>
     </div>
+    <h3>  </h3>
+    <h3> Bikes </h3>
     <div class="flexbox vertical stretch"> 
       <% if @bikes.present? %>
         <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
