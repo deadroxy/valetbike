@@ -1,7 +1,7 @@
 # ValetBike
 
 Smith College CSC223: Introduction to Software Engineering\
-Starter App for ValetBike project
+Starter App for ValetBike project (Testing 2)
 
 ## General Configuration
 1. Install MySQL 8.0.26
