@@ -1,13 +1,28 @@
 <div id=form_region>
 	<%= form_with url: "/unlocked", method: :get do |form| %>
 	  	<%= form.label :stationName, "Station: " %>
-	  	<%= form.select :stationName, @stations.pluck(:name) %> <%# Creates dropdown menu of all stations %>
+	  	<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
 	  	<br><br>
 	  	<%= form.label :numBikes, "Number of Bikes: " %>
-	  	<%= form.number_field :numBikes, min:1, value:1 %> <%# Need to set upper bound %>
+	  	<%= form.number_field :numBikes, min:1, value:1 %> <!-- Upper bound set dynamically -->
 	  	<br><br>
 	  	<div class="submit_button">
 	  		<%= form.submit "Unlock"%>
 	  	</div>
 	<% end %>
 </div>
+
+<script type="text/javascript">
+	var maxBikesHash = JSON.parse('<%= @maxBikesHash.html_safe %>'); // Parses JSON from rental_controller.rb
+	var stationNameField = document.getElementById("stationName");
+	var numBikesField = document.getElementById("numBikes");
+	stationNameField.addEventListener("change", updateMaxBikes); // Waits for station change
+
+	function updateMaxBikes() {
+		maxBikes = maxBikesHash[stationNameField.value];
+        numBikesField.setAttribute("max", maxBikes); // Dynamically updates max value of number input field
+        numBikesField.value = Math.min(numBikesField.value, maxBikes); // Decrements number of bikes if requested bikes exceeds number at new station
+	}
+
+	updateMaxBikes(); // Calls on page load
+</script>
