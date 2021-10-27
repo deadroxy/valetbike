@@ -2,6 +2,11 @@ class RentalController < ApplicationController
   
   def index
     @stations = Station.order(name: :asc).select{|s| s.docked_bikes.count != 0}  # All stations with at least one bike, ordered alphabetically by name 
+    @maxBikesHash = {} # Key = station name, Value = number of bikes at station
+    @stations.each do |s|
+      @maxBikesHash[s.name] = s.docked_bikes.count
+    end
+    @maxBikesHash = @maxBikesHash.to_json; # Converts to JSON for use in JavaScript
   end
 
   def unlocked # Called when user clicks unlock from rental page
@@ -16,9 +21,9 @@ class RentalController < ApplicationController
     while i < @numBikes do
       bike = Bike.find{|b| b.current_station_id == @stationNum} # Find bike at current station
       @bikeNums[i] = bike.identifier # Get bike id for user
-      bike.current_station_id = 0 # Remove bike from station
+      bike.update({'current_station_id': 0}) # Remove bike from station
       i += 1
     end
   end
-
+  
 end
