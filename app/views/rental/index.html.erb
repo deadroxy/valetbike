@@ -1,0 +1,13 @@
+<div id=form_region>
+	<%= form_with url: "/unlocked", method: :get do |form| %>
+	  	<%= form.label :stationName, "Station: " %>
+	  	<%= form.select :stationName, @stations.pluck(:name) %> <%# Creates dropdown menu of all stations %>
+	  	<br><br>
+	  	<%= form.label :numBikes, "Number of Bikes: " %>
+	  	<%= form.number_field :numBikes, min:1, value:1 %> <%# Need to set upper bound %>
+	  	<br><br>
+	  	<div class="submit_button">
+	  		<%= form.submit "Unlock"%>
+	  	</div>
+	<% end %>
+</div>

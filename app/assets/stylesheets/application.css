@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+.submit_button {
+    text-align: center;
+}
+
+form {
+    font-size: 20px;
+}
+
+select, input {
+    font-size: 20px;
+    padding: 5px;
+}
+
+#numBikes {
+    width: 40px;
+}
