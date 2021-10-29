@@ -13,8 +13,8 @@
     	<%=link_to"Map",home_Map_path%>
     	<%=link_to"Rides",home_Rides_path%>
     	<%=link_to"Pricing",home_Pricing_path%>
-    	<%=link_to"Signup",signup_path%>
-    	<%=link_to"Login",login_path%>
+    	<%=link_to"Signup",home_Signup_path%>
+    	<%=link_to"Login",home_Login_path%>
     <title>ValetBike</title>
   </head>
   <body>
