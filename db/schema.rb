@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_225222) do
+
+ActiveRecord::Schema.define(version: 2021_10_29_152655) do
+
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
@@ -25,6 +27,20 @@ ActiveRecord::Schema.define(version: 2021_10_28_225222) do
     t.integer "identifier"
     t.string "name"
     t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "Capacity"
+    t.string "Description"
+    t.string "LandmarksList"
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "Email"
+    t.string "Username"
+    t.string "Password"
+    t.integer "CreditCardNum"
+    t.integer "ExpDate"
+    t.integer "SecurityCode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
