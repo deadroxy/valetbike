@@ -90,7 +90,7 @@ button:hover {
                                                 <div class="clearfix">
                                                    <button type="submit" class="loginbtn">Log in</button>
                                                 </div>
-                                                <a href="/signup">Not a user?</a><br/>
+                                                <a href="/login/signup">Not a user?</a><br/>
 
                         
       </div>
@@ -99,4 +99,3 @@ button:hover {
 
 </body>
  </html>
-
