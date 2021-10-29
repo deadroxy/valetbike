@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get 'rental', to: "rental#index"
   get 'unlocked', to: "rental#unlocked"
   get 'login', to: "login#index"
-  get 'signup', to: "login#Signup"
+  get 'signup', to: "login#signup"
 
 end
