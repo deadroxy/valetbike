@@ -80,54 +80,70 @@ button:hover {
 
 </style>
 <body>
-
-  <form action="/action_page.php" style="border:1px solid #ccc">
+  <form class = "signup" style="border:1px solid #ccc">
     <section class="container">
       <div id="inbetween">
       </div>
       <div id="wrapper1">
-            <h1>Sign Up</h1>
-                    <hr>
-
-                        <label for="email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" required>
-
-                                <label for="psw"><b>Password</b></label>
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                                        <label for="psw-repeat"><b>Repeat Password</b></label>
-                                            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                                                 <div class="clearfix">
-                                                     <button type="submit" class="signupgoogle">Sign Up With Google</button>
-
-                                                 </div>
+	<h1>Sign Up</h1>
+	<hr>
+	<label for="email"><b>Email</b></label>
+	<input type="text" placeholder="Enter Email" name="email" required>
+	
+	<label for="psw"><b>Password</b></label>
+	<input type="password" placeholder="Enter Password" name="psw" required>
+	
+	<label for="psw-repeat"><b>Repeat Password</b></label>
+	<input type="password" placeholder="Repeat Password" name="pswRepeat" required>
+	
+	<!--<div class="clearfix"
+	  <button type="submit" class="signupgoogle">Sign Up With Google</button>
+	</div-->
       </div>
       <div id="inbetween">
       </div>
-      <div id=wrapper2">
-        <h1> Payment Information</h1>
-                    <hr>
+      <div id="wrapper2">
+	<h1> Payment Information</h1>
+	<hr>
+	<label for="cardnumber"<b>Card Number</b></label>
+	<input type="text" placeholder="Enter Card Number" name="cardnumber" required>
+	       
+	<label for="securitycode"<b>Security Code</b></label>
+        <input type="text" placeholder="Enter Security Code" name="securitycode" required>
+	       
+	<label for="expirationdate"<b>Expiration Date</b></label>
+	<input type="text" placeholder="Enter Expiration Date" name="expirationdate" required>
+	       
+	<div class="clearfix">
+	  <button type="submit" class="signupbtn">Finish Sign Up</button>
+	</div>
+</div>
+<div id="inbetween">
+</div>
+</section>
+</form>
+<% form_for :user, class: "signup" do |f| %>
 
-                    <label for="cardnumber"<b>Card Number</b></label>
-                        <input type="text" placeholder="Enter Card Number" name="cardnumber" required>
-                  
-                            <label for="securitycode"<b>Security Code</b></label>
-                                <input type="text" placeholder="Enter Security Code" name="securitycode" required> 
-                                    
-                                    <label for="expirationdate"<b>Expiriation Date</b></label>
-                                        <input type="text" placeholder="Enter Expiration Date" name="expirationdate" required>
 
-                                            <div class="clearfix">
-                                                <button type="submit" class="signupbtn">Finish Sign Up</button>
-                                            </div>
-      </div>
-      <div id="inbetween">
-      </div>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "shortInput" %> <br />
 
-    </section>
-  </form>
+  <%= f.label :psw %>
+  <%= f.password_field :psw, class: "shortInput" %> <br />
 
+  <%= f.label :pswRepeat %>
+  <%= f.password_field :pswRepeat, class: "shortInput" %> <br />
+  
+  <%= f.label :cardnumber %>
+  <%= f.password_field :cardnumber, class: "shortInput" %> <br />
+  
+  <%= f.label :securitycode %>
+  <%= f.password_field :securitycode, class: "shortInput" %> <br />
+
+  <%= f.label :expirationdate %>
+  <%= f.password_field :expirationdate, class: "shortInput" %> <br />
+
+  <%= f.submit "Create account", class: "button signupbutton createAccount" %>
+<% end %>
 </body>
 </html>
-

@@ -4,6 +4,9 @@ class CreateStations < ActiveRecord::Migration[6.1]
       t.integer :identifier
       t.string :name
       t.string :address
+      t.string :Capacity
+      t.string :Description
+      t.string :LandmarksList
 
       t.timestamps
     end
