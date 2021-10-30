@@ -1,8 +1,17 @@
-class CreateBikes < ActiveRecord::Migration[6.1]
+class CreateUser < ActiveRecord::Migration[6.1]
   def change
-    create_table :bikes do |t|
-      t.integer :identifier
-      t.integer :current_station_id
+    create_table :users do |t|
+     t.integer :identifier
+     t.string :Email
+     t.string :Password
+     t.string :Username
+     t.decimal :CreditCardNum, :precision =>12
+     t.string :ExpDate
+     t.integer :SecurityCode
+
+      
+                         
+               
 
       t.timestamps
     end

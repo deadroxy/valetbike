@@ -5,7 +5,7 @@ class CreateUser < ActiveRecord::Migration[6.1]
      t.string :Email
      t.string :Password
      t.string :Username
-     t.integer :CreditCardNum
+     t.decimal :CreditCardNum, :precision =>16
      t.string :ExpDate
      t.integer :SecurityCode
 

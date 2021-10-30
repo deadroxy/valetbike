@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   get 'unlocked', to: "rental#unlocked"
   get 'login', to: "login#index"
   get 'signup', to: "login#signup"
+  post'/signup',to: 'login#create'
+  resources :user
+
 
 end

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_10_29_180952) do
     t.string "Email"
     t.string "Password"
     t.string "Username"
-    t.integer "CreditCardNum"
+    t.decimal "CreditCardNum", precision: 16
     t.string "ExpDate"
     t.integer "SecurityCode"
     t.datetime "created_at", precision: 6, null: false
