@@ -82,28 +82,27 @@ button:hover {
 
 </style>
 <body>
- 
+ <%=render  "/login/error_messages" %>
      <section class="container">
       <div id="inbetween">
       </div>
       <div id="wrapper1">
 	<h1>Sign Up</h1>
 	<hr>
-	 <%= form_with model: @user, url: "signup" do |f| %>
+	<%= form_with model: @user, url: "signup" do |f| %>
 	 <%= f.label :Email %>
-	 <%= f.text_field :Email, class: "shortInput" %> <br />
+	 <%= f.text_field :Email, class: "form-control" %> <br />
 
 	 <%= f.label :Username %>
-	  <%= f.text_field :Username, class: "shortInput" %> <br />
+	  <%= f.text_field :Username, class: "form-control" %> <br />
 	
 	 <%= f.label :Password %>
-	  <%= f.password_field :Password, class: "shortInput" %> <br />
+	  <%= f.password_field :Password, class: "form-control" %> <br />
 	
 
 	
-	<!--<div class="clearfix">
-	  <button type="submit" class="signupgoogle">Sign Up With Google</button>
-	</div>-->
+	<div class="clearfix">
+	</div>
       </div>
       <div id="inbetween">
       </div>
@@ -111,13 +110,13 @@ button:hover {
 	<h1> Payment Information</h1>
 	<hr>
 	<%= f.label :'card number' %>
-	<%= f.text_field :CreditCardNum, class: "shortInput" %> <br />
+	<%= f.text_field :CreditCardNum, class: "form-control" %> <br />
 	       
 	 <%= f.label :'security code' %>
-	 <%= f.text_field :SecurityCode, class: "shortInput" %> <br />
+	 <%= f.text_field :SecurityCode, class: "form-control" %> <br />
 
 	<%= f.label :'expiration date' %>
-	<%= f.text_field :ExpDate, class: "shortInput" %> <br />
+	<%= f.text_field :ExpDate, class: "form-control" %> <br />
 	       
 	<div class="clearfix"> 
 	<%= f.submit "Create account", class: "button signupbtn" %>
