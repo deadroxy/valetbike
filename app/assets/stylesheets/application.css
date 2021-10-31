@@ -14,19 +14,38 @@
  *= require_self
  */
 
-.submit_button {
+/* Navigation styling */
+
+nav {
+    background-color: lightslategray;
+    font-size: 25px;
+}
+
+.rightNav { 
+    float:  right;
+}
+
+#spacer {
+    background-color: lightslategray; /* Overrides hover color change */
+    padding: 10px;
+}
+
+nav li {
+    display: inline-block; /* For horizontal navigation */
+}
+
+nav a {
+    display: block; /* Enables us to add padding */
+    text-decoration: none; /* Removes underline */
+    color: black; /* Overrides standard link colors */
     text-align: center;
+    padding: 10px;
 }
 
-form {
-    font-size: 20px;
+nav li:hover:not(.active) {
+    background-color: lightskyblue;
 }
 
-select, input {
-    font-size: 20px;
-    padding: 5px;
-}
-
-#numBikes {
-    width: 40px;
+.active { /* For current page */
+  background-color: deepskyblue;
 }
