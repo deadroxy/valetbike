@@ -2,23 +2,18 @@ class LoginController < ApplicationController
   def index
   end
 
-  def new
-   # @user = User.new
-  end
 
   def create
     @user = User.new(user_params)
-    if @user.save!
-      flash[:success] = "Successfully created."
+    if @user.save
       render 'index'
     else
-      flash[:danger] = "Something went wrong."
-      render 'signup'
+      render 'signup' 
     end
   end
 
   
-  def signup 
+  def signup
   end
 
   private
