@@ -1,0 +1,54 @@
+# Add add /usr/local/mysql/bin (or equivalent) to your path
+    echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile
+
+# Open file containing PATH
+    open -t .bash_profile
+
+# Add add Ruby to your path
+    echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
+
+# Check Ruby version
+    ruby -v
+
+# Make sure install everything needed before installing rails
+    https://guides.rubyonrails.org/v6.0/getting_started.html
+
+    # Install yarn
+        brew install yarn
+
+# Install rails
+    gem install rails --version 6.1.4
+
+# Install mysql2
+    gem install mysql2
+
+# Fork and clone
+    git clone https://github.com/<username>/valetbike.git
+    
+# Install gems
+    cd valetbike
+    bundle install
+
+# Where is mysql?
+    echo $SHELL
+    open -t .zshrc
+    paste in: export PATH="/usr/local/mysql/bin:$PATH"
+    source ~/.zshrc
+
+# Prepare database in MySQL
+    mysql -u root -p
+    CREATE DATABASE valetbike_development;
+
+# Back to valetBike folder
+    add password in config/database.yml
+    rake db:migrate
+    bundle exec rackup
+
+# It worked!!!
+
+# Installing rails
+    https://flaviocopes.com/error-rails-not-currently-installed-macos/
+
+# Create _env.rb (it is ignored by git)
+    Not working
+
