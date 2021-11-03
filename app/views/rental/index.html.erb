@@ -18,7 +18,7 @@
 </style>
 
 <div id=form_region>
-	<%= form_with url: "/unlocked", method: :get do |form| %>
+	<%= form_with url: "/unlock", method: :get do |form| %>
 	  	<%= form.label :stationName, "Station: " %>
 	  	<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
 	  	<br><br>
