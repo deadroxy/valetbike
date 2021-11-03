@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get 'unlock', to: "rental#unlock"
   get 'rental_success', to: "rental#success"
   get 'login', to: "login#index"
-  get 'signup', to: "login#signup"
-  post'/signup',to: 'login#create'
+ # get 'signup', to: "login#new"
+ # post'signup',to: 'login#create'
+  resources :login, only: [:create, :new], :as => 'signup'
   resources :user
 
 
