@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_180952) do
+ActiveRecord::Schema.define(version: 2021_11_03_032708) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier"
+    t.time "checkoutTime"
+    t.time "checkinTime"
     t.integer "current_station_id"
+    t.integer "current_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier"
+    t.text "address"
+    t.integer "capacity"
     t.string "name"
-    t.string "address"
+    t.text "description"
+    t.text "landmarksList"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_10_29_180952) do
     t.string "Email"
     t.string "Password"
     t.string "Username"
-    t.integer "CreditCardNum"
+    t.decimal "CreditCardNum", precision: 16
     t.string "ExpDate"
     t.integer "SecurityCode"
     t.datetime "created_at", precision: 6, null: false
