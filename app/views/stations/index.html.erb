@@ -2,11 +2,11 @@
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title" style="color: blueviolet;">
       Welcome to Addie's ValetBike!
-    </div> 
+    </div>
     <h2>
       Stations
     </h2>
-    <p>[id: name (address)--number of bikes]</p> 
+    <p>[id: name (address)--number of bikes]</p>
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
@@ -19,4 +19,3 @@
 	</div>
 </div>
 <a href="bikes">View Bikes</a>
-
