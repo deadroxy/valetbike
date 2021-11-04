@@ -8,9 +8,13 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    if @user.save!
-      render 'index'
+    if @user.save
+      render "/login/index"
     else
+      flash.now[:alert] ||= ""
+      @user.errors.full_messages.each do |message|
+        flash.now[:alert] << "Error: " + message + ". "
+      end
       render :action => 'new' 
     end
   end
@@ -19,6 +23,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.permit(:Email, :Username, :Password, :CreditCardNum, :ExpDate, :SecurityCode)
+      params.require(:user).permit(:Email, :Username, :Password, :CreditCardNum, :ExpDate, :SecurityCode)
     end
 end
