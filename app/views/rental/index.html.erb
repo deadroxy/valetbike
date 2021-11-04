@@ -1,5 +1,24 @@
+<style type="text/css">
+	.submit_button {
+	    text-align: center;
+	}
+
+	form {
+	    font-size: 20px;
+	}
+
+	select, input {
+	    font-size: 20px;
+	    padding: 5px;
+	}
+
+	#numBikes {
+	    width: 40px;
+	}
+</style>
+
 <div id=form_region>
-	<%= form_with url: "/unlocked", method: :get do |form| %>
+	<%= form_with url: "/unlock", method: :get do |form| %>
 	  	<%= form.label :stationName, "Station: " %>
 	  	<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
 	  	<br><br>
@@ -19,7 +38,12 @@
 	stationNameField.addEventListener("change", updateMaxBikes); // Waits for station change
 
 	function updateMaxBikes() {
-		maxBikes = maxBikesHash[stationNameField.value];
+		stationName = stationNameField.value;
+		if (stationName == "") {
+			alert("No bikes availible, please check back later!");
+			document.getElementsByName("commit")[0].disabled = true; //Disable submit button
+		}
+		maxBikes = maxBikesHash[stationName];
         numBikesField.setAttribute("max", maxBikes); // Dynamically updates max value of number input field
         numBikesField.value = Math.min(numBikesField.value, maxBikes); // Decrements number of bikes if requested bikes exceeds number at new station
 	}

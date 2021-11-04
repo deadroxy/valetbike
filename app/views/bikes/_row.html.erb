@@ -1,8 +1,8 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <% if not bike.current_station %>
-    <s><%= bike.identifier %></s>
+  <% if not bike.current_station_id %>
+    <s><%= bike.id %></s>
   <% else %>
-    <%= bike.identifier %> @ <%= bike.current_station.identifier %> 
+    <%= bike.id %> @ <%= bike.current_station_id %> 
   <% end %>
 
 </div>

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+  <style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+    /* Full-width input fields */
+
+input[type=text], input[type=password] {
+    width: 100%;
+      padding: 15px;
+        margin: 5px 0 22px 0;
+          display: inline-block;
+            border: none;
+              background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+      outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+}
+
+    /* Set a style for all buttons */
+
+button {
+    background-color: #04AA6D;
+      color: white;
+        padding: 14px 20px;
+          margin: 8px 0;
+            border: none;
+              cursor: pointer;
+                width: 100%;
+                  opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+    /* Float signup buttons and add an equal width */
+
+.signupbtn {
+    float: left;
+      width: 50%;
+}
+
+.signupgoogle {
+    float: left;
+    width: 50%;
+}
+
+    /* Add padding to container elements */
+
+.container {
+    display: flex;
+}
+
+    /* Clear floats */
+
+.clearfix::after {
+    content: "";
+      clear: both;
+        display: table;
+}
+
+
+
+#wrapper1 {
+  float: left;
+  width: 100%;
+}
+
+#wrapper2 {
+    float: right;
+    width: 100%;
+}
+
+#inbetween {
+  width: 30%;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+</style>
+<body>
+  <% flash.each do |type, msg| %>
+  <div class = "alert ">
+    <%= msg %>
+  </div>
+  <% end %>
+  <section class="container">
+     <%= form_with model: @user, url: users_path do |f| %>
+    <div id="wrapper1">
+	<h1>Sign Up</h1>
+	<hr>
+	
+	 <%= f.label :Email %>
+	 <%= f.text_field :Email, class: "form-control" %> <br />
+
+	 <%= f.label :Username %>
+	  <%= f.text_field :Username, class: "form-control" %> <br />
+	
+	 <%= f.label :Password %>
+	  <%= f.password_field :Password, class: "form-control" %> <br />
+	
+      </div>
+      <div id="inbetween">
+      </div>
+      <div id="wrapper2">
+	<h1> Payment Information</h1>
+	<hr>
+	<%= f.label :'card number' %>
+	<%= f.text_field :CreditCardNum, class: "form-control" %> <br />
+	       
+	 <%= f.label :'security code' %>
+	 <%= f.text_field :SecurityCode, class: "form-control" %> <br />
+
+	<%= f.label :'expiration date' %>
+	<%= f.text_field :ExpDate, class: "form-control" %> <br />
+	       
+
+
+
+      </div>
+      	<%= f.submit "Create account", class: "button signupbtn" %>
+      <% end %>
+
+</section>
+
+</body>
+</html>
