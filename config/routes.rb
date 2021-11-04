@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get 'confirmation', to: "rental#confirmation"
   get 'rental_success', to: "rental#success"
   get 'login', to: "login#index"
- # get 'signup', to: "login#new"
- # post'signup',to: 'login#create'
-  resources :login, only: [:create, :new], :as => 'signup'
-  resources :user
+  resources :users, only: [:create, :new]
+ 
+
 
 
 end
+
