@@ -74,32 +74,56 @@ button:hover {
 
 #wrapper1 {
   float: left;
-  width: 500%;
+  width: 100%;
 }
 
 #wrapper2 {
     float: right;
-    width: 500%;
+    width: 100%;
 }
 
 #inbetween {
   width: 30%;
 }
-*/
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
 </style>
 <body>
-  <!-- <%=render  "/users/error_messages" %>-->
   <% flash.each do |type, msg| %>
-  <div class = "alert alert-info">
+  <div class = "alert ">
     <%= msg %>
   </div>
   <% end %>
   <section class="container">
-     
+     <%= form_with model: @user, url: users_path do |f| %>
     <div id="wrapper1">
 	<h1>Sign Up</h1>
 	<hr>
-	<%= form_with model: @user, url: users_path do |f| %>
+	
 	 <%= f.label :Email %>
 	 <%= f.text_field :Email, class: "form-control" %> <br />
 
@@ -124,10 +148,11 @@ button:hover {
 	<%= f.label :'expiration date' %>
 	<%= f.text_field :ExpDate, class: "form-control" %> <br />
 	       
-	<div class="clearfix"> 
-	<%= f.submit "Create account", class: "button signupbtn" %>
-	</div>
-	</div>
+
+
+
+      </div>
+      	<%= f.submit "Create account", class: "button signupbtn" %>
       <% end %>
 
 </section>
