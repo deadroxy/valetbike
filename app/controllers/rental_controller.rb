@@ -16,14 +16,21 @@ class RentalController < ApplicationController
     @numBikes = params[:numBikes].to_i # Gets number of bikes from parems, posted by rental page
     
     @stationNum = @stations.find{|s| s.name == @stationName}.id.to_i # Gets current station by name, to modify number of bikes
-    @bikeNums = Array(@numBikes)
+    @bikeIds = Array(@numBikes)
     i = 0
     while i < @numBikes do
       bike = Bike.find{|b| b.current_station_id == @stationNum} # Find bike at current station
-      @bikeNums[i] = bike.id # Get bike id for user
+      @bikeIds[i] = bike.id # Get bike id for user
       bike.update({'current_station_id': nil}) # Remove bike from station
+      bike.update({'checkoutTime': Time.now.inspect}) # Add checkout time
+      # b.update({'current_user_id': }) # Assign bike to user
       i += 1
     end
+    redirect_to(action: 'confirmation', stationName: @stationName, numBikes: @numBikes) # Prevents form resubmission
   end
-  
+
+  def confirmation 
+    @stationName = params[:stationName] # Gets current station from params, posted by rental page
+    @numBikes = params[:numBikes].to_i # Gets number of bikes from parems, posted by rental page
+  end
 end

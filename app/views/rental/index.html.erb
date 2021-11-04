@@ -38,7 +38,12 @@
 	stationNameField.addEventListener("change", updateMaxBikes); // Waits for station change
 
 	function updateMaxBikes() {
-		maxBikes = maxBikesHash[stationNameField.value];
+		stationName = stationNameField.value;
+		if (stationName == "") {
+			alert("No bikes availible, please check back later!");
+			document.getElementsByName("commit")[0].disabled = true; //Disable submit button
+		}
+		maxBikes = maxBikesHash[stationName];
         numBikesField.setAttribute("max", maxBikes); // Dynamically updates max value of number input field
         numBikesField.value = Math.min(numBikesField.value, maxBikes); // Decrements number of bikes if requested bikes exceeds number at new station
 	}
