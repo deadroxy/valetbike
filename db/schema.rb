@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_031247) do
+ActiveRecord::Schema.define(version: 2021_11_05_140552) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "checkoutTime"
     t.datetime "checkinTime"
     t.integer "current_station_id"
     t.integer "current_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "difficulty"
+    t.string "length"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,13 +41,12 @@ ActiveRecord::Schema.define(version: 2021_11_04_031247) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier"
-    t.string "Email"
-    t.string "Password"
-    t.string "Username"
-    t.decimal "CreditCardNum", precision: 16
-    t.string "ExpDate"
-    t.integer "SecurityCode"
+    t.string "email"
+    t.string "password"
+    t.string "username"
+    t.decimal "creditCardNum", precision: 16
+    t.string "expDate"
+    t.integer "securityCode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
