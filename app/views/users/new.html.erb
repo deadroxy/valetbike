@@ -122,19 +122,18 @@ button:hover {
 	<hr>
 	
 	 <%= f.label :Email %>
-	 <%= f.text_field :Email, class: "form-control" %> <br />
+	 <%= f.text_field :email, class: "form-control" %> <br />
 
 	 <%= f.label :Username %>
-	  <%= f.text_field :Username, class: "form-control" %> <br />
+	  <%= f.text_field :username, class: "form-control" %> <br />
 	   
     <%= f.label :Password %>            
 
     <p id="toggleButton" style="float:  right;display: inline-block;" onclick="togglePassword()">Show</p> <!-- Make shift button as not to reload page -->
 
-    <%= f.password_field :Password, class: "form-control" %> 
+    <%= f.password_field :password, class: "form-control" %> 
 
     <br />
-
       </div>
       <div id="inbetween">
       </div>
@@ -142,13 +141,13 @@ button:hover {
 	<h1> Payment Information</h1>
 	<hr>
 	<%= f.label :'card number' %>
-	<%= f.text_field :CreditCardNum, class: "form-control" %> <br />
+	<%= f.text_field :creditCardNum, class: "form-control" %> <br />
 	       
 	 <%= f.label :'security code' %>
-	 <%= f.text_field :SecurityCode, class: "form-control" %> <br />
+	 <%= f.text_field :securityCode, class: "form-control" %> <br />
 
 	<%= f.label :'expiration date' %>
-	<%= f.text_field :ExpDate, class: "form-control" %> <br />
+	<%= f.text_field :expDate, class: "form-control" %> <br />
 	       
 
 
