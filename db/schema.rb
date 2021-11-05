@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2021_11_04_031247) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "difficult"
+    t.integer "length"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "address"
     t.integer "capacity"
