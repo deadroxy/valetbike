@@ -3,7 +3,6 @@
     <div class="section-title">Welcome to ValetBike! (We Are Under Construction!)</div>
   </div>
   <div class="section-inner flexbox vertical stretch">
-
     <div class="page-section flexbox vertical stretch">
       <div class="station-title">Example Stations: </div>
       <% if @stations.present? %>
@@ -20,6 +19,21 @@
       </div>
       <% end %>
     </div>
-
+    <div class="page-section flexbox vertical stretch">
+      <div class="station-title">From Section</div>
+      <form name="signupForm" method="post" action="contact.php">
+        <label for="firstName">First name:</label><br>
+        <input type="text" id="firstName" name="firstName"><br>
+        <label for="lastName">Last name:</label><br>
+        <input type="text" id="lastName" name="lastName"><br>
+        <label for="email">Email Address:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="userName">User Name:</label><br>
+        <input type="text" id="userName" name="userName"><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password"><br>
+        <input type="submit" name="Submit" id="Submit" value="Submit">
+      </form>
+    </div>
 	</div>
 </div>
