@@ -1,7 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-  <style>
+<style>
 
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
@@ -129,10 +126,14 @@ button:hover {
 
 	 <%= f.label :Username %>
 	  <%= f.text_field :username, class: "form-control" %> <br />
-	
-	 <%= f.label :Password %>
-	  <%= f.password_field :password, class: "form-control" %> <br />
-	
+	   
+    <%= f.label :Password %>            
+
+    <p id="toggleButton" style="float:  right;display: inline-block;" onclick="togglePassword()">Show</p> <!-- Make shift button as not to reload page -->
+
+    <%= f.password_field :password, class: "form-control" %> 
+
+    <br />
       </div>
       <div id="inbetween">
       </div>
@@ -157,5 +158,17 @@ button:hover {
 
 </section>
 
-</body>
-</html>
+<script>
+  function togglePassword() {
+    var toggleButton = document.getElementById("toggleButton");
+    var passwordField = document.getElementById("user_Password");
+    if(passwordField.type == "password") { // Show password
+      passwordField.type = "text";
+      toggleButton.innerHTML = "Hide"; // Changes button text
+    }
+    else { // Hide password
+      passwordField.type = "password";
+      toggleButton.innerHTML = "Show"; // Changes button text
+    }
+  }
+</script>

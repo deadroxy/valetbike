@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_140552) do
   end
 
   create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+
     t.string "name"
     t.integer "difficulty"
     t.string "length"
