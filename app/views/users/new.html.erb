@@ -1,11 +1,12 @@
 <style>
 
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-size: 20px;}
 * {box-sizing: border-box}
 
     /* Full-width input fields */
 
 input[type=text], input[type=password] {
+  font-size: 20px;
     width: 100%;
       padding: 15px;
         margin: 5px 0 22px 0;
@@ -44,8 +45,13 @@ button:hover {
     /* Float signup buttons and add an equal width */
 
 .signupbtn {
-    float: left;
-      width: 50%;
+   font-size: 20px;
+   padding: 5px;
+   background-color: lightskyblue;
+}
+
+.submit_button {
+  text-align: center;
 }
 
 .signupgoogle {
@@ -57,6 +63,7 @@ button:hover {
 
 .container {
     display: flex;
+    width: 60%;
 }
 
     /* Clear floats */
@@ -71,17 +78,16 @@ button:hover {
 
 #wrapper1 {
   float: left;
-  width: 100%;
+  width: 50%;
+  padding: 10px;
 }
 
 #wrapper2 {
     float: right;
-    width: 100%;
+    width: 50%;
+    padding: 10px;
 }
 
-#inbetween {
-  width: 30%;
-}
 
 /* The alert message box */
 .alert {
@@ -118,43 +124,42 @@ button:hover {
   <section class="container">
      <%= form_with model: @user, url: users_path do |f| %>
     <div id="wrapper1">
-	<h1>Sign Up</h1>
-	<hr>
-	
-	 <%= f.label :Email %>
-	 <%= f.text_field :email, class: "form-control" %> <br />
+  <h1>Sign Up</h1>
+  <hr>
+  
+   <%= f.label :email %>
+   <%= f.text_field :email, class: "form-control" %> 
 
-	 <%= f.label :Username %>
-	  <%= f.text_field :username, class: "form-control" %> <br />
-	   
-    <%= f.label :Password %>            
+   <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control" %> 
+     
+    <%= f.label :password %>            
 
-    <p id="toggleButton" style="float:  right;display: inline-block;" onclick="togglePassword()">Show</p> <!-- Make shift button as not to reload page -->
+    <p id="toggleButton" style="float: right; display: inline; " onclick="togglePassword()">Show</p> <!-- Make shift button as not to reload page -->
 
     <%= f.password_field :password, class: "form-control" %> 
 
     <br />
 
       </div>
-      <div id="inbetween">
-      </div>
       <div id="wrapper2">
-	<h1> Payment Information</h1>
-	<hr>
-	<%= f.label :'card number' %>
-	<%= f.text_field :creditCardNum, class: "form-control" %> <br />
-	       
-	 <%= f.label :'security code' %>
-	 <%= f.text_field :securityCode, class: "form-control" %> <br />
+  <h1> Payment Information</h1>
+  <hr>
+  <%= f.label :'card number' %>
+  <%= f.text_field :creditCardNum, class: "form-control" %> 
+         
+   <%= f.label :'security code' %>
+   <%= f.text_field :securityCode, class: "form-control" %> 
 
-	<%= f.label :'expiration date' %>
-	<%= f.text_field :expDate, class: "form-control" %> <br />
-	       
-
+  <%= f.label :'expiration date' %>
+  <%= f.text_field :expDate, class: "form-control" %>          
 
 
       </div>
-      	<%= f.submit "Create account", class: "button signupbtn" %>
+      <div class="submit_button">
+
+        <%= f.submit "Create account", class: "button signupbtn" %>
+      </div>
       <% end %>
 
 </section>
