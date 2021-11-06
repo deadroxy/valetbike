@@ -1,0 +1,3 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %>">
+   <%= image_tag(ride.image || 'ride_unknown', :alt => "rss feed") %><h2><%= ride.name %></h2><h5>Difficulty: <%=ride.difficulty%>/10                          Length: <%=ride.length%></h5><%= ride.description %> 
+  </div>
