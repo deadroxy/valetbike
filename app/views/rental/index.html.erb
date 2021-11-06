@@ -1,35 +1,28 @@
-<style type="text/css">
-	.submit_button {
-	    text-align: center;
-	}
+<style>
 
-	form {
-	    font-size: 20px;
-	}
+.container {
+  width: 20%;
+  margin: 0 auto;
+}
 
-	select, input {
-	    font-size: 20px;
-	    padding: 5px;
-	}
-
-	#numBikes {
-	    width: 40px;
-	}
 </style>
 
-<div id=form_region>
+<section class="container">
+
+	<h1>Rental</h1>
+	<hr>
+
 	<%= form_with url: "/unlock", method: :get do |form| %>
-	  	<%= form.label :stationName, "Station: " %>
-	  	<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
-	  	<br><br>
-	  	<%= form.label :numBikes, "Number of Bikes: " %>
-	  	<%= form.number_field :numBikes, min:1, value:1 %> <!-- Upper bound set dynamically -->
-	  	<br><br>
-	  	<div class="submit_button">
-	  		<%= form.submit "Unlock"%>
-	  	</div>
+		<%= form.label :stationName, "Station: " %>
+		<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
+		<%= form.label :numBikes, "Number of Bikes: " %>
+		<%= form.number_field :numBikes, min:1, value:1 %> <!-- Upper bound set dynamically -->
+		<div class="submit_button">
+			<%= form.submit "Unlock", class: "button" %>
+		</div>
 	<% end %>
-</div>
+
+</section>
 
 <script type="text/javascript">
 	var maxBikesHash = JSON.parse('<%= @maxBikesHash.html_safe %>'); // Parses JSON from rental_controller.rb

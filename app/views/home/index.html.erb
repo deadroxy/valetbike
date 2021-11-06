@@ -1,43 +1,37 @@
-<!DOCTYPE html>
-<html>
 <style>
-.resize{
-  /*Resizes the bike sharing image*/
-  width: 400px;
-  height: auto;
-}
-/*Format image and text side by side*/
-.flex-container{
-  display: flex;
-}
-.flex-child{
-  flex: 3;
-}
-.flex-child:first-child{
-  margin-right: 50px;
-}
-.welcome{
-  padding: 70px;
-}
+  .resize{
+    /*Resizes the bike sharing image*/
+    width: 400px;
+    height: auto;
+  }
+  /*Format image and text side by side*/
+  .flex-container{
+    display: flex;
+  }
+  .flex-child{
+    flex: 3;
+  }
+  .flex-child:first-child{
+    margin-right: 50px;
+  }
+  .welcome{
+    padding: 70px;
+  }
 </style>
 
-  <body>
+<div class="welcome">
+  <h1>Welcome to Valet Bike</h1>
+</div>
 
-    <div class="welcome">
-      <h1>Welcome to Valet Bike</h1>
-    </div>
+<div class="flex-container">
+  <div class="flex-child image">
+    <figure>
+      <img class="resize" src="bikeshare.jpg" alt="Bike Share">
+    </figure>
+  </div>
 
-    <div class="flex-container">
-      <div class="flex-child image">
-        <figure>
-          <img class="resize" src="bikeshare.jpg" alt="Bike Share">
-        </figure>
-      </div>
-
-      <div class="flex-child description">
-        <h2>What We Do</h2>
-        <p>Valet Bike is a bike sharing service for Nipmuck Notch</p>
-      </div>
-    </div>
-  </body>
-</html>
+  <div class="flex-child description">
+    <h2>What We Do</h2>
+    <p>Valet Bike is a bike sharing service for Nipmuck Notch</p>
+  </div>
+</div>
