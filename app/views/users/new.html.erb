@@ -1,80 +1,9 @@
 <style>
 
-body {font-size: 20px;}
-* {box-sizing: border-box}
-
-    /* Full-width input fields */
-
-input[type=text], input[type=password] {
-  font-size: 20px;
-    width: 100%;
-      padding: 15px;
-        margin: 5px 0 22px 0;
-          display: inline-block;
-            border: none;
-              background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-      outline: none;
-}
-
-hr {
-    border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
-}
-
-    /* Set a style for all buttons */
-
-button {
-    background-color: #04AA6D;
-      color: white;
-        padding: 14px 20px;
-          margin: 8px 0;
-            border: none;
-              cursor: pointer;
-                width: 100%;
-                  opacity: 0.9;
-}
-
-button:hover {
-    opacity:1;
-}
-
-    /* Float signup buttons and add an equal width */
-
-.signupbtn {
-   font-size: 20px;
-   padding: 5px;
-   background-color: lightskyblue;
-}
-
-.submit_button {
-  text-align: center;
-}
-
-.signupgoogle {
-    float: left;
-    width: 50%;
-}
-
-    /* Add padding to container elements */
-
 .container {
     display: flex;
-    width: 60%;
+    width: 50%;
 }
-
-    /* Clear floats */
-
-.clearfix::after {
-    content: "";
-      clear: both;
-        display: table;
-}
-
-
 
 #wrapper1 {
   float: left;
@@ -88,7 +17,6 @@ button:hover {
     padding: 10px;
 }
 
-
 /* The alert message box */
 .alert {
   padding: 20px;
@@ -97,71 +25,56 @@ button:hover {
   margin-bottom: 15px;
 }
 
-/* The close button */
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-  color: black;
+#toggleButton {
+  font-size: 20px;
 }
 
 </style>
-<body>
-  <% flash.each do |type, msg| %>
+  
+<% flash.each do |type, msg| %> <!-- Error Messages -->
   <div class = "alert ">
     <%= msg %>
   </div>
-  <% end %>
-  <section class="container">
-     <%= form_with model: @user, url: users_path do |f| %>
+<% end %>
+
+<section class="container">
+  <%= form_with model: @user, url: users_path do |f| %>
     <div id="wrapper1">
-  <h1>Sign Up</h1>
-  <hr>
-  
-   <%= f.label :email %>
-   <%= f.text_field :email, class: "form-control" %> 
+      <h1>Sign Up</h1>
+      <hr>
 
-   <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control" %> 
-     
-    <%= f.label :password %>            
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %> 
 
-    <p id="toggleButton" style="float: right; display: inline; " onclick="togglePassword()">Show</p> <!-- Make shift button as not to reload page -->
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %> 
 
-    <%= f.password_field :password, class: "form-control" %> 
+      <%= f.label :password %>            
 
-    <br />
+      <!-- Makeshift button as not to reload page -->
+      <p id="toggleButton" style="float: right; display: inline" onclick="togglePassword()">Show</p> 
 
-      </div>
-      <div id="wrapper2">
-  <h1> Payment Information</h1>
-  <hr>
-  <%= f.label :'card number' %>
-  <%= f.text_field :creditCardNum, class: "form-control" %> 
-         
-   <%= f.label :'security code' %>
-   <%= f.text_field :securityCode, class: "form-control" %> 
+      <%= f.password_field :password, class: "form-control" %> 
+    </div>
 
-  <%= f.label :'expiration date' %>
-  <%= f.text_field :expDate, class: "form-control" %>          
+    <div id="wrapper2">
+      <h1> Payment Information</h1>
+      <hr>
 
+      <%= f.label :'card number' %>
+      <%= f.text_field :creditCardNum, class: "form-control" %> 
 
-      </div>
-      <div class="submit_button">
+      <%= f.label :'security code' %>
+      <%= f.text_field :securityCode, class: "form-control" %> 
 
-        <%= f.submit "Create account", class: "button signupbtn" %>
-      </div>
-      <% end %>
+      <%= f.label :'expiration date' %>
+      <%= f.text_field :expDate, class: "form-control" %>          
+    </div>
 
+    <div class="submit_button">
+      <%= f.submit "Create account", class: "button signupbtn" %>
+    </div>
+  <% end %>
 </section>
 
 <script>
