@@ -1,0 +1,39 @@
+<style>
+
+.container {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.cent {
+	text-align: center;
+}
+
+</style>
+
+<section class="container">
+
+	<h1>Return</h1>
+	<hr>
+	<% if @bikes.present? %>
+
+		<%= form_with url: "/lock", method: :get do |form| %>
+			<%= form.label :bikeId, "Bike: " %>
+			<%= form.select :bikeId, @bikes.pluck(:id) %> <!-- Creates dropdown menu of all stations -->
+			<%= form.label :stationName, "Station: " %>
+			<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
+			<div class="submit_button">
+				<%= form.submit "Return", class: "button" %>
+			</div>
+		<% end %>
+	<% else %>
+		<div class="empty">
+        No bikes to return.
+    </div>
+	<% end %>
+	<br>
+	<div class="cent">
+		<%=link_to"Rent Bikes",rent_url %>
+	</div>
+
+</section>
