@@ -1,35 +1,4 @@
-/************************************/
-/*       Universal Page Style       */
-/************************************/
-
-.page-section {
-  max-width: 80em;
-  width: 100%;
-  margin-top: 4em;
-}
-
-.page-section .section-inner {
-  margin-right: 1.4em;
-  margin-left: 1.4em;
-}
-
-.page-section .section-title {
-  font-family: var(--title-font);
-  font-weight: 500;
-  font-size: 2.5em;
-  margin-bottom: 1em;
-}
-
-.record-row {
-  padding: 0.5em 30.0em 0.7em 30.0em;
-  font-size: 0.85em;
-  line-height: 1.75em;
-}
-
-.record-row.even {
-    background: var(--medium-white-color);
-}
-
-.record-row.odd {
-    background: var(--dark-white-color);
-}
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
