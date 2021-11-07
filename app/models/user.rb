@@ -14,4 +14,6 @@ class User < ApplicationRecord
   validates_length_of :securityCode, :maximum => 4
   validates_format_of :expDate, :with =>  /\A\d{2}\/\d{2}\z/
 
+  has_many :rented_bikes, class_name: :Bike, foreign_key: :current_user_id
+
 end
