@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
   def new
-<<<<<<< HEAD
-  end
-
-  def create
-=======
     @user = User.new
   end
 
@@ -13,6 +8,6 @@ class UsersController < ApplicationController
    :password))
    session[:user_id] = @user.id
    redirect_to '/welcome'
->>>>>>> temp-branch
+
   end
 end
