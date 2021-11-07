@@ -1,0 +1,23 @@
+<!-- Login Page -->
+<div class="page-section flexbox vertical stretch">
+  <div id="header">
+    <div id="header-title">ValetBike</div>
+    <div class="float-right">
+      <ul>
+        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+        <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
+        <li><%= link_to('Login', new_session_path, class: 'header-links active') %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section-inner flexbox vertical stretch">
+  <div id="register-title" class="align-center">Login</div>
+  <div id="login-form">
+    <%= form_tag('/sessions', method:'post') do %>
+      User Name: <%= text_field_tag(:userName) %><br>
+      Password: <%= password_field_tag(:password) %><br>
+      <%= submit_tag('Login') %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<!-- Profile Page -->
+<div class="page-section flexbox vertical stretch">
+  <div id="header">
+    <div id="header-title">ValetBike</div>
+    <div class="float-right">
+      <ul>
+        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+        <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
+        <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<h1> Hey, <%= @user.firstName %>! </h1>
+<%= link_to('Log Out', session_path, method: 'DELETE') %>

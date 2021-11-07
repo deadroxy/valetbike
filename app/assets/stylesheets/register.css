@@ -1,0 +1,16 @@
+/************************************/
+/*       Register Page Style        */
+/************************************/
+
+#register-section{
+    background-color: white;
+}
+
+#register-form{
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+#register-title{
+    margin-top: 5vh;
+}

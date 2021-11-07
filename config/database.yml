@@ -11,17 +11,17 @@ development:
   database: valetbike_development
   username: nikki
   password: rootroot
-  host: localhost
+  host: 127.0.0.1
 
 test:
   <<: *default
   database: valetbike_test
   username: root
-  password:
+  password: rootroot
 
 production:
   <<: *default
   database: valetbike_production
   username: root
-  password:
+  password: rootroot
  

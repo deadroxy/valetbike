@@ -31,12 +31,65 @@ body {
   font-family: var(--body-font);
   font-weight: 400;
   color: var(--black-color);
-  background: var(--gray-color);
+  background: var(--white-color);
+}
+
+#header-title{
+  float: left;
+  font-size: 1.5em;
+  color: black;
+  margin-top: 30px;
+  margin-left: 15px;
+  font-weight: bold;
 }
 
 #header{
   width: 100%;
-  min-height: 100px;
-  background-color: #fafafa;
-  font-size: 1.5em;
+  min-height: 10vh;
+  background-color: #d7f3ee;
+}
+
+.full-height{
+  min-height: 90vh;
+}
+
+.float-right{
+  float: right;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+li{
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  padding: 14px 16px;
+  float: left;
+}
+
+.header-links{
+  color: black;
+  text-decoration: none;
+}
+
+li a:hover{
+  text-decoration: underline;
+}
+
+.active{
+  font-weight: bold;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.padding-top{
+  padding-top: 10px;
 }

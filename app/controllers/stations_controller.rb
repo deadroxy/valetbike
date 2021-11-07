@@ -1,3 +1,5 @@
+# Purpose: This controller handles the bike stations
+
 class StationsController < ApplicationController
   
   def index
