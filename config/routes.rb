@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'login', to: "login#index"
   post 'login', to: "login#create"
-  delete 'login', to: "login#destroy"
+  delete 'logout', to: "login#destroy"
   resources :users, only: [:create, :new]
 
 

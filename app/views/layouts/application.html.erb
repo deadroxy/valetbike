@@ -18,6 +18,7 @@
       <li class=<%=active_class(home_Pricing_path)%>><%=link_to"Pricing",home_Pricing_path%></li>
       <% if logged_in? %> 
         <li class="rightNav" id="spacer"><%= current_user.username %></li>
+        <li class="rightNav <%=active_class(logout_path)%>"><%=link_to"Logout",logout_path, method: "delete"%></li>
         <% if current_user.rented_bikes.count == 0 %>
           <li class="rightNav <%=active_class(rent_path)%>"><%=link_to"Rental",rent_url%></li>
         <% else %>
