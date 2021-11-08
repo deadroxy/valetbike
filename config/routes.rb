@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+
+  get 'rides/index'
   get 'home/Map', to: "home#Map"
   get 'home/Rides', to: "home#Rides"
   get 'home/Pricing', to: "home#Pricing"
@@ -8,10 +9,14 @@ Rails.application.routes.draw do
 
   get 'stations', to: "stations#index"
   get 'bikes', to: "bikes#index"
-  get 'rental', to: "rental#index"
+
+  get 'rent', to: "rental#rent"
+  get 'return', to: "rental#return"
   get 'unlock', to: "rental#unlock"
-  get 'confirmation', to: "rental#confirmation"
-  get 'rental_success', to: "rental#success"
+  get 'lock', to: "rental#lock"
+  get 'confirmationRent', to: "rental#confirmationRent"
+  get 'confirmationReturn', to: "rental#confirmationReturn"
+
   get 'login', to: "login#index"
   post 'login', to: "login#create"
   delete 'login', to: "login#destroy"

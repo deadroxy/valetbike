@@ -1,0 +1,22 @@
+<style>
+  .left {
+    float: left;
+    padding: 10px;
+  }
+
+  .right {
+    float: right;
+    padding: 10px;
+  }
+</style>
+<h1>Local Bike Rides</h1>
+  <div class="flexbox vertical">
+    <% if @rides.present? %>
+    <%= render(partial: "rides/row", collection: @rides, as: :ride) %>
+    <% else %>
+    <div class="empty">
+      No rides found-- check back later!
+    </div>
+    <% end %>
+  </div>
+
