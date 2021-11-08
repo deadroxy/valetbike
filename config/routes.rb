@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'rental_success', to: "rental#success"
   get 'login', to: "login#index"
   post 'login', to: "login#create"
-  delete 'login', to: "login#destroy"
+  delete 'logout', to: "login#destroy"
   resources :users, only: [:create, :new]
 
 
