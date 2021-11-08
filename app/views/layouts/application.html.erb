@@ -17,7 +17,7 @@
       <li class=<%=active_class(rides_index_url)%>><%=link_to"Rides",rides_index_url%></li>
       <li class=<%=active_class(home_Pricing_path)%>><%=link_to"Pricing",home_Pricing_path%></li>
       <% if logged_in? %> <%# Eventually will check if user is signed in %>
-        <li class="rightNav <%=active_class(rental_path)%>"><%=link_to"Rental",rental_url%></li>
+        <li class="rightNav <%=active_class(rent_path)%>"><%=link_to"Rental",rent_url%></li>
         <li class="rightNav" ><%= current_user.username %></li>
       <% else %>
         <li class="rightNav <%=active_class(new_user_path)%>"><%=link_to"Signup",new_user_path%></li>
