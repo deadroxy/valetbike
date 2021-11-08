@@ -3,6 +3,8 @@
     position: relative;
     top: 0;
     left: 0;
+    vertical-align: middle;
+    text-align:right;
   }
 
   .map {
@@ -15,8 +17,8 @@
 
   .pin {
     position: absolute;
-    top: 315px;
-    left: 560px;
+    top: 325px;
+    left: 915px;
     width: 2%;
     height 10%;
   }
@@ -24,19 +26,62 @@
   .pin2 {
     position: absolute;
     top: 345px;
-    left: 620px;
+    left: 985px;
     width: 2%;
     height 10%;
   }
 
+  .pin3 {
+    position: absolute;
+    top: 200px;
+    left: 975px;
+    width: 2%;
+    height 10%;
+  }
+  .stationbox {
+    float: left;
+    font-size: 20px;
+    padding: 2%;
+    border: 1px solid lightgray;
+    margin: 2%;
+  }
+
+  .stationslist {
+    float: left;
+    text-align: center;
+    margin-left: 2%;
+  }
 </style>
 
+
+
 <div class="parent">
+  <div class="stationslist">
+    <h1>Stations</h1>
+    <div class="stationbox">
+      <h3>Historic Northampton</h3>   
+      <p>3/8 bikes available</p>
+      <p>Northampton's historic district...</p>
+    </div>
+
+  </div>
+
+
+
   <img src="/images/nipmucNotch.PNG", class="map">
   <img src="/images/map_pin.png", class="pin", usemap="#clickmap">
-  <img src="/images/map_pin.png", class="pin2", usemap=#clickmap">
+  <img src="/images/map_pin.png", class="pin2", usemap=#clickmap2>
+  <img src="/images/map_pin.png", class="pin3", usemap=#clickmap3>
 </div>
 
 <map name="clickmap">
   <area shape="rect" coords="0,0,100,100" alt="Station1" href="../stations#index">
+</map>
+
+<map name="clickmap2">
+  <area shape="rect" coords="0,0,100,100" alt="Station2" href="../rental#index">
+</map>
+
+<map name="clickmap3">
+    <area shape="rect" coords="0,0,100,100" alt="Station3" href="../home/Pricing">
 </map>
