@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'rides/index'
   get 'home/Map', to: "home#Map"
   get 'home/Rides', to: "home#Rides"
@@ -17,10 +18,11 @@ Rails.application.routes.draw do
   get 'confirmationReturn', to: "rental#confirmationReturn"
 
   get 'login', to: "login#index"
+  post 'login', to: "login#create"
+  delete 'login', to: "login#destroy"
   resources :users, only: [:create, :new]
- 
+
 
 
 
 end
-

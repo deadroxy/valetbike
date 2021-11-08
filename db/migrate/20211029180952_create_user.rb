@@ -8,10 +8,6 @@ class CreateUser < ActiveRecord::Migration[6.1]
      t.string :ExpDate
      t.integer :SecurityCode
 
-      
-                         
-               
-
       t.timestamps
     end
   end
