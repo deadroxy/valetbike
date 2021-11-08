@@ -13,5 +13,4 @@ class User < ApplicationRecord
   validates_length_of :creditCardNum, :is =>16
   validates_length_of :securityCode, :maximum => 4
   validates_format_of :expDate, :with =>  /\A\d{2}\/\d{2}\z/
-
 end
