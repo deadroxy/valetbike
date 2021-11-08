@@ -13,15 +13,15 @@
 
 <section class="container">
 
-	<h1>Return</h1>
+	<h1>Return Bikes</h1>
 	<hr>
 	<% if @bikes.present? %>
 
 		<%= form_with url: "/lock", method: :get do |form| %>
-			<%= form.label :bikeId, "Bike: " %>
-			<%= form.select :bikeId, @bikes.pluck(:id) %> <!-- Creates dropdown menu of all stations -->
 			<%= form.label :stationName, "Station: " %>
 			<%= form.select :stationName, @stations.pluck(:name) %> <!-- Creates dropdown menu of all stations -->
+			<%= form.label :numBikes, "Number of Bikes: " %>
+			<%= form.number_field :numBikes, min:1 %> <!-- Upper bound set dynamically -->
 			<div class="submit_button">
 				<%= form.submit "Return", class: "button" %>
 			</div>
@@ -37,3 +37,23 @@
 	</div>
 
 </section>
+
+<script type="text/javascript">
+	var maxBikesHash = JSON.parse('<%= @maxBikesHash.html_safe %>'); // Parses JSON from rental_controller.rb
+	var stationNameField = document.getElementById("stationName");
+	var numBikesField = document.getElementById("numBikes");
+	stationNameField.addEventListener("change", updateMaxBikes); // Waits for station change
+
+	function updateMaxBikes() {
+		var stationName = stationNameField.value;
+		var maxBikes = Math.min(maxBikesHash["user"], maxBikesHash[stationName]); // Prevents user from returning bikes that they don't have or returning to a full station
+    numBikesField.setAttribute("max", maxBikes); // Dynamically updates max value of number input field
+    numBikesField.value = Math.min(numBikesField.value, maxBikes); // Decrements number of bikes if requested bikes exceeds number at new station
+	}
+
+	function initializeNumBikes() {
+		numBikesField.value = maxBikesHash["user"]; //Initializes to returning all bikes
+	}
+	initializeNumBikes();
+	updateMaxBikes(); // Calls on page load
+</script>

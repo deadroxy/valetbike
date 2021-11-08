@@ -13,7 +13,7 @@
 
 <section class="container">
 
-	<h1>Rental</h1>
+	<h1>Rent Bikes</h1>
 	<hr>
 
 	<% if @stations.present? %>
@@ -47,10 +47,10 @@
 	stationNameField.addEventListener("change", updateMaxBikes); // Waits for station change
 
 	function updateMaxBikes() {
-		stationName = stationNameField.value;
-		maxBikes = maxBikesHash[stationName];
-        numBikesField.setAttribute("max", maxBikes); // Dynamically updates max value of number input field
-        numBikesField.value = Math.min(numBikesField.value, maxBikes); // Decrements number of bikes if requested bikes exceeds number at new station
+		var stationName = stationNameField.value;
+		var maxBikes = maxBikesHash[stationName];
+    numBikesField.setAttribute("max", maxBikes); // Dynamically updates max value of number input field
+    numBikesField.value = Math.min(numBikesField.value, maxBikes); // Decrements number of bikes if requested bikes exceeds number at new station
 	}
 
 	updateMaxBikes(); // Calls on page load

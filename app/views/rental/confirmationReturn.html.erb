@@ -1,3 +1,3 @@
-<h1>Bike successfully returned to
-	<%= @stationName %>!</h1>
+<h1><%= @numBikes %> bike<% unless @numBikes == 1 %><%="s"%><% end %> 
+	successfully returned to <%= @stationName %>!</h1>
 <h1>Thank you for supporting ValetBike!<h1>

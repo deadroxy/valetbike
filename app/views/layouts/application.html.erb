@@ -16,9 +16,13 @@
       <li class=<%=active_class(home_Map_path)%>><%=link_to"Map",home_Map_path%></li>
       <li class=<%=active_class(rides_index_url)%>><%=link_to"Rides",rides_index_url%></li>
       <li class=<%=active_class(home_Pricing_path)%>><%=link_to"Pricing",home_Pricing_path%></li>
-      <% if logged_in? %> <%# Eventually will check if user is signed in %>
-        <li class="rightNav <%=active_class(rent_path)%>"><%=link_to"Rental",rent_url%></li>
-        <li class="rightNav" ><%= current_user.username %></li>
+      <% if logged_in? %> 
+        <li class="rightNav" id="spacer"><%= current_user.username %></li>
+        <% if current_user.rented_bikes.count == 0 %>
+          <li class="rightNav <%=active_class(rent_path)%>"><%=link_to"Rental",rent_url%></li>
+        <% else %>
+          <li class="rightNav <%=active_class(return_path)%>"><%=link_to"Rental",return_url%></li>
+        <% end %>
       <% else %>
         <li class="rightNav <%=active_class(new_user_path)%>"><%=link_to"Signup",new_user_path%></li>
         <li class="rightNav" id="spacer">/</li>
