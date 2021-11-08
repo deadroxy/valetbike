@@ -5,17 +5,18 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       render "/login/index"
     else
       flash.now[:alert] ||= ""
       @user.errors.full_messages.each do |message|
         flash.now[:alert] << "Error: " + message + ". "
       end
-      render :action => 'new' 
+      render :action => 'new'
     end
   end
 
