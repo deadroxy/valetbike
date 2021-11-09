@@ -1,14 +1,14 @@
 <h1>Welcome</h1>
-<<<<<<< HEAD
+
 <br/>
 <img src="/assets/download.jpg" alt = "Background">
 
 <h6>Find me in app/views/sessions/welcome.html.erb</h6>
 
-
 <br/>
 
-=======
+<% if logged_in? %>
+    <h1>You are Logged In, <%= current_user.username %></h1>
+<%end%>
 <%= button_to "Login", '/login', method: :get%>
->>>>>>> temp-branch
 <%= button_to "Sign Up", '/users/new', method: :get%>
