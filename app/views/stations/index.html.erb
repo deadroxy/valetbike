@@ -1,8 +1,12 @@
+
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Hey Hey Hey! You're now at ValetBike!
-    </div>  
+      Welcome to ValetBike!
+    </div>
+    <a href="/users"> Login </a> <br />
+
+    <%= link_to("Sign Up", new_user_path, :class => 'action new') %>
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
