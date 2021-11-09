@@ -23,7 +23,7 @@ h1 {
 /* Navigation styling */
 
 nav {
-    background-color: lightslategray;
+    background-color: #CADFEC;
     font-size: 25px;
 }
 
@@ -32,7 +32,7 @@ nav {
 }
 
 #spacer {
-    background-color: lightslategray; /* Overrides hover color change */
+    background-color: #CADFEC; /* Overrides hover color change */
     padding: 10px;
 }
 
