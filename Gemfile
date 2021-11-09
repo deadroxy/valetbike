@@ -67,6 +67,10 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.11'
 
+
+#Map Gems
+gem 'leaflet-rails'
+
 # Suggested Potentially Useful Gems
 # gem 'devise'
 # gem 'httparty'
