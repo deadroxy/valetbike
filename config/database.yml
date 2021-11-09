@@ -10,7 +10,7 @@ development:
   <<: *default
   database: valetbike_development
   username: <%= ENV['MYSQL_USERNAME'] || '' %>
-  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
+  password: Zxw_010115
 
 test:
   <<: *default
