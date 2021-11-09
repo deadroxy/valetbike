@@ -22,4 +22,4 @@ production:
   <<: *default
   database: valetbike_production
   username: root
-  password: 
+  password:
