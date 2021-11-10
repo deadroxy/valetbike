@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      render "/login/index"
+      render "/home/index" # Route user to homepage on account creation
     else
       flash.now[:alert] ||= ""
       @user.errors.full_messages.each do |message|

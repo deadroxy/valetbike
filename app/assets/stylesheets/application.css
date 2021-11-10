@@ -20,9 +20,13 @@ h1 {
     font-size: 30px;
 }
 
+body {
+    max-height: calc(100vh - 100px); /* Browser height - header and footer */
+}
+
 /* Navigation styling */
 
-nav {
+nav, footer{
     background-color: #CADFEC;
     font-size: 25px;
 }
@@ -54,6 +58,14 @@ nav li:hover:not(.active) {
 
 .active { /* For current page */
   background-color: deepskyblue;
+}
+
+/*Footer Styling */
+
+footer {
+    text-align: center;
+    position: relative;
+    height: 30px;
 }
 
 /* Error Styling*/ 
