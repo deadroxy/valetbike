@@ -1,4 +1,9 @@
-<h1><%= @numBikes %> bike<% unless @numBikes == 1 %><%="s"%><% end %> 
-	at <%= @stationName %> successfully rented!</h1>
-<h1>Enjoy your ride!<h1>
-<%=link_to"Return Bikes",return_url %>
+<style type="text/css">
+	h2 {
+		font-weight: normal;
+	}
+</style>
+<h1>✔️Rental Successful<h1><br>
+<h2>Thank you for choosing ValetBike, enjoy your ride!<h2><br>
+<h2>You rented <%= @numBikes %> bike<% unless @numBikes == 1 %><%="s"%><% end%> from <%= @stationName %> at <%= @currentTime %>.</h2><br>
+<h2><%=link_to"Return Bikes",return_url %></h2>
