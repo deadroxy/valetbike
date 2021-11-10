@@ -9,12 +9,12 @@ class LoginController < ApplicationController
   def create
     #@user = User.new(user_params)
     @user = User.find_by(Email: params[:email].downcase)
-    if @user
+    if @user && (@user.password == params[:psw])
     #if @user && @user.authenticate(params[:psw])
       log_in @user
       redirect_to root_path
     else
-      render :new
+      render :action => 'index'
     end
   end
 
