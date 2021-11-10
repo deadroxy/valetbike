@@ -2,3 +2,7 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.btn-payment {
+  background-color: rgb(255, 224, 47);
+}

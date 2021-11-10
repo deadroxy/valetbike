@@ -1,2 +1,60 @@
-<h1>Payment#index</h1>
-<p>This is the membership purchase page!</p>
+<div class="bg-info text-white w-100 p-5 rounded-lg pageHeader">
+  <h1 class="display-4">Membership Purchase</h1>
+  <p class="lead">Wanna Go on a Trip Now? Select a Membership Option!</p>
+</div>
+
+<div class="container m-5">
+  <div class="row row-cols-1 row-cols-md-3 gx-5 text-center justify-content-md-center">
+    <div class="col col-lg-3">
+        <div id="monthlyCard" class="card h-100 border-info shadow-sm membershipOptions" onclick='selectMembershipOption("Monthly Membership", "monthlyCard")'>
+            <div class="card-body">
+                <h3 class="card-title">Monthly Membership</h3>
+                <hr class="my-4">
+                <p class="card-text">Access to the system for 1 month. Dock every 45 mins to avoid overage fees. One bike per phone.</p>
+                <h3>$20</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-3">
+        <div id="dayCard" class="card h-100 border-info shadow-sm membershipOptions" onclick='selectMembershipOption("Day Pass", "dayCard")'>
+            <div class="card-body">
+                <h3 class="card-title">Day Pass</h3>
+                <hr class="my-4">
+                <p class="card-text">Access to the system for 24 hours. Dock within 30 mins to avoid overage fees. One bike per phone.</p>
+                <h3>$6</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-3">
+        <div id="rideCard" class="card h-100 border-info shadow-sm membershipOptions" onclick='selectMembershipOption("Pay Per Ride", "rideCard")'>
+            <div class="card-body">
+                <h3 class="card-title">Pay Per Ride</h3>
+                <hr class="my-4">
+                <p class="card-text">Pay $2 per ride and per bike. Dock within 30 mins to avoid overage fees. Up to 4 bikes per phone.</p>
+                <h3>$2</h3>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="smart-button-container" class="w-50">
+    <div style="text-align: center;">
+        <div>
+          <select id="item-options" style="visibility: hidden">
+            <option value="Monthly Membership" price="20">Monthly Membership - 20 USD</option>
+            <option value="Day Pass" price="6">Day Pass - 6 USD</option>
+            <option value="Pay Per Ride" price="2">Pay Per Ride - 2 USD</option>
+          </select>
+          <select style="visibility: hidden" id="quantitySelect"></select>
+        </div>
+        <div id="paypal-button-container"></div>
+    </div>
+</div>
+
+<script>
+initPayPalButton();
+</script>
+
+
+
