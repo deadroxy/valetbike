@@ -9,79 +9,65 @@
 
   .map {
     position: relative;
-    top: 0;
-    left: 0;
     width: 75%;
     height: 75%;
   }
 
   .pin {
     position: absolute;
-    top: 325px;
-    left: 915px;
+    top: 45%;
+    left: 52.5%;
     width: 2%;
     height 10%;
   }
 
   .pin2 {
     position: absolute;
-    top: 345px;
-    left: 985px;
+    top: 36%;
+    left: 42%;
     width: 2%;
     height 10%;
   }
 
-  .pin3 {
-    position: absolute;
-    top: 200px;
-    left: 975px;
-    width: 2%;
-    height 10%;
-  }
-  .stationbox {
-    float: left;
-    font-size: 20px;
-    padding: 2%;
-    border: 1px solid lightgray;
-    margin: 2%;
+  .stationscol {
+    margin-right: 78%;
+    text-align: center;
+    margin-left: 1%;
   }
 
   .stationslist {
     float: left;
-    text-align: center;
-    margin-left: 2%;
   }
 </style>
 
 
 
 <div class="parent">
-  <div class="stationslist">
+  <div class="stationscol">
     <h1>Stations</h1>
-    <div class="stationbox">
-      <h3>Historic Northampton</h3>   
-      <p>3/8 bikes available</p>
-      <p>Northampton's historic district...</p>
+    <div class="stationslist">
+      <% if @stations.present? %>
+        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      <% else %>
+      <div class="empty">
+        No stations found.
+      </div>
+      <% end %>
     </div>
 
   </div>
 
-
-
   <img src="/images/nipmucNotch.PNG", class="map">
   <img src="/images/map_pin.png", class="pin", usemap="#clickmap">
-  <img src="/images/map_pin.png", class="pin2", usemap=#clickmap2>
-  <img src="/images/map_pin.png", class="pin3", usemap=#clickmap3>
+  <img src="/images/map_pin.png", class="pin2", usemap="#clickmap2">
 </div>
 
 <map name="clickmap">
-  <area shape="rect" coords="0,0,100,100" alt="Station1" href="../stations#index">
+  <area shape="rect" coords="0,0,100,100" alt="Cooley Dickinson" href="../stations#index">
 </map>
 
 <map name="clickmap2">
-  <area shape="rect" coords="0,0,100,100" alt="Station2" href="../rental#index">
+  <area shape="rect" coords="0,0,100,100" alt="Florence Bank" href="../rent">
 </map>
 
-<map name="clickmap3">
-    <area shape="rect" coords="0,0,100,100" alt="Station3" href="../home/Pricing">
-</map>
+
