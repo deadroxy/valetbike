@@ -1,6 +1,11 @@
 <%= link_to("<< Back to List", {:controller => 'stations', :action => 'index'}) %>
 
 <% @bikes.each do |bike| %>
-<p>identifier: <%= bike.identifier%></p>
-<p>current_station_id: <%= bike.current_station_id%></p>
-<% end %>
+      
+      
+      <% if bike.current_station_id == params[:id].to_i%>
+         <p>identifier: <%= bike.identifier%></p>
+         <p>current_station_id: <%= bike.current_station_id%></p>
+      <% end %>
+    
+<% end %>  
