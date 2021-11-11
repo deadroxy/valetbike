@@ -1,4 +1,6 @@
 class RentalController < ApplicationController
+
+  before_action :require_login 
   
   def rent
     @stations = Station.order(name: :asc).select{|s| s.docked_bikes.count != 0}  # All stations with at least one bike, ordered alphabetically by name 
@@ -89,5 +91,14 @@ class RentalController < ApplicationController
     @minutes = params[:minutes].to_i # Gets rental minutes from return method
     @currentTime = params[:currentTime].to_s # Gets rental time
     @cost = params[:cost].to_i # Gets cost from return method
+  end
+
+  private
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to rent bikes"
+      redirect_to controller: :login, action: :index
+    end
   end
 end
