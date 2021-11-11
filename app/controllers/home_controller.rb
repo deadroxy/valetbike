@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def Map
+      @stations = Station.all.order(id: :asc)
   end
 
   def Rides
@@ -13,4 +14,5 @@ class HomeController < ApplicationController
 
   def Login
   end
+  
 end
