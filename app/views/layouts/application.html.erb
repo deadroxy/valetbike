@@ -23,9 +23,12 @@
     <div class="container">
       <br />
       <% if notice %>
-        <%= render "layouts/alerts" %>
+        <%= render "layouts/notice" %>
       <% end %>
 
+      <% if alert %>
+        <%= render "layouts/alert" %>
+      <% end %>
       
       <%= yield %>
     </div>
