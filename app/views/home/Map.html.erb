@@ -13,21 +13,50 @@
     height: 75%;
   }
 
-  .pin {
-    position: absolute;
-    top: 45%;
-    left: 52.5%;
-    width: 2%;
-    height 10%;
-  }
 
-  .pin2 {
-    position: absolute;
-    top: 36%;
-    left: 42%;
-    width: 2%;
-    height 10%;
+
+
+ p.pin:hover span{
+      display: block;
+      z-index: 9;
   }
+p.pin{
+    cursor:pointer;
+        }
+span.map1{
+            background:#CADFEF;
+            border: 2px solid #000000;
+            color: #000000;
+            font-size: 13px;
+            height: 50px;
+        	width:150px;
+            line-height: 20px;
+            position:absolute;
+            text-align: center;
+            top:52%;
+            left:49%;
+            display: none;
+            padding:0 0px;
+        	
+            
+}
+span.map2{
+            background:#CADFEF;
+            border: 2px solid #000000;
+            color: #000000;
+            font-size: 13px;
+            height: 30px;
+            width:150px;
+            line-height: 20px;
+            position:absolute;
+            text-align: center;
+            top:43%;
+            left:38%;
+            display: none;
+            padding:0 0px;
+        	
+            
+        }
 
   .stationscol {
     margin-right: 78%;
@@ -58,12 +87,18 @@
   </div>
 
   <img src="/images/nipmucNotch.PNG", class="map">
-  <img src="/images/map_pin.png", class="pin", usemap="#clickmap">
-  <img src="/images/map_pin.png", class="pin2", usemap="#clickmap2">
+  <p class="pin">
+    <img  src="/images/map_pin.png" style="position:absolute;top: 45%;left: 52.5%;width:2%;height 10%", usemap="#clickmap">
+    <span class="map1">Cooley Dickenson Health Care</span>
+  </p>
+  <p class="pin">
+    <img src="/images/map_pin.png", style="position: absolute;top: 36%;left: 42%;width: 2%;height 10%;" , usemap="#clickmap2">
+    <span class="map2">Florence Bank Station</span>
+  </p>
 </div>
 
 <map name="clickmap">
-  <area shape="rect" coords="0,0,100,100" alt="Cooley Dickinson" href="../stations#index">
+ <area shape="rect" coords="0,0,100,100" alt="Cooley Dickinson" href="../stations#index">
 </map>
 
 <map name="clickmap2">
