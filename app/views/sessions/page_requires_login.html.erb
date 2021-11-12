@@ -1,2 +1,15 @@
 <h1>You have access to this page, <%= current_user.username %></h1>
 <h6> Find me in app/views/sessions/page_requires_login.html.erb </h6>
+
+<div id="map" style="width: 960px; height: 500px"></div>
+  <script>
+  var map = L.map('map').setView([42.32, -72.65], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+  L.marker([42.32, -72.65]).addTo(map)
+    .bindPopup('Welcome to Northampton! We have Valetbike here!')
+    .openPopup();
+  </script>
