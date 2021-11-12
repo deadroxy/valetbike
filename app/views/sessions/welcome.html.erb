@@ -8,9 +8,7 @@
 <br/>
 
 <% if logged_in? %>
-<!--
     <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
--->
 <%end%>
 <%= button_to "Login", '/login', method: :get%>
 <%= button_to "Sign Up", '/users/new', method: :get%>
