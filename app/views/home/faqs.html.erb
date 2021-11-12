@@ -1,0 +1,38 @@
+<style type="text/css">
+  section {
+    width: 90%;
+  }
+  ul {
+    margin-left: 20px;
+  }
+</style>
+<h1>Frequently Asked Questions</h1>
+<section>
+<h3>What is ValetBike?</h3>
+<p>ValetBike is a community tech co-op providing a bike sharing service to Nipmuc Notch.<p>
+<br>
+<h3>How much does it cost to rent a bike?</h3>
+<p>Our bikes cost $10 per hour. The cost will be determined upon bike return. After the first hour of use, we will round to the nearest hour. To encourage group bike rides, we will calculate your ride time by summing the individual ride times. Note that bikes must be rented by a single user and all returned to the same station.</p>
+<br>
+<h3>How do I rent a bike?</h3>
+<p>Navigate to the <%=link_to"rent",rent_url%> page. Select a station, the number of bikes, and click rent. Note that you must have an account and must be logged in.</p>
+<br>
+<h3>How do I return a bike?</h3>
+<p>Navigate to the <%=link_to"return",return_url%> page. Select a station, the number of bikes, and click return. Note that you must be signed in. If you don't have an account yet, you can create one from the <%=link_to"signup",new_user_path%> page.</p>
+<br>
+<h3>Is there a limit to how long I can rent a bike?</h3>
+<p>Yes! If your bike isn't returned within 24 hours, we will consider the bike stolen and charge your credit card accordingly. We have a grace period during which you can contact customer service. We will investigate the situation and determine whether or not to terminate your account.</p>
+<br>
+<h3>How do I create an account?</h3>
+<p>Navigate to the <%=link_to"signup",new_user_path%> page and fill out the form. To make the rental process as seamless as possible, we gather payment information right at the start. Note that you will not be charged until you return a rented bike (or rent a bike for longer than 24 hours).</p>
+<br>
+<h3>Who is the team behind ValetBike?</h3>
+<p>ValetBike was built by a team of five Smithies for their introduction to software engineering course (CSC 223) with Professor Johanna Brewer.</p>
+<ul>
+    <li>Abby Moss '22</li>
+    <li>Addie Hannan '23</li>
+    <li>Katie Toland '22</li>
+    <li>Sophia Hager '22</li>
+    <li>Theo Tefera '23</li>
+</ul>
+</section>
