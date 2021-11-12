@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'stations', to: "stations#index"
   get 'bikes', to: "bikes#index"
+  get 'prices', to: "prices#index"
 
   get 'rent', to: "rental#rent"
   get 'return', to: "rental#return"
