@@ -1,21 +1,23 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title" style="color: blueviolet;">
-      Welcome to Addie's ValetBike!
+<style>
+  .left {
+    float: left;
+    padding: 10px;
+  }
+
+  .right {
+    float: right;
+    padding: 10px;
+  }
+</style>
+
+<h1>Our Stations</h1>
+  <div class="flexbox vertical">
+    <% if @stations.present? %>
+      <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+    <% else %>
+    <div class="empty">
+      No stations found-- check back later!
     </div>
-    <h2>
-      Stations
-    </h2>
-    <p>[id: name (address)--number of bikes]</p>
-    <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-      <% else %>
-      <div class="empty">
-        No stations found.
-      </div>
-      <% end %>
-    </div>
-	</div>
-</div>
+    <% end %>
+  </div>
 <a href="bikes">View Bikes</a>

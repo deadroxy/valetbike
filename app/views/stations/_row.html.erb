@@ -1,7 +1,8 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <% if station.docked_bikes.count == 1 %>
-    <%= station.id %>: <%= station.name %> (<%= station.address %>) -- <%= station.docked_bikes.count %> bike
-  <% else %>
-    <%= station.id %>: <%= station.name %> (<%= station.address %>) -- <%= station.docked_bikes.count %> bikes
-  <% end %>
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %>">
+   <div class="right">
+      <h2><%= station.name %></h2>
+      <h5>Address: <%=station.address%> </h5>
+      <h5>Description: <%=station.description%> </h5>
+      <h5>Capactiy: <%=station.capacity%> </h5>
+   </div>
 </div>
