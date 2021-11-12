@@ -39,8 +39,9 @@ namespace :import_csv do
      csv = CSV.parse(csv_text, :headers => true, encoding:'iso-8859-1')
      csv.each do |row|
        s = Bike.new;
-       s.current_station_id = row["station_id"]
-       s.current_user_id = row["user_id"]
+       puts row["stationId"]
+       s.current_station_id = row["stationId"]
+       s.current_user_id = row["userId"]
        s.checkoutTime = row["checkoutTime"]
        s.checkinTime = row["checkinTime"]
        s.save
