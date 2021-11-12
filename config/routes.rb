@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'rides/index'
   get 'home/Map', to: "home#Map"
   get 'home/Rides', to: "home#Rides"
-  get 'home/Pricing', to: "home#Pricing"
+  get 'home/faqs', to: "home#faqs"
 
   root to: "home#index"
 
