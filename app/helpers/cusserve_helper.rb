@@ -1,0 +1,2 @@
+module CusserveHelper
+end
