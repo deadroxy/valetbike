@@ -1,9 +1,9 @@
 # STAAK ValetBike
 ## Dev Environment Setup
 ### In _env.rb:
-ENV['MYSQL_USERNAME']   =   "root"
-ENV['MYSQL_PASSWORD']   =   password
-ENV['SOCKET'] = socket
+* ENV['MYSQL_USERNAME']   =   "root"
+* ENV['MYSQL_PASSWORD']   =   password
+* ENV['SOCKET'] = socket path
 
 ## To Populate Database
 * run `rake import_csv:create_stations`
