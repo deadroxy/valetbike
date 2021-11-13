@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get 'bikes/index'
   get 'bikes/show'
   get "stations/index"
+  get 'cusserve/contacs'
   root to: "home#index"
 end
