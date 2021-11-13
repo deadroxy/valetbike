@@ -67,7 +67,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 
 # Suggested Potentially Useful Gems
-# gem 'devise'
+  gem 'devise', '~> 4.8'
 # gem 'httparty'
 # gem 'paperclip
 # gem 'uniquify'
