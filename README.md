@@ -15,7 +15,7 @@
 * Home page 
 * Map page with a list of stations and hoverable pins- click currently redirects nowhere, but will later direct to station page
 * Rides page that provides a list of rides in the area
-* Pricing page with information about the business model
+* FAQs page with information about the business model, pricing, etc
 * User signup- checks for input validity, uniqueness of username and email
 * Login/logout using user details
 * Rental page where a user can rent bikes- checks for number of bikes to ensure a user can rent those bikes
@@ -31,7 +31,7 @@
 * If you hover over the pin, it will display the station name (currently very finicky about cursor position)
 
 3. Visit rides and pricing page
-* Use the navigation bar at the top to visit the ride and pricing pages (both static)
+* Use the navigation bar at the top to visit the ride and FAQ pages (both static)
 
 4. Create an account/login
 * Use the navigation bar at the top to visit the signup page.
