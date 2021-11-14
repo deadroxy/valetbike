@@ -1,4 +1,30 @@
 <style>
+  .welcome{
+      padding: 30px;
+  }
+  .home_image{
+    min-height: 30vh;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(bikeshare.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+  }
+  .content{
+    text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 35%;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    text-transform: uppercase;
+  }
   .resize{
     /*Resizes the bike sharing image*/
     width: 400px;
@@ -7,6 +33,7 @@
   /*Format image and text side by side*/
   .flex-container{
     display: flex;
+    padding: 20px;
   }
   .flex-child{
     flex: 3;
@@ -14,24 +41,31 @@
   .flex-child:first-child{
     margin-right: 50px;
   }
-  .welcome{
-    padding: 70px;
-  }
+
 </style>
 
 <div class="welcome">
   <h1>Welcome to ValetBike</h1>
 </div>
 
+<div class="home_image">
+  <div class="content">
+    <h1>Explore Nipmuc Notch</h1>
+    <br>
+    <p>Bike sharing service for Nipmuc Notch</p>
+    <br>
+    <%= link_to '<button type="button">Get started</button>'.html_safe, login_path %>
+  </div>
+</div>
+<br>
 <div class="flex-container">
   <div class="flex-child image">
     <figure>
-      <img class="resize" src="bikeshare.jpg" alt="Bike Share">
+      <%= image_tag('ride_2.png', :alt => "rss feed") %>
     </figure>
   </div>
 
   <div class="flex-child description">
-    <h2>What We Do</h2>
-    <p>ValetBike is a bike sharing service for Nipmuc Notch</p>
+    <h1>View recommended rides <%=link_to"here",rides_index_url%> !</h1>
   </div>
 </div>

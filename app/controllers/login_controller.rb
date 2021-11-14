@@ -7,7 +7,6 @@ class LoginController < ApplicationController
   end
 
   def create
-    #@user = User.new(user_params)
     @user = User.find_by(Email: params[:email].downcase) || @user = User.find_by(Username: params[:email].downcase)
     if @user && (@user.password == params[:psw])
     #if @user && @user.authenticate(params[:psw])
@@ -23,10 +22,4 @@ class LoginController < ApplicationController
     redirect_to root_path
   end
 
-
-  #private
-
-  #def user_params
-      #params.permit(:Email, :Username, :Password, :CreditCardNum, :ExpDate, :SecurityCode)
-    #end
 end
