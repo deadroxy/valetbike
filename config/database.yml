@@ -9,7 +9,7 @@ default: &default
 development:
   <<: *default
   database: valetbike_development
-  username: nikki
+  username: root
   password: rootroot
   host: 127.0.0.1
 
