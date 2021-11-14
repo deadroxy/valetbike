@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Developer Added Gems
 gem 'mysql2'
 gem 'jquery-rails'
-gem 'wdm', '>= 0.1.0'
+# gem 'wdm', '>= 0.1.0'
 
 # Suggested Potentially Useful Gems
 # gem 'devise'
