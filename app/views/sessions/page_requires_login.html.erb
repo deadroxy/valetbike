@@ -2,14 +2,90 @@
 <h6> Find me in app/views/sessions/page_requires_login.html.erb </h6>
 
 <div id="map" style="width: 960px; height: 500px"></div>
-  <script>
-  var map = L.map('map').setView([42.32, -72.65], 13);
 
+<script>
+var bikeIcon = L.icon({
+    	iconUrl: 'bike.svg',
+    	iconSize: [50, 50],
+    	iconAnchor: [37.5, 75]
+    });
+
+//Establishes the latitude, longitutde, and bounds
+var latLon = L.latLng(42.32529052324533, -72.65033251578427);
+var bounds = latLon.toBounds(3000); // 3000 = metres
+
+//Creates the map and centers at coordiantes with zoom
+  var map = L.map('map', {
+    center: L.latLng(42.32529052324533, -72.65033251578427),
+    zoom: 13
+});
+
+//Pans to that coordinates
+map.panTo(latLon).fitBounds(bounds);
+
+//Creates the open street map tile layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+}).addTo(map); //Adds to established map
 
-  L.marker([42.32, -72.65]).addTo(map)
-    .bindPopup('Welcome to Northampton! We have Valetbike here!')
+//Creates markers with bike icon and adds to the map
+  L.marker([42.33556971740149, -72.67393081024912], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Florence Bank Station') //Adds pop up description
     .openPopup();
-  </script>
+
+  L.marker([42.33526021481459, -72.66800990228894], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Florence Center Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.3374253858664, -72.64216761578386], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Jackson Street Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.332232131096525, -72.65396780228896], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Cooley Dickinson Health Care Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.32529052324533, -72.65033251578427], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Northampton High School Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.311313649781866, -72.64884118763331], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Village Hill/State Hospital Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.319761695581136, -72.6378410255895], {icon: bikeIcon}).addTo(map)
+    .bindPopup('John M. Greene Hall/Smith College Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.316778678292394, -72.63583167529939], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Forbes Library Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.3174215778964, -72.6330052660747], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Pulaski Park/Downtown Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.31974503347566, -72.6303143525796], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Main Street/Court House Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.31902760504468, -72.62637552927946], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Northampton Train Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.32063786777759, -72.62806641578433], {icon: bikeIcon}).addTo(map)
+    .bindPopup('Main Street/Bridge Street Station') //Adds pop up description
+    .openPopup();
+
+  L.marker([42.32921618613204, -72.64820673951338], {icon: bikeIcon}).addTo(map)
+    .bindPopup('YMCA/Childs Park Station') //Adds pop up description
+    .openPopup();
+
+//Far away station from the rest of the stations in Northampton
+  L.marker([42.342358540319246, -72.15181674461881], {icon: bikeIcon}).addTo(map)
+    .bindPopup('State St/Mass Central Rail Trail Station') //Adds pop up description
+    .openPopup();
+
+
+
+</script>
