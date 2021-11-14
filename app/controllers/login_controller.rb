@@ -8,7 +8,7 @@ class LoginController < ApplicationController
 
   def create
     #@user = User.new(user_params)
-    @user = User.find_by(Email: params[:email].downcase)
+    @user = User.find_by(Email: params[:email].downcase) || @user = User.find_by(Username: params[:email].downcase)
     if @user && (@user.password == params[:psw])
     #if @user && @user.authenticate(params[:psw])
       log_in @user
