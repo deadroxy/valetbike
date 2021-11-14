@@ -53,10 +53,13 @@
     <h1>Explore Nipmuc Notch</h1>
     <br>
     <p>Bike sharing service for Nipmuc Notch</p>
-    <br>
-    <%= link_to '<button type="button">Get started</button>'.html_safe, login_path %>
+    <% if !logged_in? %>
+        <br>
+        <%= link_to '<button type="button">Get started</button>'.html_safe, login_path %>
+      <% end %>
   </div>
 </div>
+
 <br>
 <div class="flex-container">
   <div class="flex-child image">
