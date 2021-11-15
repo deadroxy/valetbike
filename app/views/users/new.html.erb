@@ -5,6 +5,7 @@
     <div class="float-right">
       <ul>
         <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+        <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
         <li><%= link_to('Register', new_user_path, class: 'header-links active') %></li>
         <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
       </ul>
@@ -26,4 +27,3 @@
     </div>
   </div>
 </div>
-

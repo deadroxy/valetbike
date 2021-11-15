@@ -1,0 +1,19 @@
+<!-- Montly Membership Explanation Page -->
+<div class="page-section flexbox vertical stretch">
+  <div id="header">
+    <div id="header-title">ValetBike</div>
+    <div class="float-right">
+      <ul>
+        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+        <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links active') %></li>
+        <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
+        <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<h1> Monthly Membership Pass</h1>
+<br>
+<p> Monthly Membership: $20 for Unlimited 45-minute rides for 1 month. 1 bike per membership. etc.</p>
+<br>
+<li><%= link_to('Buy Now', {:controller => 'orders', :action => 'index'}) %></li>

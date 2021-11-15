@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     def create
         # Creates a new user based on the parameters given in the form
         @user = User.create(
-            firstName: params[:firstName], 
+            firstName: params[:firstName],
             lastName: params[:lastName],
             email: params[:email],
             userName: params[:userName],
