@@ -1,5 +1,23 @@
-<h1>New User</h1>
+<div class="pageHeader bg-info text-white w-100 p-5 rounded-lg">
+  <h1 class="display-4">New User</h1>
+  <p class="lead">Welcome to our biking family!</p>
+</div>
 
-<%= render 'form', user: @user %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color:rgb(50, 110, 223);">ValetBike</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to('Home', {:controller => 'stations', :action => 'index' }, :class => 'nav-link') %>
+        <%= link_to('Login', {:controller => 'users', :action => 'index' }, :class => 'nav-link') %>
+        <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link active') %>
+        <%= link_to('Membership Purchase', {:controller => 'payment', :action => 'index' }, :class => 'btn btn-payment nav-link') %>
+      </div>
+    </div>
+  </div>
+</nav>
 
-<%= link_to 'Back', users_path %>
+<div class="container w-50 m-5">
+  <%= render 'form', user: @user %>
+  <%= link_to 'Back', users_path %>
+</div>

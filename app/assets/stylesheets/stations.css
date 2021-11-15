@@ -3,6 +3,24 @@
   They will automatically be included in application.css.
 */
 
-.btn-payment {
-  background-color: rgb(255, 224, 47);
+.navbar{
+  width: 100%;
+}
+
+.navbar-brand {
+  color: rgb(50, 110, 223);
+  margin-left: 20px;
+}
+
+.nav-link{
+  margin-left: 30px;
+}
+
+.active{
+  font-weight: bold;
+  color:rgb(24, 106, 121);
+}
+
+.section-inner{
+  margin-top: 50px;
 }

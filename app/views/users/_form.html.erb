@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :identifier %>
-    <%= form.number_field :identifier %>
+  <div class="field mb-3">
+    <%= form.label :identifier, :class => "form-label" %>
+    <%= form.number_field :identifier, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="field mb-3">
+    <%= form.label :email, :class => "form-label" %>
+    <%= form.text_field :email, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="field mb-3">
+    <%= form.label :first_name, :class => "form-label" %>
+    <%= form.text_field :first_name, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="field mb-3">
+    <%= form.label :last_name, :class => "form-label" %>
+    <%= form.text_field :last_name, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="field mb-3">
+    <%= form.label :password, :class => "form-label" %>
+    <%= form.text_field :password, :class => "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

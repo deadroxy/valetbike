@@ -1,12 +1,44 @@
+<div class="pageHeader bg-info text-white w-100 p-5 rounded-lg">
+  <h1 class="display-4">Welcome to ValetBike!</h1>
+  <p class="lead">Rent a bike and join a trip at anytime, anywhere.</p>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color:rgb(50, 110, 223);">ValetBike</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="/users">Login</a>
+        <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link') %>
+        <%= link_to('Membership Purchase', {:controller => 'payment', :action => 'index' }, :class => 'btn btn-payment nav-link') %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+  <div class="toast-header">
+    <img src="..." class="rounded me-2" alt="...">
+    <strong class="me-auto">What to do?</strong>
+    <small>Your Valetbike Tour Guide</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Hello, biker!
+    To get started, use the map to find the nearest stations and click for more information!
+  </div>
+</div>
 
 <div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Welcome to ValetBike!
-    </div>
-    <a href="/users"> Login </a> <br />
+  </div>
+    <html>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pQ1lSqVb10TdOOV7d2sgb4sO4Txcosk&callback=initMap"></script>
+      <iframe width="900" height="550" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/d/u/0/embed?mid=16lQ4DI4Uiylt3l_UWg3lkw7OyUZhq012"></iframe>
+    </html>
+	</div>
 
-    <%= link_to("Sign Up", new_user_path, :class => 'action new') %>
+  <div class="section-inner flexbox vertical stretch">
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
@@ -16,9 +48,5 @@
       </div>
       <% end %>
     </div>
-
-    <div class="btn btn-warning btn-payment">
-      <%= link_to('This is a temp button to payment page', {:controller => 'payment', :action => 'index' }) %>
-	  </div>
   </div>
 </div>
