@@ -1,0 +1,12 @@
+<p>Congrats! You have returned the bike Successfully!</p>
+<% @bikes.each do |bike| %>
+      
+      
+      <% if bike.identifier == params[:identifier].to_i%>
+         <% bike.current_station_id=params[:id]%>
+         <%bike.save%>
+        
+      <% end %>
+    
+<% end %>  
+<%= link_to("Rent a new bike", {:controller => 'stations', :action => 'index'}) %>
