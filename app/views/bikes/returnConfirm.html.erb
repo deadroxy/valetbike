@@ -3,7 +3,7 @@
   <%= label_tag :input, "bike identifier:" %>
   <%= text_field_tag :input %>
   <% @input = params[:input]%>
-  <%= submit_tag "confirm"%>
+  <%= submit_tag " confirm "%>
 <%end%> 
 
 <% @bikes.each do |bike| %>
@@ -16,4 +16,5 @@
       <% end %>
     
 <% end %>  
+<br>
 <%= link_to("Rent a new bike", {:controller => 'stations', :action => 'index'}) %>
