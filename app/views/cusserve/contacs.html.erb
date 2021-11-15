@@ -1,11 +1,14 @@
-<%= link_to("<< Back to List", {:controller => 'stations', :action => 'index'}) %>
-<h1>Contact Us!</h1>
+<h2>Contact Us!</h2>
+<br />
 <p>Email: valetbike_service@gmail.com</p>
 <p>Phone: 4130000000</p>
-<body>
-  <form>
-    <lable>Message</lable>
-    <input type="text" name="" value="">
-    <button type="button" name="button">Submit</button>
-  </form>
-</body>
+<form>
+  <lable>Message</lable>
+  <input type="text" name="" value="">
+  <button type="button" name="button" class="btn btn-outline-secondary btn-sm">Submit</button>
+</form>
+
+<br />
+<button class="btn btn-secondary btn-sm" onclick="window.location.href='http://localhost:3000/';">
+Back to HomePage
+</button>

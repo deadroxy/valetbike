@@ -1,4 +1,3 @@
-<%= link_to("<<Back to the station", {:controller => 'bikes', :action => 'show',:id => params[:id]}) %>
 <p> To unlock the bike, please enter the Bike # below handlebars </p>
 <%@bikes_list = []%>
 <% @bikes.each do |bike| %>
@@ -16,16 +15,21 @@
   <%= label_tag :input, "bike identifier:" %>
   <%= text_field_tag :input %>
   <% @input = params[:input]%>
-  <%= submit_tag "confirm"%>
+  <%= submit_tag " confirm "%>
 <%end%> 
  
-  <% if @bikes_list.include? @input.to_i%>
-    <p> great! </p>
-    <%= link_to("Continue", {:controller => 'bikes', :action => 'unlockConfirm',:id => params[:id], :identifier=>@input}) %>
-  <%elsif @input==nil%>
-  <%else%>
-    <p>Wrong identifier! Try it again</p>
-  <% end %>
+<% if @bikes_list.include? @input.to_i%>
+  <p> great! </p>
+  <%= link_to("Continue", {:controller => 'bikes', :action => 'unlockConfirm',:id => params[:id], :identifier=>@input}) %>
+<%elsif @input==nil%>
+<%else%>
+  <br>
+  <p>Wrong identifier! Try it again</p>
+<% end %>
+
+<br>
+
+  <%= link_to("Back to the station", {:controller => 'bikes', :action => 'show',:id => params[:id]}) %>
 
 
 
