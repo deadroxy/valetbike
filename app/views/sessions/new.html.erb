@@ -5,16 +5,11 @@
     <div class="float-right">
       <ul>
         <li><%= link_to('Home', root_url, class: 'header-links') %></li>
-        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
-        <!--Unsure about the path var so only shows up in regist. pg-->
-        <li><%= link_to('About', root_url, class: 'header-links') %></li>
-        <li><%= link_to('Process', root_url, class: 'header-links') %></li>
         
+        <li><%= link_to('Process', root_url, class: 'header-links') %></li>
+
         <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
         <li><%= link_to('Login', new_session_path, class: 'header-links active') %></li>
-
-        <li><%= link_to('Stations', root_url, class: 'header-links') %></li>
-        <!--How to make above a dropdown in ruby?-->
       </ul>
     </div>
   </div>
