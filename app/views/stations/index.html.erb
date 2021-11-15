@@ -7,6 +7,22 @@
       <br />
       <!-- </div> -->
     <div class="flexbox vertical stretch">
+   <h3> Enjoy biking in the Pioneer Valley. </h3>
+<%= image_tag ("zachary-bikekiosk-unsplash.jpg")%>
+	<br />
+<h3>Find Valetbike Near You! </h3>
+	<br />
+	<iframe
+  		width="600"
+  		height="450"
+  		style="border:0"
+  		loading="lazy"
+  		allowfullscreen
+  		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-Ip9qI4K6HCbIrIhYQu_3xH7tsV0yDYQ
+    &q=Smith+College,Northampton+MA">
+	</iframe>
+	<br />
+
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
       <% else %>
@@ -14,6 +30,7 @@
         No stations found.
       </div>
       <% end %>
+      <%= link_to("Customer Services", {:controller => 'cusserve', :action => 'contacs'}) %>
     </div>
 <!--
     </div>

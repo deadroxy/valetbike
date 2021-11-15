@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'bikes/index'
   get 'bikes/show'
+  get 'bikes/unlock'
+  post 'bikes/unlock'
+  get 'bikes/unlockConfirm'
+  get 'bikes/returnConfirm'
+  post 'bikes/returnConfirm'
   get "stations/index"
   get 'cusserve/contacs'
   get 'billings/new/mastercard', to: 'billings#mastercard'

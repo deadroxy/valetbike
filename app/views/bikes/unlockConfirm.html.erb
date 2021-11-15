@@ -1,0 +1,15 @@
+<p>Congrats! You unlocked the bike Successfully!</p>
+
+<% @bikes.each do |bike| %>
+      
+      
+      <% if bike.identifier == params[:identifier].to_i%>
+         <% @station_id = bike.current_station_id%>
+         <%bike.current_station_id=nil%>
+         <%bike.save%>
+         <%#= link_to("Return the Bike", {:controller => 'bikes', :action => 'returnConfirm',:id=>@station_id,:identifier=>params[:identifier]}) %>
+         <%= link_to("Return the dock", {:controller => 'bikes', :action => 'show', :id=>@station_id}) %>
+      <% end %>
+    
+<% end %>  
+<%#= link_to("Return the Bike", {:controller => 'bikes', :action => 'returnConfirm'}) %>
