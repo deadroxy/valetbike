@@ -8,4 +8,12 @@ class BikesController < ApplicationController
     
     
   end
+  
+  def unlockConfirm
+   @bikes = Bike.order('id ASC')
+  end
+  
+  def returnConfirm
+   @bikes = Bike.order('id ASC')
+  end
 end
