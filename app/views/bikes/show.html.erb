@@ -1,16 +1,16 @@
 <%= link_to("<< Back to List", {:controller => 'stations', :action => 'index'}) %>
 <p></p>
 <%@counter=1%>
-<%@rented%>
 <% @bikes.each do |bike| %>
       
       
       <% if bike.current_station_id == params[:id].to_i%>
          <p>bike: <%= @counter%><p>
          <%@counter = @counter+1%>
-         <%=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id], :identifier => bike.identifier}) %>
+         <%#=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id], :identifier => bike.identifier}) %>
          <%@rented=bike.identifier%>
       <% end %>
    
 <% end %>  
-<%#= link_to("Return the Bike", {:controller => 'bikes', :action => 'returnConfirm'}) %>
+<%=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}) %>
+<%= link_to("Return the Bike", {:controller => 'bikes', :action => 'returnConfirm', :id => params[:id]}) %>

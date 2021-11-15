@@ -1,8 +1,15 @@
 <p>Congrats! You have returned the bike Successfully!</p>
+<%= form_tag "#" do %>
+  <%= label_tag :input, "bike identifier:" %>
+  <%= text_field_tag :input %>
+  <% @input = params[:input]%>
+  <%= submit_tag "confirm"%>
+<%end%> 
+
 <% @bikes.each do |bike| %>
       
       
-      <% if bike.identifier == params[:identifier].to_i%>
+      <% if bike.identifier == @input.to_i%>
          <% bike.current_station_id=params[:id]%>
          <%bike.save%>
         
