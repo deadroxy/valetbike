@@ -1,0 +1,5 @@
+rails generate migration AddPasswordToUser password:string
+//or a password hash... 
+
+rails db:migrate 
+
