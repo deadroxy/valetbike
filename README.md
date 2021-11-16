@@ -1,8 +1,6 @@
-# ValetBike
-
-Smith College CSC223: Introduction to Software Engineering
-Group EEEee: Print Name: Grace Li, Tevy Bong, Winnie Zong, Liwen Xu, Yanning Tan.
-Prototype for ValetBike project
+# Prototype for ValetBike
+Smith College CSC223: Introduction to Software Engineering\
+Group EEEee: Print Name: Grace Li, Tevy Bong, Winnie Zong, Liwen Xu, Yanning Tan
 
 ## General Configuration
 1. Install MySQL 8.0.26
@@ -21,9 +19,8 @@ Prototype for ValetBike project
 4. Install MySQL gem
 * `gem install mysql2`
 
-5. Fork & clone ValetBike repo
-* Click fork in the upper right hand corner of the ValetBike GitHub page
-* `git clone https://github.com/<username>/valetbike.git`
+5. Clone our ValetBike repo
+* `git clone https://github.com/Tevy-B/valetbike.git`
 
 6. Install gems
 * `cd valetbike`
@@ -32,17 +29,12 @@ Prototype for ValetBike project
 7. Prepare database in MySQL
 * `mysql -u root -p`
 * `CREATE DATABASE valetbike_development;`
+* run `mysql -u root -p valetbike_development < valetbike_development.sql` to import database
 
 8. Run database migrations
 * `rake db:migrate`
 
 9. Confirm app runs
-* `rackup`
+* `USERNAME=your_own_sql_username PASSWORD=your_own_sql_password  rails s`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * You should see ValetBike welcome page
-  
-  
-# Set Up
-1. Clone / Download a local copy of the repository.
-2. run `USERNAME=your_own_sql_username PASSWORD=your_own_sql_password  rails s` in terminal (Note: NO NEED to change the 'database.yml' file)
-3. run `mysql -u root -p valetbike_development < valetbike_development.sql` to import database
