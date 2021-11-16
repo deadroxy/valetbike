@@ -1,7 +1,7 @@
 # ValetBike
 
 Smith College CSC223: Introduction to Software Engineering\
-Group D: Purple Cow
+Group D: Purple Cow\
 Yesugen Baatartogtkh, Olivia DeMeo, Carolyn Nguyen, Yujun Shen and Yutong Zhang
 
 ## General Configuration
