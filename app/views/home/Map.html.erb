@@ -11,52 +11,35 @@
     position: relative;
     width: 75%;
     height: 75%;
+    margin-right:15px;
   }
 
-
-
-
- p.pin:hover span{
-      display: block;
-      z-index: 9;
+  p.pin{
+      cursor:pointer;
   }
-p.pin{
-    cursor:pointer;
-        }
-span.map1{
-            background:#CADFEF;
-            border: 2px solid #000000;
-            color: #000000;
-            font-size: 13px;
-            height: 50px;
-        	width:150px;
-            line-height: 20px;
-            position:absolute;
-            text-align: center;
-            top:52%;
-            left:49%;
-            display: none;
-            padding:0 0px;
-        	
-            
-}
-span.map2{
-            background:#CADFEF;
-            border: 2px solid #000000;
-            color: #000000;
-            font-size: 13px;
-            height: 30px;
-            width:150px;
-            line-height: 20px;
-            position:absolute;
-            text-align: center;
-            top:43%;
-            left:38%;
-            display: none;
-            padding:0 0px;
-        	
-            
-        }
+
+  span { /* Station label styling */
+    background:#CADFEF;
+    border: 2px solid #000000;
+    color: #000000;
+    font-size: 13px;
+    line-height: 20px;
+    position:absolute;
+    text-align: center;
+    display: none;
+    padding: 5px;
+  }
+
+  /* Positioning of individual station labels */
+  span#map1 {
+    top:52%;
+    left:49%;
+  }
+
+  span#map2 {    
+    top:43%;
+    left:38%;
+  }  
 
   .stationscol {
     margin-right: 78%;
@@ -70,13 +53,12 @@ span.map2{
 </style>
 
 
-
 <div class="parent">
   <div class="stationscol">
     <h1>Stations</h1>
     <div class="stationslist">
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <%= render(partial: "stations/simplifiedRow", collection: @stations, as: :station) %>
       <% else %>
       <div class="empty">
         No stations found.
@@ -87,22 +69,39 @@ span.map2{
   </div>
 
   <img src="/images/nipmucNotch.PNG", class="map">
+
   <p class="pin">
-    <img  src="/images/map_pin.png" style="position:absolute;top: 45%;left: 52.5%;width:2%;height 10%", usemap="#clickmap">
-    <span class="map1">Cooley Dickenson Health Care</span>
+    <img  src="/images/map_pin.png" style="position:absolute;top: 45%;left: 52.5%;width:2%;height 10%", usemap="#clickmap1">
+    <span id="map1">Cooley Dickenson Health Care</span>
   </p>
   <p class="pin">
     <img src="/images/map_pin.png", style="position: absolute;top: 36%;left: 42%;width: 2%;height 10%;" , usemap="#clickmap2">
-    <span class="map2">Florence Bank Station</span>
+    <span id="map2">Florence Bank Station</span>
   </p>
 </div>
 
-<map name="clickmap">
- <area shape="rect" coords="0,0,100,100" alt="Cooley Dickinson" href="../stations#index">
+<map name="clickmap1">
+ <area shape="rect" coords="0,0,100,100" alt="Cooley Dickinson" href="../stations#index" onmouseover="showStationInfo(1)" onmouseleave="hideStationInfo(1)">
 </map>
 
 <map name="clickmap2">
-  <area shape="rect" coords="0,0,100,100" alt="Florence Bank" href="../rent">
+  <area shape="rect" coords="0,0,100,100" alt="Florence Bank" href="../rent" onmouseover="showStationInfo(2)" onmouseleave="hideStationInfo(2)">
 </map>
+
+<script>
+  function showStationInfo(n) { // Called on mouse over
+    var spanId = "map" + n; // Generates id of station info span
+    var stationInfo = document.getElementById(spanId);
+    stationInfo.style.display = "block"; // Show station info popup
+    stationInfo.style.zIndex = "9";
+
+  }
+  function hideStationInfo(n) { // Called on mouse leave
+    var spanId = "map" + n; // Generates id of station info span
+    var stationInfo = document.getElementById(spanId);
+    stationInfo.style.display = "none"; // Hide station info popup
+  }
+
+</script>
 
 
