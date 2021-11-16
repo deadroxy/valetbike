@@ -9,9 +9,17 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="/users">Login</a>
+        <%= link_to("Log In", new_session_path, :class => 'nav-link')%>
         <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link') %>
+        <%= link_to('User List', {:controller => 'users', :action => 'index' }, :class => 'nav-link') %>
         <%= link_to('Membership Purchase', {:controller => 'payment', :action => 'index' }, :class => 'btn btn-payment nav-link') %>
+        <%
+=begin%>
+ <% if session[:id].present? %>
+          <%= link_to('User Profile', @user, :class => 'nav-link') %>
+        <% end %> 
+<%
+=end%>
       </div>
     </div>
   </div>

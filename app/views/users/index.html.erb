@@ -9,9 +9,17 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to('Home', {:controller => 'stations', :action => 'index' }, :class => 'nav-link') %>
-        <%= link_to('Login', {:controller => 'users', :action => 'index' }, :class => 'nav-link active') %>
+        <%= link_to("Log In", new_session_path, :class => 'nav-link')%>
         <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link') %>
+        <%= link_to('User List', {:controller => 'users', :action => 'index' }, :class => 'nav-link active') %>
         <%= link_to('Membership Purchase', {:controller => 'payment', :action => 'index' }, :class => 'btn btn-payment nav-link') %>
+        <%
+=begin%>
+ <% if session[:id].present? %>
+          <%= link_to('User Profile', @user, :class => 'nav-link') %>
+        <% end %> 
+<%
+=end%>
       </div>
     </div>
   </div>
@@ -27,7 +35,7 @@
       <th>First name</th>
       <th>Last name</th>
       <th>Password</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -38,11 +46,7 @@
         <td><%= user.email %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <%
-=begin%>
- <td><%= user.password %></td> 
-<%
-=end%>
+        <td><%= user.password %></td> 
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

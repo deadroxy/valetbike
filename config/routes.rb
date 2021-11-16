@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :users
   root to: "stations#index"
-
+  resources :users #,  only: [:new, :create, :show]
+  resources :sessions, only: [:new, :create, :destroy]
   get 'payment/index'
-
 end

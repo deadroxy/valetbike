@@ -1,6 +1,6 @@
 <div class="pageHeader bg-info text-white w-100 p-5 rounded-lg">
-  <h1 class="display-4">New User</h1>
-  <p class="lead">Welcome to our biking family!</p>
+  <h1 class="display-4">Log In</h1>
+  <p class="lead">Log in if you already have an account!</p>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,8 +9,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to('Home', {:controller => 'stations', :action => 'index' }, :class => 'nav-link') %>
-        <%= link_to("Log In", new_session_path, :class => 'nav-link')%>
-        <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link active') %>
+        <%= link_to("Log In", new_session_path, :class => 'nav-link active')%>
+        <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link') %>
         <%= link_to('User List', {:controller => 'users', :action => 'index' }, :class => 'nav-link') %>
         <%= link_to('Membership Purchase', {:controller => 'payment', :action => 'index' }, :class => 'btn btn-payment nav-link') %>
         <%
@@ -26,6 +26,20 @@
 </nav>
 
 <div class="container w-50 m-5">
-  <%= render 'form', user: @user %>
+  <%= form_tag('/sessions', method:'POST') do %>
+    <p class="field mb-3">
+      Email
+      <%= text_field_tag(:email) %>
+    </p>
+
+    <p class="field mb-3">
+      Password
+      <%= text_field_tag(:password) %>
+    </p>
+
+    <%= submit_tag 'Log In', :class => "btn btn-primary" %>
+
+  <% end %>
+
   <%= link_to 'Back', root_path %>
 </div>
