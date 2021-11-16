@@ -1,8 +1,7 @@
 # Purpose: This controller handles the about and process pages
 class TabsController < ApplicationController
 
-    def show
-    #  render template: "views/tab_pages/#{params[:page]}"
+    def new
     end
 
 end
