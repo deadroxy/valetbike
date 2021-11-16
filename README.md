@@ -56,3 +56,13 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 * **Billing:** After clicking on the “Billing” in the nav bar, two ways of billing will be shown: mastercard or VISA. After clicking on the payment option you choose, users are required to input their payment information( holder name, card number, cvv, expiration date), these input can not be empty. The card number and cvv can only be numbers with length no more than 16 for card number and 3 for cvv. After inputting proper value, the information will be stored and the user will see “You successfully input billing information. Thank you!!!” and will be able to get to the home page.
 
 ## Recommended Walkthrough
+* Start with the welcome page.
+* Create an account by clicking “Sign up” in the nav bar. After successfully creating the account, it will automatically log you in (you can try logout and login using the account you just created).
+* Click on “Display station and bike” in the nav bar, view the interactive map and the list of stations below.
+* Click into station 20, click on “Borrow the Bike!” to borrow a bike using identifier code “7522” (the identifier codes supposed to appear on real bikes). Click confirm. Click continue. Return to the station and observe if the bike count decreases by one.
+* Click on any station, click on “Return the Bike”, return the bike by entering the identifier code “7522”. Return to the station and observe if the bike count increases by one.
+* Click on “Customer service” in the nav bar, and try some message input.
+* Click on “Billing” in the nav bar, click on the payment method you prefer. Try fillin the billing information and submit. Then go back to the homepage by clicking “Back to homepage”.
+* Click on “Edit profile” in the nav bar, try to update your password. Try to sign out and log in again with the new password.
+* That's it! Feel free to explore more if you want!
+ 
