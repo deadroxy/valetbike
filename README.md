@@ -1,6 +1,6 @@
 # Prototype for ValetBike
 Smith College CSC223: Introduction to Software Engineering\
-Group EEEee: Print Name: Grace Li, Tevy Bong, Winnie Zong, Liwen Xu, Yanning Tan
+Group EEEee: Grace Li, Tevy Bong, Winnie Zong, Liwen Xu, Yanning Tan
 
 ## General Configuration
 1. Install MySQL 8.0.26
