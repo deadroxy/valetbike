@@ -64,5 +64,5 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 * Click on **“Customer service”** in the nav bar, and try some message input.
 * Click on **“Billing”** in the nav bar, click on the payment method you prefer. Try fillin the billing information and submit. Then you can go back to the homepage by clicking “Back to homepage”.
 * Click on **“Edit profile”** in the nav bar, try to update your password. Try to sign out and log in again with the new password.
-* That's it! Feel free to explore more if you want!
+* That's it! Feel free to explore more!
  
