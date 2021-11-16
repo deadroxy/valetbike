@@ -41,7 +41,7 @@ Group EEEee: Grace Li, Tevy Bong, Winnie Zong, Liwen Xu, Yanning Tan
 
 ## Frequent Encountered Questions
 1. The `USERNAME=your_own_sql_username PASSWORD=your_own_sql_password` should successfully setup the credential,\
-but if there is still a `Access denied for user 'root'@'localhost' (using password: YES)` error:
-* Try to add /config/initializers/_env.rb in your app with your mysql username/password like this:\
+but if there is still a `Access denied for user 'root'@'localhost' (using password: YES)` error:\
+Try to add /config/initializers/_env.rb in your app with your mysql username/password like this:\
 `ENV['MYSQL_USERNAME'] = "your_own_sql_username"`\
 `ENV['MYSQL_PASSWORD'] = "your_own_sql_password"`
