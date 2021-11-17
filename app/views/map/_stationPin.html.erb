@@ -1,0 +1,4 @@
+<p class="pin">
+   <img  id="pin<%=station.id%>" src="/images/map_pin.png" style="left: <%=station.leftLocation%>%; top: <%=station.topLocation%>%;", usemap="#clickmap<%=station.id%>"> <%# Pin image%>
+   <span id="label<%=station.id%>" style="left: <%=station.leftLocation%>%; top: <%=station.topLocation - 10%>%;", usemap="#clickmap<%=station.id%>"><%=station.name%>, <%=station.docked_bikes.count%>/<%=station.capacity %></span> <%# Quick station info %> 
+</p>
