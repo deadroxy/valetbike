@@ -9,7 +9,7 @@ class BikesController < ApplicationController
     
   end
   
- def unlock
+  def unlock
    @bikes = Bike.order('id ASC')
   end
   
@@ -17,7 +17,12 @@ class BikesController < ApplicationController
    @bikes = Bike.order('id ASC')
   end
   
-  def returnConfirm
+  def return
    @bikes = Bike.order('id ASC')
+  end
+  
+  def returnConfirm
+    @bikes = Bike.order('id ASC')
+  
   end
 end
