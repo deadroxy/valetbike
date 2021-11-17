@@ -11,6 +11,9 @@ namespace :import_csv do
        s.capacity = row["capacity"]
        s.description = row["description"]
        s.landmarksList = row["landmarks"]
+       s.topLocation = row["top"]
+       s.leftLocation = row["left"]
+       s.image = row["image"]
        s.save
      end 
    end
@@ -39,7 +42,6 @@ namespace :import_csv do
      csv = CSV.parse(csv_text, :headers => true, encoding:'iso-8859-1')
      csv.each do |row|
        s = Bike.new;
-       puts row["stationId"]
        s.current_station_id = row["stationId"]
        s.current_user_id = row["userId"]
        s.checkoutTime = row["checkoutTime"]

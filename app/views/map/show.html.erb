@@ -1,1 +1,13 @@
 <h1><%= @station.name %></h1>
+<h2> <%= @station.address%> </h2>
+<h4>Nearby landmarks: <%= @station.landmarksList %></h4>
+<br>
+<h3> <%= @station.docked_bikes.count%>/<%=@station.capacity%> Bikes Available</h3>
+ <%= image_tag(@station.image || 'ride_unknown', :alt => "rss feed") %>
+<br>
+<%= @station.description %>
+<br>
+<br>
+
+<br>
+ <%=link_to"View the Station Map",map_url%>
