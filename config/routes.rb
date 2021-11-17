@@ -2,11 +2,10 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get 'rides/index'
+  get 'rides', to: "rides#index"
   get 'map', to: "map#index"
   match '/map/:id', to: 'map#show', via: 'get'
-  get 'home/Rides', to: "home#Rides"
-  get 'home/faqs', to: "home#faqs"
+  get 'faqs', to: "home#faqs"
 
 
   get 'stations', to: "stations#index"
