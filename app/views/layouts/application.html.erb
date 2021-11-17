@@ -42,7 +42,7 @@
   <nav>
     <ul>
       <li class=<%=active_class(root_path)%>><%=link_to"ValetBike",root_path%></li>
-      <li class=<%=active_class(home_Map_path)%>><%=link_to"Map",home_Map_path%></li>
+      <li class=<%=active_class(map_url)%>><%=link_to"Map",map_url%></li>
       <li class=<%=active_class(rides_index_url)%>><%=link_to"Rides",rides_index_url%></li>
       <li class=<%=active_class(home_faqs_path)%>><%=link_to"FAQs",home_faqs_path%></li>
       <% if logged_in? %> 
