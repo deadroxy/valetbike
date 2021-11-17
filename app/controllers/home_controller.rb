@@ -1,7 +1,4 @@
 class HomeController < ApplicationController
-  def Map
-      @stations = Station.all.order(id: :asc)
-  end
 
   def Rides
   end
