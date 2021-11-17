@@ -4,14 +4,27 @@
     top: 0;
     left: 0;
     vertical-align: middle;
-    text-align:right;
+    text-align:center;
+
   }
 
-  .map {
-    position: relative;
-    width: 75%;
-    height: 75%;
-    margin-right:15px;
+  .stationscol {
+    float: left;
+    width: 25%;
+    margin-left: 1%;
+  }
+
+  #mapBackground {
+    position: relative; 
+    width: 100%; /* Fill map div */
+    height: 100%;
+  }
+
+  #map {
+    position: relative; /* Enables pins to be absolute to map div */
+    float: right;
+    width: 70%;
+    margin-right: 1%;
   }
 
   p.pin{
@@ -24,32 +37,17 @@
     color: #000000;
     font-size: 13px;
     line-height: 20px;
-    position:absolute;
+    position:absolute; /* Relative to map container div */
     text-align: center;
-    display: none;
+    display: none; /* Hidden by default */
     padding: 5px;
   }
 
-  /* Positioning of individual station labels */
-  span#map1 {
-    top:52%;
-    left:49%;
+  img {
+    position:absolute; /* Relative to map container div */
+    width:2%;
   }
-
-  span#map2 {    
-    top:43%;
-    left:38%;
-  }  
-
-  .stationscol {
-    margin-right: 78%;
-    text-align: center;
-    margin-left: 1%;
-  }
-
-  .stationslist {
-    float: left;
-  }
+  
 </style>
 
 
@@ -58,46 +56,36 @@
     <h1>Stations</h1>
     <div class="stationslist">
       <% if @stations.present? %>
-        <%= render(partial: "stations/simplifiedRow", collection: @stations, as: :station) %>
+        <%= render(partial: "simplifiedStationRow", collection: @stations, as: :station) %>
       <% else %>
       <div class="empty">
         No stations found.
       </div>
       <% end %>
     </div>
-
   </div>
 
-  <img src="/images/nipmucNotch.PNG", class="map">
+  <div><h1>Map</h1></div>
 
-  <p class="pin">
-    <img  src="/images/map_pin.png" style="position:absolute;top: 45%;left: 52.5%;width:2%;height 10%", usemap="#clickmap1">
-    <span id="map1">Cooley Dickenson Health Care</span>
-  </p>
-  <p class="pin">
-    <img src="/images/map_pin.png", style="position: absolute;top: 36%;left: 42%;width: 2%;height 10%;" , usemap="#clickmap2">
-    <span id="map2">Florence Bank Station</span>
-  </p>
+  <div id="map">
+    <img src="/images/nipmucNotch.PNG", id="mapBackground">
+    <% if @stations.present? %>
+      <%= render(partial: "stationPin", collection: @stations, as: :station) %> <%# Image and info%>
+      <%= render(partial: "stationArea", collection: @stations, as: :station) %> <%# Interactivity%>
+    <% end %>
+  </div>
 </div>
-
-<map name="clickmap1">
- <area shape="rect" coords="0,0,100,100" alt="Cooley Dickinson" href="../map/2" onmouseover="showStationInfo(1)" onmouseleave="hideStationInfo(1)">
-</map>
-
-<map name="clickmap2">
-  <area shape="rect" coords="0,0,100,100" alt="Florence Bank" href="../map/1" onmouseover="showStationInfo(2)" onmouseleave="hideStationInfo(2)">
-</map>
 
 <script>
   function showStationInfo(n) { // Called on mouse over
-    var spanId = "map" + n; // Generates id of station info span
+    var spanId = "label" + n; // Generates id of station info span
     var stationInfo = document.getElementById(spanId);
     stationInfo.style.display = "block"; // Show station info popup
     stationInfo.style.zIndex = "9";
 
   }
   function hideStationInfo(n) { // Called on mouse leave
-    var spanId = "map" + n; // Generates id of station info span
+    var spanId = "label" + n; // Generates id of station info span
     var stationInfo = document.getElementById(spanId);
     stationInfo.style.display = "none"; // Hide station info popup
   }
