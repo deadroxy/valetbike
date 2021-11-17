@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'rides/index'
   get 'map', to: "map#index"
+  match '/map/:id', to: 'map#show', via: 'get'
   get 'home/Rides', to: "home#Rides"
   get 'home/faqs', to: "home#faqs"
 
