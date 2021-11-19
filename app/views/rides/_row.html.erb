@@ -5,6 +5,8 @@
    <div class="right">
       <h2><%= ride.name %></h2>
       <h5>Difficulty: <%=ride.difficulty%>/10 Length: <%=ride.length%></h5>
+      <h5> Start at: <%= link_to ride.startStation, map_path + "/" + ride.startStationId %></h5>
+      <h5> End at: <%= link_to ride.endStation , map_path + "/" + ride.endStationId %></h5>
       <%= ride.description %> 
    </div>
 </div>

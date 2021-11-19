@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_135439) do
+ActiveRecord::Schema.define(version: 2021_11_18_161826) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.datetime "checkoutTime"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 2021_11_17_135439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.string "startStation"
+    t.string "endStation"
+    t.string "startStationId"
+    t.string "endStationId"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
