@@ -17,10 +17,14 @@
     overflow: hidden;
     width: 72%;
     max-height: 450px;
+    text-align: center;
   }
 
   #map {
     position: relative; /* Enables pins to be absolute to map div */
+    width: 150%;
+    transform: translate(-100px, -100px);
+
   }
 
   #mapBackground { /* Map image */
@@ -86,17 +90,18 @@
         <%= render(partial: "stationPin", collection: @stations, as: :station) %> <%# Image and info%>
         <%= render(partial: "stationArea", collection: @stations, as: :station) %> <%# Interactivity%>
       <% end %>
-      <div class="buttons">
+    </div>
+    <div class="buttons">
         <button onclick="zoomOut()">-</button>
         <button onclick="zoomIn()">+</button>
+        <button onclick="reset()" style="background-color: red;">⌂</button>
       </div>
-    </div>
     </div>
   </div>
 
 <script>
 
-  var currentZoom = 100;
+  var currentZoom = 150;
 
   function showStationInfo(n) { // Called on mouse over
     var spanId = "label" + n; // Generates id of station info span
@@ -112,19 +117,57 @@
     stationInfo.style.display = "none"; // Hide station info popup
   }
 
+  var map = document.getElementById("map");
+
+  // Functions to enable zooming
+
   function zoomIn() {
-    var map = document.getElementById("map");
     currentZoom += 3; // Increase magnification
     map.style.width = String(currentZoom) + "%"; // Set modified width
   }
 
   function zoomOut() {
-    var map = document.getElementById("map");
     if (currentZoom > 100) { //Don't zoom out beyond 100%
       currentZoom -= 3; // Decrease magnification
     }
     map.style.width = String(currentZoom) + "%"; // Set modified width
   } 
+
+  function reset() {
+    currentZoom = 150; // Default zoom of 150%
+    map.style.width = String(currentZoom) + "%"; // Set modified width
+    map.style.transform = "translate(-100px, -100px)"; // Original position
+  }
+
+  /* Functions to make map panable */
+  map.addEventListener("dragstart", startPos); 
+  map.addEventListener("drag", pan); 
+  map.addEventListener("dragend", endPos); 
+
+  var currentX = -100; // Actual x
+  var currentY = -100; // Actual y
+
+  var previousX = 0;
+  var previousY = 0;
+
+  function startPos() { //Captures start mouse position
+    previousX = event.clientX;
+    previousY = event.clientY;
+  }
+
+  function pan() { // Translates map div while dragging
+    var xTrans = event.clientX - previousX + currentX; // Handles mouse pos change
+    var yTrans = event.clientY - previousY + currentY;
+    map.style.transform = "translate(" + xTrans + "px," + yTrans+ "px)"; // Moves map
+  }
+
+  function endPos() { // Actually moves map div to new location
+    var xTrans = event.clientX - previousX + currentX; // Handles mouse pos change
+    var yTrans = event.clientY - previousY + currentY;
+    currentX = xTrans; //Updates actual x and y
+    currentY = yTrans;
+    map.style.transform = "translate(" + xTrans + "px," + yTrans+ "px)"; // Moves map
+  }
 
 </script>
 
