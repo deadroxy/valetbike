@@ -31,6 +31,10 @@ namespace :import_csv do
        s.length = row["length"]
        s.description = row["description"]
        s.image = row["image"]
+       s.startStation = row["startStation"]
+       s.endStation = row["endStation"]
+       s.startStationId = row["startStationId"]
+       s.endStationId = row["endStationId"]
        s.save
      end 
    end
