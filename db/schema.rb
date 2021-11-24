@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_11_06_195233) do
 
-  create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.datetime "checkoutTime"
     t.datetime "checkinTime"
     t.integer "current_station_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_195233) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "name"
     t.integer "difficulty"
     t.string "length"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_195233) do
     t.string "image"
   end
 
-  create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "stations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.text "address"
     t.integer "capacity"
     t.string "name"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_195233) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.string "email"
     t.string "password"
     t.string "username"

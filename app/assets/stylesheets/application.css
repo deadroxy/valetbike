@@ -17,6 +17,7 @@
 * {box-sizing: border-box}
 
 h1 {
+    font-family: Comfortaa;
     font-size: 30px;
 }
 
@@ -27,16 +28,17 @@ body {
 /* Navigation styling */
 
 nav, footer{
-    background-color: #CADFEC;
+    background-color: #D9d9d9;
+    font-family: Comfortaa;
     font-size: 25px;
 }
 
-.rightNav { 
+.rightNav {
     float:  right;
 }
 
 #spacer {
-    background-color: #CADFEC; /* Overrides hover color change */
+    background-color: #D9d9d9; /* Overrides hover color change */
     padding: 10px;
 }
 
@@ -53,11 +55,11 @@ nav a {
 }
 
 nav li:hover:not(.active) {
-    background-color: lightskyblue;
+    background-color: #e9faf5;
 }
 
 .active { /* For current page */
-  background-color: deepskyblue;
+  background-color: #a8e9d6;
 }
 
 /*Footer Styling */
@@ -68,7 +70,7 @@ footer {
     height: 30px;
 }
 
-/* Error Styling*/ 
+/* Error Styling*/
 #error_explanation {
   color: red;
   ul {
@@ -100,10 +102,12 @@ hr {
 }
 
 label {
+    font-family: Comfortaa;
     font-size: 20px;
 }
 
 input[type=text], input[type=password], input[type=number], select{
+    font-family: Comfortaa;
     font-size: 20px;
     width: 100%;
     padding: 15px;
@@ -123,9 +127,10 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, se
 }
 
 button, .button {
+   font-family: Comfortaa;
    font-size: 20px;
    padding: 5px;
-   background-color: lightskyblue;
+   background-color: #7cdfc1;
 }
 
 .clearfix::after { /* Clear floats */
