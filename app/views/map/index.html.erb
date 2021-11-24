@@ -1,0 +1,174 @@
+<style>
+  .parent { /* Essentially entire page */
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align:center;
+  }
+
+  .stationscol {
+    float: left;
+    width: 25%;
+    margin: 0% 1%; /* Adds horizontal space */
+  }
+
+  #mapParent { /* Used to enable zoomable map */
+    overflow: hidden;
+    width: 72%;
+    max-height: 450px;
+    text-align: center;
+  }
+
+  #map {
+    position: relative; /* Enables pins to be absolute to map div */
+    width: 150%;
+    transform: translate(-100px, -100px);
+
+  }
+
+  #mapBackground { /* Map image */
+    position: relative; 
+    width: 100%; /* Fill map div */
+  }
+
+  p.pin{
+      cursor:pointer;
+  }
+
+  span { /* Station label styling */
+    background:#CADFEF;
+    border: 2px solid #000000;
+    color: #000000;
+    font-size: 13px;
+    line-height: 20px;
+    position:absolute; /* Relative to map container div */
+    text-align: center;
+    display: none; /* Hidden by default */
+    padding: 5px;
+  }
+
+  img {
+    position:absolute; /* Relative to map container div */
+  }
+
+  .buttons { /* Postions zoom buttons*/
+    position: fixed; /* Top of visible portion of map*/
+    top: 100px;
+    right: 15px;
+  }
+
+  .buttons button { /*Styles zoom buttons */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  
+</style>
+
+<div class="parent">
+  <div class="stationscol">
+    <h1>Stations</h1>
+    <div class="stationslist">
+      <% if @stations.present? %>
+        <%= render(partial: "simplifiedStationRow", collection: @stations, as: :station) %>
+      <% else %>
+      <div class="empty">
+        No stations found.
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div><h1>Map</h1></div>
+
+  <div id="mapParent">
+    <div id="map">
+      <img src="/images/nipmucNotch.PNG", id="mapBackground">
+      <% if @stations.present? %>
+        <%= render(partial: "stationPin", collection: @stations, as: :station) %> <%# Image and info%>
+        <%= render(partial: "stationArea", collection: @stations, as: :station) %> <%# Interactivity%>
+      <% end %>
+    </div>
+    <div class="buttons">
+        <button onclick="zoomOut()">-</button>
+        <button onclick="zoomIn()">+</button>
+        <button onclick="reset()" style="background-color: red;">⌂</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+  var currentZoom = 150;
+
+  function showStationInfo(n) { // Called on mouse over
+    var spanId = "label" + n; // Generates id of station info span
+    var stationInfo = document.getElementById(spanId);
+    stationInfo.style.display = "block"; // Show station info popup
+    stationInfo.style.zIndex = "9";
+
+  }
+
+  function hideStationInfo(n) { // Called on mouse leave
+    var spanId = "label" + n; // Generates id of station info span
+    var stationInfo = document.getElementById(spanId);
+    stationInfo.style.display = "none"; // Hide station info popup
+  }
+
+  var map = document.getElementById("map");
+
+  // Functions to enable zooming
+
+  function zoomIn() {
+    currentZoom += 3; // Increase magnification
+    map.style.width = String(currentZoom) + "%"; // Set modified width
+  }
+
+  function zoomOut() {
+    if (currentZoom > 100) { //Don't zoom out beyond 100%
+      currentZoom -= 3; // Decrease magnification
+    }
+    map.style.width = String(currentZoom) + "%"; // Set modified width
+  } 
+
+  function reset() {
+    currentZoom = 150; // Default zoom of 150%
+    map.style.width = String(currentZoom) + "%"; // Set modified width
+    map.style.transform = "translate(-100px, -100px)"; // Original position
+  }
+
+  /* Functions to make map panable */
+  map.addEventListener("dragstart", startPos); 
+  map.addEventListener("drag", pan); 
+  map.addEventListener("dragend", endPos); 
+
+  var currentX = -100; // Actual x
+  var currentY = -100; // Actual y
+
+  var previousX = 0;
+  var previousY = 0;
+
+  function startPos() { //Captures start mouse position
+    previousX = event.clientX;
+    previousY = event.clientY;
+  }
+
+  function pan() { // Translates map div while dragging
+    var xTrans = event.clientX - previousX + currentX; // Handles mouse pos change
+    var yTrans = event.clientY - previousY + currentY;
+    map.style.transform = "translate(" + xTrans + "px," + yTrans+ "px)"; // Moves map
+  }
+
+  function endPos() { // Actually moves map div to new location
+    var xTrans = event.clientX - previousX + currentX; // Handles mouse pos change
+    var yTrans = event.clientY - previousY + currentY;
+    currentX = xTrans; //Updates actual x and y
+    currentY = yTrans;
+    map.style.transform = "translate(" + xTrans + "px," + yTrans+ "px)"; // Moves map
+  }
+
+</script>
+
+

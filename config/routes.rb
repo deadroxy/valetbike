@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'rides/index'
-  get 'home/Map', to: "home#Map"
-  get 'home/Rides', to: "home#Rides"
-  get 'home/faqs', to: "home#faqs"
-
   root to: "home#index"
+
+  get 'rides', to: "rides#index"
+  get 'map', to: "map#index"
+  match '/map/:id', to: 'map#show', via: 'get'
+  get 'faqs', to: "home#faqs"
+
 
   get 'stations', to: "stations#index"
   get 'bikes', to: "bikes#index"
@@ -22,8 +23,5 @@ Rails.application.routes.draw do
   post 'login', to: "login#create"
   delete 'logout', to: "login#destroy"
   resources :users, only: [:create, :new]
-
-
-
 
 end

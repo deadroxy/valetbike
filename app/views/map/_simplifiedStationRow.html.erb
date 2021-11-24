@@ -1,0 +1,7 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %>">
+   <div class="right">
+      <h3><%= station.name %></h3>
+      <p><%=station.address%></p>
+      <p><%= station.docked_bikes.count%>/<%=station.capacity%> Bikes Available</p>
+   </div>
+</div>
