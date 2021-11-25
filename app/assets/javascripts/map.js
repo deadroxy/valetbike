@@ -2,18 +2,16 @@
 // focusable markers.
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
-      center: { lat: 34.84555, lng: -111.8035 },
+      zoom: 15,
+      center: { lat: 42.31710100023048, lng: -72.64019893342778 },
     });
     // Set LatLng and title text for the markers. The first marker (Boynton Pass)
     // receives the initial focus when tab is pressed. Use arrow keys to
     // move between markers; press tab again to cycle through the map controls.
     const tourStops = [
-      [{ lat: 34.8791806, lng: -111.8265049 }, "Boynton Pass"],
-      [{ lat: 34.8559195, lng: -111.7988186 }, "Airport Mesa"],
-      [{ lat: 34.832149, lng: -111.7695277 }, "Chapel of the Holy Cross"],
-      [{ lat: 34.823736, lng: -111.8001857 }, "Red Rock Crossing"],
-      [{ lat: 34.800326, lng: -111.7665047 }, "Bell Rock"],
+      [{ lat: 42.31790004551642, lng: -72.63340923034824 }, "ValleyBike Share"],
+      [{ lat: 42.31614494130486, lng: -72.63545914647698 }, "ValleyBike Share"],
+      [{ lat: 42.32029329055504, lng: -72.63977475937963 }, "ValleyBike Share"],
     ];
     // Create an info window to share between markers.
     const infoWindow = new google.maps.InfoWindow();
