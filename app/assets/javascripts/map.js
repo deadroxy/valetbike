@@ -20,7 +20,7 @@ function initMap() {
     "</div>" +
     "</div>";
   const tourStops = [
-    [{ lat: 42.31790004551642, lng: -72.63340923034824 }, "ValleyBike Share"],
+    [{ lat: 42.31790004551642, lng: -72.63340923034824 }, contentString1],
       [{ lat: 42.31614494130486, lng: -72.63545914647698 }, "ValleyBike Share"],
       [{ lat: 42.32029329055504, lng: -72.63977475937963 }, "ValleyBike Share"],
     ];
@@ -32,8 +32,8 @@ function initMap() {
       const marker = new google.maps.Marker({
         position,
         map,
-        //title: `${i + 1}. ${title}`,
-        title: contentString1,
+        title: `${i + 1}. ${title}`,
+        //title: contentString1,
         label: `${i + 1}`,
         optimized: false,
       });
