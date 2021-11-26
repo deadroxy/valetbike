@@ -9,8 +9,8 @@ default: &default
 development:
   <<: *default
   database: valetbike_development
-  username: root
-  password: Tevy194194
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['PASSWORD'] || '' %>
 
 
 test:
