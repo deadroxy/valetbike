@@ -48,7 +48,7 @@ const contentString2 =
 
   const tourStops = [
     [{ lat: 42.31263094188917, lng:-72.64626991303041}, contentString1],
-    [{ lat: 42.3355982502079, lng:-72.67411731294217}, contentString21],
+    [{ lat: 42.3355982502079, lng:-72.67411731294217}, contentString2],
     [{ lat: 42.31614494130486, lng: -72.63545914647698 }, "ValleyBike Share"]
    
     ];
