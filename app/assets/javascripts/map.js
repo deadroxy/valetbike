@@ -27,7 +27,6 @@ const contentString2 =
     '<div id="content">' +
     '<div id="siteNotice">' +
     "</div>" +
-
  '<h1 id="firstHeading" class="firstHeading">Florence Bank Station</h1>' +
     '<div id="bodyContent">' +
     "<p><b>19 Meadow Street Florence MA @ Lilly Library</b> <p>" +
@@ -36,18 +35,18 @@ const contentString2 =
     "</div>" +
     "</div>";
 
-//const contentString3 =
-//    '<div id="content">' +
-//    '<div id="siteNotice">' +
-//    "</div>" +
+const contentString3 =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
 
-// '<h1 id="firstHeading" class="firstHeading">YMCA/Child's Park</h1>' +
-//    '<div id="bodyContent">' +
-//    "<p><b>286 Prospect St, Northampton, MA 01060</b> <p>" +
-//    '<p>Want to bike there? <a href="https://www.google.com/maps/dir/42.3129308,-72.6270902/Hampshire+Regional+YMCA,+Prospect+Street,+Northampton,+MA/@42.3212524,-72.6556153,14z/data=!3m1!4b1!4m15!4m14!1m6!3m4!1m2!1d-72.6458716!2d42.3278747!3s0x89e6d71320c58d01:0x2278225675023a2f!4e1!1m5!1m1!1s0x89e6d71475e741fb:0x602a899293ff6b1f!2m2!1d-72.6438565!2d42.328809!3e1">' +
-//    "Directions</a> </p>" +
-//    "</div>" +
-//    "</div>";
+ '<h1 id="firstHeading" class="firstHeading">YMCA/Child &#146;s Park</h1>' +
+    '<div id="bodyContent">' +
+    "<p><b>286 Prospect St, Northampton, MA 01060</b> <p>" +
+    '<p>Want to bike there? <a href="https://www.google.com/maps/dir/42.3129308,-72.6270902/Hampshire+Regional+YMCA,+Prospect+Street,+Northampton,+MA/@42.3212524,-72.6556153,14z/data=!3m1!4b1!4m15!4m14!1m6!3m4!1m2!1d-72.6458716!2d42.3278747!3s0x89e6d71320c58d01:0x2278225675023a2f!4e1!1m5!1m1!1s0x89e6d71475e741fb:0x602a899293ff6b1f!2m2!1d-72.6438565!2d42.328809!3e1">' +
+    "Directions</a> </p>" +
+    "</div>" +
+    "</div>";
 
 
 
@@ -56,10 +55,8 @@ const contentString2 =
 
   const tourStops = [
     [{ lat: 42.31263094188917, lng:-72.64626991303041}, contentString1],
-    [{ lat: 42.3355982502079, lng:-72.67411731294217}, contentString2]
-//    [{ lat: 42.328890704807414, lng:-72.64397289468107}, contentString3]
-
- 
+    [{ lat: 42.3355982502079, lng:-72.67411731294217}, contentString2],
+    [{ lat: 42.328890704807414, lng:-72.64397289468107}, contentString3]
     ];
     // Create an info window to share between markers.
     const infoWindow = new google.maps.InfoWindow();
