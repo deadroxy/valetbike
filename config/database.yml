@@ -12,14 +12,17 @@ development:
   username: <%= ENV['MYSQL_USERNAME'] || '' %>
   password: <%= ENV['PASSWORD'] || '' %>
 
+
 test:
   <<: *default
   database: valetbike_test
   username: root
   password: 
 
+
 production:
   <<: *default
   database: valetbike_production
   username: root
   password: 
+
