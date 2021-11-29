@@ -56,4 +56,3 @@ Group C: Josten Kids
 * `rackup`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * You should see ValetBike welcome page
-
