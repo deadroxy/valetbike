@@ -31,6 +31,8 @@
 
   .container {
     padding: 0 16px;
+    text-align:center;
+    line-height: 1.8;
   }
 
   .container::after, .row::after {
@@ -66,8 +68,9 @@
       <div id="header-title">ValetBike</div>
       <div class="float-right">
         <ul>
-          <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
-          <li><%= link_to('Process', root_url, class: 'header-links') %></li>
+          <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+          <li><%= link_to('About', new_tab_url, class: 'header-links active') %></li>
+          <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
           <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
           <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
         </ul>
@@ -76,45 +79,95 @@
   </div>
 
 <!--Credits for format: https://www.w3schools.com/howto/howto_css_team.asp-->
-<h2>Responsive "Meet The Team" Section</h2>
+<br>
+<h1>About ValetBike</h1>
+<br>
+
+<p class="centDiv"> Valetbike was created in 2018 as a community tech co-op to service the community of Nipmuc Notch
+    with <br>an accessible, convenient, and reliable bike share service. We hope students, workers, shoppers, <br>and
+    adventurers can all find use in ValetBike. Please read about the process of renting a bike <%= link_to('here', {:controller => 'tabs', :action => 'index'}) %>.
+</p>
+
+<br>
+<br>
+
+<h1>About the Team</h1>
 <br>
 
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+      <img src="/w3images/team1.jpg" alt="Bri" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
+        <h2>Bri Laurenceau</h2>
+        <p class="title">Class of 'XX</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>example@example.com</p>
         <p><button class="button">Contact</button></p>
+        <br>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <img src="/w3images/team2.jpg" alt="Kayahma" style="width:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
+        <h2>Kayahma Brown</h2>
+        <p class="title">Class of 'XX</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>example@example.com</p>
         <p><button class="button">Contact</button></p>
+        <br>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <img src="/w3images/team3.jpg" alt="Alicia" style="width:100%">
       <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
+        <h2>Alicia Weaver</h2>
+        <p class="title">Class of 2023</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>example@example.com</p>
         <p><button class="button">Contact</button></p>
+        <br>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="Nikki" style="width:100%">
+      <div class="container">
+        <h2>Nikki Kirk</h2>
+        <p class="title">Class of 'XX</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+    <!--  <img src="brenda.jpg" alt="Brenda" style="width:100%">-->
+    <div class="centDiv">
+      <%=image_tag("brenda.jpg", width: 250, :alt => "Brenda")%>
+    </div>
+      <div class="container">
+        <h2>Brenda Gutierrez</h2>
+        <p class="title">Class of 2023J</p>
+        <p> Brenda is a STEM Posse 5 Scholar studying Computer Science with an Environmental Concentration at Smith College.<br>
+          They have experience in a variety of frontend and backend programming languages such as HTML, CSS, JS, PHP, C++, Java, Python, and more.
+          They are a Girls Who Code alum and worked as a Software Engineer Intern at Northrop Grumman for the past two years. <br>You may see them
+          gushing over cat/bird videos, taking nature walks, reading, or watching anime. </p>
+        <p>bgutierrez@smith.edu</p>
+        <p><button class="button">Contact</button></p>
+        <br>
       </div>
     </div>
   </div>
