@@ -81,6 +81,7 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     erubi (1.10.0)
+    ffi (1.15.3)
     ffi (1.15.3-x64-mingw32)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -110,8 +111,10 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.4-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.12.4-x86_64-darwin)
     nokogiri (1.12.4-x64-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.12.4-x86_64-darwin)
+    nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
     paypal-checkout-sdk (1.0.4)
       paypalhttp (~> 1.0.1)
@@ -217,12 +220,12 @@ DEPENDENCIES
   selenium-webdriver
   spring
   tzinfo-data
-  wdm
+  wdm (>= 0.1.0)
   web-console (>= 4.1.0)
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 2.7.4p191
 
 BUNDLED WITH
    2.2.30
