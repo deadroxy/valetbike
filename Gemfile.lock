@@ -108,6 +108,9 @@ GEM
     msgpack (1.4.2)
     mysql2 (0.5.3)
     nio4r (2.5.8)
+    nokogiri (1.12.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.12.4-x86_64-darwin)
     nokogiri (1.12.4-x64-mingw32)
       racc (~> 1.4)
     paypal-checkout-sdk (1.0.4)
@@ -194,6 +197,7 @@ GEM
 PLATFORMS
   arm64-darwin-20
   x64-mingw32
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -213,12 +217,12 @@ DEPENDENCIES
   selenium-webdriver
   spring
   tzinfo-data
-  wdm (>= 0.1.0)
+  wdm
   web-console (>= 4.1.0)
   webdrivers
 
 RUBY VERSION
-   ruby 2.7.4p191
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.30
