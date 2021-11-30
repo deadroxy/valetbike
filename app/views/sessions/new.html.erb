@@ -1,5 +1,5 @@
 <h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<br/>
 
 <h1>Login</h1>
    <%= form_tag '/login' do %>
@@ -9,3 +9,8 @@
    <%= password_field_tag :password%>
    <%= submit_tag "Login"%>
 <%end%>
+
+<br/>
+<h1> Are you a new user? </h1>
+<br/>
+<%=button_to "Create a New Account", '/users/new', method: :get%>
