@@ -3,5 +3,5 @@
   They will automatically be included in application.css.
 */
 .selector-for-some-widget {
-  box-sizing: content-box;
+   box-sizing: content-box;
 }
