@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorized, only: [:new, :create, :welcome]
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout]
 
   def new
   end
@@ -33,6 +33,11 @@ class SessionsController < ApplicationController
   end
 
   def page_requires_login
+    @stations = Station.all.order(identifier: :asc)
+    @bikes = Bike.all.order(identifier: :asc)
+  end
+
+  def checkout
   end
 
 
