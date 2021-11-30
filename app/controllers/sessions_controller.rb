@@ -1,10 +1,6 @@
 class SessionsController < ApplicationController
 
-<<<<<<< HEAD
-  skip_before_action :authorized, only: [:new, :create, :welcome, :about]
-=======
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout]
->>>>>>> 8e182fa32c45a4f04561849eca10402621b82d54
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about] 
 
   def new
   end
@@ -47,6 +43,8 @@ class SessionsController < ApplicationController
   def checkout
   end
 
+  def about
+  end
 
 
 end
