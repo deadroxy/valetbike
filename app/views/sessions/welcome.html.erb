@@ -1,14 +1,91 @@
-<h1>Welcome</h1>
+<!-- <!DOCTYPE html>
+<html lang='en'>
+<head>
+  <link rel="stylesheets" type = "text/css" href="sessions.css"></link>
 
-<br/>
-<img src="/assets/download.jpg" alt = "Background">
+</head>
+<body>
+  <h1>Welcome to ValetBike</h1>
 
-<h6>Find me in app/views/sessions/welcome.html.erb</h6>
+  <br/>
+  <img src="/assets/download.jpg" alt = "Background">
 
-<br/>
+  <h6>Find me in app/views/sessions/welcome.html.erb</h6>
 
-<% if logged_in? %>
-    <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
-<%end%>
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
+  <br/>
+
+  <%# <% if logged_in? %> %>
+      <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
+  <%# <%end%> %>
+</body>
+
+
+<div class = 'btn-group form-btn-group'>
+  <%# <%=button_to "Log In To Your Account", '/login', method: :get%> %>
+  <br/>
+  <%# <%=button_to "Create a New Account", '/users/new', method: :get%> %>
+  <br/>
+  <%# <%=button_to "FAQ", '/about', method: :get%> %>
+</div>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .jumbotronstyle {
+      background-image: url(/views/sessions/city.jpeg) !important;
+      background-size: cover;
+      /*background-position: center;*/
+      /*background-color: #E5E4E2*/
+      }
+      .btn-group{
+        color: #fff;
+        background-color: #E5E4E2;
+        border-color: #357ebd; /*set the color you want here*/
+      }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center jumbotronstyle">
+  <!--<img src="/assets/download.jpg" alt = "Background"> -->
+  <h1>Welcome to ValetBike</h1>
+</div>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  <%#<%= link_to "Login", "/login", :class => "btn" %> %>
+  <%=link_to "Log In", '/login', :class => "btn", method: :get%>
+  <%= link_to "Create An Account", "/users/new", :class =>"btn" %>
+  <%= link_to "About", "/about", :class =>"btn" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Membership 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Membership 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Membership 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
