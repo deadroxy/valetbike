@@ -1,4 +1,4 @@
-<h1>You have access to this page, <%= current_user.username %></h1>
+<h1>You have access to this page, <%= current_user.first_name %></h1>
 <h6> Find me in app/views/sessions/page_requires_login.html.erb </h6>
 <br/>
 <%=button_to "Log Out of Your Account", '/welcome', method: :get%>
@@ -65,7 +65,7 @@ map.panTo(latLon).fitBounds(bounds);
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
               +'<br><%= s.docked_bikes.count %> bike available'
-              +'<br><a href="url">Unlock</a>') //Adds pop up description
+              +'<br><a href="/checkout">Unlock</a>') //Adds pop up description
     .openPopup();
 <% end %>
   L.control.locate().addTo(map);

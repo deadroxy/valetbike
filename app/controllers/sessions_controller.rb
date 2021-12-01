@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about] 
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about]
 
   def new
   end
@@ -41,6 +41,13 @@ class SessionsController < ApplicationController
   end
 
   def checkout
+  end
+
+  def check
+    @bike = Bike.find_by(identifier: params[:bikeid])
+    @user = User.find(session[:user_id])
+    @user.current_bike_id = @bike.identifier
+    
   end
 
   def about
