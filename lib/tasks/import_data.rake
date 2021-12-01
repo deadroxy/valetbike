@@ -17,11 +17,12 @@ namespace :import_data do
 
   desc "TODO-import data from bike-data.csv"
   task import_bike_data: :environment do
-    csv_text = File.read(Rails.root.join("notes", "bike-data.csv"))
+    csv_text = File.read(Rails.root.join("notes", "bike-data-change.csv"))
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'iso-8859-1')
     csv.each do |row|
       b = Bike.new;
       b.identifier = row["identifier"]
+      b.current_station_id = row["current_station_identifier"]
       b.save
     end
   end

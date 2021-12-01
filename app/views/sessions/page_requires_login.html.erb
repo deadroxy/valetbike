@@ -31,6 +31,9 @@
 
 <br></br>
 
+<%=button_to "Log Out of Your Account", '/logout', method: :post%>
+
+
 <% unless @stations.present? %>
 <div class="empty">
   No stations found.
@@ -93,7 +96,7 @@ map.panTo(latLon).fitBounds(bounds);
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
               +'<br><%= s.docked_bikes.count %> bike available'
-              +'<br><a href="url">Unlock</a>') //Adds pop up description
+              +'<br><a href="/checkout">Unlock</a>') //Adds pop up description
     .openPopup();
 <% end %>
   L.control.locate().addTo(map);
