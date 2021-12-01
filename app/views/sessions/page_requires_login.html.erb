@@ -1,8 +1,7 @@
 <h1>You have access to this page, <%= current_user.first_name %></h1>
 <h6> Find me in app/views/sessions/page_requires_login.html.erb </h6>
 <br/>
-<%=button_to "Log Out of Your Account", '/welcome', method: :get%>
-  <%session[:user_id]= nil%>
+<%=button_to "Log Out of Your Account", '/logout', method: :post%>
 
 <br/>
 <% unless @stations.present? %>
