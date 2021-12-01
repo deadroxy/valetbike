@@ -5,7 +5,8 @@
 </style>
 <h1>✔️Return Successful<h1><br>
 <h2>Thank you for supporting ValetBike!<h2><br>
-<h2>You returned <%= @numBikes %> bike<% unless @numBikes == 1 %><%="s"%><% end %> 
+<h2>You returned <%= @numBikes %> bike<% unless @numBikes == 1 %><%="s"%><% end %>
 	to <%= @stationName %> at <%= @currentTime %>.</h2><br>
 <h2>Your total rental time was <%= @minutes %> minute<% unless @minutes == 1 %><%="s"%><% end %>.</h2><br>
 <h2>Your total cost comes to $<%= @cost %>.</h2>
+<h2>Congratulations for <%= current_user.totalMinutes %> minute<% unless current_user.totalMinutes == 1 %><%="s"%><% end %> of riding with Valet bike.</h2>
