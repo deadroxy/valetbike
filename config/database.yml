@@ -25,4 +25,3 @@ production:
   database: valetbike_production
   username: root
   password: 
-
