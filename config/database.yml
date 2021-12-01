@@ -4,22 +4,24 @@ default: &default
   collation: utf8mb4_unicode_520_ci
   reconnect: false
   pool: 5
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: valetbike_development
-  username: root
-  password: 1iamchinaA~!
+  #username: root
+  #password: rootroot
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
 
 test:
   <<: *default
   database: valetbike_test
   username: root
-  password: 1iamchinaA~!
+  password:
 
 production:
   <<: *default
   database: valetbike_production
   username: root
-  password: 1iamchinaA~!
+  password:

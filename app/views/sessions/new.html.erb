@@ -1,11 +1,54 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<html lang = "en">
+<head>
 
-<h1>Login</h1>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .Login {
+      background-color: #2b7efb;
+      color: #FFFFFF;
+      height: 100px;
+      width: 90%;
+      text-align: center;
+    }
+    .Login_Enter {
+      background-color: #E6F4F1;
+      width: 30%;
+      height: 250px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<br></br>
+
+<div class = "Login">
+  <h1> Login </h1>
+</div>
+
+<br></br>
+
+
+<div class = "Login_Enter">
+  <h2>Welcome Back!</h2>
    <%= form_tag '/login' do %>
+   <p></p>
    <%= label_tag :username%>
+   <p></p>
    <%= text_field_tag :username %>
+   <p></p>
    <%= label_tag :password%>
+   <p></p>
    <%= password_field_tag :password%>
+   <p></p>
    <%= submit_tag "Login"%>
 <%end%>
+</div>
+
+</body>
