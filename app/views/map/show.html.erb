@@ -1,13 +1,23 @@
-<h1><%= @station.name %></h1>
+
+<style>
+  wrapper{
+      margin-right: 100px;
+      margin-left: 100px;
+      margin-bottom: 100px;
+      text-align: center;
+ </style>
+  
+<wrapper><h1><%= @station.name %></h1>
 <h2> <%= @station.address%> </h2>
 <h4>Nearby landmarks: <%= @station.landmarksList %></h4>
 <br>
 <h3> <%= @station.docked_bikes.count%>/<%=@station.capacity%> Bikes Available</h3>
- <%= image_tag(@station.image || 'ride_unknown', :alt => "rss feed") %>
+ <%= image_tag(@station.image || 'ride_unknown', :alt => "station image", :style=> 'height:400px;width:auto;') %>
 <br>
 <%= @station.description %>
 <br>
 <br>
 
 <br>
- <%=link_to"View the Station Map",map_url%>
+<%=link_to"View the Station Map",map_url%></wrapper>
+
