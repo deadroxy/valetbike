@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'welcome', to: 'sessions#welcome'
   get 'about', to: 'sessions#about'
   get 'authorized', to: 'sessions#page_requires_login'
+  get 'payment', to: 'sessions#payment'
   get 'checkout', to: 'sessions#checkout'
   post 'checkout', to: 'sessions#check'
 
