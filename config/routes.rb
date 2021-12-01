@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'bikes/unlock'
   post 'bikes/unlock'
   get 'bikes/unlockConfirm'
+  get 'bikes/return'
+  post 'bikes/return'
   get 'bikes/returnConfirm'
-  post 'bikes/returnConfirm'
   get "stations/index"
   get 'cusserve/contacs'
   get 'billings/new/mastercard', to: 'billings#mastercard'

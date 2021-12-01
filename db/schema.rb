@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_052456) do
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier", null: false
+    t.integer "identifier"
     t.string "name"
     t.string "address"
     t.datetime "created_at", precision: 6, null: false

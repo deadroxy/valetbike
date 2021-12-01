@@ -19,8 +19,9 @@
 <%end%> 
  
 <% if @bikes_list.include? @input.to_i%>
-  <p> great! </p>
-  <%= link_to("Continue", {:controller => 'bikes', :action => 'unlockConfirm',:id => params[:id], :identifier=>@input}) %>
+  <script type="text/javascript">
+    window.location.href="/bikes/unlockConfirm?id=<%= params[:id] %>&identifier=<%=@input%>"  
+  </script>
 <%elsif @input==nil%>
 <%else%>
   <br>
