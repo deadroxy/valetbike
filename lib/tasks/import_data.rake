@@ -22,7 +22,7 @@ namespace :import_data do
     csv.each do |row|
       b = Bike.new;
       b.identifier = row["identifier"]
-      b.current_station_id = row["current_bike_identifier"]
+      b.current_station_id = row["current_station_identifier"]
       b.save
     end
   end
