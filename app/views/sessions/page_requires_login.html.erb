@@ -1,4 +1,4 @@
-<h1>You have access to this page, <%= current_user.username %></h1>
+<h1>You have access to this page, <%= current_user.first_name %></h1>
 <h6> Find me in app/views/sessions/page_requires_login.html.erb </h6>
 <br/>
 <%=button_to "Log Out of Your Account", '/welcome', method: :get%>
