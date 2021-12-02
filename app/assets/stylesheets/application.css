@@ -131,6 +131,8 @@ button, .button {
    font-size: 20px;
    padding: 5px;
    background-color: #7cdfc1;
+   border-radius: 6px;
+   border: solid #7cdfc1;
 }
 
 .clearfix::after { /* Clear floats */
