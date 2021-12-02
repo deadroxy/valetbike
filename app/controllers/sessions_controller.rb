@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+    skip_before_action :authorized, only: [:new, :create, :destroy]
+
   def new
     #render a form where user can log in
   end
@@ -21,4 +23,8 @@ class SessionsController < ApplicationController
     session.delete(:id)
     redirect_to root_path
   end
+
+  def payments
+end
+
 end

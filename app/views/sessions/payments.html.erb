@@ -9,17 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to('Home', {:controller => 'stations', :action => 'index' }, :class => 'nav-link') %>
-        <%= link_to("Log In", new_session_path, :class => 'nav-link')%>
-        <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link') %>
-        <%= link_to('User List', {:controller => 'users', :action => 'index' }, :class => 'nav-link') %>
+        <%#  <%= link_to("Log In", new_session_path, :class => 'nav-link')%>
+      <%#    <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link') %>
+      <%#    <%= link_to('User List', {:controller => 'users', :action => 'index' }, :class => 'nav-link') %>
         <a class="nav-link active" aria-current="page" href="#">Membership Purchase</a>
-        <%
-=begin%>
- <% if session[:id].present? %>
-          <%= link_to('User Profile', @user, :class => 'nav-link') %>
-        <% end %> 
-<%
-=end%>
+        <%= link_to('User Profile', @user, :class => 'nav-link') %>
+
+
       </div>
     </div>
   </div>
@@ -77,6 +73,3 @@
 <script>
 initPayPalButton();
 </script>
-
-
-
