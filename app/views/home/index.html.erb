@@ -3,12 +3,12 @@
       padding: 30px;
   }
   .home_image{
-    min-height: 30vh;
-    min-width: 100%;
+    min-height: 20vh;
+    min-width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(bikeshare.jpg);
+    background-color: white;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,8 +21,8 @@
     justify-content: center;
     height: 40%;
     width: 35%;
-    background-color: rgba(0,0,0,0.8);
-    color: white;
+    background-color: white;
+    color: black;
     text-transform: uppercase;
   }
   .resize{
@@ -42,11 +42,11 @@
     margin-right: 50px;
   }
 
+
 </style>
 
 <div class="welcome">
-  <h1>Welcome to </h1>
-  <img src="logo_image.jpg" alt="Logo">
+    <img src="logo_image.jpg" alt="Logo">
 </div>
 
 <div class="home_image">
@@ -61,6 +61,7 @@
   </div>
 </div>
 
+
 <br>
 <div class="flex-container">
   <div class="flex-child image">
@@ -70,6 +71,8 @@
   </div>
 
   <div class="flex-child description">
-    <h1>View recommended rides <%=link_to"here",rides_url%> !</h1>
+    <div style="padding-top: 30%">
+      <h1>View recommended rides <%=link_to"here",rides_url%> !</h1>
+    </div>
   </div>
 </div>
