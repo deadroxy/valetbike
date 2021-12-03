@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :check, :about, :payment, :how_it_works, :FAQ]
+
+
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check]
+
+
+
 
   def new
   end
@@ -48,8 +53,16 @@ class SessionsController < ApplicationController
 
   def check
     @bike = Bike.find_by(identifier: params[:bikeid])
-    @user = User.find(session[:user_id])
-    @user.current_bike_id = @bike.identifier
+    @user = current_user
+    @user.current_bike_id = params[:bikeid]
+    redirect_to '/ride'
+  end
+
+  def ride
+    @user = current_user
+    @bike = Bike.find_by_identifier(@user.current_bike_id)
+    @stations = Station.all.order(identifier: :asc)
+    @bikes = Bike.all.order(identifier: :asc)
 
   end
 
@@ -67,6 +80,8 @@ class SessionsController < ApplicationController
   def FAQ
   end
 
+  def checkin
+  end
 
 
 end

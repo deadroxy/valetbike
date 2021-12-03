@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'checkout', to: 'sessions#checkout'
   post 'checkout', to: 'sessions#check'
   post 'logout', to: 'sessions#logout'
+  get 'ride', to: 'sessions#ride'
+  post 'checkin', to: 'sessions#checkin'
 
 
   resources :places
