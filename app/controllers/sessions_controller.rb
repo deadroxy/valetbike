@@ -74,6 +74,12 @@ class SessionsController < ApplicationController
     redirect_to '/welcome'
   end
 
+  def how_it_works
+  end
+
+  def FAQ
+  end
+
   def checkin
   end
 
