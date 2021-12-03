@@ -1,20 +1,57 @@
 <!-- Profile Page -->
-<div class="page-section flexbox vertical stretch">
-  <div id="header">
-    <div id="header-title">ValetBike</div>
-    <div class="float-right">
-      <ul>
-        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
-        <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
-        <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
-        <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
-        <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
-        <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
-        <!-- <li><%= link_to('Orders', {:controller => 'orders', :action => 'index'}, class: 'header-links') %></li> -->
-      </ul>
+<!DOCTYPE html>
+<html>
+    <head>
+        <%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
+  <body>
+    <div class="page-section flexbox vertical stretch">
+      <div id="header">
+        <div id="header-title">ValetBike</div>
+        <div class="float-right">
+            <ul>
+                <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
+                <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+                <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
+                <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
+                <% if user_signed_in? %>
+                <li><%= link_to("Profile", current_user, class: 'header-links active') %></li>
+                <% else %>
+                <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+                <li><%= link_to('Login', new_user_session_path, class: 'header-links') %></li>
+                <% end %>
+            </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<h1> Hey, <%= @user.firstName %>! </h1>
-<p> Current Membership:<p>
-<%= link_to('Log Out', session_path, method: 'DELETE') %>
+    <br>
+    <div>
+      <h1>Hey <%= @user.firstName %>!</h1>
+      <br>
+      <h2>Account Information:</h2>
+      <br>
+      <div id="informationContainer">
+          <div class="informationTitle">Full Name:</div>
+          <div class="information"><%= @user.firstName %> <%= @user.lastName %></div>
+          <br>
+          <div class="informationTitle">Email Address:</div>
+          <div class="information"><%= @user.email %></div>
+          <br>
+          <div class="informationTitle">Mailing Address: </div>
+          <div class="information"><%= @user.streetAddress %></div>
+          <br>
+          <div class="informationTitle">City, State</div>
+          <div class="information"><%= @user.city %>, <%= @user.state %></div>
+          <br>
+          <div class="informationTitle">Phone Number: </div>
+          <div class="information"><%= @user.phoneNumber %></div>
+          <br>
+          <div class="informationTitle">Membership Type: </div>
+          <div class="information"><%= @user.membership %></div>
+
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'submitButton float-right' %>
+          <%= button_to "Edit Account", edit_user_registration_path, method: :get, class: 'submitButton float-left'%>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!-- Edit Profile Page -->
+<!--  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="page-section flexbox vertical stretch">
+      <div id="header">
+        <div id="header-title">ValetBike</div>
+        <div class="float-right">
+            <ul>
+                <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
+                <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+                <li><%= link_to('Process', {:controller => '/tabs', :action => 'index'}, class: 'header-links') %></li>
+                <li><%= link_to('Memberships', {:controller => '/memberships', :action => 'index'}, class: 'header-links') %></li>
+                <% if user_signed_in? %>
+                <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
+                <% else %>
+                <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+                <li><%= link_to('Login', new_user_session_path, class: 'header-links') %></li>
+                <% end %>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+        <h1>Edit <%= @user.firstName %>'s Profile</h1>
+        <br>
+        <h2>Account Information:</h2>
+        <br>
+        <div id="informationContainer">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="informationTitle">First Name:</div>
+            <div class="information field"><%= f.text_field :firstName %></div>
+            <br>
+            <div class="informationTitle">Last Name:</div>
+            <div class="information field"><%= f.text_field :lastName %></div>
+            <br>
+            <div class="informationTitle">Email Address:</div>
+            <div class="information"><%= f.text_field :email %></div>
+            <br>
+            <div class="informationTitle">Mailing Address: </div>
+            <div class="information"><%= f.text_field :streetAddress %></div>
+            <br>
+            <div class="informationTitle">City</div>
+            <div class="information"><%= f.text_field :city %></div>
+            <br>
+            <div class="informationTitle">State</div>
+            <div class="information"><%= f.select :state, options_for_select(us_states) %></div>
+            <br>
+            <div class="informationTitle">Phone Number: </div>
+            <div class="information"><%= f.text_field :phoneNumber %></div>
+            <br>
+            <div class="informationTitle">Membership Type: </div>
+            <div class="information"><%= f.select :membership, options_for_select(memberships) %></div>
+            <br>
+            <div class="informationTitle">New Password: <i class="passwordInfo">(Leave blank if no change)</i> </div>
+            <div class="information"><%= f.password_field :password, autocomplete: "new-password" %></div>
+            <br>
+            <div class="informationTitle">Confirm New Password: </div>
+            <div class="information"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
+            <br>
+            <div class="informationTitle">Enter Current Password to Confirm Updates: </div>
+            <div class="information"><%= f.password_field :current_password, autocomplete: "current-password" %></div>
+
+            <div class="actions float-left submitButton">
+              <%= f.submit "Update" %>
+            </div>
+            <br>
+            <br>
+          <% end %>
+          <%= button_to "Return", current_user, method: :get, class: 'submitButton float-right' %>
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'cancelAccountButton' %></p>
+        </div>
+        
+    </div>
+  </body>
+</html>

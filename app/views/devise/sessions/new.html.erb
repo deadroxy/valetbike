@@ -1,0 +1,47 @@
+<!-- Login Page -->
+<!-- /users/sign_in -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="page-section flexbox vertical stretch">
+      <div id="header">
+        <div id="header-title">ValetBike</div>
+        <div class="float-right">
+          <ul>
+            <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
+            <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+            <li><%= link_to('Process', {:controller => '/tabs', :action => 'index'}, class: 'header-links') %></li>
+            <li><%= link_to('Memberships', {:controller => '/memberships', :action => 'index'}, class: 'header-links') %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
+            <% else %>
+              <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+              <li><%= link_to('Login', new_user_session_path, class: 'header-links active') %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h1>Login</h1>
+    <br>
+    <div id="signupContainer">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="informationTitle">Email</div>
+        <div class="information field"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+        <br>
+        <div class="informationTitle">Password</div>
+        <div class="information field"><%= f.password_field :password, autocomplete: "current-password" %></div>
+        <% if devise_mapping.rememberable? %>
+          <%= link_to('Forgot Password?', new_user_password_path, class: 'float-right') %>
+          <div class="float-left field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+        <br>
+        <div class="actions submitButton"><%= f.submit "Log in" %></div>
+      <% end %>
+    </div>
+  </body>
+</html>
