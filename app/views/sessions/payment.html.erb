@@ -1,352 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    body{
-      margin-top:20px;
-      background:#eee;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
 
-/* WRAPPERS */
-#wrapper {
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-33 {
+  -ms-flex: 33%; /* IE10 */
+  flex: 33%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-66 {
+  -ms-flex: 66%; /* IE10 */
+  flex: 66%;
+}
+
+.col-33,
+.col-50,
+.col-66 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
   width: 100%;
-  overflow-x: hidden;
-}
-.wrapper {
-  padding: 0 20px;
-}
-.wrapper-content {
-  padding: 20px 10px 40px;
-}
-#page-wrapper {
-  padding: 0 15px;
-  min-height: 568px;
-  position: relative !important;
-}
-@media (min-width: 768px) {
-  #page-wrapper {
-    position: inherit;
-    margin: 0 0 0 240px;
-    min-height: 2002px;
-  }
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
-/* Payments */
-.payment-card {
-  background: #ffffff;
-  padding: 20px;
-  margin-bottom: 25px;
-  border: 1px solid #e7eaec;
-}
-.payment-icon-big {
-  font-size: 60px;
-  color: #d1dade;
-}
-.payments-method.panel-group .panel + .panel {
-  margin-top: -1px;
-}
-.payments-method .panel-heading {
-  padding: 15px;
-}
-.payments-method .panel {
-  border-radius: 0;
-}
-.payments-method .panel-heading h5 {
-  margin-bottom: 5px;
-}
-.payments-method .panel-heading i {
-  font-size: 26px;
-}
-
-.payment-icon-big {
-    font-size: 60px !important;
-    color: #d1dade;
-}
-
-.form-control,
-.single-line {
-  background-color: #FFFFFF;
-  background-image: none;
-  border: 1px solid #e5e6e7;
-  border-radius: 1px;
-  color: inherit;
+label {
+  margin-bottom: 10px;
   display: block;
-  padding: 6px 12px;
-  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
   width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.tab {
+  margin-left: 20px;
   font-size: 14px;
 }
-.text-navy {
-    color: #1ab394;
+
+.tier-check {
+  font-size: 17px;
 }
-.text-success {
-    color: #1c84c6;
+
+.before-container {
+  text-align: center;
 }
-.text-warning {
-    color: #f8ac59;
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
 }
-.ibox {
-  clear: both;
-  margin-bottom: 25px;
-  margin-top: 0;
-  padding: 0;
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
-.ibox.collapsed .ibox-content {
-  display: none;
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
-.ibox.collapsed .fa.fa-chevron-up:before {
-  content: "\f078";
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
 }
-.ibox.collapsed .fa.fa-chevron-down:before {
-  content: "\f077";
+
+a {
+  color: #2196F3;
 }
-.ibox:after,
-.ibox:before {
-  display: table;
+
+hr {
+  border: 1px solid lightgrey;
 }
-.ibox-title {
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  background-color: #ffffff;
-  border-color: #e7eaec;
-  border-image: none;
-  border-style: solid solid none;
-  border-width: 3px 0 0;
-  color: inherit;
-  margin-bottom: 0;
-  padding: 14px 15px 7px;
-  min-height: 48px;
+
+span.price {
+  float: right;
+  color: grey;
 }
-.ibox-content {
-  background-color: #ffffff;
-  color: inherit;
-  padding: 15px 20px 20px 20px;
-  border-color: #e7eaec;
-  border-image: none;
-  border-style: solid solid none;
-  border-width: 1px 0;
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-33 {
+    margin-bottom: 20px;
+  }
 }
-.ibox-footer {
-  color: inherit;
-  border-top: 1px solid #e7eaec;
-  font-size: 90%;
-  background: #ffffff;
-  padding: 10px 15px;
-}
-.text-danger {
-    color: #ed5565;
-}
-  </style>
+</style>
 </head>
+<body>
 
-<<<<<<< HEAD
-=======
-<h1>You have access to this page, <%= current_user.username %></h1>
->>>>>>> 408e7f0973c42ced99fbf0cd2af80537ca85b2fe
+<!-- <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
+<div class="row">
+  <div class="col-66">
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="payment-card">
-                <i class="fa fa-cc-visa payment-icon-big text-success"></i>
-                <h2>
-                    **** **** **** 1060
-                </h2>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <small>
-                            <strong>Expiry date:</strong> 10/16
-                        </small>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <small>
-                            <strong>Name:</strong> David
-                        </small>
-                    </div>
-                </div>
+    <h2 class="before-container">Checkout</h2>
+    <br>
+    <!--
+    <div class="topnav">
+      <a class="active" href="/welcome">Home</a>
+      <a href="/about">About</a>
+    </div>
+    -->
+
+    <p>Congrats, you're on the checkout page! If you didn't mean to make it here, then perhaps
+      you would want to make your way over to the <a href="/welcome">welcome page</a>, or perhaps even the <a href="/about">about page</a>?
+      Maybe you would even go as far as to <a href="/logout">log out</a>? We hope you won't leave us, but we're here
+      for later as well whenever you need us!</p>
+
+    <br>
+
+    <div class="container">
+      <form action="/action_page.php">
+
+        <div class="row">
+          <div class="col-50">
+            <br>
+            <h3>Billing Address</h3>
+            <br>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="GitHub Hater">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="idontlikeu@github.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="10001">
+              </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="payment-card">
-                <i class="fa fa-cc-mastercard payment-icon-big text-warning"></i>
-                <h2>
-                    **** **** **** 7002
-                </h2>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <small>
-                            <strong>Expiry date:</strong> 10/16
-                        </small>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <small>
-                            <strong>Name:</strong> Anna Smith
-                        </small>
-                    </div>
-                </div>
+          </div>
+
+          <div class="col-50">
+            <br>
+            <h3>Payment</h3>
+            <br>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="payment-card">
-                <i class="fa fa-cc-discover payment-icon-big text-danger"></i>
-                <h2>
-                    **** **** **** 3466
-                </h2>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <small>
-                            <strong>Expiry date:</strong> 10/16
-                        </small>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <small>
-                            <strong>Name:</strong> Morgan
-                        </small>
-                    </div>
-                </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="Professional Hater of GitHub">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
             </div>
+          </div>
         </div>
+
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label>
+
+        <input type="submit" value="Continue to checkout" class="btn">
+      </form>
+    </div>
+  </div>
+
+  <div class="col-33">
+
+    <div class="container">
+
+      <br>
+      <h3>Tier 1: Pay Per Ride</h3>
+      <br>
+      <hr>
+      <br>
+      <ul>
+        <li class="tab">Perfect for one time rides!</li>
+        <li class="tab">Rent a bike for 45 minutes for $3.</li>
+        <li class="tab">Overcharge fees of 25¢ every minute after 45 minutes without docking.</li>
+      </ul>
+      <br>
+      <hr>
+      <br>
+      <label class="tier-check">
+        <input type="checkbox" name="firsttier"> &nbsp; Purchase first tier
+      </label>
 
     </div>
-    <div class="row">
 
-        <div class="col-lg-12">
+    <br>
 
-            <div class="ibox">
-                <div class="ibox-title">
-                    Payment method
-                </div>
-                <div class="ibox-content">
+    <div class="container">
+      <br>
+      <h3>Tier 2: Monthly</h3>
+      <br>
+      <hr>
+      <br>
+      <ul>
+        <li class="tab">Unlimited 45 minute rides for one month!</li>
+        <li class="tab">Pay $25 per month to rent a bike any time.</li>
+        <li class="tab">Overcharge fees of 10¢ every minute after 45 minutes without docking.</li>
+      </ul>
+      <br>
+      <hr>
+      <br>
+      <label class="tier-check">
+        <input type="checkbox" name="secondtier"> &nbsp; Purchase second tier
+      </label>
 
-                    <div class="panel-group payments-method" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <div class="pull-right">
-                                    <i class="fa fa-cc-paypal text-success"></i>
-                                </div>
-                                <h5 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">PayPal</a>
-                                </h5>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
-                                <div class="panel-body">
-
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            <h2>Summary</h2>
-                                            <strong>Product:</strong>: Name of product <br>
-                                            <strong>Price:</strong>: <span class="text-navy">$452.90</span>
-
-                                            <p class="m-t">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                nisi ut aliquip ex ea commodo consequat.
-                                            </p>
-                                            <a class="btn btn-success">
-                                                <i class="fa fa-cc-paypal">
-                                                    Purchase via PayPal
-                                                </i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                     </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <div class="pull-right">
-                                    <i class="fa fa-cc-amex text-success"></i>
-                                    <i class="fa fa-cc-mastercard text-warning"></i>
-                                    <i class="fa fa-cc-discover text-danger"></i>
-                                </div>
-                                <h5 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Credit Card</a>
-                                </h5>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse in">
-                                <div class="panel-body">
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <h2>Summary</h2>
-                                            <strong>Product:</strong>: Name of product <br>
-                                            <strong>Price:</strong>: <span class="text-navy">$452.90</span>
-
-                                            <p class="m-t">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                nisi ut aliquip ex ea commodo consequat.
-
-                                            </p>
-                                            <p>
-                                                Duis aute irure dolor
-                                                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                                nulla pariatur. Excepteur sint occaecat cupidatat.
-                                            </p>
-                                        </div>
-                                        <div class="col-md-8">
-
-                                            <form role="form" id="payment-form">
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="form-group">
-                                                            <label>CARD NUMBER</label>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control" name="Number" placeholder="Valid Card Number" required="">
-                                                                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-7 col-md-7">
-                                                        <div class="form-group">
-                                                            <label>EXPIRATION DATE</label>
-                                                            <input type="text" class="form-control" name="Expiry" placeholder="MM / YY" required="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-5 col-md-5 pull-right">
-                                                        <div class="form-group">
-                                                            <label>CV CODE</label>
-                                                            <input type="text" class="form-control" name="CVC" placeholder="CVC" required="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <div class="form-group">
-                                                            <label>NAME OF CARD</label>
-                                                            <input type="text" class="form-control" name="nameCard" placeholder="NAME AND SURNAME">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <button class="btn btn-primary" type="submit">Make a payment!</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <br>
+
+    <div class="container">
+      <br>
+      <h3>Tier 3: Yearly</h3>
+      <br>
+      <hr>
+      <br>
+      <ul>
+        <li class="tab">Unlimited 60 minute rides for one year!</li>
+        <li class="tab">Pay $50 per year to rent a bike any time.</li>
+        <li class="tab">Overcharge fees of 10¢ every minute after 45 minutes without docking.</li>
+      </ul>
+      <br>
+      <hr>
+      <br>
+      <label class="tier-check">
+        <input type="checkbox" name="thirdtier"> &nbsp; Purchase third tier
+      </label>
+    </div>
+
+  </div>
 </div>
-</div>
+
+</body>
+</html>
