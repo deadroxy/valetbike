@@ -24,8 +24,4 @@ production:
   <<: *default
   database: valetbike_production
   username: root
-<<<<<<< HEAD
-  password: 
-=======
   password:
->>>>>>> 928a4a9b6e2fdad4023cda78a3fe904bf640b2c2
