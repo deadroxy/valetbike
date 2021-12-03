@@ -9,17 +9,36 @@ default: &default
 development:
   <<: *default
   database: valetbike_development
+<<<<<<< HEAD
   username: root
   password: Deda3435
+=======
+  #username: root
+  #password: rootroot
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
+>>>>>>> 408e7f0973c42ced99fbf0cd2af80537ca85b2fe
 
 test:
   <<: *default
   database: valetbike_test
   username: root
+<<<<<<< HEAD
   password: Deda3435
+=======
+  password:
+>>>>>>> 408e7f0973c42ced99fbf0cd2af80537ca85b2fe
 
 production:
   <<: *default
   database: valetbike_production
   username: root
+<<<<<<< HEAD
   password: Deda3435
+=======
+<<<<<<< HEAD
+  password: 
+=======
+  password:
+>>>>>>> 928a4a9b6e2fdad4023cda78a3fe904bf640b2c2
+>>>>>>> 408e7f0973c42ced99fbf0cd2af80537ca85b2fe
