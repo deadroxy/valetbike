@@ -10,13 +10,8 @@ Rails.application.routes.draw do
   get 'checkout', to: 'sessions#checkout'
   post 'checkout', to: 'sessions#check'
   post 'logout', to: 'sessions#logout'
-<<<<<<< HEAD
   get 'ride', to: 'sessions#ride'
-||||||| 928a4a9
-=======
-  get 'checkin', to: 'sessions#checkin'
-
->>>>>>> feec0348d13df98c0663891f099e233757388f82
+  post 'checkin', to: 'sessions#checkin'
 
 
   resources :places
