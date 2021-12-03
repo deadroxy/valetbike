@@ -43,12 +43,15 @@
     .jumbotronstyle {
       background-image: url(city.jpeg);
       background-size: cover;
+<<<<<<< HEAD
+=======
       background-position: 50% 80%;
       background-color: #2b7efb;
       width: 90%;
       color: #FFFFFF;
       text-align: center;
 
+>>>>>>> a5ad13f82da26fff27770759ed4ffa4d97a5615d
       }
       .btn-group{
         background-color: #FFFFFF;
@@ -88,9 +91,15 @@
 
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
+<<<<<<< HEAD
+  <%=link_to "Log In", '/login', :class => "btn", method: :get%>
+  <%= link_to "Create An Account", "/users/new", :class =>"btn", method: :get%>
+  <%= link_to "About", "/about", :class =>"btn", method: :get%>
+=======
   <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
   <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
   <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+>>>>>>> a5ad13f82da26fff27770759ed4ffa4d97a5615d
 </div>
 
 <% if logged_in? %>
