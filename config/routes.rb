@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'payment', to: 'sessions#payment'
   get 'checkout', to: 'sessions#checkout'
   post 'checkout', to: 'sessions#check'
+  post 'logout', to: 'sessions#logout'
 
 
   resources :places

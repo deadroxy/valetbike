@@ -29,10 +29,10 @@
 </div>
 
 </html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,53 +41,93 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
     .jumbotronstyle {
-      background-image: url(/views/sessions/city.jpeg) !important;
+      background-image: url(city.jpeg);
       background-size: cover;
+<<<<<<< HEAD
+=======
+      background-position: 50% 80%;
+      background-color: #2b7efb;
+      width: 90%;
+      color: #FFFFFF;
+      text-align: center;
+
+>>>>>>> a5ad13f82da26fff27770759ed4ffa4d97a5615d
       }
       .btn-group{
-        color: #fff;
-        background-color: #E5E4E2;
-        border-color: #357ebd; /*set the color you want here*/
+        background-color: #FFFFFF;
+        border-color: #000000;
+
+         /*set the color you want here*/
+      }
+      .btn-primary{
+        background-color: #286090;
+        border-color: #286090;
+        border-width: 3px;
+      }
+      .btn-primary:hover{
+        background-color: #00b3db;
+      }
+      .row {
+        padding: 20px;
+        background-color: #E6F4F1;
       }
   </style>
+
 </head>
+
 <body>
+
+<br></br>
 
 <div class="jumbotron text-center jumbotronstyle">
   <!--<img src="/assets/download.jpg" alt = "Background"> -->
   <h1>Welcome to ValetBike</h1>
+
 </div>
 <% if logged_in? %>
     <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
 <%end%>
 
-<div class="btn-group" role="group" aria-label="Basic example">
+
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
+<<<<<<< HEAD
   <%=link_to "Log In", '/login', :class => "btn", method: :get%>
   <%= link_to "Create An Account", "/users/new", :class =>"btn", method: :get%>
   <%= link_to "About", "/about", :class =>"btn", method: :get%>
+=======
+  <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+  <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
+  <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+>>>>>>> a5ad13f82da26fff27770759ed4ffa4d97a5615d
 </div>
 
 <% if logged_in? %>
     <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
 <%end%>
+
+<br></br>
+
 
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <h3>Membership 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h3>Pay-Per-Ride</h3>
+      <p>Perfect for one time rides!</p>
+      <p>Rent a bike for 45 minutes for $3. </p>
+      <p>Overcharge fees of 25¢ every minute after 45 minutes without docking.</p>
     </div>
     <div class="col-sm-4">
-      <h3>Membership 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h3>Monthly</h3>
+      <p>Unlimited 45 minute rides for one month!</p>
+      <p>Pay $25 per month to rent a bike any time.</p>
+      <p>Overcharge fees of 10¢ every minute after 45 minutes without docking.</p>
     </div>
     <div class="col-sm-4">
-      <h3>Membership 3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h3>Yearly</h3>
+      <p>Unlimited 60 minute rides for one year!</p>
+      <p>Pay $50 per year to rent a bike any time.</p>
+      <p>Overcharge fees of 10¢ every minute after 60 minutes without docking</p>
     </div>
   </div>
 </div>

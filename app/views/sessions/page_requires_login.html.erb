@@ -1,15 +1,46 @@
-<h1>You have access to this page, <%= current_user.first_name %></h1>
-<h6> Find me in app/views/sessions/page_requires_login.html.erb </h6>
-<br/>
-<%=button_to "Log Out of Your Account", '/welcome', method: :get%>
-  <%session[:user_id]= nil%>
+<html lang = "en">
+<head>
 
-<br/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .Access_Title {
+      background-color: #2b7efb;
+      color: #FFFFFF;
+      height: 100px;
+      width: 90%;
+      text-align: center;
+    }
+    .map {
+      background-color: #E6F4F1;
+    }
+
+  </style>
+</head>
+
+
+
+<br></br>
+
+<div class = "Access_Title">
+  <h1>You have access to this page, <%= current_user.username %>.</h1>
+</div>
+
+<br></br>
+
+<%=button_to "Log Out of Your Account", '/logout', method: :post%>
+
+
 <% unless @stations.present? %>
 <div class="empty">
   No stations found.
 </div>
 <% end %>
+
+<div class = "map">
 
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css%22%3E
@@ -71,3 +102,5 @@ map.panTo(latLon).fitBounds(bounds);
   L.control.locate().addTo(map);
 
 </script>
+
+</div>
