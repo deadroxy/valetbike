@@ -1,16 +1,37 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<!-- Forgot Password Page -->
+<html>
+  <body>
+    <div class="page-section flexbox vertical stretch">
+      <div id="header">
+        <div id="header-title">ValetBike</div>
+        <div class="float-right">
+          <ul>
+            <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
+            <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+            <li><%= link_to('Process', {:controller => '/tabs', :action => 'index'}, class: 'header-links') %></li>
+            <li><%= link_to('Memberships', {:controller => '/memberships', :action => 'index'}, class: 'header-links') %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
+            <% else %>
+              <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+              <li><%= link_to('Login', new_user_session_path, class: 'header-links active') %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h1>Reset Password</h1>
+    <br>
+    <div id="signupContainer">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <div class="informationTitle">Email</div>
+        <div class="information field"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+        <br>
+        <div class="actions requestEmailButton">
+          <%= f.submit "Send Reset Email" %>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

@@ -24,33 +24,34 @@
         </div>
       </div>
     </div>
+    <br>
     <div>
-        <h1>Hey <%= @user.firstName %>!</h1>
-        <br>
-        <h2>Account Information:</h2>
-        <br>
-        <div id="informationContainer">
-            <div class="informationTitle">Full Name:</div>
-            <div class="information"><%= @user.firstName %> <%= @user.lastName %></div>
-            <br>
-            <div class="informationTitle">Email Address:</div>
-            <div class="information"><%= @user.email %></div>
-            <br>
-            <div class="informationTitle">Mailing Address: </div>
-            <div class="information"><%= @user.streetAddress %></div>
-            <br>
-            <div class="informationTitle">City, State</div>
-            <div class="information"><%= @user.city %>, <%= @user.state %></div>
-            <br>
-            <div class="informationTitle">Phone Number: </div>
-            <div class="information"><%= @user.phoneNumber %></div>
-            <br>
-            <div class="informationTitle">Membership Type: </div>
-            <div class="information"><%= @user.membership %></div>
+      <h1>Hey <%= @user.firstName %>!</h1>
+      <br>
+      <h2>Account Information:</h2>
+      <br>
+      <div id="informationContainer">
+          <div class="informationTitle">Full Name:</div>
+          <div class="information"><%= @user.firstName %> <%= @user.lastName %></div>
+          <br>
+          <div class="informationTitle">Email Address:</div>
+          <div class="information"><%= @user.email %></div>
+          <br>
+          <div class="informationTitle">Mailing Address: </div>
+          <div class="information"><%= @user.streetAddress %></div>
+          <br>
+          <div class="informationTitle">City, State</div>
+          <div class="information"><%= @user.city %>, <%= @user.state %></div>
+          <br>
+          <div class="informationTitle">Phone Number: </div>
+          <div class="information"><%= @user.phoneNumber %></div>
+          <br>
+          <div class="informationTitle">Membership Type: </div>
+          <div class="information"><%= @user.membership %></div>
 
-            <%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
-            <%= button_to "Edit Account", edit_user_registration_path, method: :get %>
-        </div>
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'submitButton float-right' %>
+          <%= button_to "Edit Account", edit_user_registration_path, method: :get, class: 'submitButton float-left'%>
+      </div>
     </div>
   </body>
 </html>

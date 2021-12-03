@@ -1,3 +1,6 @@
+<!-- Registration Page -->
+<!-- /users/sign_up -->
+<!DOCTYPE html>
 <html>
   <head>
     <%= stylesheet_link_tag 'signup', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,14 +18,14 @@
             <% if user_signed_in? %>
               <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
             <% else %>
-              <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+              <li><%= link_to('Register', new_user_registration_path, class: 'header-links active') %></li>
               <li><%= link_to('Login', new_user_session_path, class: 'header-links') %></li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-
+    <br>
     <h1>Sign up</h1><br>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div id="signupContainer">
@@ -45,7 +48,7 @@
             <div class="information field"><%= f.select :state, options_for_select(us_states) %></div>
             <br>
             <div class="informationTitle">Phone Number: </div>
-            <div class="information field"><%= f.text_field :phoneNumber %></div>
+            <div class="information field"><%= f.telephone_field :phoneNumber %></div>
             <br>
             <div class="informationTitle">Membership Type: </div>
             <div class="information field"><%= f.select :membership, options_for_select(memberships) %></div>
@@ -60,10 +63,12 @@
             <br>
             <div class="informationTitle">Confirm Password: </div>
             <div class="information field"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
-
-            <div class="actions">
+            <br>
+            <div class="actions submitButton">
               <%= f.submit "Sign up" %>
             </div>
+            <br>
+            <div class="error"><%= render "devise/shared/error_messages", resource: resource %></div>
         </div>
     <% end %>
   </body>

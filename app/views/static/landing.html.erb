@@ -1,56 +1,10 @@
 <!-- Landing Page -->
+<!-- static/landing (root) -->
 <!DOCTYPE html>
 <html>
   <head>
-    <style type="text/css">
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 600px;
-        /* The height is 400 pixels */
-        width: 100%;
-        /* The width is the width of the web page */
-      }
-    </style>
-    <script>
-      // Initialize and add the map
-      function initMap() {
-        // The map, centered at franklin street
-        const center = { lat: 42.32549, lng: -72.643412 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 15,
-          center: center,
-        });
-        //Station locations
-        const jmg = { lat: 42.3193925, lng: -72.6380155 };
-        const cd = { lat: 42.3303212, lng: -72.653308 };
-        const northKing = { lat: 42.3410186, lng: -72.6421968 };
-        const forbes = { lat: 42.3167667, lng: -72.635669 };
-        const pPark = { lat: 42.3172997, lng: -72.6335812 };
-        //Initialize info window
-
-        // Markers positioned at station locations
-        const jmgMarker = new google.maps.Marker({
-          position: jmg,
-          map: map,
-        });
-        const cdMarker = new google.maps.Marker({
-          position: cd,
-          map: map,
-        });
-        const northKingMarker = new google.maps.Marker({
-          position: northKing,
-          map: map,
-        });
-        const forbesMarker = new google.maps.Marker({
-          position: forbes,
-          map: map,
-        });
-        const pParkMarker = new google.maps.Marker({
-          position: pPark,
-          map: map,
-        });
-      }
-    </script>
+    <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/map.css"></link>
+    <script src="app/assets/javascripts/map.js"></script>
   </head>
   <body>
     <div class="page-section flexbox vertical stretch">
@@ -74,15 +28,13 @@
     </div>
     <div class="page-section flexbox vertical stretch">
       <div id="map_section" class="full-height">
+        <br>
         <center><h1>Bike Stations</h1></center>
+        <br>
         <!--The div element for the map -->
         <div id="map"></div>
-
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA2Fh8-gg0ylW23s_Q1I_zkLPBGx8OKqo&callback=initMap&libraries=&v=weekly"
-          async
-        ></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA2Fh8-gg0ylW23s_Q1I_zkLPBGx8OKqo&callback=initMap&libraries=&v=weekly" async></script>
       </div>
     </div>
   </body>

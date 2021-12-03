@@ -1,9 +1,10 @@
 <!-- Edit Profile Page -->
+<!--  -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
-    </head>
+  <head>
+    <%= stylesheet_link_tag 'profile', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
   <body>
     <div class="page-section flexbox vertical stretch">
       <div id="header">
@@ -32,8 +33,11 @@
         <div id="informationContainer">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="informationTitle">Full Name:</div>
-            <div class="information field"><%= f.text_field :firstName %> <%= f.text_field :lastName %></div>
+            <div class="informationTitle">First Name:</div>
+            <div class="information field"><%= f.text_field :firstName %></div>
+            <br>
+            <div class="informationTitle">Last Name:</div>
+            <div class="information field"><%= f.text_field :lastName %></div>
             <br>
             <div class="informationTitle">Email Address:</div>
             <div class="information"><%= f.text_field :email %></div>
@@ -41,8 +45,11 @@
             <div class="informationTitle">Mailing Address: </div>
             <div class="information"><%= f.text_field :streetAddress %></div>
             <br>
-            <div class="informationTitle">City, State</div>
-            <div class="information"><%= f.text_field :city %>, <%= f.select :state, options_for_select(us_states) %></div>
+            <div class="informationTitle">City</div>
+            <div class="information"><%= f.text_field :city %></div>
+            <br>
+            <div class="informationTitle">State</div>
+            <div class="information"><%= f.select :state, options_for_select(us_states) %></div>
             <br>
             <div class="informationTitle">Phone Number: </div>
             <div class="information"><%= f.text_field :phoneNumber %></div>
@@ -56,16 +63,19 @@
             <div class="informationTitle">Confirm New Password: </div>
             <div class="information"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
             <br>
-            <div class="informationTitle">Enter Current Password to Confirm Updates </div>
+            <div class="informationTitle">Enter Current Password to Confirm Updates: </div>
             <div class="information"><%= f.password_field :current_password, autocomplete: "current-password" %></div>
 
-            <div class="actions">
+            <div class="actions float-left submitButton">
               <%= f.submit "Update" %>
             </div>
+            <br>
+            <br>
           <% end %>
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <%= button_to "Return", current_user, method: :get, class: 'submitButton float-right' %>
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'cancelAccountButton' %></p>
         </div>
-        <%= link_to("Done", current_user) %>
+        
     </div>
   </body>
 </html>
