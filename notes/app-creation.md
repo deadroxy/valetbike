@@ -34,7 +34,7 @@ Instructions for replicating my from-scratch creation of the ValetBike app skele
 
 ## 4. Code a bit of the start
 - `rails generate model station identifier:integer name:string address:string`
-- `rails generate model Bike identifier:integer current_station_id:integer`
+- `rails generate model Bike identifier:integer current_station_identifier:integer`
 - `rake db:migrate`
 - Set up validators and relations station.rb & bike.rb
 - `rails generate controller stations`
