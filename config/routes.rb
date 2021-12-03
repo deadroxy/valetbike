@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'ride', to: 'sessions#ride'
   get 'checkin', to: 'sessions#checkin'
   post 'checkin', to: 'sessions#process_checkin'
+  
 
 
   resources :places

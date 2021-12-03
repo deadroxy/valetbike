@@ -1,10 +1,6 @@
 class SessionsController < ApplicationController
 
-
-
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ]
-
-
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ, :process_checkin]
 
 
   def new
@@ -96,7 +92,14 @@ class SessionsController < ApplicationController
   def process_checkin
     @bike = Bike.find_by_identifier(current_user.current_bike_id)
     @bike.update_attribute(:current_station_identifier, params[:station_identifier])
+<<<<<<< HEAD
     redirect_to '/welcome'
+||||||| fa699f9
+    p @bike
+    redirect_to '/welcome'
+=======
+    p @bike
+>>>>>>> c95cd1d33828750657c248548402b9996b5eaa61
   end
 
 end
