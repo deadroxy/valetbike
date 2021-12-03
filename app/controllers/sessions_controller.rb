@@ -1,10 +1,6 @@
 class SessionsController < ApplicationController
 
-
-
   skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check]
-
-
 
 
   def new
@@ -14,17 +10,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
 
-        # line 14 (right under this comment) was in the original article but giving me an error message
-
-        # sessions[:user_id] = @user.id
-
-        # the error was that i hadn't created/defined a local variable/method named sessions, which is true, but it also
-        # offered the suggestion to change it to 'session' which i did (see below), but i don't know if
-        # this messes up anything ;-;
-
         session[:user_id] = @user.id
 
-        redirect_to '/welcome'
+        redirect_to '/authorized'
     else
         redirect_to '/login'
     end
@@ -84,7 +72,7 @@ class SessionsController < ApplicationController
   def process_checkin
     @bike = Bike.find_by_identifier(current_user.current_bike_id)
     p @bike
-    @bike.update_attribute(:current_station_id, params[:station_identifier])
+    @bike.update_attribute(:current_station_identifier, params[:station_identifier])
     p @bike
     redirect_to '/welcome'
   end
