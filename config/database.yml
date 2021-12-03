@@ -4,7 +4,7 @@ default: &default
   collation: utf8mb4_unicode_520_ci
   reconnect: false
   pool: 5
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -14,11 +14,14 @@ development:
   username: root
   password: rootroot
 
+
 test:
   <<: *default
   database: valetbike_test
   username: root
   password:
+
+
 
 production:
   <<: *default
