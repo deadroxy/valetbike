@@ -49,21 +49,18 @@ class SessionsController < ApplicationController
   end
 
   def checkout
+    @station = Station.find_by_identifier(params[:station_identifier])
   end
 
   def check
-    @bike = Bike.find_by(identifier: params[:bikeid])
-    @user = current_user
-    @user.current_bike_id = params[:bikeid]
+    current_user.update_attribute(:current_bike_id, params[:bikeid])
     redirect_to '/ride'
   end
 
   def ride
-    @user = current_user
-    @bike = Bike.find_by_identifier(@user.current_bike_id)
+    @bike = Bike.find_by_identifier(current_user.current_bike_id)
     @stations = Station.all.order(identifier: :asc)
     @bikes = Bike.all.order(identifier: :asc)
-
   end
 
   def about
@@ -81,7 +78,15 @@ class SessionsController < ApplicationController
   end
 
   def checkin
+    @stations = Station.all.order(identifier: :asc)
   end
 
+  def process_checkin
+    @bike = Bike.find_by_identifier(current_user.current_bike_id)
+    p @bike
+    @bike.update_attribute(:current_station_id, params[:station_identifier])
+    p @bike
+    redirect_to '/welcome'
+  end
 
 end

@@ -8,14 +8,7 @@
 <img src="/assets/bike.jpg" alt = "Background">
 
 <br/>
-<%= form_tag '/checkin' do %>
-<%= label_tag :"Bike ID"%>
-<%= text_field_tag :bikeid %>
-
-
-
-<%= submit_tag "Enter"%>
-<%end%>
+<h3>Bike id : <%= current_user.current_bike_id %></h3>
 <br/>
 <body>
 <div class="dropdown">
@@ -25,9 +18,12 @@
 
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-  <li><a class="dropdown-item" href="#">Hi</a></li>
-  <li><a class="dropdown-item" href="#">Help me</a></li>
-  <li><a class="dropdown-item" href="#">I will cry</a></li>
+    <% @stations.each do |s|%>
+    <li><a class="dropdown-item" href="checkin?station_identifier=<%= s.identifier %>" data-method="post"><%=s.name%></a></li>
+    <% end %>
+    <li><a class="dropdown-item" href="#">Hi</a></li>
+    <li><a class="dropdown-item" href="#">Help me</a></li>
+    <li><a class="dropdown-item" href="#">I will cry</a></li>
   </ul>
 </div>
 </body>

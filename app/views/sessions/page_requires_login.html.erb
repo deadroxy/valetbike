@@ -26,7 +26,7 @@
 <br></br>
 
 <div class = "Access_Title">
-  <h1>You have access to this page, <%= current_user.username %>.</h1>
+  <h1>You have access to this page, <%= current_user.first_name %>.</h1>
 </div>
 
 <br></br>
@@ -97,7 +97,7 @@ map.panTo(latLon).fitBounds(bounds);
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
               +'<br><%= s.docked_bikes.count %> bike available'
-              +'<br><a href="/checkout">Unlock</a>') //Adds pop up description
+              +'<br><a href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
     .openPopup();
 <% end %>
   L.control.locate().addTo(map);
