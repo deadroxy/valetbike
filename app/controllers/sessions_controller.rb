@@ -1,10 +1,7 @@
 class SessionsController < ApplicationController
 
-<<<<<<< HEAD
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment]
-=======
+
   skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :check, :about, :payment]
->>>>>>> 408e7f0973c42ced99fbf0cd2af80537ca85b2fe
 
   def new
   end
@@ -60,13 +57,9 @@ class SessionsController < ApplicationController
   def about
   end
 
-<<<<<<< HEAD
-  def payment
-=======
   def logout
     session[:user_id]= nil
     redirect_to '/welcome'
->>>>>>> 408e7f0973c42ced99fbf0cd2af80537ca85b2fe
   end
 
 
