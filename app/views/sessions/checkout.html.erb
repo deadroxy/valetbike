@@ -6,5 +6,5 @@
    <%= form_tag '/checkout' do %>
    <%= label_tag :"Bike ID"%>
    <%= text_field_tag :bikeid %>
-   <%= submit_tag "Enter"%>
+   <%= submit_tag "Enter", data: { station_identifier: @station.identifier }%>
 <%end%>
