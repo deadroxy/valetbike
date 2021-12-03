@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 
 
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check]
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ]
 
 
 
