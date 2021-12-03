@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
   get 'checkout', to: 'sessions#checkout'
   post 'checkout', to: 'sessions#check'
+  get 'payment', to: 'sessions#payment'
 
 
   resources :places
