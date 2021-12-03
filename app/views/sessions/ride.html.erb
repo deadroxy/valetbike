@@ -21,17 +21,14 @@
   </style>
 </head>
 
-
-
-<br></br>
-
 <div class = "Access_Title">
-  <h1>You have access to this page, <%= current_user.first_name %>.</h1>
+  <h1>Enjoy your bike ride, <%= current_user.first_name %></h1>
 </div>
+<h2>Bike id : <%= current_user.current_bike_id %></h2>
 
 <br></br>
 
-<%=button_to "Log Out of Your Account", '/logout', method: :post%>
+<%=button_to "Check in your bike", '/checkin', method: :get%>
 
 <br></br>
 
@@ -96,8 +93,7 @@ map.panTo(latLon).fitBounds(bounds);
 <% @stations.each do |s|%>
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
-              +'<br><%= s.docked_bikes.count %> bike available'
-              +'<br><a href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
+              +'<br><%= s.docked_bikes.count %> bike available') //Adds pop up description
     .openPopup();
 <% end %>
   L.control.locate().addTo(map);

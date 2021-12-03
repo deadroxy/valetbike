@@ -1,5 +1,6 @@
 <html lang = "en">
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,10 +21,11 @@
       height: 250px;
       text-align: center;
     }
+
     body {
         background: black;
     }
-    .welcome{
+    p {
       height: 75%;
       width: 75%;
       background-color: #E6F4F1;
@@ -33,47 +35,38 @@
       height: 50%;
       width: 50%;
     }
-    .contact {
-      width: 20%;
-      background-color: #E6F4F1;
-      padding: 20px;
-      text-align: center;
-    }
+
 
   </style>
 </head>
 
 <br></br>
 
-
-
-<div class = "About">
-  <h1>About Page </h1>
-</div>
-<br></br>
-
-<div class = "welcome">
-<p> Welcome to Team Ghost's ValetBike Project. Our objective is to create a
-  better interface and web program than our competition, ValleyBike.
-  That website is terrible and it should go and die.
-</p>
-</div>
-
-<br></br>
-
-<img src="Bike_Background.jpg" alt = "Background">
-
-<br></br>
-
-<div class = "contact">
-<p>Call us at: 444-666-1313</p>
-</div>
-
-<br></br>
-
-
-
+<img src="how-it-works.png" alt = "Background">
 
 <br/>
 <%=button_to "Back to Welcome Page", '/welcome', method: :get%>
 <br/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Sign Up or Login</h3>
+      <p>Become a member and create your account to start.</p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Unlock your Bike</h3>
+      <p>Enter the bike ID code to unlock the bike at the proper station. </p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Enjoy your Ride!</h3>
+      <p>Ride your bike around as long as you want.</p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Return your Bike!</h3>
+      <p>Return your bike once you're finished with your ride and lock it at a nearby station.</p>
+    </div>
+  </div>
+</div>
+
+<br></br>
