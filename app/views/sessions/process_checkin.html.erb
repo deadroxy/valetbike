@@ -13,13 +13,6 @@
       width: 90%;
       text-align: center;
     }
-    .bikeID {
-      width: 50%;
-      background-color: #E6F4F1;
-      padding: 20px;
-      text-align: center;
-    }
-
   </style>
 </head>
 
@@ -28,7 +21,7 @@
 
 
 <div class = "checkout">
-  <h1>Check Out Bike</h1>
+  <h1>Thank You for Checking In Your Bike!</h1>
 </div>
 
 <br></br>
@@ -36,12 +29,7 @@
 
 <img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>
 
-<div class = "bikeID">
-<h2>Station: <%= @station.name %></h2>
 <br/>
-   <%= form_tag '/checkout' do %>
-   <%= label_tag :"Bike ID"%>
-   <%= text_field_tag :bikeid %>
-   <%= submit_tag "Enter", data: { station_identifier: @station.identifier }%>
-<%end%>
-</div>
+<br/>
+<%=button_to "Back to Welcome Page", '/welcome', method: :get%>
+<br/>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'checkin', to: 'sessions#process_checkin'
 
 
+
   resources :places
   #root to: "stations#index"
   root to: "sessions#welcome"

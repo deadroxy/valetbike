@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check]
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ, :process_checkin]
 
 
   def new
@@ -37,12 +37,24 @@ class SessionsController < ApplicationController
   end
 
   def checkout
-    @station = Station.find_by_identifier(params[:station_identifier])
+    if params[:station_identifier]
+      p params[:station_identifier].to_i
+      session[:station_identifier] = params[:station_identifier].to_i
+    end
+    @station = Station.find_by_identifier(session[:station_identifier])
   end
 
   def check
-    current_user.update_attribute(:current_bike_id, params[:bikeid])
-    redirect_to '/ride'
+    b = Bike.find_by_identifier(params[:bikeid])
+    p session[:station_identifier]
+    p b.current_station_identifier
+    if session[:station_identifier] == b.current_station_identifier
+      current_user.update_attribute(:current_bike_id, params[:bikeid])
+      b.update_attribute(:current_station_identifier, nil)
+      redirect_to '/ride'
+    else
+      redirect_to '/checkout'
+    end
   end
 
   def ride
@@ -71,10 +83,14 @@ class SessionsController < ApplicationController
 
   def process_checkin
     @bike = Bike.find_by_identifier(current_user.current_bike_id)
+<<<<<<< HEAD
     p @bike
     @bike.update_attribute(:current_station_identifier, params[:station_identifier])
     p @bike
     redirect_to '/welcome'
+=======
+    @bike.update_attribute(:current_station_identifier, params[:station_identifier])
+>>>>>>> 954989a90f7fdc3289291a1c264b59f5e560966d
   end
 
 end

@@ -17,18 +17,34 @@
     .map {
       background-color: #E6F4F1;
     }
+    .checkin {
+      width: 50%;
+      background-color: #E6F4F1;
+      padding: 20px;
+      text-align: center;
+    }
+
 
   </style>
 </head>
 
+<br></br>
+
 <div class = "Access_Title">
   <h1>Enjoy your bike ride, <%= current_user.first_name %></h1>
 </div>
-<h2>Bike id : <%= current_user.current_bike_id %></h2>
 
 <br></br>
 
-<%=button_to "Check in your bike", '/checkin', method: :get%>
+
+<div class = "checkin">
+  <h2>Bike ID : <%= current_user.current_bike_id %></h2>
+
+  <%=button_to "Check in your bike", '/checkin', method: :get%>
+
+</div>
+
+
 
 <br></br>
 
@@ -101,3 +117,5 @@ map.panTo(latLon).fitBounds(bounds);
 </script>
 
 </div>
+
+<br></br>
