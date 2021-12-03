@@ -1,0 +1,22 @@
+/************************************/
+/*       Signup Page Style          */
+/************************************/
+
+#signupContainer{
+    width: 400px;
+    padding: 10px;
+    background-color: #fafafa;
+}
+.informationTitle{
+    font-weight: bold;
+
+    /* margin-left: 125px; */
+}
+.information{
+    background-color: #fff;
+    width: 400px;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    line-height: 35px;
+}
