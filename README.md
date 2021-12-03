@@ -1,7 +1,7 @@
 Overview of dev environment setup and Instructions for Populating Database:
 First, make sure to update the database.yml page, so that the socket variable takes in the correct socket path name. Then enter the directory initializers in order to update _env.rb file with your username and password accordingly. If there is trouble with the _env.rb file, on lines 12 and 13 of the same database file, you might have to replace the code behind <> with ‘root’ in line 12, and your MySQL password in line 13 and make sure to manually input your password for under test and production.
 
-In order to populate the database, first bundle install to install the gems that we used in the code. Second, call upon rake db:migrate in order to create the new tables: users and places. Finally, rackup to call on the server and open the web page.
+In order to populate the database, first bundle install to install the gems that we used in the code. Second, call upon rake db:migrate in order to create the new tables: users and places. Then, run rake tasks "rake import_data:import_station_data" and "rake import_data:import_bike_data" Finally, rackup to call on the server and open the web page.
 
 You should first see the welcome page once you click on the website name that appears once you rackup. If there are any issues with the link for any reason, you should be able to manually enter either of these links to access: http://localhost:9292/, or http://127.0.0.1:9292/.
 
