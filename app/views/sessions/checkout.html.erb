@@ -1,5 +1,8 @@
 <h1>Check Out Bike</h1>
 <br/>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
 <img src="animated_bike.gif" alt = "Background">
 <h2>Station: <%= @station.name %></h2>
 <br/>
