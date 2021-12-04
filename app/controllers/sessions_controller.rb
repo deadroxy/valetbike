@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 =======
   skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ]
 >>>>>>> fa699f9e590c812a48ce83734065800da48f3d7c
+  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :process_checkin, :how_it_works, :FAQ]
 
 
 

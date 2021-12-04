@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_202903) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "current_bike_id"
+    t.string "email"
     t.string "first_name"
     t.string "last_name"
   end
