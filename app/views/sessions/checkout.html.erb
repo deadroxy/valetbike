@@ -1,10 +1,53 @@
-<h1>Check Out Bike</h1>
-<br/>
-<img src="animated_bike.gif" alt = "Background">
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .checkout {
+      background-color: #2b7efb;
+      color: #FFFFFF;
+      height: 100px;
+      width: 90%;
+      text-align: center;
+    }
+    .bikeID {
+      width: 50%;
+      background-color: #E6F4F1;
+      padding: 20px;
+      text-align: center;
+    }
+    .alart {
+      color: red;
+      font-size: 15px;
+    }
+
+  </style>
+</head>
+
+<br></br>
+
+
+
+<div class = "checkout">
+  <h1>Check Out Bike</h1>
+</div>
+<br></br>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name, class: "alart" %>
+  <p class= "alart"> Please try with different bike ID </p>
+<% end -%>
+
+<img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>
+
+<div class = "bikeID">
 <h2>Station: <%= @station.name %></h2>
 <br/>
    <%= form_tag '/checkout' do %>
    <%= label_tag :"Bike ID"%>
    <%= text_field_tag :bikeid %>
-   <%= submit_tag "Enter"%>
+   <%= submit_tag "Enter", data: { station_identifier: @station.identifier }%>
 <%end%>
+</div>
