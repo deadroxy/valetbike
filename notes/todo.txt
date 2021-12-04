@@ -2,3 +2,8 @@ rails generate migration AddPasswordToUser password:string
 //or a password hash...
 
 rails db:migrate
+
+once the user is logged in:
+change the nav bar
+if current_user nil then show login & sign up stuff
+else current_user is logged in, so only show log out button
