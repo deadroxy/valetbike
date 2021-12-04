@@ -22,13 +22,10 @@ namespace :import_data do
     csv.each do |row|
       b = Bike.new;
       b.identifier = row["identifier"]
-<<<<<<< HEAD
+
       b.current_station_identifier = row["current_station_identifier"]
       #b.current_station = Station.find_by_identifier(row["current_station_identifier"])
-=======
-      #b.current_station = Station.find_by_identifier(row["current_station_identifier"])
-      b.current_station_identifier = row["current_station_identifier"]
->>>>>>> 418105ab0d5b3b5e1a747c81c119ad93265599ac
+
       b.save
     end
   end

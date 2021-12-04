@@ -54,6 +54,7 @@ class SessionsController < ApplicationController
       b.update_attribute(:current_station_identifier, nil)
       redirect_to '/ride'
     else
+      
       flash[:error] = "Could not find the bike at this station"
       redirect_to '/checkout'
     end

@@ -7,32 +7,46 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
+
     .Access_Title {
-      background-color: #2b7efb;
+      background-color: #286090;
       color: #FFFFFF;
       height: 100px;
       width: 90%;
       text-align: center;
     }
+
     .map {
       background-color: #E6F4F1;
     }
 
+    .btn-logout {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
   </style>
 </head>
-
-
 
 <br></br>
 
 <div class = "Access_Title">
-  <h1>You have access to this page, <%= current_user.first_name %>.</h1>
+  <h1>Welcome to ValetBike, <%= current_user.first_name %>!</h1>
 </div>
+
 <br></br>
 <%=button_to "Back to Welcome Page", '/welcome', method: :get%>
 <br></br>
 
-<%=button_to "Log Out of Your Account", '/logout', method: :post%>
+<%=button_to "Log Out of Your Account", '/logout', data: { confirm: "Are you sure?" }, method: :post, class: "btn-logout"%>
 
 <br></br>
 
