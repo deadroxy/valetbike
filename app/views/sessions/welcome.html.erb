@@ -59,6 +59,9 @@
 
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
+  <% if logged_in? %>
+     <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
+  <% end %>
   <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
   <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
