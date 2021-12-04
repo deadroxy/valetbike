@@ -36,7 +36,7 @@
       .btn-primary:hover{
         background-color: #00b3db;
       }
-      
+
       .btn-primary:visited{
         color: #FFFFFF;
       }
@@ -64,7 +64,7 @@
   <%#<%= link_to "Login", "/login", :class => "btn" %>
   <% if logged_in? %>
      <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
-     <%= link_to "Membership", "/payment", :class => "btn btn-primary" %>
+     <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
   <% end %>
   <% if not logged_in? %>
      <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>

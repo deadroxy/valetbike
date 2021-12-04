@@ -11,8 +11,8 @@
     .Access_Title {
       background-color: #286090;
       color: #FFFFFF;
-      height: 100px;
-      width: 90%;
+      height: 75px;
+      width: 100%;
       text-align: center;
     }
 
@@ -21,32 +21,92 @@
     }
 
     .btn-logout {
-      background-color: #4CAF50;
+      background-color: #E6F4F1;
       border: none;
-      color: white;
-      padding: 15px 32px;
+      color: black;
       text-align: center;
-      text-decoration: none;
       display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
     }
-    
+
+    .btn-group{
+      background-color: #FFFFFF;
+      border-color: #000000;
+
+       /*set the color you want here*/
+    }
+
+    btn-primary{
+      background-color: #286090;
+      border-color: #286090;
+      border-width: 3px;
+    }
+
+    .btn-primary:hover{
+      background-color: #00b3db;
+    }
+
+    .btn-primary:visited{
+      color: #FFFFFF;
+    }
+
+    .intro-text {
+      padding: 10px;
+      background-color: #E6F4F1;
+      text-align: center;
+    }
+
+    .logout-discl {
+      text-align: right;
+      background-color: #E6F4F1;
+      padding: 10px;
+    }
+
+    .unlock:hover {
+      background-color: #00b3db;
+    }
+
   </style>
 </head>
 
 <br></br>
 
 <div class = "Access_Title">
-  <h1>Welcome to ValetBike, <%= current_user.first_name %>!</h1>
+  <h1>Welcome back, <%= current_user.first_name %>!</h1>
 </div>
 
-<br></br>
-<%=button_to "Back to Welcome Page", '/welcome', method: :get%>
-<br></br>
+<br>
 
-<%=button_to "Log Out of Your Account", '/logout', data: { confirm: "Are you sure?" }, method: :post, class: "btn-logout"%>
+<div class="col-sm-4">
+  <div class="intro-text">
+    <p>Please find the navigation buttons above the map in case you need to
+      reorient yourself on the website or, if you want to check out a bike,
+      click on any of the markers on the map conencted to your station of interest
+      and press 'Unlock.'</p>
+  </div>
+  <div class="logout-discl">
+    <p><em>If you wanted to logout instead,</em></p>
+    <%=button_to "Log Out of Your Account", '/logout', data: { confirm: "Are you sure?" }, method: :post, class: "btn-logout"%>
+  </div>
+</div>
+
+<br>
+
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <%#<%= link_to "Login", "/login", :class => "btn" %>
+  <% if logged_in? %>
+     <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
+     <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
+  <% end %>
+  <% if not logged_in? %>
+     <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+     <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
+  <% end %>
+  <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
+  <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
+  <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+</div>
 
 <br></br>
 
@@ -112,7 +172,7 @@ map.panTo(latLon).fitBounds(bounds);
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
               +'<br><%= Bike.where(:current_station_identifier => s.identifier).all.count %> bike available'
-              +'<br><a href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
+              +'<br><a class="unlock" href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
     .openPopup();
 <% end %>
   L.control.locate().addTo(map);
