@@ -55,13 +55,6 @@
       color: #FFFFFF;
     }
 
-    .logout-discl {
-      text-align: right;
-      background-color: #E6F4F1;
-      padding: 10px;
-      width: 550px;
-    }
-
   </style>
 </head>
 
@@ -76,10 +69,6 @@
   <p class= "alart"> Please try with different bike ID </p>
 <% end -%>
 
-<div class="logout-discl">
-  <%=button_to "Log Out of Your Account", '/logout', data: { confirm: "Are you sure?" }, method: :post, class: "btn-logout"%>
-</div>
-
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
   <% if logged_in? %>
@@ -93,6 +82,9 @@
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
   <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
   <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+  <% if logged_in? %>
+     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
+  <% end %>
 </div>
 
     <img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>

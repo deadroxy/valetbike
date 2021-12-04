@@ -73,6 +73,9 @@
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
   <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
   <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+  <% if logged_in? %>
+     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
+  <% end %>
 </div>
 
 

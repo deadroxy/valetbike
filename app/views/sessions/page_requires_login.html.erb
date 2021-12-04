@@ -57,12 +57,6 @@
       text-align: center;
     }
 
-    .logout-discl {
-      text-align: right;
-      background-color: #E6F4F1;
-      padding: 10px;
-    }
-
     .unlock:hover {
       background-color: #00b3db;
     }
@@ -85,10 +79,6 @@
       click on any of the markers on the map conencted to your station of interest
       and press 'Unlock.'</p>
   </div>
-  <div class="logout-discl">
-    <p><em>If you wanted to logout instead,</em></p>
-    <%=button_to "Log Out of Your Account", '/logout', data: { confirm: "Are you sure?" }, method: :post, class: "btn-logout"%>
-  </div>
 </div>
 
 <br>
@@ -106,6 +96,9 @@
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
   <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
   <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+  <% if logged_in? %>
+     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
+  <% end %>
 </div>
 
 <br></br>
