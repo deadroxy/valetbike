@@ -167,7 +167,7 @@ span.price {
 
     <p>Congrats, you're on the checkout page! If you didn't mean to make it here, then perhaps
       you would want to make your way over to the <a href="/welcome">welcome page</a>, or perhaps even the <a href="/about">about page</a>?
-      Maybe you would even go as far as to <a href="/logout">log out</a>? We hope you won't leave us, but we're here
+      Maybe you would even go as far as to <%=button_to "Log Out", '/logout', method: :post%>? We hope you won't leave us, but we're here
       for later as well whenever you need us!</p>
 
     <br>
