@@ -83,14 +83,11 @@ class SessionsController < ApplicationController
 
   def process_checkin
     @bike = Bike.find_by_identifier(current_user.current_bike_id)
-<<<<<<< HEAD
     p @bike
     @bike.update_attribute(:current_station_identifier, params[:station_identifier])
     p @bike
     redirect_to '/welcome'
-=======
     @bike.update_attribute(:current_station_identifier, params[:station_identifier])
->>>>>>> 954989a90f7fdc3289291a1c264b59f5e560966d
   end
 
 end
