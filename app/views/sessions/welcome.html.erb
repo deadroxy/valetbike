@@ -34,6 +34,10 @@
       .btn-primary:hover{
         background-color: #00b3db;
       }
+      .btn-primary:visited{
+        color: #FFFFFF;
+      }
+
       .row {
         padding: 20px;
         background-color: #E6F4F1;
@@ -51,9 +55,6 @@
   <h1>Welcome to ValetBike</h1>
 
 </div>
-<% if logged_in? %>
-    <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
-<%end%>
 
 
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
@@ -65,9 +66,6 @@
   <%= link_to "About", "/about", :class =>"btn btn-primary"%>
 </div>
 
-<% if logged_in? %>
-    <meta http-equiv="Refresh" content="0; url='http://localhost:9292/authorized'" />
-<%end%>
 
 <br></br>
 
