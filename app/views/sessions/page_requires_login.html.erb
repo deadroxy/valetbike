@@ -28,7 +28,8 @@
 <div class = "Access_Title">
   <h1>You have access to this page, <%= current_user.first_name %>.</h1>
 </div>
-
+<br></br>
+<%=button_to "Back to Welcome Page", '/welcome', method: :get%>
 <br></br>
 
 <%=button_to "Log Out of Your Account", '/logout', method: :post%>
