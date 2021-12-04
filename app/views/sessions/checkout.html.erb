@@ -19,6 +19,10 @@
       padding: 20px;
       text-align: center;
     }
+    .alart {
+      color: red;
+      font-size: 15px;
+    }
 
   </style>
 </head>
@@ -30,9 +34,11 @@
 <div class = "checkout">
   <h1>Check Out Bike</h1>
 </div>
-
 <br></br>
-
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name, class: "alart" %>
+  <p class= "alart"> Please try with different bike ID </p>
+<% end -%>
 
 <img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>
 

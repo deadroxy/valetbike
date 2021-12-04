@@ -109,7 +109,7 @@ map.panTo(latLon).fitBounds(bounds);
 <% @stations.each do |s|%>
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
-              +'<br><%= s.docked_bikes.count %> bike available') //Adds pop up description
+              +'<br><%= Bike.where(:current_station_identifier => s.identifier).all.count %> bike available') //Adds pop up description
     .openPopup();
 <% end %>
   L.control.locate().addTo(map);

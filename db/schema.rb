@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_12_03_230158) do
+=======
+ActiveRecord::Schema.define(version: 2021_12_03_044945) do
+>>>>>>> 418105ab0d5b3b5e1a747c81c119ad93265599ac
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "identifier"
@@ -43,9 +47,9 @@ ActiveRecord::Schema.define(version: 2021_12_03_230158) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "current_bike_id"
+    t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
   end
 
 end

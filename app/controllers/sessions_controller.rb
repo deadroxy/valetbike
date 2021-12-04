@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+
   skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ, :process_checkin]
 
 
@@ -53,6 +54,7 @@ class SessionsController < ApplicationController
       b.update_attribute(:current_station_identifier, nil)
       redirect_to '/ride'
     else
+      flash[:error] = "Could not find the bike at this station"
       redirect_to '/checkout'
     end
   end
@@ -83,10 +85,6 @@ class SessionsController < ApplicationController
 
   def process_checkin
     @bike = Bike.find_by_identifier(current_user.current_bike_id)
-    p @bike
-    @bike.update_attribute(:current_station_identifier, params[:station_identifier])
-    p @bike
-    redirect_to '/welcome'
     @bike.update_attribute(:current_station_identifier, params[:station_identifier])
   end
 
