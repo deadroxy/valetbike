@@ -62,7 +62,9 @@
   <% if logged_in? %>
      <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
   <% end %>
-  <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+  <% if not logged_in? %>
+     <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+  <% end %>
   <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
   <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
