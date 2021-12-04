@@ -50,17 +50,17 @@
       <% if logged_in? %> 
 
         <div class="dropdown rightNav">
-          <li class="dropBtn rightNav" id="spacer"><%= current_user.username %></li>
+          <li class="dropBtn <%=active_class(users_path)%>"><%=link_to current_user.username,users_url%></li>
           <div class="dropdownContent">
             <%=link_to"Rent",rent_url%>
             <%=link_to"Return",return_url%>
             <%=link_to"Logout",logout_path, method: "delete"%>
           </div>
         </div>
-        <% if current_user.rented_bikes.count == 0 %>
-          <li class="rightNav <%=active_class(rent_path)%>"><%=link_to"Rental",rent_url%></li>
+        <% if current_user.rented_bikes.count == 0 %> 
+          <li class="rightNav <%=active_class(rent_path)%><%=active_class(return_path)%>"><%=link_to"Rental",rent_url%></li>
         <% else %>
-          <li class="rightNav <%=active_class(return_path)%>"><%=link_to"Rental",return_url%></li>
+          <li class="rightNav <%=active_class(rent_path)%><%=active_class(return_path)%>"><%=link_to"Rental",return_url%></li>
         <% end %>
       <% else %>
         <li class="rightNav <%=active_class(new_user_path)%>"><%=link_to"Signup",new_user_path%></li>

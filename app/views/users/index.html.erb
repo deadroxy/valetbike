@@ -1,0 +1,28 @@
+<style>
+  #bikes {
+    max-height: 50vh;
+    overflow-y: scroll;
+  }
+  h3 {
+    text-align: center;
+  }
+</style>
+<h1>User Profile</h1>
+  <div class="flexbox vertical">
+    <br> <!-- Basic user info -->
+    <p><b>Username:</b> <%= current_user.username %></p><br>
+    <p><b>Email:</b> <%= current_user.email %></p><br>
+    <p><b>Total Rental Time:</b> <%= (current_user.totalMinutes / 60) %> hours (<%= (current_user.totalMinutes) %> minutes)</p><br> <!--Displays hour and minute representations -->
+    <p><b>Payment:</b> Credit card ending in <%= current_user.creditCardNum.to_s[12..] %> (expires <%= current_user.expDate %>)</p><br> <!-- Last four digits -->
+    <h3>Rented Bikes</h3>
+    <div id="bikes"> 
+      <% if @bikes.present? %> <!-- Template displays rental date and time -->
+        <%= render(partial: "bikes/rowForUser", collection: @bikes, as: :bike) %>
+      <% else %>
+        <div class="empty">
+          No bikes currently rented. 
+        </div>
+      <% end %>
+    </div>
+  </div>
+
