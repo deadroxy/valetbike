@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
+  
   def index
+    if logged_in?
+      @bikes = Bike.order(checkoutTime: :asc).select{|b| b.current_user_id == current_user.id} # Bikes of current user
+    else # Handle error case where user isn't logged in
+      flash[:error] = "You must be logged in to view profile"
+      redirect_to controller: :login, action: :index
+    end
+  
   end
 
   def new

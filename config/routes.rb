@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   get 'login', to: "login#index"
   post 'login', to: "login#create"
   delete 'logout', to: "login#destroy"
-  resources :users, only: [:create, :new]
+  resources :users, only: [:index, :create, :new]
 
 end

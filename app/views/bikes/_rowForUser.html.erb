@@ -1,0 +1,4 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+  <!-- Rental date and local time -->
+  Bike rented on <%= bike.checkoutTime.localtime().strftime("%b %e at %I:%M %p") %> 
+</div>
