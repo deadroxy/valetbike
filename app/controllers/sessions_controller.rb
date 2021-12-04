@@ -39,7 +39,6 @@ class SessionsController < ApplicationController
 
   def checkout
     if params[:station_identifier]
-      p params[:station_identifier].to_i
       session[:station_identifier] = params[:station_identifier].to_i
     end
     @station = Station.find_by_identifier(session[:station_identifier])
@@ -47,8 +46,6 @@ class SessionsController < ApplicationController
 
   def check
     b = Bike.find_by_identifier(params[:bikeid])
-    p session[:station_identifier]
-    p b.current_station_identifier
     if session[:station_identifier] == b.current_station_identifier
       current_user.update_attribute(:current_bike_id, params[:bikeid])
       b.update_attribute(:current_station_identifier, nil)
