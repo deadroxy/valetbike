@@ -147,6 +147,11 @@ var bikeIcon = L.icon({
     	iconSize: [50, 50],
     	iconAnchor: [25,0]
     });
+var bikeIconDisactivated = L.icon({
+    	iconUrl: 'bike-disactivated.svg',
+    	iconSize: [50, 50],
+    	iconAnchor: [25,0]
+    });
 
 //Establishes the latitude, longitutde, and bounds
 var latLon = L.latLng(42.32529052324533, -72.65033251578427);
@@ -169,11 +174,18 @@ map.panTo(latLon).fitBounds(bounds);
 
 //Creates markers with bike icon and adds to the map
 <% @stations.each do |s|%>
-  L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
-    .bindPopup('<%= s.name %>'
-              +'<br><%= Bike.where(:current_station_identifier => s.identifier).all.count %> bike available'
-              +'<br><a class="unlock" href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
-    .openPopup();
+  <% if Bike.where(:current_station_identifier => s.identifier).all.count == 0 %>
+    L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIconDisactivated}).addTo(map)
+      .bindPopup('<%= s.name %>'
+                +'<br>No bike available') //Adds pop up description
+      .openPopup();
+  <% else %>
+    L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
+      .bindPopup('<%= s.name %>'
+                +'<br><%= Bike.where(:current_station_identifier => s.identifier).all.count %> bike available'
+                +'<br><a class="unlock" href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
+      .openPopup();
+  <% end %>
 <% end %>
   L.control.locate().addTo(map);
 
