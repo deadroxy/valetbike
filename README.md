@@ -23,3 +23,8 @@ https://github.com/axyjo/leaflet-rails
 https://leafletjs.com/
 http://bl.ocks.org/KoGor/81e6ce8945c43405e3e9
 https://stackoverflow.com/questions/40733981/rails-cannot-load-such-file-bcrypt
+https://medium.com/lightthefuse/rails-5-routes-cookbook-10-recipes-for-the-novice-rails-developer-and-beyond-9986f43064bc
+https://stackoverflow.com/questions/1992019/rails-how-can-i-rename-a-database-column-in-a-ruby-on-rails-migration
+https://blog.dnsimple.com/2018/03/elapsed-time-with-ruby-the-right-way/
+https://code-maven.com/convert-string-to-number-in-ruby
+https://guides.rubyonrails.org/action_controller_overview.html#flash-now
