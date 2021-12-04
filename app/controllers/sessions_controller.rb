@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
 
   def check
     b = Bike.find_by_identifier(params[:bikeid])
-    if session[:station_identifier] == b.current_station_identifier
+    if b && session[:station_identifier] == b.current_station_identifier
       current_user.update_attribute(:current_bike_id, params[:bikeid])
       b.update_attribute(:current_station_identifier, nil)
       redirect_to '/ride'
