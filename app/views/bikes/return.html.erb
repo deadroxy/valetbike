@@ -11,6 +11,10 @@
       
       <% if bike.identifier == @input.to_i && bike.current_station_id==nil%>
          <% bike.current_station_id=params[:id]%>
+         <% time_current=Time.now%>
+         <% borrow_length= (time_current-bike.time_checkedout)/60%>
+         <% current_user.credits -= borrow_length% 15 +1%>
+         <% current_user.save%>
          <% bike.save %>
          <% @counter = 0%>
          <script type="text/javascript">

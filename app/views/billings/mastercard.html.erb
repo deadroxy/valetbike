@@ -6,6 +6,15 @@
     type="hidden"
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
+
+    <p>
+    <label for="credits">Choose a credit plan:</label>
+    <select id="credits" name="credits">
+      <option value="1">1 credit (15 minutes, 1$)</option>
+      <option value="5">5 credits (75 minutes, 4$)</option>
+    </select>
+    <p>
+
     <p> 
     Holder Name <input type="text" required="required" placeholder= "" name="holder_name">
     </p>

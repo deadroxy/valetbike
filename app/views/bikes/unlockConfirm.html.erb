@@ -6,9 +6,11 @@
       <% if bike.identifier == params[:identifier].to_i%>
          <% @station_id = bike.current_station_id%>
          <%bike.current_station_id=nil%>
+         <%bike.update(time_checkedout: Time.now)%>
          <%bike.save%>
          
          <%= link_to("Return the dock", {:controller => 'bikes', :action => 'show', :id=>@station_id}) %>
       <% end %>
+      
     
 <% end %>  

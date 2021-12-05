@@ -5,12 +5,20 @@
       <% if bike.current_station_id == params[:id].to_i%>
          <p>bike: <%= @counter%><p>
          <%@counter = @counter+1%>
+        
          <%#=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id], :identifier => bike.identifier}) %>
          <%@rented=bike.identifier%>
+         
       <% end %>
    
 <% end %>  
-<%=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}) %>
+
+<% if current_user.credits > 0 %>
+      <%=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}) %>
+<% end %>
+<% if current_user.credits <= 0 %>
+      <%= link_to "Go buy some credits to borrow a bike!", new_billing_path %></li>
+<% end %>
 <br /><br />
 <%= link_to("Return the Bike", {:controller => 'bikes', :action => 'return', :id => params[:id]}) %>
 <br /><br />

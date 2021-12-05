@@ -15,6 +15,8 @@ class BillingsController < ApplicationController
     def create_mastercard
         @billing= Billing.new(billing_params.merge(payment_method: "mastercard", user_id: current_user.id))
         if @billing.save
+            current_user.credits += params[:credits].to_i
+            current_user.save
             render :show
         else 
             render json: @billing.errors.full_messages, status:422
@@ -24,14 +26,15 @@ class BillingsController < ApplicationController
     def create_VISA
         @billing= Billing.new(billing_params.merge(payment_method: "VISA", user_id: current_user.id))
         if @billing.save
+            current_user.credits += params[:credits].to_i
+            current_user.save
             render :show
         else 
             render json: @billing.errors.full_messages, status:422
         end
     end
         
-        
-    
+            
     def show
         @billing= Billing.find(params[:id])
     end
@@ -44,6 +47,6 @@ class BillingsController < ApplicationController
     private
 
     def billing_params
-        params.permit(:payment_method, :holder_name, :card_number, :expir_date, :cvv, :user_id )
+        params.permit( :payment_method, :holder_name, :card_number, :expir_date, :cvv, :user_id )
     end
 end
