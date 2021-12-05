@@ -26,16 +26,31 @@
         </div>
       </div>
     </div>
+    <!--Credit:
+      https://www.w3schools.com/howto/howto_css_image_text.asp
+      -->
     <div class="page-section flexbox vertical stretch">
       <div id="map_section" class="full-height">
+        <div class="imgContainer">
+          <%=image_tag("valley.jpeg", style: 'width:100%;', :alt => "Nipmoc Notch")%>
+          <div class="imgText"><h1 style="color:white; font-size:60px;">Welcome to Valetbike</h1>
+            <br>
+            <h3> A bike share service made by the community, for the community.</h3>
+            <br>
+            <h3> Create an account <%= link_to('today', new_session_path, {:style=>'color:white;'})%>. </h3>
+          </div>
+        </div>
         <br>
-        <center><h1>Bike Stations</h1></center>
+        <br>
+        <h1>Bike Stations</h1>
         <br>
         <!--The div element for the map -->
         <div id="map"></div>
-        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA2Fh8-gg0ylW23s_Q1I_zkLPBGx8OKqo&callback=initMap&libraries=&v=weekly" async></script>
-      </div>
+     </div>
     </div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA2Fh8-gg0ylW23s_Q1I_zkLPBGx8OKqo&callback=initMap&libraries=&v=weekly"
+      async></script>
   </body>
 </html>
