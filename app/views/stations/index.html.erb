@@ -41,6 +41,13 @@
 </div> 
 <%
 =end%>
+<%
+new_rent_path = if session[:id].present?
+          {:controller => 'rent', :action => 'index' }
+         else
+           new_session_path
+         end
+%>
 
 <div class="page-section flexbox vertical stretch">
   </div>
@@ -49,7 +56,10 @@
       <iframe width="900" height="550" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/d/u/0/embed?mid=16lQ4DI4Uiylt3l_UWg3lkw7OyUZhq012"></iframe>
     </html>
 	</div>
-
+  <br>
+  <div class="center">
+  <%= link_to('Rent a Bike!', new_rent_path, :class => 'button') %>
+  </div>
   <div class="section-inner flexbox vertical stretch">
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
