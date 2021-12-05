@@ -26,6 +26,7 @@ Group C: Josten Kids
 
 6. Navigate to the project dir and install required gems
 * `cd valetbike`
+* `rails g devise:install`
 * `bundle install`
 
 7. Prepare database in MySQL
@@ -56,3 +57,19 @@ Group C: Josten Kids
 * `rackup`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * You should see ValetBike welcome page
+
+# Changes Since Prototype v1.0
+1. User Registration and Login
+* While we did orginally have a method for the user to sign up and login, it was not very secure. We decided to redo this feature by taking advantage of the "Devise" gem. Devise provides a more secure user authentication model, in addition to many other processes such as password reset and profile editing. 
+2. User Profile Page
+* We added a profile page for the user where they can view and edit their current profile information. 
+* With this addition, we also made sure to change the nav tabs when a user's session is active. For example, if a user is not logged in, the nav will display both "Register" and "Login" tabs. However, once the user is logged in, the nav removes "Register" and "Login" for a link to the users "Profile". 
+3. Mock Payment Method
+* In order to mimick the process of purchasing a membership, we added a mock payment method that collects the user's payment information. Since ValetBike is not actually in production, we don't really want to actually collect the user's payment info. 
+4. Additional Stylized Pages
+* We now have a few additional pages on our site:
+  - About: Has information on ValetBike and some team bios + pictures!
+  - Memberships: Contains details for each memebership and a link to purchase them.
+  - Process: Explains how the ValetBike bike share program works.
+
+# Description of MVP's Functionality
