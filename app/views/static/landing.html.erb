@@ -11,6 +11,24 @@
         width: 100%;
         /* The width is the width of the web page */
       }
+
+      body, html {
+        height: 100%;
+      }
+
+      .parallax {
+        /* The image used */
+        background-image: url('img_parallax.jpg');
+
+        /* Full height */
+        height: 100%;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     </style>
     <script>
       // Initialize and add the map
@@ -73,6 +91,8 @@
     <!--Credit:
       https://www.w3schools.com/howto/howto_css_image_text.asp
       -->
+
+    <div class="parallax"></div>
     <div class="page-section flexbox vertical stretch">
       <div id="map_section" class="full-height">
         <div class="imgContainer">
