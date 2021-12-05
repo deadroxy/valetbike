@@ -20,7 +20,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  background-color: #FFFFE6;
+  /*background-color: #FFFFE6;*/
 }
 
 #site-container{
@@ -56,6 +56,10 @@ body {
 
 .float-right{
   float: right;
+}
+
+.float-left{
+  float: left;
 }
 
 ul{
@@ -94,4 +98,41 @@ li a:hover{
 
 .padding-top{
   padding-top: 10px;
+}
+
+input{
+  border: none;
+  height: inherit;
+  width: inherit;
+}
+
+input[type="submit" i]{
+  background-color: #6D9DC5;
+  color: white;
+}
+
+.submitButton{
+  background-color: #6D9DC5;
+  width: 100px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.requestEmailButton{
+  background-color: #6D9DC5;
+  width: 200px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.cancelAccountButton{
+  background-color: #FF4343 !important;
+  width: 200px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.error{
+  color: red;
+  font-size: 1em;
 }

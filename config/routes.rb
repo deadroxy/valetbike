@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'user/show'
   root to: "static#landing"
-  resources :users, only: [:new, :create, :show]
-  resources :sessions, only: [:new, :create, :destroy]
+  devise_for :users
+  resources :users
+  #resources :sessions, only: [:new, :create, :destroy]
   resources :tabs, only: [:new, :index]
   resources :memberships, only: [:new, :create, :show, :index, :delete, :destroy]
   get 'memberships/show'

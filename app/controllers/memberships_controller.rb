@@ -9,8 +9,6 @@ class MembershipsController < ApplicationController
       membershipPrice: params[:membershipPrice],
       membershipTime: params[:membershipTime],
       membershipRidesNum: params[:membershipRidesNum])
-
-
   end
 
   #Creates a new membership based on the parameters of the chosen membership

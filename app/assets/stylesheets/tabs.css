@@ -7,13 +7,35 @@ h2 {
   text-align: center;
   color: #7ece96;
 }
-
+a:link{
+  color:white;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
 .centDiv {
   text-align: center;
   line-height: 2;
 }
-.circImg{ border-radius: 50%;}
+/*Creates the circle icons on the Process page*/
+.circImg{ border}
 
+/*Below two classes are used for the welcoming image on the landing page
+*/
+.imgContainer{
+  position: relative;
+  text-align: center;
+  color: white;
+  width:100%;
+}
+
+.imgText{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* Below is the CSS for index.html.erb, the Process page */
 
 /*-=-=-=-=-=-=-=-=-=-*/
