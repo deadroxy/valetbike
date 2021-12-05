@@ -64,10 +64,6 @@
   <h1>Check Out Bike</h1>
 </div>
 <br>
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name, class: "alart" %>
-  <p class= "alart"> Please try with different bike ID </p>
-<% end -%>
 
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
@@ -88,11 +84,14 @@
 </div>
 
     <img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>
-
     <div class = "bikeID">
     <h3>Station: <%= @station.name %></h3>
       <p>On the bike you have selected, there should be a 4-digit PIN number,
       please enter it in the ID field.</p>
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name, class: "alart" %>
+        <p class= "alart"> Please try with different bike ID </p>
+      <% end -%>
     <%= form_tag '/checkout' do %>
        <%= label_tag("Bike ID")%>
        <%= text_field_tag :bikeid %>
