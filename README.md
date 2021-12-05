@@ -12,7 +12,7 @@
 * For users- use signup page
 
 ## Changes Made Since Prototype
-* Map page now supports interactive controls such as zoom in/out, panning, and navigation to station pages
+* Map page is now dynamically created from the database and supports interactive controls such as zoom in/out, panning, and navigation to station pages (note that panning still has issues on Macs)
 * Station pages have been added dynamically to provide further detail about a particular station
 * All rides have a starting and ending station displayed on the ride page - and link to the associated station page
 * Added user page with username, payment information, total rental minutes, and current rented bikes displayed
