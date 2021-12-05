@@ -22,23 +22,57 @@
       text-align: center;
     }
 
+    .btn-group{
+      background-color: #FFFFFF;
+      border-color: #000000;
+
+       /*set the color you want here*/
+    }
+
+    .row {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 -16px;
+    }
+
+    .btn-primary{
+      background-color: #286090;
+      border-color: #286090;
+      border-width: 3px;
+    }
+
+    .btn-primary:hover{
+      background-color: #00b3db;
+    }
+
+    .btn-primary:visited{
+      color: #FFFFFF;
+    }
+
+    .col-25 {
+      -ms-flex: 25%;
+      flex: 25%;
+    }
+
     body {
         background: black;
     }
+
     p {
       height: 75%;
       width: 75%;
       background-color: #E6F4F1;
-      padding: 30px;
-      font-size: 20px;
-      line-height: 1.0;
-
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.2;
     }
+
     img {
       height: 50%;
       width: 50%;
     }
-
 
   </style>
 </head>
@@ -47,26 +81,44 @@
 
 <img src="how-it-works.png" alt = "Background">
 
-<br/>
-<%=button_to "Back to Welcome Page", '/welcome', method: :get%>
-<br/>
+<br><br>
+
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <%#<%= link_to "Login", "/login", :class => "btn" %>
+  <% if logged_in? %>
+     <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
+     <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
+  <% end %>
+  <% if not logged_in? %>
+     <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+     <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
+  <% end %>
+  <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
+  <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
+  <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+  <% if logged_in? %>
+     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
+  <% end %>
+</div>
+
+<br>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
-      <h3>Sign Up or Login</h3>
+    <div class="col-25">
+      <h3>1. Sign Up or Login</h3>
       <p>Become a member and create your account to start.</p>
     </div>
-    <div class="col-sm-3">
-      <h3>Unlock your Bike</h3>
+    <div class="col-25">
+      <h3>2. Unlock your Bike</h3>
       <p>Enter the bike ID code to unlock the bike at the proper station. </p>
     </div>
-    <div class="col-sm-3">
-      <h3>Enjoy your Ride!</h3>
+    <div class="col-25">
+      <h3>3. Enjoy your Ride!</h3>
       <p>Ride your bike around as long as you want.</p>
     </div>
-    <div class="col-sm-3">
-      <h3>Return your Bike!</h3>
+    <div class="col-25">
+      <h3>4. Return your Bike!</h3>
       <p>Return your bike once you're finished with your ride and lock it at a nearby station.</p>
     </div>
   </div>
