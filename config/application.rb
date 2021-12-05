@@ -6,10 +6,17 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Valetbike
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+
+    config_file = Rails.application.config_for(:application)
+    config_file.each do |key, value|
+      ENV["key"] = value
+    end unless config_file.nil?
+
 
     # Configuration for the application, engines, and railties goes here.
     #

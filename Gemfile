@@ -27,9 +27,15 @@ gem 'bcrypt', '~> 3.1.7'
 
 #gem to accept paypal payments
 gem 'paypal-checkout-sdk'
+gem 'paypal-sdk-rest'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+#Displays formatted money values
+gem 'money-rails'
+#Template tool to render pages
+gem 'haml'
 
 #For Javascript. Application file
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
