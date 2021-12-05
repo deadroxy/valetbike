@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 
         redirect_to '/authorized'
     else
+        flash[:error] = "Incorrect username or password"
         redirect_to '/login'
     end
 
@@ -51,7 +52,7 @@ class SessionsController < ApplicationController
       b.update_attribute(:current_station_identifier, nil)
       redirect_to '/ride'
     else
-      
+
       flash[:error] = "Could not find the bike at this station"
       redirect_to '/checkout'
     end
