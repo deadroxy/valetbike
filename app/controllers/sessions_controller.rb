@@ -7,9 +7,10 @@ class SessionsController < ApplicationController
   def create
     #take params from new and logs the user in
     @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    if !!@user && @user.authenticate(params[:password])
       #log that person in
-      session[:id] = @user.id
+      flash[:notice] = "Logged in successfully."
+      log_in @user
       redirect_to @user
     else
       render 'new'
@@ -18,7 +19,9 @@ class SessionsController < ApplicationController
 
   def destroy
     #log user outs
-    session.delete(:id)
+    session[:user_id] = nil
     redirect_to root_path
   end
+
+
 end
