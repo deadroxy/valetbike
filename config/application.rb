@@ -12,7 +12,6 @@ module Valetbike
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-
     config_file = Rails.application.config_for(:application)
     config_file.each do |key, value|
       ENV["key"] = value

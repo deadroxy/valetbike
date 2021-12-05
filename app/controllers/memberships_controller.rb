@@ -1,7 +1,7 @@
 # Controller for membership passes
 class MembershipsController < ApplicationController
 
-  =begin
+  begin
   #Shows new membership based on the parameters of the chosen membership
   def new
     @membership = Membership.new(
@@ -33,5 +33,5 @@ class MembershipsController < ApplicationController
     @monthlyMembership = Membership.new("Monthly Membership", "$20", "1 Month", "Unlimited")
   end
   helper_method :monthlyMembership
-  =end
+  end
 end
