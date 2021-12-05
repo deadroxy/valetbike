@@ -11,6 +11,16 @@
 * run `rake import_csv:create_rides`
 * For users- use signup page
 
+## Changes Made Since Prototype
+* Map page now supports interactive controls such as zoom in/out, panning, and navigation to station pages
+* Station pages have been added dynamically to provide further detail about a particular station
+* All rides have a starting and ending station displayed on the ride page - and link to the associated station page
+* Added user page with username, payment information, total rental minutes, and current rented bikes displayed
+* Populated database with more stations, bikes, and rides
+* Updated home page with new logo
+* Small CSS changes and tweaks
+* Deployed site at: http://valetbikea.herokuapp.com/
+
 ## Features
 * Home page 
 * Map page with a list of stations and hoverable pins - when clicked will navigate you to associated station page
@@ -19,6 +29,7 @@
 * FAQs page with information about the business model, pricing, etc
 * User signup- checks for input validity, uniqueness of username and email
 * Login/logout using user details
+* User page where a user can view their basic account information
 * Rental page where a user can rent bikes- checks for number of bikes to ensure a user can rent those bikes
 * Return page where a user can return rented bikes if and only if there are bikes the user has rented- calculates time, corresponding fee, and updates users' lifetime ride minutes before displaying them to the user
 
@@ -47,7 +58,11 @@
 * If the requested information is accepted, it will log you in and redirect to the home page.
 * You can log out by hovering over the username and selecting "log out" from the dropdown menu. If you log in, it will accept your account information.
 
-6. Rent bike
+6. Visit User page
+* Navigate to user page by clicking username in the top right corner once loged in
+* You can view basic account information here as well as see lifetime ride minutes and currently rented bikes
+
+7. Rent bike
 * Navigate to bike rental page.
 * Select a station and number of bikes (cannot be less than one or more than number of bikes at station)
 * Hit rent to start the timer and unlock the bikes.
