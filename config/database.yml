@@ -12,11 +12,13 @@ development:
   username: root
   password: Aszx12345!
 
+
 test:
   <<: *default
   database: valetbike_test
   username: root
   password: Aszx12345!
+
 
 production:
   <<: *default
