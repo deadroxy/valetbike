@@ -9,7 +9,7 @@ class RentController < ApplicationController
     respond_to do |format|
       if @bike.update_attribute(:current_station, nil)
         flash[:notice] = "Please complete payment below:"
-        format.html { redirect_to({:controller => 'payment', :action => 'index' })}
+        format.html { redirect_to({:controller => 'payments', :action => 'index' })}
       else
         flash[:notice] = "Purchase was unsuccessful. Please try another station."
         format.html { redirect_to({:controller => 'rent', :action => 'index' })}
