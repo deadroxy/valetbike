@@ -7,18 +7,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
-    .Login {
-      background-color: #2b7efb;
+
+    .Access_Title {
+      background-color: #286090;
       color: #FFFFFF;
-      height: 100px;
-      width: 90%;
+      height: 75px;
+      width: 100%;
       text-align: center;
     }
     .Login_Enter {
       background-color: #E6F4F1;
       width: 30%;
-      height: 250px;
+      height: auto;
       text-align: center;
+      padding: 15px;
+    }
+    .Login_Enter h2 {
+      margin-top: 10px
+    }
+    .alart {
+      color: red;
     }
 
   </style>
@@ -28,7 +36,7 @@
 
 <br></br>
 
-<div class = "Login">
+<div class = "Access_Title">
   <h1> Login </h1>
 </div>
 
@@ -37,6 +45,11 @@
 
 <div class = "Login_Enter">
   <h2>Welcome Back!</h2>
+  <p class = "alart">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name, class: "alart" %>
+    <% end -%>
+  </p>
    <%= form_tag '/login' do %>
    <p></p>
    <%= label_tag :username%>
@@ -49,6 +62,7 @@
    <p></p>
    <%= submit_tag "Login"%>
 <%end%>
+</div>
 
 <br/>
 <h1> Are you a new user? </h1>
