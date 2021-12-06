@@ -51,7 +51,6 @@
     <%= link_to('Return a Bike!', {:controller => 'returns', :action => 'index' }, :class => 'button') %>
   <% else %>
     <%= link_to('Rent a Bike!', new_session_path, :class => 'button') %>
-    <%= link_to("Return a Bike", "/return_bike", :class => 'action new nav-link') %>
   <% end %>
   </div>
   <div class="section-inner flexbox vertical stretch">
