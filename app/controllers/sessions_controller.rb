@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
 
-  skip_before_action :authorized, only: [:new, :create, :welcome, :checkout, :about, :payment, :checkin, :check, :how_it_works, :FAQ, :process_checkin]
+  skip_before_action :authorized, only: [:new, :create, :welcome, :about, :payment, :how_it_works, :FAQ]
 
 
   def new
@@ -46,6 +46,10 @@ class SessionsController < ApplicationController
   end
 
   def check
+    if current_user.current_bike_id
+      flash[:alart] = "You cannot check out more than one bike. Please return your bike to a station"
+      redirect_to '/checkin' and return
+    end
     b = Bike.find_by_identifier(params[:bikeid])
     if b && session[:station_identifier] == b.current_station_identifier
       current_user.update_attribute(:current_bike_id, params[:bikeid])
@@ -85,6 +89,7 @@ class SessionsController < ApplicationController
   def process_checkin
     @bike = Bike.find_by_identifier(current_user.current_bike_id)
     @bike.update_attribute(:current_station_identifier, params[:station_identifier])
+    current_user.update_attribute(:current_bike_id, nil)
   end
 
 end
