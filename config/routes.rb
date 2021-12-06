@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   #returns 
   get '/return_bike', to: 'returns#index'
+  patch 'return/update'
+  post '/return_bike', to: 'returns#update'
 
 end
