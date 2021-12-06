@@ -12,13 +12,11 @@
         <%= link_to("Log In", new_session_path, :class => 'nav-link')%>
         <%= link_to("Sign Up", new_user_path, :class => 'action new nav-link active') %>
         <%= link_to('Membership Purchase', {:controller => 'payments', :action => 'index' }, :class => 'btn btn-payments nav-link') %>
-        <%
-        begin%>
+        <%begin%>
          <% if logged_in? %>
-                  <%= link_to('User Profile', @user, :class => 'nav-link') %>
-                <% end %>
-        <%
-        end%>
+              <%= link_to('User Profile', @user, :class => 'nav-link') %>
+          <% end %>
+        <%end%>
       </div>
     </div>
   </div>
