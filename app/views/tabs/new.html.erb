@@ -70,7 +70,6 @@
         <ul>
           <li><%= link_to('Home', root_url, class: 'header-links') %></li>
           <li><%= link_to('About', new_tab_url, class: 'header-links active') %></li>
-          <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
           <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
           <% if user_signed_in? %>
             <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
@@ -120,8 +119,11 @@
     <div class="card">
       <div class="container">
         <h2>Kayahma Brown</h2>
-        <p class="title">Class of 'XX</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p class="title">Class of 2022</p>
+        <p>Kayahma is a Computer Science Major and Economics Minor. <br>
+        They're experienced in a series of languages, both frontend and backend. They are passionate about analysis, of any kind, mainly Finance. <br>
+        You may see them staring blanky into space. <br>
+        </p>
         <p><i>kbrown98@smith.edu</i></p>
         <p><button class="button"><a href="mailto:kbrown98@smith.edu">Contact</a><button></p>
         <br>
@@ -131,11 +133,15 @@
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team3.jpg" alt="Alicia" style="width:100%">
+      <div class="centDiv">
+        <%=image_tag("alicia.jpg", width: 300, :alt => "Alicia")%>
+      </div>
       <div class="container">
         <h2>Alicia Weaver</h2>
         <p class="title">Class of 2023</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>Alicia is a Computer Science Major at Smith College pursuing a career in Science Education and Machine Learning post graduation. <br>
+          Her background consists of HTML, CSS, JavaScript, React, Java, Python, and C++. <br>
+          Outside of school she enjoys teaching middle school students how to code, watching rom-coms with friends, and playing Valorant semi-professionally.</p>
         <p><i>ajweaver@smith.edu</i></p>
         <p><button class="button"><a href="mailto:ajweaver@smith.edu">Contact</a><button></p>
         <br>

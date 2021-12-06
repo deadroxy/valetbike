@@ -19,7 +19,7 @@ a:hover{
   line-height: 2;
 }
 /*Creates the circle icons on the Process page*/
-.circImg{ border}
+.circImg{ border-radius: 50%;}
 
 /*Below two classes are used for the welcoming image on the landing page
 */
@@ -35,6 +35,11 @@ a:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.imgOpacity{
+  filter:brightness(85%);
+  
 }
 /* Below is the CSS for index.html.erb, the Process page */
 
