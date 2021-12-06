@@ -1,0 +1,12 @@
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="mb-0 text-muted">&copy; 2021 EEEee</p>
+
+    <ul class="nav justify-content-end">
+      <li><%= link_to '<i class="fas fa-bicycle fa-lg" style="color:gray"></i>'.html_safe, stations_index_path, class: "nav-link px-2 text-muted" %></li>
+        <li><%= link_to " Display Stations and Bikes", stations_index_path, class: "nav-link px-2 text-muted" %></li>
+        <li><%= link_to "How It Works", home_instruction_path, class: "nav-link px-2 text-muted" %></li>
+        <li><%= link_to "Customer Services", cusserve_contacs_path, class: "nav-link px-2 text-muted" %></li>
+    </ul>
+  </footer>
+</div>

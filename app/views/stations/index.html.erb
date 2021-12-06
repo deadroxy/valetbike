@@ -11,11 +11,17 @@
 ></script>
 <br />
 <br />
+<h2>Stations! </h2>
+<br />
+<div class='row justify-content-center gy-5'>
 <% if @stations.present? %>
   <%= render(partial: "stations/row", collection: @stations, as: :station) %>
 <% else %>
+</div>
 <div class="empty">
   No stations found.
 </div>
 <% end %>
-<br />
+<div class="my-10">
+</div>
+
