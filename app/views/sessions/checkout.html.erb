@@ -6,6 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
+
     .Access_Title {
       background-color: #286090;
       color: #FFFFFF;
@@ -13,12 +14,14 @@
       width: 100%;
       text-align: center;
     }
+
     .bikeID {
       background-color: #E6F4F1;
       padding: 10px;
       text-align: center;
       width: 550px;
     }
+
     .alart {
       color: red;
       font-size: 15px;
@@ -37,8 +40,6 @@
     .btn-group{
       background-color: #FFFFFF;
       border-color: #000000;
-
-       /*set the color you want here*/
     }
 
     .btn-primary{
@@ -47,6 +48,9 @@
       border-width: 3px;
     }
 
+    /* the two additions to the btn-primary class were added
+    because the aesthetic clash of the default colors and our own
+    were viscerally noticeable */
     .btn-primary:hover{
       background-color: #00b3db;
     }
@@ -65,6 +69,7 @@
 </div>
 <br>
 
+<!-- this is a piece of code present on mostly every page that requires navigation, a navigation menu -->
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
   <% if logged_in? %>
@@ -84,6 +89,8 @@
 </div>
 
     <img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>
+
+    
     <div class = "bikeID">
     <h3>Station: <%= @station.name %></h3>
       <p>On the bike you have selected, there should be a 4-digit PIN number,

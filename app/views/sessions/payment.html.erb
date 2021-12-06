@@ -57,6 +57,12 @@ body {
   border-radius: 3px;
 }
 
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
 input[type=text] {
   width: 100%;
   margin-bottom: 20px;
@@ -68,12 +74,6 @@ input[type=text] {
 label {
   margin-bottom: 10px;
   display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
 }
 
 .button {
@@ -110,12 +110,6 @@ label {
   text-align: center;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: #333;
-  overflow: hidden;
-}
-
 a {
   color: #2196F3;
 }
@@ -124,12 +118,11 @@ hr {
   border: 1px solid lightgrey;
 }
 
-span.price {
-  float: right;
-  color: grey;
-}
-
-
+/* citation for most of the content on this page is the following w3schools page:
+https://www.w3schools.com/howto/howto_css_checkout_form.asp
+most of the original comments have been kept, with a few additions of our own;
+it has also been edited for readability
+*/
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
@@ -144,21 +137,20 @@ span.price {
 </head>
 <body>
 
-<!-- <p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p> -->
 <div class="row">
   <div class="col-66">
 
     <h2 class="before-container">Payment Information</h2>
-
     <br>
-
     <p>Congrats, you're on the payment information page! If you didn't mean to make it here, then perhaps
       you would want to make your way over to the <a href="/welcome">welcome page</a>, or perhaps even the <a href="/about">about page</a>?
       If you need to (we'd hope you don't, though), you can also log out.
       <%=button_to "Log Out", '/logout', data: { confirm: "Are you sure?" }, method: :post%>
       </p>
-
     <br>
+
+    <!-- in the interest of time, we decided against implementing the header and menu from the other pages
+    and decided to focus on functionality instead -->
 
     <div class="container">
       <form action="/action_page.php">
@@ -170,10 +162,13 @@ span.price {
             <br>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
             <input type="text" id="fname" name="firstname" placeholder="GitHub Hater">
+
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="idontlikeu@github.com">
+
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="text" id="city" name="city" placeholder="New York">
 
@@ -182,10 +177,12 @@ span.price {
                 <label for="state">State</label>
                 <input type="text" id="state" name="state" placeholder="NY">
               </div>
+
               <div class="col-50">
                 <label for="zip">Zip</label>
                 <input type="text" id="zip" name="zip" placeholder="10001">
               </div>
+
             </div>
           </div>
 
@@ -200,21 +197,27 @@ span.price {
               <i class="fa fa-cc-mastercard" style="color:red;"></i>
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
+
             <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="Professional Hater of GitHub">
+
             <label for="ccnum">Credit card number</label>
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+
             <label for="expmonth">Exp Month</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
             <div class="row">
               <div class="col-50">
                 <label for="expyear">Exp Year</label>
                 <input type="text" id="expyear" name="expyear" placeholder="2018">
               </div>
+
               <div class="col-50">
                 <label for="cvv">CVV</label>
                 <input type="text" id="cvv" name="cvv" placeholder="352">
               </div>
+
             </div>
           </div>
         </div>

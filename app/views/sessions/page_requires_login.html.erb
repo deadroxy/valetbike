@@ -33,8 +33,6 @@
     .btn-group{
       background-color: #FFFFFF;
       border-color: #000000;
-
-       /*set the color you want here*/
     }
 
     .btn-primary{
@@ -43,6 +41,9 @@
       border-width: 3px;
     }
 
+    /* the two additions to the btn-primary class were added
+    because the aesthetic clash of the default colors and our own
+    were viscerally noticeable */
     .btn-primary:hover{
       background-color: #00b3db;
     }
@@ -66,6 +67,12 @@
 
 <br></br>
 
+<!-- of massive help in the process of creating this page and bringing our website some amount of security
+has been the following citation:
+https://levelup.gitconnected.com/simple-authentication-guide-with-ruby-on-rails-16a6255f0be8
+it gave us some trouble with the logout, but we figured it out in the end
+ -->
+
 <div class = "Access_Title">
   <h1>Welcome back, <%= current_user.first_name %>!</h1>
 </div>
@@ -83,22 +90,16 @@
 
 <br>
 
+<!-- this navigation code is different because a user who is not logged in cannot access
+this page, thus rendering the if statements useless -->
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
-  <% if logged_in? %>
-     <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
-     <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
-  <% end %>
-  <% if not logged_in? %>
-     <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
-     <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
-  <% end %>
+  <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
+  <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
   <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
   <%= link_to "About", "/about", :class =>"btn btn-primary"%>
-  <% if logged_in? %>
-     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
-  <% end %>
+  <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
 </div>
 
 <br></br>

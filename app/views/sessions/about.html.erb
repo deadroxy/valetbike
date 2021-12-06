@@ -18,60 +18,93 @@
     body {
         background: black;
     }
-    .welcome{
-      height: 75%;
-      width: 75%;
+
+    .text-container {
+      height: 33%;
+      width: 33%;
       background-color: #E6F4F1;
-      padding: 50px;
+      padding: 15px;
       font-size: 15px;
+      text-align: center;
     }
+
     img {
       height: 50%;
       width: 50%;
     }
-    .contact {
-      width: 20%;
-      background-color: #E6F4F1;
-      padding: 20px;
-      text-align: center;
+
+    .btn-group{
+      background-color: #FFFFFF;
+      border-color: #000000;
     }
+
+    .btn-primary{
+      background-color: #286090;
+      border-color: #286090;
+      border-width: 3px;
+    }
+
+    /* the two additions to the btn-primary class were added
+    because the aesthetic clash of the default colors and our own
+    were viscerally noticeable */
+    .btn-primary:hover{
+      background-color: #00b3db;
+    }
+
+    .btn-primary:visited{
+      color: #FFFFFF;
+    }
+
     p {
       font-size: 15px;
     }
-
   </style>
 </head>
 
+
 <br></br>
-
-
-
 <div class = "Access_Title">
   <h1>About Page </h1>
 </div>
-<br></br>
+<br>
 
-<div class = "welcome">
+<!-- this is a piece of code present on mostly every page that requires navigation, a navigation menu -->
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <%#<%= link_to "Login", "/login", :class => "btn" %>
+  <% if logged_in? %>
+     <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
+     <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
+  <% end %>
+  <% if not logged_in? %>
+     <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+     <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
+  <% end %>
+  <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
+  <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
+  <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+  <% if logged_in? %>
+     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
+  <% end %>
+</div>
+
+<br>
+
+<div class = "text-container">
 <p> Welcome to Team Ghost's ValetBike Project. Our objective is to create a
   better interface and web program than our competition, ValleyBike.
-  That website is terrible and it should go and die.
+  Although a work in progress, we are trying to integrate several new features.
 </p>
 </div>
 
 <br></br>
-
 <img src="Bike_Background.jpg" alt = "Background">
-
 <br></br>
 
-<div class = "contact">
+<div class = "text-container">
 <p>Call us at: 444-666-1313</p>
 </div>
 
 <br></br>
-
-
-
 
 <br/>
 <%=button_to "Back to Welcome Page", '/welcome', method: :get%>

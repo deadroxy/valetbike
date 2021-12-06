@@ -24,10 +24,11 @@
       .btn-group{
         background-color: #FFFFFF;
         border-color: #000000;
-
-         /*set the color you want here*/
       }
 
+      /* the two additions to the btn-primary class were added
+      because the aesthetic clash of the default colors and our own
+      were viscerally noticeable */
       .btn-primary{
         background-color: #286090;
         border-color: #286090;
@@ -60,7 +61,7 @@
 
 </div>
 
-
+<!-- this is a piece of code present on mostly every page that requires navigation, a navigation menu -->
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
   <%#<%= link_to "Login", "/login", :class => "btn" %>
   <% if logged_in? %>

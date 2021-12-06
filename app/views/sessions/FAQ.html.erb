@@ -6,6 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
+    
     .Access_Title {
       background-color: #286090;
       color: #FFFFFF;
@@ -13,25 +14,54 @@
       width: 100%;
       text-align: center;
     }
+
     .Questions {
       background-color: #E6F4F1;
       line-height: 1.6;
       height: 75%;
-      width: 75%;
+      width: 66%;
       background-color: #E6F4F1;
-      padding: 50px;
+      padding: 30px;
     }
-    .input-group {
-      width: 20%;
-    }
+
+    /* modified paragraph class to fit our needs */
     p {
       height: 75%;
-      width: 75%;
       background-color: #E6F4F1;
       font-size: 15px;
     }
 
+    .btn-group{
+      background-color: #FFFFFF;
+      border-color: #000000;
+    }
 
+    /* the two additions to the btn-primary class were added
+    because the aesthetic clash of the default colors and our own
+    were viscerally noticeable */
+
+    .btn-primary{
+      background-color: #286090;
+      border-color: #286090;
+      border-width: 3px;
+    }
+
+    .btn-primary:hover{
+      background-color: #00b3db;
+    }
+
+    .btn-primary:visited{
+      color: #FFFFFF;
+    }
+
+    /* see above comment */
+    a:hover {
+      background-color: #f2f2f2;
+    }
+
+    a:visited {
+      color: #286090;
+    }
   </style>
 </head>
 
@@ -41,53 +71,70 @@
 <div class = "Access_Title">
   <h1>Frequently Asked Questions </h1>
 </div>
-<br></br>
+<br>
+
+<!-- this is a piece of code present on mostly every page that requires navigation, a navigation menu -->
+
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <%#<%= link_to "Login", "/login", :class => "btn" %>
+  <% if logged_in? %>
+     <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
+     <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
+  <% end %>
+  <% if not logged_in? %>
+     <%=link_to "Log In", '/login', :class => "btn btn-primary", method: :get%>
+     <%= link_to "Create An Account", "/users/new", :class =>"btn btn-primary"%>
+  <% end %>
+  <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
+  <%= link_to "FAQ", "/FAQ", :class =>"btn btn-primary"%>
+  <%= link_to "About", "/about", :class =>"btn btn-primary"%>
+  <% if logged_in? %>
+     <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
+  <% end %>
+</div>
+<br><br>
 
 
 <div class = "Questions">
-  <h3>I am just visiting for short time to Northampton. How do I use the system? </h3>
-  <p>Visit out our How It Works Page bitch.</p>
+  <h4>1. I am just visiting for short time to Nipmuc Notch. How do I use the system?</h4>
+  <p>Visit our <em><a href="/how_it_works">How It Works</a></em> Page.</p>
 
-  <h3> Can I use the system immediatley after subscribing online?</h3>
+  <h4>2. Can I use the system immediatley after subscribing online?</h4>
   <p>Of course!</p>
 
-  <h3>When does my membership start?</h3>
-  <p>See above answer. </p>
+  <h4>3. When does my membership start?</h4>
+  <p>See above answer.</p>
 
-  <h3>What forms of payment can I use to rent a bike?</h3>
-  <p>Credit card.</p>
+  <h4>4. What forms of payment can I use to rent a bike?</h4>
+  <p>We take credit or debit cards. See <em><a href="/payment">Payment page</a></em> </p>
 
-  <h3>Where can I ride my bike?</h3>
-  <p>Parts of Northampton. But it's mainly around Smith College.</p>
+  <h4>5. Where can I ride my bike?</h4>
+  <p>Parts of Nipmuc Notch. But it's mainly around Smith College.</p>
 
+  <h4>6. How many bikes can I rent at one time with each membership?</h4>
+  <p>You can rent out one bike at a time.</p>
 
-  <h3>How many bikes can I rent at one time with each membership?</h3>
-  <p>One. O N E.</p>
+  <h4>7. Do I have to return it to the same station I rented it from?</h4>
+  <p>No. But please return the bike to a station and check it in as soon as possible to avoid fees! </p>
 
-  <h3>Do I have to return it to the same station I rented it from?</h3>
-  <p>No. But you better return the bike to a station. </p>
-
-  <h3>Can I unlock more than one bike?</h3>
+  <h4>8. Can I unlock more than one bike?</h4>
   <p>No.</p>
 
-  <h3>What do I do if there are no bikes available at the station?</h3>
-  <p>Cry. But also please contact us in the About page with our phone number. We will try to help to the best of our abilities.
+  <h4>9. What do I do if there are no bikes available at the station?</h4>
+  <p>Please contact us in the <em><a href="/about">About</a></em> page with our phone number. We will try to help to the best of our abilities.
 </p>
 
-  <h3>My bike was stolen. What happens now?</h3>
-  <p>Call the Northampton police.</p>
+<!-- community care > c*ps -->
+  <h4>10. My bike was stolen. What happens now?</h4>
+  <p>Call the local police. Or don't. Maybe there's community groups in the area that could help with either tracking it down or getting you a new one.</p>
 
-  <h3>My membership suddenly disappeared before the date it expired. What should I do?</h3>
-  <p>Cancel your credit card immediately.</p>
-
+  <h4>11. My membership suddenly disappeared before the date it expired. What should I do?</h4>
+  <p>If you got overcharged, dispute the charge with your bank immediately and contact us.</p>
 </div>
-<br></br>
 
-
-
-
-
-
-<br/>
+<br>
 <%=button_to "Back to Welcome Page", '/welcome', method: :get%>
-<br/>
+<br>
+<br>
+<!-- we decided not to include a link to the welcome page in the menu since no one would
+ have any need to see it again, but still left these buttons on some of the pages just in case -->
