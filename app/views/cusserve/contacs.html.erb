@@ -1,19 +1,30 @@
-<h2>Contact Us!</h2>
-<br />
-Email: <a href = "mailto: valetbike_service@gmail.com">valetbike_service@gmail.com</a>
-<p>Phone: 4130000000</p>
+<br>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+    <%= image_tag ("image_1.jpg"), :class => "img-fluid rounded-start"%>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body mx-3 my-3">
+        <h2>Contact Us!</h2>
+        <br>
+        <p class="card-text">Email: <a href = "mailto: valetbike_service@gmail.com">valetbike_service@gmail.com</a></p>
+        <p class="card-text">Phone: 4130000000</p>
+        <form>
+          <label for="feedback" class="card-text">Submit Feedback: </label>
+          <br>
+          <br>
+          <textarea class="form-control" id="feedback" name="feedback" rows="4" cols="50">Please submit your feedback here.</textarea>
+            <br>
+            <input class="btn btn-dark" type="submit" value="Submit">
+        </form>
+        <br>
+        <button class="btn btn-secondary btn-sm" onclick="window.location.href='/'">
+          Back to HomePage
+        </button>
+        
+      </div>
+    </div>
+  </div>
 
-<form>
-<label for="feedback">Submit Feedback: </label>
-<br />
-<textarea id="feedback" name="feedback" rows="4" cols="50">
-  Please submit your feedback here.
-  </textarea>
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
-
-<br />
-<button class="btn btn-secondary btn-sm" onclick="window.location.href='http://localhost:3000/';">
-Back to HomePage
-</button>
+</div>
