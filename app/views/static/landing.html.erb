@@ -1,90 +1,25 @@
 <!-- Landing Page -->
+<!-- static/landing (root) -->
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 600px;
-        /* The height is 400 pixels */
-        width: 100%;
-        /* The width is the width of the web page */
-      }
-
-      body, html {
-        height: 100%;
-      }
-
-      .parallax {
-        /* The image used */
-        background-image: url('img_parallax.jpg');
-
-        /* Full height */
-        height: 100%;
-
-        /* Create the parallax scrolling effect */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    </style>
-    <script>
-      // Initialize and add the map
-      function initMap() {
-        // The map, centered at franklin street
-        const center = { lat: 42.32549, lng: -72.643412 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 15,
-          center: center,
-        });
-        //Station locations
-        const jmg = { lat: 42.3193925, lng: -72.6380155 };
-        const cd = { lat: 42.3303212, lng: -72.653308 };
-        const northKing = { lat: 42.3410186, lng: -72.6421968 };
-        const forbes = { lat: 42.3167667, lng: -72.635669 };
-        const pPark = { lat: 42.3172997, lng: -72.6335812 };
-        //Initialize info window
-
-        // Markers positioned at station locations
-        const jmgMarker = new google.maps.Marker({
-          position: jmg,
-          map: map,
-        });
-        const cdMarker = new google.maps.Marker({
-          position: cd,
-          map: map,
-        });
-        const northKingMarker = new google.maps.Marker({
-          position: northKing,
-          map: map,
-        });
-        const forbesMarker = new google.maps.Marker({
-          position: forbes,
-          map: map,
-        });
-        const pParkMarker = new google.maps.Marker({
-          position: pPark,
-          map: map,
-        });
-      }
-    </script>
   </head>
   <body>
     <div class="page-section flexbox vertical stretch">
       <div id="header">
         <div id="header-title">ValetBike</div>
         <div class="float-right">
-        <ul>
-        <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
-        <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
-        <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
-        <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
-        <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
-        <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
-        <!-- <li><%= link_to('Orders', {:controller => 'orders', :action => 'index'}, class: 'header-links') %></li> -->
-      </ul>
+          <ul>
+            <li><%= link_to('Home', root_url, class: 'header-links active') %></li>
+            <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+            <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
+            <% else %>
+              <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+              <li><%= link_to('Login', new_user_session_path, class: 'header-links') %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
@@ -92,16 +27,15 @@
       https://www.w3schools.com/howto/howto_css_image_text.asp
       -->
 
-    <div class="parallax"></div>
     <div class="page-section flexbox vertical stretch">
       <div id="map_section" class="full-height">
         <div class="imgContainer">
-          <%=image_tag("valley.jpeg", style: 'width:100%;', :alt => "Nipmoc Notch")%>
+          <%=image_tag("valley.jpeg", style: 'width:100%;', :alt => "Nipmoc Notch", class: 'imgOpacity')%>
           <div class="imgText"><h1 style="color:white; font-size:60px;">Welcome to Valetbike</h1>
             <br>
             <h3> A bike share service made by the community, for the community.</h3>
             <br>
-            <h3> Create an account <%= link_to('today', new_session_path, {:style=>'color:white;'})%>. </h3>
+            <h3> Create an account <%= link_to('today', new_user_registration_path, {:style=>'color:white;'})%>. </h3>
           </div>
         </div>
         <br>

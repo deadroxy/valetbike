@@ -1,23 +1,200 @@
 <!-- Membership Pass Page -->
-<div class="page-section flexbox vertical stretch">
-  <div id="header">
-    <div id="header-title">ValetBike</div>
-    <div class="float-right">
-      <ul>
-        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
-        <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
-        <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
-        <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links active') %></li>
-        <li><%= link_to('Register', new_user_path, class: 'header-links') %></li>
-        <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
-        <!-- <li><%= link_to('Orders', {:controller => 'orders', :action => 'index'}, class: 'header-links') %></li> -->
-      </ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  /*Part of Flip Box CSS, rest in tabs.css*/
+    body {
+    	background-color: #ecf0f1;
+    	/* font-family: Arial, Tahoma; */
+    	color: #666666;
+    	text-align: center;
+  }
+
+  p.flip, h4 {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Arial, Tahoma;
+  }
+
+  /*End of Flip Box CSS */
+
+  /*Start of accordion CSS */
+  /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .activeA class with JS), and when you move the mouse over it (hover) */
+.activeA, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.accPanel {
+  padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+  </style>
+</head>
+
+<body>
+  <div class="page-section flexbox vertical stretch">
+    <div id="header">
+      <div id="header-title">ValetBike</div>
+      <div class="float-right">
+        <ul>
+          <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+          <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+          <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links active') %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to("Profile", current_user, class: 'header-links') %></li>
+          <% else %>
+            <li><%= link_to('Register', new_user_registration_path, class: 'header-links') %></li>
+            <li><%= link_to('Login', new_user_session_path, class: 'header-links') %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
-<h1> ValetBike Membership Passes</h1>
+
+<!--Credits for formats:
+https://codepen.io/syedrafeeq/pen/eCkFt
+https://www.w3schools.com/howto/howto_js_accordion.asp -->
 <br>
-<p> Monthly Membership: $20 for Unlimited 45-minute rides for 1 month. 1 bike per membership.</p>
-<li><%= link_to('Learn More', {:action => 'show'}) %></li>
-<p> Annual Membership:</p>
-<p> Pay Per Ride Pass:</p>
+<h1>How To Rent a Bike</h1>
+  <br>
+  <br>
+
+  <!--Start of Flip Box Code-->
+  <div class="wrapper">
+      <div class="col_third">
+        <div class="hover panel">
+          <div class="front">
+            <div class="box1">
+              <h4>Sign Up</h4>
+              <br>
+              <%=image_tag("signup.jpeg", width: 100, :alt => "Sign Up", :class=> "circImg")%>
+            </div>
+          </div>
+
+          <div class="back">
+            <div class="box2">
+              <p class="flip"> Create an account and select your preferred membership plan to start riding.
+                You can register on the website or right at the bike station kiosk! </p>
+            </div>
+          </div>
+        </div>
+		</div>
+
+		<div class="col_third">
+        <div class="hover panel">
+          <div class="front">
+            <div class="box1">
+              <h4>Unlock and Ride</h4>
+              <br>
+              <%=image_tag("bike.jpeg", width: 100, :alt => "Bike", :class=> "circImg")%>
+            </div>
+          </div>
+          <div class="back">
+            <div class="box2">
+              <p class="flip"> Unlock a bike at a kiosk using your membership card or through the website.
+              Enjoy your ride! Make sure to keep track of your remaining time to avoid fees.</p>
+            </div>
+          </div>
+        </div>
+		</div>
+
+		<div class="col_third end">
+        <div class="hover panel">
+          <div class="front">
+            <div class="box1">
+              <h4>Return</h4>
+              <br>
+              <%=image_tag("kiosk.jpeg", width: 100, :alt => "Kiosk", :class=> "circImg")%>
+            </div>
+          </div>
+          <div class="back">
+            <div class="box2">
+              <p class="flip">Bring the bike back to any ValetBike station and ensure that the kiosk indicates it has
+              been returned.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+	 </div>
+
+<!--End of Flip Box Code-->
+<!--Accordion Code-->
+<br>
+<br>
+<br>
+<br>
+<h1> Memberships </h1>
+<br>
+<button class="accordion">Pay Per Ride</button>
+<div class="accPanel">
+  <p>$2 per ride <br> 30 minutes per ride <br> Up to 4 bike rentals at once <br></p>
+
+</div>
+
+<button class="accordion">Day Pass</button>
+<div class="accPanel">
+  <p>$6 per day <br> Unlimited 30-minute rides for 24 hours <br> Only 1 bike per pass, but can purchase up to 4 passes at kiosk <br></p>
+</div>
+
+<button class="accordion">Monthly Pass </button>
+<div class="accPanel">
+  <p>$15 per month <br> Unlimited 45-minute rides for one month<br> Only 1 bike per membership, but can purchase up to 4 passes at kiosk<br></p>
+</div>
+
+<button class="accordion">Annual Pass</button>
+<div class="accPanel">
+  <p>$40 per year <br> Unlimited 45-minute rides for one year <br> 1 bike per membership <br></p>
+</div>
+
+<br>
+<br>
+For additional details about late fees, please contact our Customer Service number at 1-800-555-555.
+
+<script>
+  $(document).ready(function(){
+    /*Needed for flip box animation. Also allows for devices to flip boxes by tapping them. */
+		$('.hover').hover(function(){
+			$(this).addClass('flip');
+		},function(){
+			$(this).removeClass('flip');
+		});
+	});
+
+  var acc = document.getElementsByClassName("accordion");
+
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("activeA");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
+</body>
+</html>
