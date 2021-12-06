@@ -1,6 +1,6 @@
 <div class="bg-info text-white w-100 p-5 rounded-lg pageHeader">
-  <h1 class="display-4">Return Bike</h1>
-  <p class="lead">Hey Done with your ride? Return your bike at an available station!</p>
+  <h1 class="display-4">Return a Bike</h1>
+  <p class="lead">Arrived at your destination? Return your bike at an available station!</p>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,3 +16,50 @@
     </div>
   </div>
 </nav>
+
+<p id="notice" class="notice"><%= notice %></p>
+
+
+<div class="container m-5">
+
+<div class="choose-station text-center">
+  <h2>Return a Bike!</h2>
+  <p>Return a Bike at an available near-by station! Additional fees will be charged if the bike is not returned within the allotted times. One user can return one and only one bike at a time.</p>
+  <br>
+  <h4>Select a station to return a bike to:</h4>
+  <script type="text/javascript">
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
+  <div class="dropdown">
+  <%= form_tag(return_update_path, method:'PATCH') do %>
+  <select name="stationId" id="stationId" class="text-center">
+    <% @stations.each do |s| %>
+      <% if s.docked_bikes.size > 0%>
+        <option value=<%= s.identifier %>><%= s.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+  </div>
+  <br><br><br>
+  <%= submit_tag 'Return Bike', :class => "button2" %>
+  <% end %>
+
+
+</div>
