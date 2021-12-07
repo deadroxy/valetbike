@@ -35,11 +35,17 @@
 
 <br/>
 
-<% if current_user.credits > 0 %>
-      <%=link_to("Borrow a Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}, :class => "link-success") %>
-<% end %>
-<% if current_user.credits <= 0 %>
+<% if current_user!=nil %>
+   <% if current_user.credits>0 %>
+      <%=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}, :class => "link-success") %>
+   <%end%>
+   <% if current_user.credits <= 0 %>
+
       <%= link_to "Go buy some credits to borrow a bike!", new_billing_path %></li>
+<% end %>
+<% end %>
+<% if current_user== nil %>
+      <%= link_to "Sign up/Log in and Go buy some credits to borrow a bike!", user_session_path %></li>
 <% end %>
 <br /><br />
 <%= link_to("Return a Bike!", {:controller => 'bikes', :action => 'return', :id => params[:id]}, :class => "link-warning") %>
