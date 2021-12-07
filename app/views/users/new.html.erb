@@ -8,18 +8,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
-    .Create {
-      background-color: #2b7efb;
-      color: #FFFFFF;
-      height: 100px;
-      width: 90%;
-      text-align: center;
-    }
     .Sign_Up {
       background-color: #E6F4F1;
       line-height: 1.6;
       width: 30%;
       height: 500px;
+      text-align: center;
+    }
+    .Access_Title {
+      background-color: #286090;
+      color: #FFFFFF;
+      height: 75px;
+      width: 100%;
       text-align: center;
     }
 
@@ -31,7 +31,7 @@
   <br></br>
 
 
-<div class = "Create">
+<div class = "Access_Title">
   <h1> Create an Account </h1>
 </div>
 
@@ -54,8 +54,6 @@
   <%= f.submit %>
 <%end%>
 
-<!-- <br/> -->
-<%# <%=button_to "Go to Payment", '/payment', method: :get%>
 <br/>
 <%=button_to "Back to Welcome Page", '/welcome', method: :get%>
 <br/>
