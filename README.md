@@ -70,6 +70,7 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 
 ## Changes We Have Made Since The Prototype
 * **Customer Service:** made the email a link so that if the user click the link, it will automatically copy the email and launch one Email Client installed on the user's computer; made the message box larger to handle longer message.
-*  **Interactive Map:** With our latest pop-up menus, user can find a redirect link, `Click to borrow a bike there!`, to each station’s specific borrow bike page. This new change allow users to easily and accessibly check the availability and borrow our bikes. 
+*  **Interactive Map:** with our latest pop-up menus, user can find a redirect link, `Click to borrow a bike there!`, to each station’s specific borrow bike page. This new change allow users to easily and accessibly check the availability and borrow our bikes. 
 * **Membership:** add a membership function which allows users to select type of membership and buy different amounts of credits. The amount of credit is shown in `Credits: ` in the nav bar. Each credit allows the user to borrow a bike for 15 minutes. When the user borrow a bike, the system will start counting how long the user has borrowed it. When users return the bike, the amount of credits will decrease base on the lenth of time they borrow. Users can not borrow bikes when they have zero or negative amount of credit.
 * **Styling:** Add involving front end to our web app so that the user could use the app more conviently and find it interesting interacting with our web app!
+* **User Profile:** allow users to create their personal profile, display biking history, borrow status, and balance(credits).
