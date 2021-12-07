@@ -1,26 +1,48 @@
-<p></p>
+<br/>
+<ol class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-start bg-warning">
+    <div class="ms-2 me-auto ">
+      <div class="fw-bold">Bike at the Current Station:</div>
+      
+    </div>
+  </li>
+
 <%@counter=1%>
 <% @bikes.each do |bike| %> 
+
       
       <% if bike.current_station_id == params[:id].to_i%>
-         <p>bike: <%= @counter%><p>
+   <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+         Bike <%= @counter%>
          <%@counter = @counter+1%>
-        
          <%#=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id], :identifier => bike.identifier}) %>
          <%@rented=bike.identifier%>
+               </div>
+               Bike Identifier: <%= bike.identifier%>
+               </div>
+    <span class="badge bg-success rounded-pill">avaliable!</span>
+  </li>
+
          
       <% end %>
+        
+
    
 <% end %>  
+</ol>
+
+<br/>
 
 <% if current_user.credits > 0 %>
-      <%=link_to("Borrow the Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}) %>
+      <%=link_to("Borrow a Bike!", {:controller => 'bikes', :action => 'unlock', :id => params[:id]}, :class => "link-success") %>
 <% end %>
 <% if current_user.credits <= 0 %>
       <%= link_to "Go buy some credits to borrow a bike!", new_billing_path %></li>
 <% end %>
 <br /><br />
-<%= link_to("Return the Bike", {:controller => 'bikes', :action => 'return', :id => params[:id]}) %>
+<%= link_to("Return a Bike!", {:controller => 'bikes', :action => 'return', :id => params[:id]}, :class => "link-warning") %>
 <br /><br />
 <button class="btn btn-secondary btn-sm" onclick="window.location.href='http://localhost:3000/stations/index';">
 Back to List

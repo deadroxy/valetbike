@@ -1,4 +1,13 @@
-<p>Congrats! You unlocked the bike Successfully!</p>
+<br>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+    <%= image_tag ("image_4.jpg"), :class => "img-fluid rounded-start"%>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body mx-3 my-3">
+<h2>Congrats! You unlocked the bike Successfully!</h2>
+<br>
 
 <% @bikes.each do |bike| %>
       
@@ -9,8 +18,13 @@
          <%bike.update(time_checkedout: Time.now)%>
          <%bike.save%>
          
-         <%= link_to("Return the dock", {:controller => 'bikes', :action => 'show', :id=>@station_id}) %>
+         <%= link_to("Return to the station page", {:controller => 'bikes', :action => 'show', :id=>@station_id}) %>
       <% end %>
       
     
 <% end %>  
+
+<br>
+                </div>
+            </div>
+        </div>
