@@ -37,7 +37,7 @@
             <br>
             <h3> A bike share service made by the community, for the community.</h3>
             <br>
-            <h3> Create an account <%= link_to('today', new_session_path, {:style=>'color:white;'})%>. </h3>
+            <h3> Create an account <%= link_to('today', new_user_registration_path, {:style=>'color:white;'})%>. </h3>
           </div>
         </div>
         <br>
@@ -45,12 +45,15 @@
         <h1>Bike Stations</h1>
         <br>
         <!--The div element for the map -->
+      <!--  <div id="map1"></div> -->
         <div id="map"></div>
+        
      </div>
     </div>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA2Fh8-gg0ylW23s_Q1I_zkLPBGx8OKqo&callback=initMap&libraries=&v=weekly"
-      async></script>
+<script async
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA2Fh8-gg0ylW23s_Q1I_zkLPBGx8OKqo&callback=initMap&libraries=&v=weekly">
+</script>
+
   </body>
 </html>
