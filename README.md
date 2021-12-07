@@ -37,7 +37,7 @@ Group EEEee: Grace Li, Sethatevy Bong, Winnie Zong, Liwen Xu, Yanning Tan
 9. Confirm app runs
 * `USERNAME=your_own_sql_username PASSWORD=your_own_sql_password  rails s`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* You should see ValetBike welcome page
+* You should see ValetBike welcome page!
 
 ## Frequent Encountered Questions
 1. The `USERNAME=your_own_sql_username PASSWORD=your_own_sql_password` should successfully setup the credential,\
