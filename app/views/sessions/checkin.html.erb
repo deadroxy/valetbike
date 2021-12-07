@@ -5,6 +5,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
   <style type="text/css">
 
     .Access_Title {
@@ -15,7 +18,8 @@
       text-align: center;
     }
 
-    /* @ waka can u fill this out i forgot why we needed it exactly something was misbehaving */
+    /* It seems like h1 on this page was referring different style than other pages for some reason.
+       So we had to specify it here. */
     .Access_Title h1{
       margin-top: 20px;
       margin-bottom: 10px;
@@ -45,10 +49,7 @@
 
 <br></br>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-
+<!-- If user is trying to check out 2nd error -->
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
 <% end -%>
@@ -67,13 +68,14 @@ in your bike, you get redirected automatically-->
 
 <br></br>
 
+<!--Used Bootstrap resources to create dropdown menu-->
 <body>
 <div class="dropdown">
   <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="stationsButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Station
   </button>
 
-
+<!--Add stations as options in dropdown menu-->
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <% @stations.each do |s|%>
     <li><a class="dropdown-item" href="checkin?station_identifier=<%= s.identifier %>" data-method="post"><%=s.name%></a></li>

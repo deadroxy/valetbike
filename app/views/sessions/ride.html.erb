@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css%22%3E
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
   <style type="text/css">
     .Access_Title {
       background-color: #286090;
@@ -23,8 +26,14 @@
       padding: 20px;
       text-align: center;
     }
-
-
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      width: 960px;
+      height: 500px;
+    }
   </style>
 </head>
 
@@ -36,15 +45,10 @@
 
 <br></br>
 
-
 <div class = "checkin">
   <h2>Bike ID : <%= current_user.current_bike_id %></h2>
-
   <%=button_to "Check in your bike", '/checkin', method: :get%>
-
 </div>
-
-
 
 <br></br>
 
@@ -55,36 +59,19 @@
 <% end %>
 
 <div class = "map">
-
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css%22%3E
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-
-  <style>
-    body{
-      margin: 0;
-      padding: 0;
-    }
-
-    #map {
-      width: 960px;
-      height: 500px;
-    }
-  </style>
-</head>
-
-
-
 <div id="map"> </div>
 
 <script>
 
+//Reads in bike.svg file to create animated icon
+//Creates a bikeIcon to call upon at designated sizes and anchor points when bikes are available
 var bikeIcon = L.icon({
     	iconUrl: 'bike.svg',
     	iconSize: [50, 50],
     	iconAnchor: [25,0]
     });
+
+//Creates a bikeIcon of the same style with different color in order to indicated empty stations
 var bikeIconDisactivated = L.icon({
     	iconUrl: 'bike-disactivated.svg',
     	iconSize: [50, 50],
@@ -118,12 +105,15 @@ map.panTo(latLon).fitBounds(bounds);
                 +'<br>No bike available') //Adds pop up description
       .openPopup();
   <% else %>
+  //Creates a marker after reading in coordinates from csv with bike stations
   L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
     .bindPopup('<%= s.name %>'
               +'<br><%= Bike.where(:current_station_identifier => s.identifier).all.count %> bike available') //Adds pop up description
     .openPopup();
   <% end %>
 <% end %>
+
+//Adds Geolocation to the map to allow user to locate where they are on the map
   L.control.locate().addTo(map);
 
 </script>

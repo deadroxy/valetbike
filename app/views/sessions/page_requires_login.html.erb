@@ -1,6 +1,7 @@
 <html lang = "en">
 <head>
 
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -93,7 +94,6 @@ it gave us some trouble with the logout, but we figured it out in the end
 <!-- this navigation code is different because a user who is not logged in cannot access
 this page, thus rendering the if statements useless -->
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-  <%#<%= link_to "Login", "/login", :class => "btn" %>
   <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
   <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
   <%= link_to "How it Works", "/how_it_works", :class =>"btn btn-primary"%>
@@ -168,16 +168,18 @@ map.panTo(latLon).fitBounds(bounds);
 
 //Creates markers with bike icon and adds to the map
 <% @stations.each do |s|%>
+  // if bike does not exist, show gray marker and no link to check out
   <% if Bike.where(:current_station_identifier => s.identifier).all.count == 0 %>
     L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIconDisactivated}).addTo(map)
       .bindPopup('<%= s.name %>'
                 +'<br>No bike available') //Adds pop up description
       .openPopup();
+  // for every station with any bikes
   <% else %>
     L.marker([<%= s.latitude %>, <%= s.longitude %>], {icon: bikeIcon}).addTo(map)
       .bindPopup('<%= s.name %>'
                 +'<br><%= Bike.where(:current_station_identifier => s.identifier).all.count %> bike available'
-                +'<br><a class="unlock" href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') //Adds pop up description
+                +'<br><a class="unlock" href="/checkout?station_identifier=<%= s.identifier %>">Unlock</a>') // route to checkout page with station_identifier as query
       .openPopup();
   <% end %>
 <% end %>

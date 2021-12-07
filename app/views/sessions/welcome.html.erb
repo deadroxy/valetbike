@@ -11,6 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style type="text/css">
 
+/* Creates the title label for welcome page with image background */
     .jumbotronstyle {
       background-image: url(city.jpeg);
       background-size: cover;
@@ -21,6 +22,7 @@
       text-align: center;
       }
 
+/* Establishes color settings for buttons for menu bar */
       .btn-group{
         background-color: #FFFFFF;
         border-color: #000000;
@@ -35,14 +37,17 @@
         border-width: 3px;
       }
 
+/* Establishes the colors for the button when hovering */
       .btn-primary:hover{
         background-color: #00b3db;
       }
 
+/* Establishes the colors for the button when clicked on */
       .btn-primary:visited{
         color: #FFFFFF;
       }
 
+/* Establishes the style for the text under row */
       .row {
         padding: 20px;
         background-color: #E6F4F1;
@@ -55,6 +60,7 @@
 
 <br></br>
 
+<!-- Text and image for title page. Under class "jumbotronstyle" to call upon -->
 <div class="jumbotron text-center jumbotronstyle">
   <!--<img src="/assets/download.jpg" alt = "Background"> -->
   <h1>Welcome to ValetBike</h1>
@@ -63,7 +69,6 @@
 
 <!-- this is a piece of code present on mostly every page that requires navigation, a navigation menu -->
 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-  <%#<%= link_to "Login", "/login", :class => "btn" %>
   <% if logged_in? %>
      <%= link_to "Go to Map", "/authorized", :class => "btn btn-primary"%>
      <%= link_to "Payment Page", "/payment", :class => "btn btn-primary" %>
@@ -83,6 +88,7 @@
 
 <br></br>
 
+<!-- Text in columns for explaining the membership tiers. Under class "container" to call upon -->
 
 <div class="container">
   <div class="row">

@@ -22,11 +22,6 @@
       width: 550px;
     }
 
-    .alart {
-      color: red;
-      font-size: 15px;
-    }
-
     .btn-logout {
       background-color: #E6F4F1;
       border: none;
@@ -59,6 +54,11 @@
       color: #FFFFFF;
     }
 
+    .alart {
+      color: red;
+      font-size: 15px;
+    }
+
   </style>
 </head>
 
@@ -87,14 +87,16 @@
      <%= link_to "Log Out", "/logout", :class => "btn btn-primary", data: { confirm: "Are you sure?" }, method: :post%>
   <% end %>
 </div>
-
+    <!-- adds gif-->
     <img src="animated_bike.gif" alt = "Background" class = "center" width = "350" height = auto>
 
-    
+
     <div class = "bikeID">
     <h3>Station: <%= @station.name %></h3>
       <p>On the bike you have selected, there should be a 4-digit PIN number,
       please enter it in the ID field.</p>
+      <!-- If user is trying to check out that does not exist at the specified station,
+      show this error-->
       <% flash.each do |name, msg| -%>
         <%= content_tag :div, msg, class: name, class: "alart" %>
         <p class= "alart"> Please try with different bike ID </p>
