@@ -1,14 +1,12 @@
-// The following example creates five accessible and
-// focusable markers.
+// The following code creates accessible and focusable markers.
 function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 14,
       center: { lat: 42.31710100023048, lng: -72.64019893342778 },
     });
-    // Set LatLng and title text for the markers. The first marker (Boynton Pass)
+    // Set LatLng and title text for the markers. The first marker
     // receives the initial focus when tab is pressed. Use arrow keys to
     // move between markers; press tab again to cycle through the map controls.
-
 
   const contentString1 =
     '<div id="content">' +
@@ -226,7 +224,7 @@ const contentString14 =
     const infoWindow = new google.maps.InfoWindow();
   
     // Create the markers.
-  tourStops.forEach(([position, title], i) => {
+    tourStops.forEach(([position, title], i) => {
       const marker = new google.maps.Marker({
         position,
         map,
