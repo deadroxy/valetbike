@@ -39,7 +39,12 @@ Yesugen Baatartogtkh, Olivia DeMeo, Carolyn Nguyen, Yujun Shen and Yutong Zhang
 9. Run database migrations
 * `rake db:migrate`
 
-10. Confirm app runs
+10. Create a `_env.rb` file inside config/initializers. This file should define three environment variables, according to your MySql user:
+* `ENV['MYSQL_USERNAME']`
+* `ENV['MYSQL_PASSWORD']`
+* `ENV['MYSQL_SOCKET']`
+
+11. Confirm app runs
 * `rackup`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * You should see ValetBike welcome page
@@ -48,12 +53,13 @@ Yesugen Baatartogtkh, Olivia DeMeo, Carolyn Nguyen, Yujun Shen and Yutong Zhang
 ## Welcome to ValetBike!
 
 ### Overview
-ValetBike offers users the ability to see a list of bike stations nearby and rent a bike for a certain period of time. Currently, users can create an account with the sign-up button or login to an existing account with the login button. There are also buttons that display a list of users that are in the database and a membership page that displays possible payment plans and connects to PayPal. Users can also see a list of nearby stations and a map that shows where each stations is. Clicking on a station triggers a menu to open with additional information.
+ValetBike users can see a list of nearby bike stations and rent a bike for a certain period of time. On the main webpage, there is a map displaying the location of nearby stations, as well as a list of each stations and the available bikes. Users can create an account with the sign-up button or login to an existing account with the login button. When logged in, the user can then see the the user profile page and the payment page. The user profile page with a log-out button and the user's information, which can be edited. The payment page displays possible membership plans and connects to PayPal to complete the transaction. There is also a rent a bike page, which will direct users that aren't logged in to the log-in page. When logged in, the user can choose which station to rent from and then will be directed to the payment page to complete the purchase. Logged-in users can also see a return bike page, which allows users to choose a station to return their bikes to.
 
 
 ### Exploration Tips
 * Find each of the listed stations on the map
 * Click on each station and see details
 * Create an account using the sign-up button, then logout and login to the account just created
-* Look at the list of users that are in the database
+* Rent a bike from one of our stations! Then see how that bike is now no longer listed as available on the main page
 * View the membership page, select a price, and click the PayPal button which will trigger the PayPal pop-up button
+* View the user profile and change the email, username, or password

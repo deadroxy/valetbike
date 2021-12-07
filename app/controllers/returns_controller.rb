@@ -9,9 +9,9 @@ class ReturnsController < ApplicationController
       @bike = current_user.rented_bikes.first()
       @bike.update_attribute(:current_station, @station)
       @bike.update_attribute(:current_user, nil)
-      redirect_to({:controller => 'stations', :action => 'index' })
+      flash[:notice] = "You've successfully return the bike!"
     else
-      redirect_to({:controller => 'stations', :action => 'index' })
+      flash[:notice] = "Please make sure you have a bike rented before returning!"
     end
 
     # @station.docked_bikes.append(@bike)

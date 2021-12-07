@@ -5,6 +5,7 @@
 
 .pageHeader {
   height: 250px;
+  background-image: url('background.png'); 
 }
 
 .notice{

@@ -51,12 +51,34 @@
   <%= form_tag(returns_update_path, method:'PATCH') do %>
   <select name="stationId" id="stationId" class="text-center">
     <% @stations.each do |s| %>
-        <option value=<%= s.identifier %>><%= s.name %></option>
+      <option value=<%= s.identifier %>><%= s.name %></option>
     <% end %>
   </select>
   </div>
+
   <br><br><br>
-  <%= submit_tag 'Return Bike', :class => "button2" %>
+  <%= submit_tag 'Return Now', :class => "button2" %>
+  
+  <%
+=begin%>
+ <html>
+    <head>
+        <title>Display Alert Message on Button Click Event.</title>
+        <script type="text/javascript">
+            function showMessage() {
+                alert("You have successfully returned your bike!");
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+            <br><br><br>
+            <input type="button" id="btnShowMsg" value="Return Bike" onClick="showMessage()" class="button2" />
+        </center>
+    </body>
+</html> 
+<%
+=end%>
   <% end %>
 
 
