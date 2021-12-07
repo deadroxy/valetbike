@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get 'rent/index'
   patch 'rent/update'
-  resources :payments, only: [:index]
+  resources :payments, only: [:index, :update]
 
   #sessions routes
   get '/login', to: 'sessions#new'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   #returns 
   get '/return_bike', to: 'returns#index'
-  patch 'return/update'
-  post '/return_bike', to: 'returns#update'
+  patch 'returns/update'
+  # post '/return_bike', to: 'returns#update'
 
 end

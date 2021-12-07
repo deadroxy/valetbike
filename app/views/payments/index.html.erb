@@ -23,6 +23,14 @@
 </nav>
 
 <p id="notice" class="notice"><%= notice %></p>
+<%if has_membership? %>
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Careful!</h4>
+    <p>You already have an active membership: <%= current_user.membership %></p>
+    <hr>
+    <p class="mb-0">Please be careful that if you purchase a new membership, it will replace the current membership plan you're on.</p>
+  </div>
+<% end %>
 
 <div class="container m-5">
   <div class="row row-cols-1 row-cols-md-3 gx-5 text-center justify-content-md-center">

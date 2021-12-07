@@ -2,19 +2,35 @@ class ReturnsController < ApplicationController
   def index
     @stations = Station.all
   end
+
   def update
     @station = Station.find_by(identifier: params[:stationId])
-    @bike = Bike.find_by(identifier: params[:bikeId])
-    @bike.current_station_id = @station
-    @station.docked_bikes.append(@bike)
-    respond_to do |format|
-      if @bike.update_attribute(:current_station, nil)
-        flash[:notice] = "Please confirm return below:"
-        format.html { redirect_to({:controller => 'return', :action => 'index' })}
-      else
-        flash[:notice] = "Return was unsuccessful. Please try another station."
-        format.html { redirect_to({:controller => 'return', :action => 'index' })}
-      end
+    if bike_rented?
+      @bike = current_user.rented_bikes.first()
+      @bike.update_attribute(:current_station, @station)
+      @bike.update_attribute(:current_user, nil)
+      redirect_to({:controller => 'stations', :action => 'index' })
+    else
+      redirect_to({:controller => 'stations', :action => 'index' })
+    end
+
+    # @station.docked_bikes.append(@bike)
+    # respond_to do |format|
+    #   if @bike.update_attribute(:current_station, nil)
+    #     flash[:notice] = "Please confirm return below:"
+    #     format.html { redirect_to({:controller => 'return', :action => 'index' })}
+    #   else
+    #     flash[:notice] = "Return was unsuccessful. Please try another station."
+    #     format.html { redirect_to({:controller => 'return', :action => 'index' })}
+    #   end
+    # end
+  end
+
+  def bike_rented?
+    if (logged_in?)
+      current_user.rented_bikes.any?
+    else
+      return false
     end
   end
 end

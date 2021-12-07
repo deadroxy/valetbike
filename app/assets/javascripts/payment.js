@@ -7,7 +7,7 @@ function selectMembershipOption(option, cardID) {
     document.getElementById(cardID).style.borderWidth = "3px";
 }
 
-
+/**This code comes from Paypal.com with modifications */
 function initPayPalButton() {
     var shipping = 0;
     var itemOptions = document.querySelector("#item-options");
@@ -30,6 +30,24 @@ function initPayPalButton() {
     },
     createOrder: function(data, actions) {
         var selectedItemDescription = itemOptions.options[itemOptions.selectedIndex].value;
+
+        // When the user click the paypal button, 
+        // send an ajax request with the selected membership plan value
+        // to update the user database table
+        $.ajax({
+            headers: {
+                'X-Transaction': 'POST Example',
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'PUT',
+              url: '/payments/update',
+              dataType: 'JSON',
+              data: { membership: selectedItemDescription },
+              success: function(){
+                console.log("ajax sent: " + selectedItemDescription);
+              }
+        });
+
         var selectedItemPrice = parseFloat(itemOptions.options[itemOptions.selectedIndex].getAttribute("price"));
         var tax = (0 === 0 || false) ? 0 : (selectedItemPrice * (parseFloat(0)/100));
         if(quantitySelect.options.length > 0) {

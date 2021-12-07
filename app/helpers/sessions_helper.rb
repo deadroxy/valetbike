@@ -13,4 +13,8 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+
+  def has_membership?
+    !current_user.membership.nil?
+  end
 end

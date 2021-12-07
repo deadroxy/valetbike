@@ -22,18 +22,12 @@
   </div>
 </nav>
 
- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-  <div class="toast-header">
-    <img src="..." class="rounded me-2" alt="...">
-    <strong class="me-auto">What to do?</strong>
-    <small>Your Valetbike Tour Guide</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+<%if bike_rented? %>
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Congrats!</h4>
+    <p>You already have a bike rented.</p>
   </div>
-  <div class="toast-body">
-    Hello, biker!
-    To get started, use the map to find the nearest stations and click for more information!
-  </div>
-</div>
+<% end %>
 
 
 

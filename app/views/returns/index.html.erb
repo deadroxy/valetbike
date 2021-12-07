@@ -48,12 +48,10 @@
   </script>
 
   <div class="dropdown">
-  <%= form_tag(return_update_path, method:'PATCH') do %>
+  <%= form_tag(returns_update_path, method:'PATCH') do %>
   <select name="stationId" id="stationId" class="text-center">
     <% @stations.each do |s| %>
-      <% if s.docked_bikes.size > 0%>
         <option value=<%= s.identifier %>><%= s.name %></option>
-      <% end %>
     <% end %>
   </select>
   </div>
