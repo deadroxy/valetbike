@@ -1,42 +1,47 @@
+<div class="col-md-10 col-lg-8 mx-auto">
+            <div class="card mx-auto my-5" style="max-width: 640px;">
+            <%= image_tag ("image_5.jpg"), :class => "card-img-top"%>
+                <div class="card-body mx-2">
+                    <br>  
 <h2>VISA </h2>
-<br>
 
 <form method="post" action="create/VISA"> 
 <input
             type="hidden"
             name="authenticity_token"
             value="<%= form_authenticity_token %>">
-            <p>
-            <label for="credits">Choose a credit plan:</label>
-            <select id="credits" name="credits">
+
+            <label for="credits"></label>
+            <select id="credits" name="credits" class="form-select" aria-label=".form-select-sm example">
+            <option selected>Choose a credit plan:</option>
               <option value="1">1 credit (15 minutes, 1$)</option>
               <option value="5">5 credits (75 minutes, 4$)</option>
+              <option value="10">10 credits (150 minutes, 7$)</option>
             </select>
 
-            <p>
-            <p> 
-            Holder Name <input type="text"required="required"  placeholder= "" name="holder_name">
-            </p>
+            <br />
+ 
+            <input class="form-control"type="text"required="required"  placeholder= "Holder Name " name="holder_name">
+            <br />
 
-            <p> 
-                Card Number <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"
-                 onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text" placeholder= "" name="card_number" maxlength="16">
-            </p>
+                 <input class="form-control" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                 onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text" placeholder= "Card Number" name="card_number" maxlength="16">
+            <br />
 
-            <p> 
-            Expiration Date <input type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g,'')" 
-            onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder= "MMYY" name="expir_date" maxlength="4">
-            </p>
+            <input class="form-control" style="max-width: 200px;" type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g,'')" 
+            onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder= "Expiration Date MMYY" name="expir_date" maxlength="4">
 
-            <p> 
-            Cvv <input type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g,'')" 
-            onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder= "" name="cvv" maxlength="3">
-            </p>
+<br />
+            <input class="form-control" style="max-width: 70px;" type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g,'')" 
+            onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder= "Cvv" name="cvv" maxlength="3">
 <br>
-            <p>
-            <input type="submit" class="btn btn-secondary btn-sm">
-            </p>
+            <input type="submit" class="btn btn-secondary">
 
 
 </form>
-
+<br>
+<%= link_to "Back", :back %>
+<br>
+                </div>
+            </div>
+        </div>
