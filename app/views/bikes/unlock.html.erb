@@ -1,4 +1,14 @@
-<p> To unlock the bike, please enter the Bike # below handlebars </p>
+<br>
+<div class="card mb-5">
+  <div class="row g-0">
+    <div class="col-md-4">
+    <%= image_tag ("image_1.jpg"), :class => "img-fluid rounded-start"%>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body mx-3 my-3">
+      <h2>Welcome to ValetBike!</h2>
+      <br>
+<p>To unlock the bike, please enter the bike # below the bike handlebars</p>
 <%@bikes_list = []%>
 <% @bikes.each do |bike| %>
       
@@ -12,10 +22,12 @@
 <% end %>
 
 <%= form_tag "#" do %>
-  <%= label_tag :input, "bike identifier:" %>
-  <%= text_field_tag :input %>
+  <%= label_tag :input, "bike identifier:"%>
+  <%= text_field_tag :input%>
   <% @input = params[:input]%>
-  <%= submit_tag " confirm "%>
+  <br>
+  <br>
+  <%= submit_tag " confirm ", :class => "btn btn-dark btn-sm"%>
 <%end%> 
  
 <% if @bikes_list.include? @input.to_i%>
@@ -25,12 +37,16 @@
 <%elsif @input==nil%>
 <%else%>
   <br>
-  <p>Wrong identifier! Try it again</p>
+  <p>Wrong identifier! Try it again!</p>
 <% end %>
 
 <br>
 
   <%= link_to("Back to the station", {:controller => 'bikes', :action => 'show',:id => params[:id]}) %>
 
+      </div>
+    </div>
+  </div>
 
+</div>
 
