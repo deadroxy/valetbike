@@ -6,7 +6,6 @@
       <ul>
         <li><%= link_to('Home', root_url, class: 'header-links') %></li>
         <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
-        <li><%= link_to('Process', {:controller => 'tabs', :action => 'index'}, class: 'header-links') %></li>
         <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links active') %></li>
         <% if user_signed_in? %>
           <li><%= link_to("Profile", current_user, class: 'header-links') %></li>

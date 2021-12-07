@@ -1,0 +1,31 @@
+<!-- Register Page -->
+<div class="page-section flexbox vertical stretch">
+  <div id="header">
+    <div id="header-title">ValetBike</div>
+    <div class="float-right">
+      <ul>
+        <li><%= link_to('Home', root_url, class: 'header-links') %></li>
+        <li><%= link_to('About', new_tab_url, class: 'header-links') %></li>
+        <li><%= link_to('Memberships', {:controller => 'memberships', :action => 'index'}, class: 'header-links') %></li>
+        <li><%= link_to('Register', new_user_path, class: 'header-links active') %></li>
+        <li><%= link_to('Login', new_session_path, class: 'header-links') %></li>
+        <!-- <li><%= link_to('Orders', {:controller => 'orders', :action => 'index'}, class: 'header-links') %></li> -->
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section-inner flexbox vertical stretch">
+  <div id="register-section" class="full-height">
+    <div id="register-title" class="align-center">Register Form</div>
+    <div id="register-form">
+      <%= form_tag('/users', method:'post') do %>
+        First Name: <%= text_field_tag(:firstName) %><br>
+        Last Name: <%= text_field_tag(:lastName) %><br>
+        Email Address: <%= text_field_tag(:email) %><br>
+        User Name: <%= text_field_tag(:userName) %><br>
+        Password: <%= password_field_tag(:password) %><br>
+        <%= submit_tag('Register') %>
+      <% end %>
+    </div>
+  </div>
+</div>
