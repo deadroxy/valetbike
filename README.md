@@ -70,5 +70,5 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 
 ## Changes We Have Made Since The Prototype
 * **Customer Service:** made the email a link so that if the user click the link, it will automatically copy the email and launch one Email Client installed on the user's computer; made the message box larger to handle longer message.
-* 
+*  **Interactive Map:** With our latest pop-up menus, user can find a redirect link, `Click to borrow a bike there!`, to each station’s specific borrow bike page. This new change allow users to easily and accessibly check the availability and borrow our bikes. 
  
