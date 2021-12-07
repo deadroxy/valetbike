@@ -21,21 +21,21 @@
     %hr
     %h1 Payment Method
     .form_row
-      %div
-        = radio_button_tag 'payment-selection', 'stripe', false, onclick: "changeTab();"
-        %span Stripe
+      -# %div
+      -#   = radio_button_tag 'payment-selection', 'stripe', false, onclick: "changeTab();"
+      -#   %span Stripe
       %br
       %div
         = radio_button_tag 'payment-selection', 'paypal', false, onclick: "changeTab();"
         %span Paypal
     %br
     %br
-    %div{id:'tab-stripe', class:'paymentSelectionTab active'}
-      %div{id:'card-element'}
-      %div{id:'card-errors', role:"alert"}
-      %br
-      %br
-      = submit_tag "Buy it!", id: "submit-stripe"
+    -# %div{id:'tab-stripe', class:'paymentSelectionTab active'}
+    -#   %div{id:'card-element'}
+    -#   %div{id:'card-errors', role:"alert"}
+    -#   %br
+    -#   %br
+    -#   = submit_tag "Buy it!", id: "submit-stripe"
     %div{id:'tab-paypal', class:'paymentSelectionTab'}
       %div{id: 'submit-paypal'}
     %br
