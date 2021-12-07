@@ -46,12 +46,12 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 `ENV['MYSQL_USERNAME'] = "your_own_sql_username"`\
 `ENV['MYSQL_PASSWORD'] = "your_own_sql_password"`
 
-## Prototype's Functionality
+## Functionality
 * **User management (enabled by `devise gem`):** The user can sign up by clicking the link in the navigation bar. When entering email information, there must be an “@” in the email address. When setting a password the length of the password has to be more than 6 characters and the reentered password has to be the same as the original one. The user can then login using the email address and the password to login. After logging in, the user can use the sign out button to sign out and they can also use the edit profile button to edit their email address and password.
 
 * **Interactive Map:** Users can view the map in the "Display Stations and Bikes" page. Users can find the bike station that they intend to visit on the map by copying the address of the interested bike station and clicking on any marked location on the map. A pop-up box at the upper right corner of the screen will offer a "Get Direction" feature for users. By selecting this button, users will be redirected to a typical interactive Google Map platform. They can paste the address of the bike station as the destination and search for it. Users can use Google Map features such as estimating the direction, distance, and time taken to get to the bike station. 
 
-* **Customer Service:** At the bottom of the main page after login, which is “Display Stations and Bikes,” There’s a link named “Customer Services” that will lead the user to a page that has the contact information of ValetBike. The user could email or call us, or they can submit an online message in the “Message” box on that page.
+* **Customer Service:** At the top nav bar of the main page, there’s a buttom named “Customer Services” that will lead the user to a page that has the contact information of ValetBike. If the user click the email, it will automatically copy the email and jump to the email page. The use can also call us or leave message in the feedback box. 
 
 * **Borrow & Return:** After clicking on the “Display Stations and Bikes”, a list of stations will be shown. On each station, there is a link “show bike”, which will navigate the user to the specific dock. In each dock a list of bikes(with current station id same as the id of the station) will appear. Users could click the “Borrow the Bike!” link to borrow the bike by typing in the bike identifier(only the identifiers of bikes within the station will work). Users could also click the “Return the Bike” and type in the bike identifier to return the bike in any station they want.
 
@@ -67,4 +67,8 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 * Click on **“Billing”** in the nav bar, click on the payment method you prefer. Try fillin the billing information and submit. Then you can go back to the homepage by clicking “Back to homepage”.
 * Click on **“Edit profile”** in the nav bar, try to update your password. Try to sign out and log in again with the new password.
 * That's it! Feel free to explore more!
+
+## Changes We Have Made Since The Prototype
+* **Customer Service:** made the email a link so that if the user click the link, it will automatically copy the email and launch one Email Client installed on the user's computer; made the message box larger to handle longer message.
+* 
  
