@@ -1,10 +1,117 @@
-<h2>Payment method</h2>
-<br />
-<a href="new/mastercard"> Mastercard </a>
-<br />
-<br />
-<a href="new/VISA"> VISA </a>
-<br />
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card{
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.card:hover{
+   transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+  </head>
+  <body>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+
+<div class="container py-3">
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Pricing</h1>
+      <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+
+
+  <main>
+    <form method="post"></form>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Basic</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$1<small class="text-muted fw-light">/1 credit</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>Starter Plan!</li>
+              <li>1 Biking Credit</li>
+              <li>Enjoy Biking for 15 min!</li>
+            </ul>
+            <a href="new/VISA" type="button" class="col-md-5 btn btn-sm btn-dark"> VISA </a>
+            <a href="new/mastercard" type="button" class="col-md-5 btn btn-sm btn-dark"> Mastercard </a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$4<small class="text-muted fw-light">/5 credit</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Go Pro!</li>
+              <li>5 Biking Credit</li>
+              <li>Enjoy Biking for 75 min!</li>
+            </ul>
+            <a href="new/VISA" type="button" class="col-md-5 btn btn-sm btn-dark"> VISA </a>
+            <a href="new/mastercard" type="button" class="col-md-5 btn btn-sm btn-dark"> Mastercard </a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-warning">
+          <div class="card-header py-3 text-white bg-warning border-warning">
+            <h4 class="my-0 fw-normal">Enterprise</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$7<small class="text-muted fw-light">/10 credit</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Go Super!</li>
+              <li>10 Biking Credit</li>
+              <li>Enjoy Biking for <b>150 min</b>!</li>
+            </ul>
+            <a href="new/VISA" type="button" class="col-md-5 btn btn-sm btn-dark"> VISA </a>
+            <a href="new/mastercard" type="button" class="col-md-5 btn btn-sm btn-dark"> Mastercard </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+</div>
 
 
 
