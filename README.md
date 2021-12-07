@@ -80,3 +80,10 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 * Can't cancel account
 
 ## Next Step
+* Host our web application on Heroku
+* Add FAQ and News page
+* Add multiple languages
+* Color-blind friendly
+* Integrate social media apps
+* User testing plans
+
