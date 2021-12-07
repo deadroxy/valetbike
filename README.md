@@ -48,7 +48,13 @@ Yesugen Baatartogtkh, Olivia DeMeo, Carolyn Nguyen, Yujun Shen and Yutong Zhang
 * `rackup`
 * Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * You should see ValetBike welcome page
+
+### DevEnviroment and Database
+To set up the _env.rb file, put in your local mysql username and password.
+Use rake tasks to populate the database.
   
+### Changes Since Prototype:
+This version of ValetBike has updates to the user's abilities and some bugs fixed. Users can now navigate through the website's pages while staying logged in. Additional features including renting and returning a bike were added as user features.
   
 ## Welcome to ValetBike!
 
