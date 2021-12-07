@@ -24,6 +24,7 @@ If the station does not have any available bikes, the station will turn grey and
 Once you unlock a bike, please input a bike ID that is available at that station (for example bike ID: 2525 or 3849 at Florence Center Station), and then submit. Once you have submitted the bike ID, a confirmation page will appear to verify that you have checked out. On this confirmation page, there is also a button to check in your bike once you’ve finished your ride. Once you press the check in bike button, you can then select the station at which you’re checking your bike in. Once you’ve done that, you will be able to return to the page containing our map and navigation bar.
 Finally, you can log out of your account from most pages.
 
+Link to PR: https://github.com/deadroxy/valetbike/pull/52
 
 Citations:
 
