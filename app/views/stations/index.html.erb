@@ -1,8 +1,8 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
-    </div>  
+      Hello, this is the Valetbike front page!
+    </div>
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
@@ -12,5 +12,17 @@
       </div>
       <% end %>
     </div>
+
+    <br>
+    <p> Stations </p>
+      <ol>
+        <%@stations.each do |station| %>
+          <li>
+            <%= station.name %>
+
+
+          </li>
+        <% end %>
+     </ol>
 	</div>
 </div>
