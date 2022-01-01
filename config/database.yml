@@ -15,13 +15,13 @@ development:
 
 test:
   <<: *default
-  database: valetbike_test
-  username: 
-  password: 
+  database: valetbike_development
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
 
 
 production:
   <<: *default
-  database: valetbike_production
-  username: 
-  password: 
+  database: valetbike_development
+  username: <%= ENV['MYSQL_USERNAME'] || '' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || '' %>
