@@ -75,11 +75,8 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 * **Styling:** Add involving front end to our web app so that the user could use the app more conviently and find it interesting interacting with our web app!
 * **User Profile:** allow users to create their personal profile, display biking history, borrow status, and balance(credits).
 
-## Current bugs
-* Can't signout in the homepage
-* Can't cancel account
-
 ## Next Step
+* **Make the front page mobile first**
 * Host our web application on Heroku
 * Add FAQ and News page
 * Add multiple languages
