@@ -77,6 +77,7 @@ Try to add /config/initializers/_env.rb in your app with your mysql username/pas
 * **User Profile:** allow users to create their personal profile, display biking history, borrow status, and balance(credits).
 
 ## Next Step
+* **Make the front page mobile first**
 * Host our web application on Heroku
 * Add FAQ and News page
 * Add multiple languages
