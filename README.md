@@ -1,7 +1,7 @@
 # Prototype for ValetBike
 Smith College CSC223: Introduction to Software Engineering\
 Group EEEee: Grace Li, Sethatevy Bong, Winnie Zong, Liwen Xu, Yanning Tan\
-Link: https://valetbikeeeeee.herokuapp.com
+Visit our valetbike page @ https://valetbikeeeeee.herokuapp.com
 
 ## General Configuration
 1. Install MySQL 8.0.26
