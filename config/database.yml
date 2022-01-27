@@ -1,10 +1,11 @@
 default: &default
   adapter: mysql2
+  host: localhost
   encoding: utf8mb4
   collation: utf8mb4_unicode_520_ci
   reconnect: false
   pool: 5
-  socket: /tmp/mysql.sock
+  socket:  /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -23,4 +24,3 @@ production:
   database: valetbike_production
   username: root
   password:
- 
