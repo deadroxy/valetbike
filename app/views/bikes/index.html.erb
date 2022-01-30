@@ -13,16 +13,20 @@
     </a>
 
     <a href="http://localhost:3000/bikes">
-      <button type="button">Bikes List</button>   
+      <button type="button">Bikes Ascending Order</button>   
+    </a>
+
+    <a href="http://localhost:3000/bikes/d">
+      <button type="button">Bikes Descending Order</button>   
     </a>
     
     <div class="flexbox vertical stretch">
       <% if @bikes.present? %>
-        All Bikes (identifiers): 
+        Bikes Ascending Order:
         <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
       <% else %>
       <div class="empty">
-        No stations found.
+        No bikes found.
       </div>
       <% end %>
     </div>
