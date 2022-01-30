@@ -1,7 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
+      Welcome to ValetBike! Yayyyyyy :)
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
@@ -11,6 +11,19 @@
         No stations found.
       </div>
       <% end %>
+      
+      <% if @bikes.present? %>
+        <% @bikes.each do |bike| %>
+            <li>
+            Bike ID#
+            <%= bike.identifier %>
+            </li>
+        <% end %>
+            
+        </div>
+        <% end %>
+      
     </div>
+    
 	</div>
 </div>
