@@ -1,0 +1,7 @@
+<% station.docked_bikes.each do |bike| %>
+  <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+    bike: <%= bike.identifier%> station: <%= bike.current_station.name%>
+  </div>
+  <% end %>
+
+  
