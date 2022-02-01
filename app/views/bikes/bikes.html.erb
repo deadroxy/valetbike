@@ -3,13 +3,13 @@
     <div class="section-title">
       This is ValetBike :D!
     </div>
-    <a href="/bikes">Bike Spots</a>
+    <a href="/">Station Spots</a>
     <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bikes) %>
       <% else %>
       <div class="empty">
-        No stations found.
+        No bikes found.
       </div>
       <% end %>
     </div>
