@@ -4,6 +4,7 @@ namespace :import_csv do
     task stations: :environment do
     #reading files
     station_text = File.read(Rails.root.join("notes", "station-data.csv"))
-    puts station_text
+    station = CSV.parse(station_text, :headers => true, :encoding => "ISO-8859-1")
+    puts csv
     end
 end
