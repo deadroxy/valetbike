@@ -1,10 +1,29 @@
 require 'csv'
 namespace :import_csv do
     desc "import csv data for stations and bikes"
-    task stations: :environment do
-    #reading files
-    station_text = File.read(Rails.root.join("notes", "station-data.csv"))
-    station = CSV.parse(station_text, :headers => true, :encoding => "ISO-8859-1")
-    puts csv
+    task data: :environment do
+        #reading files
+        csv_station_text = File.read(Rails.root.join("notes", "station-data.csv"))
+        csv_bike_text = File.read(Rails.root.join("notes", "bike-data.csv"))
+
+        #parsing data
+        csv_station = CSV.parse(csv_station_text, :headers => true, :encoding => "ISO-8859-1")
+        csv_bike = CSV.parse(csv_bike_text, :headers => true, :encoding => "ISO-8859-1")
+
+        #looping and adding to database
+        csv_station.each do |row|
+            s = Station.new
+            s.identifer = row["identifier"]
+            s.name = row["name"]
+            s.address = row["address"]
+            puts "station added. #{s.name}"
+        end
+
+        csv_bike.each do |row|
+            b = Bike.new
+            b.identifier = row["identifier"]
+            b.current_station_id = row["current_station_id"]
+            puts "bike added. #{b.identifier}
+        end
     end
 end
