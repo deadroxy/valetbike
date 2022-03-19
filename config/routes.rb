@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "about", to: "about#index"
   get "login", to: "login#index"
   get "membership", to: "membership#index"
+  get "map", to: "map#index"
 end
