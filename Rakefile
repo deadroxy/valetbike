@@ -3,4 +3,8 @@
 
 require_relative "config/application"
 
+<<<<<<< HEAD
 Rails.application.load_tasks
+=======
+Rails.application.load_tasks
+>>>>>>> ceb4531 (Added missing files from initial database transfer)
