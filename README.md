@@ -132,9 +132,14 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 6. Include a complete link to your pull request as the first line of this file (e.g. "https://github.com/deadroxy/valetbike/pull/1234")
 7. Submit your pull request file along with your screenshot and team list via Moodle
 
-# csc223-cloaf
+# csc223-cloaf (Group C)
 
-# Casey - testing
-## Allison was here
+## Updates to the Gemfile include:
+### The addition of Leaflet-rails and Devise
+### (run 'bundle install' to get any missing gems)
 
-# Connie was here.
+## Populating the database
+
+## The prototype's functionality
+
+## How to observe key features
