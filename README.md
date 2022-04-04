@@ -134,10 +134,21 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 
 # csc223-cloaf (Group C)
 
-## Updates to the Gemfile include:
-The addition of Leaflet-rails and Devise
+## Additional dev environment setup
+In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetbike), two additional gems were added to the `Gemfile`: 
+1. `gem 'leaflet-rails'`
+2. `gem 'devise'`
 
-(run 'bundle install' to get any missing gems)
+### 'Leaflet-rails'
+This gem allows for functional map tiles to appear on the ValetBike map page using the Google Maps API. Without it, the map will not function correctly, and the user will only be able to access station information via the stations table.
+
+### 'Devise'
+This gem allows for users to register and log in to personal accounts associated with the ValetBike website. Without it, users will be unable to store payment info, nor will they be able to look into personal stats (e.g. previous purchases, total riding time, etc.).
+
+Verify that both of these gems are located at the bottom of the `Gemfile`
+* If they are missing, add them to the bottom of the `Gemfile`.
+
+Finally, install the missing gems by running `bundle install`.
 
 ## Populating the database
 
