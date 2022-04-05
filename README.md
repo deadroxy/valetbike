@@ -140,7 +140,7 @@ In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetb
 2. `gem 'devise'`
 
 ### 'Leaflet-rails'
-This gem allows for functional map tiles to appear on the ValetBike map page using the Google Maps API. Without it, the map will not function correctly, and the user will only be able to access station information via the stations table.
+This gem allows for functional map tiles to appear on the ValetBike map page using a separate map tileset. Without it, the map will not function correctly, and the user will only be able to access station information via the stations table.
 
 ### 'Devise'
 This gem allows for users to register and log in to personal accounts associated with the ValetBike website. Without it, users will be unable to store payment info, nor will they be able to look into personal stats (e.g. previous purchases, total riding time, etc.).
