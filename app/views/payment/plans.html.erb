@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 50px;
+  color: #000000;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 34px;
+}
+.columns {
+  float: left;
+  width: 33.3%;
+  padding: 8px;
+}
+
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+  background-color: #020DAB;
+  color: white;
+  font-size: 45px;
+}
+
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.price .grey {
+  background-color: #eee;
+  font-size: 30px;
+}
+
+.button {
+  background-color: #3399FF;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 28px;
+}
+
+@media only screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center">ValetBike Membership Plans</h1>
+<h2 style="text-align:center">Change or cancel anytime.</h2>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">Pay Per Ride</li>
+    <li class="grey">$ 9.99 / month</li>
+    <li>35 minutes</li>
+    <li>Up to 3 biikes at once</li>
+    <li>No distance limite</li>
+    <li>Best for less frequent use</li>
+    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:#2734E9">Pro</li>
+    <li class="grey">$ 15.99 / month</li>
+    <li>Unlimited rides</li>
+    <li>1 hour per ride</li>
+    <li>Up to 3 bikes at once</li>
+    <li>Best for moderate use</li>
+    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">Premium</li>
+    <li class="grey">$ 69.99 / year</li>
+    <li>Unlimited rides</li>
+    <li>2 hours per ride</li>
+    <li>Up to 4 bike rentals at once</li>
+    <li>Best for frequent use</li>
+    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
+</body>
+</html>

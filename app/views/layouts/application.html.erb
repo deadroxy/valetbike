@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FirstTry</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+         <%= yield %>
+         <% if Current.user %>
+                  <div class="sidenav">
+                    <a href="welcome">VALETBIKE</a>
+                    <a href="#">Account Information</a>
+                    <a href="plans">Membership Plan</a>
+                    <a href="#">Preferences</a>
+                    <a href="#">Privacy</a>
+                  </div>
+                  <% end %>
+
+  </body>
+</html>
