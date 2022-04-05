@@ -153,5 +153,6 @@ Finally, install the missing gems by running `bundle install`.
 ## Populating the database
 
 ## The prototype's functionality
+Our prototype allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling things would include.
 
 ## How to observe key features
