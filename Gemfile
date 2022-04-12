@@ -69,6 +69,8 @@ gem 'dotenv-rails'
 
 gem 'leaflet-rails'
 
+gem 'stripe'
+
 # Suggested Potentially Useful Gems
 gem 'devise'
 # gem 'httparty'
