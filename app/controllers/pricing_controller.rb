@@ -1,5 +1,4 @@
 class PricingController < HomeController
-
     def pay_per_ride_pass
     end
 

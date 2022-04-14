@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     def index
     end
 
-    def howitworks
+    def how_it_works
     end
     
     def map
