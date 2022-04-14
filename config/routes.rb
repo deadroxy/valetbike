@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'home/terms_of_use'
   get 'home/my_account'
   get 'home/rent'
+  get 'pricing/pay_per_ride'
 end
