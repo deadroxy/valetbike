@@ -38,7 +38,16 @@
                 <li>
                     Station 1:
                     <ul>
-                        Bikes available: #
+                        <!-- Display bikes at current station -->
+                        <div class="flexbox vertical stretch">
+                            <% if @stations.present? %>
+                                <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+                            <% else %>
+                            <div class="empty">
+                                No stations found.
+                            </div>
+                            <% end %>
+                        </div>
                     </ul>
                     <ul>
                         <div role="button" type="button" class="button">
