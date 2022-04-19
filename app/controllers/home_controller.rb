@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     end
     
     def map
-      @stations = Station.all.order(identifier: :asc)
+      @stations = Station.all.order(id: :asc) # change to identifier if needed
       @bikes = Bike.all.order(identifier: :asc) #data of bikes available to page
     end
 
