@@ -8,61 +8,8 @@
 
         <div class="map__container flexbox horizontal stretch" id="map">
             <!-- Made map__container class in case it needs adjustments -->
-            <%# fix line 14 %>
-            <%# <script type="text/javascript" src="../assets/javascripts/map.js"></script> %>
-
             <!-- img src="../assets/placeholder-map-pin.png" -->
-
-            <script> <!--  script tag from: https://github.com/CJParkNW/valetbike/commit/f21be0e9c3e0b2a8e1dedffefbc207081902027b-->
-            var map = L.map('map').setView([42.32, -72.65], 13);
-          
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(map);
-          
-            L.marker([42.32389, -72.652456]).addTo(map) // Northampton High School
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.326006, -72.633722]).addTo(map) // Florence Bank
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-            
-            L.marker([42.335004, -72.668044]).addTo(map) // Florence Center
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.3333863,-72.6444547]).addTo(map) // Jackson Street
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.3301763,-72.6532651]).addTo(map) // Cooley Dickinson Health Care
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.32840354424434,-72.63562490130583]).addTo(map) // State St/Mass Central Rail Trail
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.311479197759276,-72.6485510604438]).addTo(map) // Village Hill/State Hospital
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.3193925,-72.6380155]).addTo(map) // John M Greene Hall/Smith College
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.3167667,-72.635669]).addTo(map) // Forbes Library
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.3172144,-72.6331127]).addTo(map) // Pulaski Park/Downtown
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.319591208562485,-72.63059154099119]).addTo(map) // Main Street/Court House
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.31812401594358,-72.62745705957104]).addTo(map) // Northampton Train Station
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.320536,-72.628275]).addTo(map) // Main Street/Bridge Street
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-
-            L.marker([42.32884244853771,-72.64408615938571]).addTo(map) // YMCA/Childs Park
-              .bindPopup(`<a href="https://google.com" target="_blank" rel="noopener noreferrer">test link</a>`);
-            </script>
-                
+            <%= javascript_include_tag('map.js') %>     
             </div>
 
     </div>
