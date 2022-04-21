@@ -29,6 +29,7 @@ namespace :import_data do
     csv.each do |row|
       new_bike = Bike.new; 
       new_bike.identifier = row["identifier"]
+      new_bike.current_station_id = row["current_station_identifier"]
       new_bike.save
     end
   end
