@@ -1,2 +1,89 @@
 <% content_for :title, "Help | ValetBike" %>
-<p> This is the Help page. </p>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+
+
+<h1> Frequently Asked Questions </h1>
+
+<ol>
+<li> Membership </li>
+    <ol> 
+    <button class="collapsible"> Open Section 1 </button>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+        <li> How do I become a member? </li>
+            Click on the Log In/Sign Up button on the top right of your screen! Simply put in your email, create a password, and enter your payment info to get started!
+        <li> What is the pricing for members? </li>
+            Pricing is dependent on the membership you purchase, and it ranges from $## to $##. Refer to the Pricing page for more info. !PUT ACTUAL LINK HERE!!!
+        <li> When does my membership begin? </li>
+            Immediately after renting  (add link geez) a bike from a station or selecting from one of our many payment plans!
+    </ol>
+<li> Rides </li>
+    <ol>
+        <li> Where can I rent a bike? </li>
+            Directly on this website! Click here to rent a bike from any of our stations.
+        <li> How long can I ride a bike for? </li>
+            Each ride can last for a maximum of INSERT TIME SPAN HERE! If your bike is not checked into a station at the end of this time, you will be charged an extended time fee until you return the bike.
+      
+    </ol>
+<li> Bikes </li>
+    <ol>
+        <li> How do I unlock my bike for a ride?</li>
+            Honestly, great question. We actually don't know what we're gonna do about this... Good luck with that!
+        <li> Do I need to return my bike to the same station I unlocked it at? </li>
+            Nope! Bikes can be returned at any of our stations! Here (INSERT LINK) is a map to all stations.
+        <li> How many bikes can I rent at one time? </li>
+            You can rent up to INSERT MAX BIKE RENTAL bikes! Remember, another member of your party can also purchase a membership to rent more bikes.
+    </ol>
+<li> Stations </li>
+    <ol>
+    <li> If there are no open docks at the station I want to return my bike, what do I do? </li>
+        Our innovative system can detect when a station is full. You can request an extra 15 minutes at the fully docked station's kiosk at no extra charge so that you can return your bike at another station. 
+    </ol>
+
+</ol>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
