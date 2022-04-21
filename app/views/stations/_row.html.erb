@@ -1,3 +1,10 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
+  Station <%= station.id %>: <%= station.name %> (<%= station.address %>)
+
+  <!--div tags for "new lines" -->
+  <div>Bikes available: <%= station.docked_bikes.count %> </div>
+  
+  <div role="button" type="button" class="button">
+    <%= link_to 'Rent', home_rent_path %>
+  </div>
 </div>
