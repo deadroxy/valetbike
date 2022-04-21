@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get 'pricing/student_annual_membership'
   get 'pricing/access_pass'
   get 'pricing/founding_member'
+
+  get 'users/sign_in'
 end
