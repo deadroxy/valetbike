@@ -1,2 +1,134 @@
 <% content_for :title, "Pricing | ValetBike" %>
-<p> This is the Pricing page. </p>
+
+<div class="page-section flexbox vertical stretch">
+    <h4>Whether you're looking to rent a bike for a casual stroll or invest in something long-term, ValetBike offers an array of payment options suitable for everyone.</h4>
+    <!-- Add a class to modify text appearance & center it -->
+
+    <h2>Short-Term Passes:</h2>
+    <div class="payment-option__container flexbox horizontal stretch">
+    <!-- Created payment-option__container class for additional css changes -->
+    <!-- Maybe the payment-option containers should be optional drop-downs? To ease access for mobile. But default to open to prevent extra clicks. -->
+        <div class="payment-option flexbox vertical stretch">
+            <!-- Created payment-option class for additional css changes -->
+            <h3>Pay-Per-Ride Pass</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_pay_per_ride_pass_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+        <div class="payment-option flexbox vertical stretch">
+            <h3>Day Pass</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_day_pass_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Long-Term Memberships:</h2>
+    <div class="payment-option__container flexbox horizontal stretch">
+        <div class="payment-option flexbox vertical stretch">
+            <h3>Monthly Membership</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_monthly_membership_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+        <div class="payment-option flexbox vertical stretch">
+            <h3>Annual Membership</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_annual_membership_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Specialized Payment Plans:</h2>
+    <div class="payment-option__container flexbox horizontal stretch">
+        <div class="payment-option flexbox vertical stretch">
+            <h3>Student Annual Membership</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_student_annual_membership_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+        <div class="payment-option flexbox vertical stretch">
+            <h3>Access Pass</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_access_pass_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+        <div class="payment-option flexbox vertical stretch">
+            <h3>Founding Member</h3>
+            <p>[info]</p>
+            <h4>$##.##</h4>
+            <div class="flexbox horizontal stretch">
+            <!-- Button container -->
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Learn More', pricing_founding_member_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+                <div role="button" type="button" class="button">
+                    <%= link_to 'Buy Membership', rent_path %>
+                    <!-- Change path to either pop-up info or launch new page with plan info -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <p> This is the Pricing page. </p> -->
