@@ -69,7 +69,16 @@ gem 'dotenv-rails'
 
 gem 'leaflet-rails'
 
-gem 'stripe'
+gem 'pay', '~> 3.0'
+
+# To use Stripe, also include:
+gem 'stripe', '>= 5.0', '< 6.0'
+
+# To use Braintree + PayPal, also include:
+gem 'braintree', '>= 4.6', '< 5.0'
+
+# To use Receipts gem for creating invoice and receipt PDFs, also include:
+gem 'receipts', '~> 2.0'
 
 # Suggested Potentially Useful Gems
 gem 'devise'
