@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include Pay::Billable
-  include Pay::Customer
+  # include Pay::Customer
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

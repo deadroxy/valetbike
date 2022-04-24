@@ -43,7 +43,7 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { host: 'localhost', port: 9292 }
 
   # config/application.rb
-  config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_adapter = :sidekiq
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

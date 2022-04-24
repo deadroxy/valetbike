@@ -73,6 +73,7 @@ gem 'pay', '~> 3.0'
 
 # To use Stripe, also include:
 gem 'stripe', '>= 5.0', '< 6.0'
+gem 'stripe-rails'
 
 # To use Braintree + PayPal, also include:
 gem 'braintree', '>= 4.6', '< 5.0'
