@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :charges, only: [:new, :create]
   
   root to: "home#index"
   get 'how_it_works', to: 'home#how_it_works'
