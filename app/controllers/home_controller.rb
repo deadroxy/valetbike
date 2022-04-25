@@ -20,9 +20,6 @@ class HomeController < ApplicationController
     def help
     end
 
-    def login
-    end
-
     def privacy
     end
     
