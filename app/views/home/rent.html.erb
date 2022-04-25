@@ -1,5 +1,6 @@
 <% content_for :title, "Rent | ValetBike" %>
 <p>This is the Rent page.</p>
+<% Stripe.api_key = Rails.configuration.stripe[:secret_key] %>
 
 <%= form_tag charges_path do %>
 <article>

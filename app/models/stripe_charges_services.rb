@@ -40,7 +40,7 @@ class StripeChargesServices
     def create_charge(customer)
       Stripe::Charge.create(
         customer: customer.id,
-        amount: order_amount,
+        amount: 1000,
         description: customer.email,
         currency: DEFAULT_CURRENCY
       )
