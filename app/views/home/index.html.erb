@@ -3,15 +3,67 @@
 <div class="page-section flexbox vertical stretch">
   <div class="hero flexbox vertical stretch">  
     <h1>Welcome to ValetBike!</h1>
-    <h2>Subtitle goes here</h2>
+    <h2>Your purrfect ride awaits you!</h2>
 	</div>
-  <div role="button" type="button" class="button">
-    <%= link_to 'Rent a Bike!', map_path %>
-  </div><br>
-  <div class="section-inner flexbox vertical stretch">
-    <h1>What we do:</h1>
-    <p>Something about our mission.</p>
-  </div>
-
   
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Alert!</strong> This is a sample pop up alert!
+    <button type="button" class="btn-close" aria-label="Close" onclick="this.parentElement.style.display='none';"></button>
+  </div>
 </div>
+  <%= link_to 'Rent a Bike', map_path, class: 'btn btn-outline-primary btn-lg' %> <br>
+
+<h2>How it Works</h2>
+<div class="row d-flex justify-content-center">
+
+    <div class="col-lg-2 col-md-5">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title">Join the bike clan!</h5>
+          <p class="card-text">Get the membership through a kiosk or our site!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Unlock the bike!</h5>
+          <p class="card-text">Take 'er for a spin!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ride to your heart's content!</h5>
+          <p class="card-text">We recommend a helmet (helmet not included with the bike, please provide that on your own)</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Dock!</h5>
+          <p class="card-text">Return your bike to our many stations!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ride again!</h5>
+          <p class="card-text">Keep on riding for the betterment of the Earth!</p>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+
+<div class="section-inner flexbox vertical stretch">
+    <h2>What we do:</h2>
+    <p>We aim to serve the Nipmock Notch area.</p>
+
+    <h2>Pricing</h2>
+    <p>We aim to be affordable and accessible.</p>
+</div>
+  
