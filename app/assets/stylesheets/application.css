@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+
+.navbar-img {
+  width: 4%;
+  padding-right: 1%;
+}
+
+.map-box {
+    display: flex;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+}
+
+#map {
+  /*TODO: Try to center map in the middle of the page */
+  flex: 1;
+  width: 960px;
+  height: 500px;
+  margin-bottom: 2%;
+}
+

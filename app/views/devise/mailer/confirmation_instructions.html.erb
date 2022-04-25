@@ -1,0 +1,6 @@
+<p>Welcome to Quadricycle<%= @email %>!</p>
+<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/First_Church%2C_Main_Street%2C_Northampton%2C_2011.jpg/1920px-First_Church%2C_Main_Street%2C_Northampton%2C_2011.jpg" alt="Northampton">
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
