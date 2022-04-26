@@ -40,13 +40,14 @@ class StripeChargesServices
     def create_charge(customer)
       Stripe::Charge.create(
         customer: customer.id,
-        amount: 1000,
+        amount: 1000, # Needs to be automatically set
         description: customer.email,
         currency: DEFAULT_CURRENCY
       )
     end
   
-    def order_amount
-      Order.find_by(id: order).amount
-    end
+    # # Need to create Order model
+    # def order_amount
+    #   Order.find_by(id: order).amount
+    # end
   end
