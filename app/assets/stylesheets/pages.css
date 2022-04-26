@@ -10,7 +10,7 @@
   justify-content: center;
   /* width: 100%; */
   background: #666;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../public/bike.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../bike.jpg");
   background-repeat: no-repeat;
   background-size: auto 1500px;
   background-position: center;
