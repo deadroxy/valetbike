@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
   
     def create
       StripeChargesServices.new(charges_params, current_user).call
-      redirect_to rent_path
+      redirect_to root_path
     end
   
     private
