@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get 'terms_of_use', to: 'home#terms_of_use'
   get 'my_account', to: 'home#my_account'
   get 'rent', to: 'home#rent'
-  
   get 'pricing/pay_per_ride_pass'
   get 'pricing/day_pass'
   get 'pricing/monthly_membership'
@@ -21,4 +20,6 @@ Rails.application.routes.draw do
   get 'pricing/student_annual_membership'
   get 'pricing/access_pass'
   get 'pricing/founding_member'
+
+  get 'users/sign_in'
 end

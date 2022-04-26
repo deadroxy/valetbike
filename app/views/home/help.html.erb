@@ -1,2 +1,70 @@
 <% content_for :title, "Help | ValetBike" %>
-<p> This is the Help page. </p>
+<head>
+
+</head>
+
+
+<h1> Frequently Asked Questions </h1>
+
+<ol>
+<li> Membership </li>
+    <button class="collapsible"> How do I become a member? </button>
+    <div class="content">
+      <p> Click on the <%= link_to 'Login In/Sign Up', users_sign_in_path, class: "nav-justified" %> button on the top right of your screen! Simply put in your email, create a password, and enter your payment info to get started!</p>
+      
+    </div>
+    
+    <button class="collapsible"> What is the pricing for members? </button>
+
+    <div class="content">
+      <p> Pricing is dependent on the membership you purchase, and it ranges from $## to $##. Refer to the <%= link_to 'Pricing', pricing_path, class: "nav-justified" %> page for more info. </p>
+    </div>
+
+    <button class="collapsible"> When does my membership begin? </button>
+
+    <div class="content">
+      <p>Immediately after <%= link_to 'renting a bike', rent_path, class: "nav-justified" %> a bike from a station or selecting from one of our many <%= link_to 'payment plans', pricing_path, class: "nav-justified" %>! </p>
+    </div>
+
+
+<li> Rides </li>
+    <button class="collapsible"> Where can I rent a bike? </button>
+
+    <div class="content">
+      <p>Directly on this website! Click <%= link_to 'here', rent_path, class: "nav-justified" %> to rent a bike from any of our stations. </p>
+    </div>
+    <button class="collapsible"> How long can I ride a bike for? </button>
+
+    <div class="content">
+      <p> Each ride can last for a maximum of INSERT TIME SPAN HERE! If your bike is not checked into a station at the end of this time, you will be charged an extended time fee until you return the bike. </p>
+    </div>    
+
+           
+      
+ 
+<li> Bikes </li>
+    <button class="collapsible"> How do I unlock my bike for a ride? </button>
+    <div class="content">
+        <p> Honestly, great question. We actually don't know what we're gonna do about this... Good luck with that! </p>
+    </div>
+
+    <button class="collapsible"> Do I need to return my bike to the same station I unlocked it at? </button>
+    <div class="content">
+        <p>  Nope! Bikes can be returned at any of our stations! Click <%= link_to 'here', map_path, class: "nav-justified" %> to see a map of all stations. </p>
+    </div>
+
+    <button class="collapsible"> How many bikes can I rent at one time? </button>
+    <div class="content">
+        <p> You can rent up to INSERT MAX BIKE RENTAL bikes! Remember, another member of your party can also <%= link_to 'purchase a membership', pricing_path, class: "nav-justified" %> to rent more bikes. </p>
+    </div>
+
+
+<li> Stations </li>
+     <button class="collapsible"> If there are no open docks at the station I want to return my bike, what do I do? </button>
+    <div class="content">
+        <p> Our innovative system can detect when a station is full. You can request an extra 15 minutes at the fully docked station's kiosk at no extra charge so that you can return your bike at another station. 
+</p>
+
+</ol>
+
+<%= javascript_include_tag('help-accordion.js') %>

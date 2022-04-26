@@ -10,7 +10,7 @@
   justify-content: center;
   /* width: 100%; */
   background: #666;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/placeholder-map-pin.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/bike.jpg");
   background-repeat: no-repeat;
   background-size: auto 1500px;
   background-position: center;
@@ -70,4 +70,29 @@
     margin-bottom: .6em;
   }
 
+}
+
+
+
+/************************************/
+/*           Map Page CSS           */
+/************************************/
+
+.map__container {
+  height: 500px;
+}
+
+.map__text {
+  margin: auto;
+  width: 50%;
+}
+
+
+
+/************************************/
+/*         Pricing Page CSS         */
+/************************************/
+
+.pass-title {
+  text-align: center;
 }
