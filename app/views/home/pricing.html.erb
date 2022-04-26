@@ -1,78 +1,141 @@
 <% content_for :title, "Pricing | ValetBike" %>
+<% Stripe.api_key = Rails.configuration.stripe[:secret_key] %>
 
 <div class="page-section flexbox vertical stretch">
-    <h4>Whether you're looking to rent a bike for a casual stroll or invest in something long-term, ValetBike offers an array of payment options suitable for everyone.</h4>
-    <!-- Add a class to modify text appearance & center it -->
+    <h4 class="pricing-headline">Whether you're looking to rent a bike for a casual stroll or invest in something long-term, ValetBike offers an array of payment options suitable for everyone.</h4>
 
     <h2 class="pass-title">Short-Term Passes:</h2>
-    <div class="payment-option__container flexbox justify-space-around wrap horizontal stretch">
-    <!-- Created payment-option__container class for additional css changes -->
-    <!-- Maybe the payment-option containers should be optional drop-downs? To ease access for mobile. But default to open to prevent extra clicks. -->
-        <div class="payment-option flexbox vertical stretch">
-            <!-- Created payment-option class for additional css changes -->
-            <h3>Pay-Per-Ride Pass</h3>
-            <p>Pay $1.00 to rent one bike for 1 hour!</p>
-            <h4>$  1.00</h4>
-            <div class="flexbox horizontal stretch">
-            <!-- Button container -->
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Learn More', pricing_pay_per_ride_pass_path, target: "_blank" %>
-                </div>
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Buy Membership', rent_path %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
+    <div class="payment-option__container row d-flex justify-content-center">
+
+        <div class="col-lg-3">
+            <div class="payment-option card" >
+                <div class="card-body">
+                    <h5 class="card-title">Pay-Per-Ride Pass</h5>
+                    <p class="card-text">Pay $1.00 to rent one bike for 1 hour!</p>
+                    <h4>$  1.00</h4>
+                    <div class="flexbox justify-space-between horizontal stretch">
+                    <!-- Button container -->
+                        <%= link_to 'Learn More', pricing_pay_per_ride_pass_path, target: "_blank", class:"btn btn-outline-primary", style:"margin: auto 0;" %>
+                        <div style="padding: 0 auto; text-align: center;">
+                            <%= form_tag charges_path do %>
+                                <% if flash[:error].present? %>
+                                <div id="error_explanation">
+                                    <p><%= flash[:error] %></p>
+                                </div>
+                                <% end %>
+                                <div class="flexbox vertical">
+                                    <label><p style="margin-bottom:0">Buy Membership:</p></label>
+                                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                    data-description="Pay-Per-Ride-Pass"
+                                    data-amount="100"
+                                    data-locale="auto"></script>
+                                </div>
+                            <% end %>
+                        </div>
+                        <%# <%= link_to 'Buy Membership', charges_path, class:"btn btn-outline-primary" %>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="payment-option flexbox vertical stretch">
-            <h3>Day Pass</h3>
-            <p>Pay $4.20 to rent one bike for 1 day!</p>
-            <h4>$  4.20</h4>
-            <div class="flexbox horizontal stretch">
-            <!-- Button container -->
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Learn More', pricing_day_pass_path, target: "_blank" %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
-                </div>
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Buy Membership', rent_path %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
+
+        <div class="col-lg-3">
+            <div class="payment-option card" >
+                <div class="card-body">
+                    <h5 class="card-title">Day Pass</h5>
+                    <p class="card-text">Pay $4.20 to rent one bike for 1 day!</p>
+                    <h4>$  4.20</h4>
+                    <div class="flexbox justify-space-between horizontal stretch" >
+                    <!-- Button container -->
+                        <%= link_to 'Learn More', pricing_day_pass_path, target: "_blank", class:"btn btn-outline-primary", style:"margin: auto 0;" %>
+                        <div style="padding: 0 auto; text-align: center;">
+                            <%= form_tag charges_path do %>
+                                <% if flash[:error].present? %>
+                                <div id="error_explanation">
+                                    <p><%= flash[:error] %></p>
+                                </div>
+                                <% end %>
+                                <div class="flexbox vertical">
+                                    <label><p style="margin-bottom:0">Buy Membership:</p></label>
+                                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                    data-description="Day Pass"
+                                    data-amount="420"
+                                    data-locale="auto"></script>
+                                </div>
+                            <% end %>
+                        </div>
+                        <%# <%= link_to 'Buy Membership', rent_path, class:"btn btn-outline-primary" %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+<br>
     <h2 class="pass-title">Long-Term Memberships:</h2>
-    <div class="payment-option__container flexbox justify-space-around wrap horizontal stretch">
-        <div class="payment-option flexbox vertical stretch">
-            <h3>Monthly Membership</h3>
-            <p>Pay $69.69 to rent one bike for 30 days!</p>
-            <h4>$ 69.69</h4>
-            <div class="flexbox horizontal stretch">
-            <!-- Button container -->
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Learn More', pricing_monthly_membership_path, target: "_blank" %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
-                </div>
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Buy Membership', rent_path %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
+    <div class="payment-option__container row d-flex justify-content-center">
+
+        <div class="col-lg-3">
+            <div class="payment-option card" >
+                <div class="card-body">
+                    <h5 class="card-title">Monthly Membership</h5>
+                    <p class="card-text">Pay $69.69 to rent one bike for 30 days!</p>
+                    <h4>$ 69.69</h4>
+                    <div class="flexbox justify-space-between horizontal stretch">
+                    <!-- Button container -->
+                        <%= link_to 'Learn More', pricing_monthly_membership_path, target: "_blank", class:"btn btn-outline-primary", style:"margin: auto 0;" %>
+                        <div style="padding: 0 auto; text-align: center;">
+                            <%= form_tag charges_path do %>
+                                <% if flash[:error].present? %>
+                                <div id="error_explanation">
+                                    <p><%= flash[:error] %></p>
+                                </div>
+                                <% end %>
+                                <div class="flexbox vertical">
+                                    <label><p style="margin-bottom:0">Buy Membership:</p></label>
+                                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                    data-description="Monthly Membership"
+                                    data-amount="6969"
+                                    data-locale="auto"></script>
+                                </div>
+                            <% end %>
+                        </div>
+                        <%# <%= link_to 'Buy Membership', rent_path, class:"btn btn-outline-primary" %>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="payment-option flexbox vertical stretch">
-            <h3>Annual Membership</h3>
-            <p>Pay $169.69 to rent one bike for 365 days!</p>
-            <h4>$169.69</h4>
-            <div class="flexbox horizontal stretch">
-            <!-- Button container -->
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Learn More', pricing_annual_membership_path, target: "_blank" %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
-                </div>
-                <div role="button" type="button" class="button">
-                    <%= link_to 'Buy Membership', rent_path %>
-                    <!-- Change path to either pop-up info or launch new page with plan info -->
+
+        <div class="col-lg-3">
+            <div class="payment-option card" >
+                <div class="card-body">
+                    <h5 class="card-title">Annual Membership</h5>
+                    <p class="card-text">Pay $169.69 to rent one bike for 365 days!</p>
+                    <h4>$169.69</h4>
+                    <div class="flexbox justify-space-between horizontal stretch">
+                    <!-- Button container -->
+                        <%= link_to 'Learn More', pricing_annual_membership_path, target: "_blank,", class:"btn btn-outline-primary", style:"margin: auto 0;" %>
+                        <div style="padding: 0 auto; text-align: center;">
+                            <%= form_tag charges_path do %>
+                                <% if flash[:error].present? %>
+                                <div id="error_explanation">
+                                    <p><%= flash[:error] %></p>
+                                </div>
+                                <% end %>
+                                <div class="flexbox vertical">
+                                    <label><p style="margin-bottom:0">Buy Membership:</p></label>
+                                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                    data-description="Annual Membership"
+                                    data-amount="16969"
+                                    data-locale="auto"></script>
+                                </div>
+                            <% end %>
+                        </div>
+                        <%# <%= link_to 'Buy Membership', rent_path, class:"btn btn-outline-primary" %>
+                    </div>
                 </div>
             </div>
         </div>
