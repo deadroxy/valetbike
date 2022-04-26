@@ -1,0 +1,36 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+#map { height: 600px; }
+
+table {
+  width: 700px;
+}
+
+th {
+  text-align: center;
+  height: 70px;
+  color: black;
+  border-bottom: 1px solid rgb(59, 59, 55);
+  
+}
+td {
+  text-align: center;
+  height: 70px;
+  color: black;
+  font-size: 16px;
+  border-bottom: 1px solid rgb(59, 59, 55);
+}
+
+.button {
+  background-color: #272d3f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+

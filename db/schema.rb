@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_30_180952) do
+ActiveRecord::Schema.define(version: 2022_04_23_210201) do
 
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "identifier"
@@ -19,12 +19,54 @@ ActiveRecord::Schema.define(version: 2021_08_30_180952) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "identifier"
+  end
+
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "startstation"
+    t.string "endstation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "bike_id"
+    t.integer "rider_user_id"
+  end
+
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "xcoord"
+    t.float "ycoord"
+    t.integer "docks"
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email", null: false
+    t.string "remember_token"
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
+    t.string "birthMonth"
+    t.integer "birthDay"
+    t.integer "birthYear"
+    t.integer "points", default: 100
+    t.integer "membershipID"
   end
 
 end

@@ -1,0 +1,29 @@
+<div>
+<br>
+	 <center><h1>Pricing<hr/></h1>
+
+	<table id=pricingtable>
+	<tr>
+		<th></th>
+		<th>Plan A</th>
+		<th>Plan B</th>
+	</tr>
+	<tr>
+		<th>Rides per Week</th>
+		<td>5</td>
+		<td>Unlimited</td>
+	</tr>
+	<tr>
+		<th>Price</th>
+		<td>$15 / month</td>
+		<td>$40 / month</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><%= button_to "purchase", addMembership_path, :method => "post", params: {identifier: @membership1.identifier } %></td>
+		<td><%= button_to "purchase", addMembership_path, :method => "post", params: {identifier: @membership2.identifier } %></td>
+	</tr>
+
+</table>
+ </center>
+</div>

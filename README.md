@@ -65,69 +65,71 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * `rake db:migrate`
 
 **8. Confirm app runs**
-* Launch web server using `rackup` or `rails s`
-* If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
+* Launch web server using `rails s`
+* Make sure you are using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
+  
+## Additional Configuration Steps
 
-## Assignment #1: Hello Stack, Welcome to ValetBike!
+**1. Overview of dev environment setup (e.g. updates to .env or Gemfile)**
+* Install leaflet-rails and geocoder gems
+* Install bcrypt gem 
+* Install rails-6.1.5
+* `bundle install`
 
-### Brief Background
-You and several other junior engineers have just started at ValetBike, a community tech co-op based in Nipmuc Notch, and you are excited to finally be getting paid to contribute to a meaningful app. During your hiring interview, you said you were comfortable doing full stack programming, but stressed you hadn't worked in Ruby on Rails before. The lead developer thought you were right for the position and promised you a guided tour of the codebase on your first day. However, after your onboarding, you learn they've just gone on leave indefinitely. It also turns out the lead developer was the *only* developer at ValetBike, and now the rest of the team is counting on you and the other new programmers to complete the prototype before the scheduled launch day.
+**2. Instructions for populating the database (e.g. a rake task or seed setup)**
+* `rake import_csv:create_stationData`
+* `rake import_csv:add_stationData`
+* `rake import_csv:create_bikeData`
+* `rake import_csv:add_bikeData`
+* `rake import_csv:create_membershipData`
+* `rake db:migrate`
+* If needed, update database.yml page so that socket variables takes the correct socket path name. The socket path name can be found on the .env file, which includes the credential when you installed MySQL, or you could type “mysql -u root -p” on the terminal and then “SHOW VARIABLES LIKE ‘socket’;” when prompted with “MySQL[(none)]>”. The socket path should appear for you to copy into the database.yml file, next to the “socket” variable. You may also need to manually input your username and password for MySQL in line 12 and 13 if you encounter an “Access denied for user '...'@'localhost'” error. 
+* When launching web server, use “rails s” (and not “rackup”) to avoid the error when creating an account that requires email authentication. Upon launching, you should be taken to the home page(http://127.0.0.1:3000 or http://[::1]:3000)  with the message “WELCOME TO BIKEA'S VALETBIKE”. 
 
-As a fearless software engineer you agree to onboard yourself and attempt to continue the build. You didn't get much information about the architecture or design of the product during your interview. All you remember is that the lead developer had been working with the [ValleyBike](https://valleybike.org) team to iterate on their system which launched in 2018 and that they were using GitHub to collaborate on their codebase.
+## Changes made since prototype 
+* Create Account:
+    * Email authentication — users need to activate new accounts through email. Activating the account will automatically take one to the logged in homepage. (The activation link will stay active). 
+    * “Sign-up now” requires the user to fill in Username, Email, First name, Last name, Password, Password confirmation, and Birth year. Not filling all of these fields will produce an error message with the list of fields left blank.
+    * Forgot password— users can change their password through email (“reset password” link only works once, from second time on, it would take the user to the homepage in logged out state).
+    * All emails from our website are sent from “bikeatest” (bikeatest@gmail.com).
+* Profile Page
+    * Not static, reflects personal information of the user who is currently signed in. 
+    * Users can edit their personal information. 
+    * Created more personal information fields, such as birthdate and name. 
+    * List all the rides a user has taken. This includes: date, start station, end station, and duration. 
+    * Display user's membership.
+* Renting a Bike:
+    * User fills in bike_id and selects station that they are renting a bike from.
+        * If bike_id is not present at the station selected, the user will flash receive a warning, and user is not able to rent bike.
+    * At end of ride, user selects station they are returning bike to.
+* Map:
+    * Shows current number of docked bikes at each station. 
+    * Changed map marker.
+* Membership:
+    * Users can purchase a membership on the pricing page. 
+    * Uses a "points" system in account on website to purchase membership. 
+    * Points are displayed for each user.
 
-### Assignment Goal
-Your primary objective is to get your development environment configured so that the existing app will run on your machine. To exceed expectations, you must add at least one feature to the current code. To distinguish yourself, you should add two or more features. See submission guidelines below for complete details.
+## Description of the MVP's functionality
+* The MVP allows users to sign up for an account. Once all the fields are completed, the user will receive an email authentication. 
+* Users have a profile page that displays their personal information, past and current rides, and their current membership. 
+* Users can rent and return a bike with a membership.
+* Through the map, users can see the number of docked bikes at each station.
+* Users can purchase a membership through the pricing page.
 
-### How to Begin
-* Create a GitHub account if you don't have one
-* Go to [https://github.com/deadroxy/valetbike](https://github.com/deadroxy/valetbike)
-* Follow the README instructions to configure your environment
-
-### Teamwork Guidelines
-You may work in teams of up to five people to get your environments set up and to modify the code. But you must each submit your own unique environment screenshots via Moodle. If you choose to fork the repo to add features, you can collaborate on the code, but you must each create and submit a record of a unique pull request.
-
-### Ruby on Rails Guides
-You will probably be unfamiliar with the main components of the ValetBike stack like the language (Ruby), the framework (Rails), and the database (MySQL). Luckily the lead developer left links to their favorite books and tutorials for you below. Consult them regularly as you get your bearings in the new environment.
-
-* [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
-* [I Love Ruby](https://i-love-ruby.gitlab.io/)
-* [The Bastards Book of Ruby](http://ruby.bastardsbook.com/)
-* [Why's (Poignant) Guide to Ruby](https://poignant.guide/)
-
-### Exploration Tips
-* Review the files the lead developer left in the `notes/` folder
-* Use GitHub to dive into previous commits to see what they built so far
-* Use `rails console` to experiment with creating station & bike records from the command line
-  - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
-  - `s.save`
-  - `b = Bike.new(identifier: "1234")`
-  - `b.current_station = s`
-  - `b.save`
-  - `s.docked_bikes`
-  - `s.docked_bikes.count`
-
-### Submission Guidelines to Meet Expectations
-1. Get ValetBike running on your development machine
-2. Modify the welcome message
-3. Take a screenshot showing your change works (include browser, console, date/time)
-4. Name the screenshot "youremail-a1-ss.png" or *.jpg (for me it would be "jbrewer-a1-ss.png")
-5. Create a text file called "youremail-a1-team.txt" (for me it would be "jbrewer-a1-team.txt")
-6. List the names of everyone you worked with on this assignment, including your own (for me it would be "Johanna Brewer")
-7. Submit your screenshot and team list via Moodle
-
-### Submission Guidelines to Exceed Expectations or Distinguish yourself
-1. Complete all of the Meets Expectations tasks
-2. Implement one (Exceeds) or more (Distinguished) of the features below
-   - Show number of docked bikes at each station
-   - Create rake task to import station & bike data from csv files
-   - Allow user to view list of bikes
-   - Allow user to switch between station and bike list views
-   - Allow user to reverse sort order of stations or bikes in list view
-3. Commit and push your changes to your fork on GitHub
-4. Create a pull request from your modified fork to the main ValetBike repo
-5. Create a file called "youremail-a1-pr.txt" (for me it would be "jbrewer-a1-pr.txt")
-6. Include a complete link to your pull request as the first line of this file (e.g. "https://github.com/deadroxy/valetbike/pull/1234")
-7. Submit your pull request file along with your screenshot and team list via Moodle
+## Recommended walkthrough steps to observe key features
+* Make sure to use `rails s` to authenticate email to create an account.
+* On the landing page, check the map and its features. Observe the different locations of the stations and the number of docked bikes at each station.
+* Any users (logged in or not) should be able to see details of the app by clicking on “About Us” at the navigation bar. Click through all the pages on the navigation bar.
+* Click on the profile page. If you do not have an account follow the instructions to sign-up. Otherwise, log-in.
+    * After creating a new account, you must activate that account by clicking on the link sent to your email. 
+* After logging in, view your profile page that reflects your personal information, membership, and past rides. 
+* Click on Pricing Page to purchase a membership. Click on the membership you would like to purchase. 
+    * Go to your profile page to make sure your purchased membership is reflected there. 
+* Click on Activate a Bike to rent a bike. To test, refer to database to find the bike_ids at each current station. You must enter a valid bike_id at current station in order to rent a bike. If the bike_id is not at the station, you may not rent that bike.   
+    * For an initial test you can try: bike_id: 6908 at Florence Bank Station.
+* Return your bike by selecting the station you are returning to. 
+* Click on Profile Page to see your ride reflected on your profile page. 
+* Log out from profile page. 
