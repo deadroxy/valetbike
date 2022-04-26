@@ -48,10 +48,18 @@ Note, if you have old data populating the stations database, you should do the f
 Our prototype allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling things would include.
 
 ## How to observe key features
-Upon startup of the server, you will be brought to the **Home page**. 
+Upon startup of the server, you will be brought to the **Home page**. Scroll down to read through a brief introduction to ValetBike. Now you can click on each of the links in our navigation bar or the footer. We suggest going to the **About Us page** first to read a small blurb on who the ValetBike system is meant for!
 
-From there, we recommend clicking on the "Rent a Bike!" link to go to the **Map page**. Notice how hovering your mouse over the map and scrolling up and down your trackpad will zoom out and zoom in on the map respectively. To zoom in and out manually, press the "+" and "-" buttons in the top left corner. Clicking and dragging on the map moves your view. Next, click on the "Rent" link to go to the **Rent page**.
+After reading up on Valetbike, head over to the **Sign Up page** through the Log In/Sign Up nav-link to register your own user. Note that the Log In/Sign Up nav-link turns into a "Log Out" nav-link after signing in, as well as enabling access to the "My Account" page. It is important that you create an account because you must be logged-in to rent a bike through our system.
 
-Now you can click on each of the links in our navigation bar or the footer. We suggest going to the **Sign Up page** through the "Log In/Sign Up" then "Sign Up" link to register your own user. Note that the "Log In/Sign Up" link turns into a "Log Out" link after signing in.
+From there, we recommend clicking on the "Rent a Bike!" button on the Home page to go to the **Map page** (or click on the Map nav-link). Notice how hovering your mouse over the map and scrolling up and down your trackpad will zoom out and zoom in on the map respectively. To zoom in and out manually, press the "+" and "-" buttons in the top left corner. Clicking and dragging on the map moves your view. Click on one of the pins on the map to view a station. This will pop up the name of the station, of which you can click on to go to the **Rent page** and rent a bike. Alternatively, click on any of the "Rent" links in the stations table below the map to go to the **Rent page** if the map is not being responsive.
+
+Now you can purchase a one-time bike rental pass by clicking on the "Pay with Card" button! For testing purposes, enter in any email (i.e., the one associated with the account you created). Next, enter in Stripe's testing credit card information: 4242 4242 4242 4242, 04/24 (or any future date), 123. Finally, click on the "Pay $1.00" button to confirm your purchase. This should redirect you to the **Success page** if the payment was authorized.
+
+After confirming your bike rental, navigate over to the **Pricing page** via its associated nav-link. Here, you can view the different memberships that ValetBike offers. By purchasing a pass, you can skip the hassle of entering in your payment details for future rentals.
+
+Finally, visit the **My Account page** via its associated nav-link to view your account details. Currently, you can view the email associated with your account, the date of your account's creation, and the total number of rides associated with your account. Feel free to log out of your account at this point by pressing on the "Log Out" nav-link. This will allow you to log in to a different account, create a new account for someone else, or simply keep your account secure in the event that you're accessing the website on a shared device.
+
+Confused on how ValetBike works? Unsure on how to navigate the website? Access the **Help page** by clicking on the Help nav-link to view frequently asked questions.
 
 
