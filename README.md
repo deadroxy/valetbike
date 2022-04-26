@@ -1,133 +1,70 @@
-# ValetBike
+# csc223-cloaf (Group C)
 
-Smith College CSC223: Software Engineering\
-Starter App for ValetBike project
+NOTE: Be sure to follow the configuration steps listed in the [deadroxy/valetbike_repo](https://github.com/deadroxy/valetbike) README.md in order to set up the initial environment!
 
-## Environment Configuration
-Follow the general steps in the next section to set up your local development environment from scratch. It is essential that you **consult a more detailed guide** that corresponds to your specific type of development machine. Use one of the guides listed below to help you complete the steps for setting up ValetBike on your machine.
+## Additional dev environment setup
+In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetbike), several additional gems were added to the `Gemfile`: 
+1. `gem 'leaflet-rails'`
+2. `gem 'devise'`
+3. `gem 'stripe'`
+4. `gem 'stripe-rails'`
+5. `gem 'braintree'`
+6. `gem 'pay'`
+7. `gem 'receipts'`
 
-* [Install Ruby on Mac (Intel and M1)](https://mac.install.guide/ruby/index.html)
-* [Install Ruby on Mac (M1 additional details)](https://github.com/deadroxy/valetbike/blob/master/notes/dev-enviro.md)
-* [Install Ruby on Windows 10](https://gorails.com/setup/windows/10)
+### 'Leaflet-rails'
+This gem allows for functional map tiles to appear on the ValetBike map page using a separate map tileset. Without it, the map will not function correctly, and the user will only be able to access station information via the stations table.
 
-On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides above explain how to do so in detail.
+### 'Devise'
+This gem allows for users to register and log in to personal accounts associated with the ValetBike website. Without it, users will be unable to store payment info, nor will they be able to look into personal stats (e.g. previous purchases, total riding time, etc.).
 
-## General Configuration Steps
+### 'Pay', 'Stripe', 'Stripe-rails', 'Braintree', 'Receipts'
+These gems allow for users to enter in payment information to purchase ValetBike passes to be associated with their personal accounts. Without them, users will be unable to purchase passes online, nor will they receive a receipt for their purchase.
 
-As you configure your environment you should **keep a log** where you **write down all the steps you take** and each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. 
- 
-**1. Fork & clone ValetBike repo**
-* Click fork in the upper right hand corner of the ValetBike GitHub page
-* Then create a local copy of your fork with:
-* `git clone https://github.com/<username>/valetbike.git`
+Verify that all of these gems are located at the bottom of the `Gemfile`
+* If they are missing, add them to the bottom of the `Gemfile`.
 
-**2. Install MySQL 8**
-* Download: https://dev.mysql.com/downloads/mysql
-* Be sure to select the version that corresponds to your operating system (Intel Mac = x86, M1 Mac = ARM)
-* Choose "Use Legacy Password Encryption" when installing
-* Make note of the password you set for the root user
-* After install make sure you add `/usr/local/mysql/bin` (or equivalent) to your path
+Finally, install the missing gems by running `bundle install`.
 
-**3. Install Ruby 3.0.2**
-* Consult one of the guides linked in the previous section
-* Use [asdf](https://asdf-vm.com/guide/getting-started.html) on Mac/Linux systems
-* Use the [WSL](https://docs.microsoft.com/en-us/windows/wsl) on Windows systems
-* Make sure you are using Ruby 3.02 before proceeding:
-  * `cd valetbike` then `ruby -v` to check your version
+### Updates to .env
+For your personal .env file, be sure to set two API keys to enable Stripe functionality. These variables should be named `STRIPE_SECRET_KEY` and `STRIPE_PUBLISHABLE_KEY` to ensure that the API can be accessed through all relevant pages.
 
-**4. Install essential gems**
-* Disable gem docs:
-  * `echo "gem: --no-document" >> ~/.gemrc`
-* Install Rails 6.1.4:
-  * `gem install rails --version 6.1.4`
-* Install MySQL gem:
-  * `gem install mysql2`
-  * Use the `-- --with-opt-dir="$(brew --prefix openssl@1.1)"` flag on M1 Macs
-* Install required gems:
-  * `bundle install`
+* ex. `STRIPE_SECRET_KEY='sk_test_randomstringofcharacters'`
+* ex. `STRIPE_PUBLISHABLE_KEY='pk_test_randomstringofcharacters'`
 
-**5. Configure database environment variables**
-* Add a file called `.env` to your app's root directory
-* Ensure that it includes the credentials you setup when installing MySQL:
+## Populating the database
+Since we are using Devise, our database is populated by Devise each time a user registers.
 
-```shell
-MYSQL_USERNAME=root
-MYSQL_PASSWORD=YOURPASSWORD
-MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
-MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
-```
+Note, if you have old data populating the stations database, you should do the following:
 
-**6. Prepare database in MySQL**
-* Run either `rake db:create`
-* Or `mysql -u root -p` and `CREATE DATABASE valetbike_development;`
+1. Open the mysql console using `mysql -u root -p`
+2. Check the database exists by typing `SHOW DATABASES;`
+3. Then delete the database through `DROP DATABASE valetbike_development;`
+4. Check that the database was deleted with the command from step 2
+5. To recreate the database, use `CREATE DATABASE valetbike_development;`. Exit the console by typing `quit`
+6. Run the migrations with `rake db:migrate`
+7. Import stations and bikes by using `rake import_data:import_stations` and `rake import_data:import_bikes`    
 
-**7. Run database migrations**
-* `rake db:migrate`
+## Changes made since the prototype
+Since the prototype, which focused on setting up the html skeleton and creating a map with pins, we added a lot of this prototype's functionality to enhance the user's experience. We populated our pages on the navigation bar with information, used information from the csvs to populate our database, further developed our map to have pins that link to the Rent page and pins that are located on every station in our database, used Devise to allow users to register, sign up, and sign out, and allow users to rent bikes and pay.
 
-**8. Confirm app runs**
-* Launch web server using `rackup` or `rails s`
-* If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
-* You should see ValetBike welcome page
-  
+## The MVP's functionality
+Our MVP allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling services would include.
 
-## Assignment #1: Hello Stack, Welcome to ValetBike!
 
-### Brief Background
-You and several other junior engineers have just started at ValetBike, a community tech co-op based in Nipmuc Notch, and you are excited to finally be getting paid to contribute to a meaningful app. During your hiring interview, you said you were comfortable doing full stack programming, but stressed you hadn't worked in Ruby on Rails before. The lead developer thought you were right for the position and promised you a guided tour of the codebase on your first day. However, after your onboarding, you learn they've just gone on leave indefinitely. It also turns out the lead developer was the *only* developer at ValetBike, and now the rest of the team is counting on you and the other new programmers to complete the prototype before the scheduled launch day.
+## How to observe key features
+Upon startup of the server, you will be brought to the **Home page**. Scroll down to read through a brief introduction to ValetBike. Now you can click on each of the links in our navigation bar or the footer. We suggest going to the **About Us page** first to read a small blurb on who the ValetBike system is meant for!
 
-As a fearless software engineer you agree to onboard yourself and attempt to continue the build. You didn't get much information about the architecture or design of the product during your interview. All you remember is that the lead developer had been working with the [ValleyBike](https://valleybike.org) team to iterate on their system which launched in 2018 and that they were using GitHub to collaborate on their codebase.
+After reading up on ValetBike, head over to the **Sign Up page** through the Log In/Sign Up nav-link to register your own user. Note that the Log In/Sign Up nav-link turns into a "Log Out" nav-link after signing in, as well as enabling access to the "My Account" page. It is important that you create an account because you must be logged-in to rent a bike through our system.
 
-### Assignment Goal
-Your primary objective is to get your development environment configured so that the existing app will run on your machine. To exceed expectations, you must add at least one feature to the current code. To distinguish yourself, you should add two or more features. See submission guidelines below for complete details.
+From there, we recommend clicking on the "Rent a Bike!" button on the Home page to go to the **Map page** (or click on the Map nav-link). Notice how hovering your mouse over the map and scrolling up and down your trackpad will zoom out and zoom in on the map respectively. To zoom in and out manually, press the "+" and "-" buttons in the top left corner. Clicking and dragging on the map moves your view. Click on one of the pins on the map to view a station. This will pop up the name of the station, of which you can click on to go to the **Rent page** and rent a bike. Alternatively, click on any of the "Rent" links in the stations table below the map to go to the **Rent page** if the map is not being responsive.
 
-### How to Begin
-* Create a GitHub account if you don't have one
-* Go to [https://github.com/deadroxy/valetbike](https://github.com/deadroxy/valetbike)
-* Follow the README instructions to configure your environment
+Now you can purchase a one-time bike rental pass by clicking on the "Pay with Card" button! For testing purposes, enter in any email (i.e., the one associated with the account you created). Next, enter in Stripe's testing credit card information: 4242 4242 4242 4242, 04/24 (or any future date), 123. Finally, click on the "Pay $1.00" button to confirm your purchase. This should redirect you to the **Success page** if the payment was authorized.
 
-### Teamwork Guidelines
-You may work in teams of up to five people to get your environments set up and to modify the code. But you must each submit your own unique environment screenshots via Moodle. If you choose to fork the repo to add features, you can collaborate on the code, but you must each create and submit a record of a unique pull request.
+After confirming your bike rental, navigate over to the **Pricing page** via its associated nav-link. Here, you can view the different memberships that ValetBike offers. By purchasing a pass, you can skip the hassle of entering in your payment details for future rentals.
 
-### Ruby on Rails Guides
-You will probably be unfamiliar with the main components of the ValetBike stack like the language (Ruby), the framework (Rails), and the database (MySQL). Luckily the lead developer left links to their favorite books and tutorials for you below. Consult them regularly as you get your bearings in the new environment.
+Finally, visit the **My Account page** via its associated nav-link to view your account details. Currently, you can view the email associated with your account, the date of your account's creation, and the total number of rides associated with your account. Feel free to log out of your account at this point by pressing on the "Log Out" nav-link. This will allow you to log in to a different account, create a new account for someone else, or simply keep your account secure in the event that you're accessing the website on a shared device.
 
-* [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
-* [I Love Ruby](https://i-love-ruby.gitlab.io/)
-* [The Bastards Book of Ruby](http://ruby.bastardsbook.com/)
-* [Why's (Poignant) Guide to Ruby](https://poignant.guide/)
+Confused on how ValetBike works? Unsure on how to navigate the website? Access the **Help page** by clicking on the Help nav-link to view frequently asked questions.
 
-### Exploration Tips
-* Review the files the lead developer left in the `notes/` folder
-* Use GitHub to dive into previous commits to see what they built so far
-* Use `rails console` to experiment with creating station & bike records from the command line
-  - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
-  - `s.save`
-  - `b = Bike.new(identifier: "1234")`
-  - `b.current_station = s`
-  - `b.save`
-  - `s.docked_bikes`
-  - `s.docked_bikes.count`
 
-### Submission Guidelines to Meet Expectations
-1. Get ValetBike running on your development machine
-2. Modify the welcome message
-3. Take a screenshot showing your change works (include browser, console, date/time)
-4. Name the screenshot "youremail-a1-ss.png" or *.jpg (for me it would be "jbrewer-a1-ss.png")
-5. Create a text file called "youremail-a1-team.txt" (for me it would be "jbrewer-a1-team.txt")
-6. List the names of everyone you worked with on this assignment, including your own (for me it would be "Johanna Brewer")
-7. Submit your screenshot and team list via Moodle
-
-### Submission Guidelines to Exceed Expectations or Distinguish yourself
-1. Complete all of the Meets Expectations tasks
-2. Implement one (Exceeds) or more (Distinguished) of the features below
-   - Show number of docked bikes at each station
-   - Create rake task to import station & bike data from csv files
-   - Allow user to view list of bikes
-   - Allow user to switch between station and bike list views
-   - Allow user to reverse sort order of stations or bikes in list view
-3. Commit and push your changes to your fork on GitHub
-4. Create a pull request from your modified fork to the main ValetBike repo
-5. Create a file called "youremail-a1-pr.txt" (for me it would be "jbrewer-a1-pr.txt")
-6. Include a complete link to your pull request as the first line of this file (e.g. "https://github.com/deadroxy/valetbike/pull/1234")
-7. Submit your pull request file along with your screenshot and team list via Moodle
