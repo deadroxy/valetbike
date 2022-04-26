@@ -218,7 +218,6 @@ DEPENDENCIES
   receipts (~> 2.0)
   stripe (>= 5.0, < 6.0)
   stripe-rails
-  sqlite3 (~> 1.4)
   tzinfo-data
   web-console (>= 4.1.0)
 
