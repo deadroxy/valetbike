@@ -20,4 +20,7 @@ class PricingController < HomeController
     def founding_member
     end
 
+    def success
+    end
+
   end
