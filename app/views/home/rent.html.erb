@@ -1,2 +1,48 @@
 <% content_for :title, "Rent | ValetBike" %>
 <p>This is the Rent page.</p>
+<% Stripe.api_key = Rails.configuration.stripe[:secret_key] %>
+
+
+<%= form_tag charges_path do %>
+<article>
+  <% if flash[:error].present? %>
+  <div id="error_explanation">
+    <p><%= flash[:error] %></p>
+  </div>
+  <% end %>
+  <label class="amount">
+  <span>Amount: $5.00</span>
+  </label>
+</article>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-description="A month's subscription"
+  data-amount="500"
+  data-locale="auto"></script>
+<% end %>
+
+<%# <%= button_tag title,
+  id: "checkout-#{session.id}",
+  class: local_assigns[:class],
+  style: (local_assigns[:class] || local_assigns[:style]) ? local_assigns[:style] : 'background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em'
+%>
+<%# <%= tag.div id: "error-for-#{session.id}" %>
+
+<%# <script> %>
+  <%# (() => { %>
+    <%# const checkoutButton = document.getElementById("checkout-<%= session.id %\>"); %>
+    <%# checkoutButton.addEventListener('click', function () { %>
+      <%# Stripe("<%= Pay::Stripe.public_key %\>").redirectToCheckout({ %>
+        <%# sessionId: '<%= session.id %\>' %>
+      <%# }).then(function (result) { %>
+        <%# if (result.error) { %>
+            <%# document.getElementById("error-for-#{session.id}").innerText = result.error.message; %>
+          <%# } %>
+      <%# }); %>
+    <%# }); %>
+  <%# })() %>
+<%# </script> %>
+
+<%# <form action="/create-checkout-session" method="POST">
+      <button type="submit">Checkout</button>
+</form> %>
