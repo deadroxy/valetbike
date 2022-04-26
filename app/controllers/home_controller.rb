@@ -3,10 +3,12 @@ class HomeController < ApplicationController
     def index
     end
 
-    def howitworks
+    def how_it_works
     end
     
     def map
+      @stations = Station.all.order(id: :asc) # change to identifier if needed
+      @bikes = Bike.all.order(identifier: :asc) #data of bikes available to page
     end
 
     def pricing
@@ -16,9 +18,6 @@ class HomeController < ApplicationController
     end
     
     def help
-    end
-
-    def login
     end
 
     def privacy
