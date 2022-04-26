@@ -22,12 +22,12 @@ Since we are using Devise, our database is populated by Devise each time a user 
 Note. if you have old data populating the database, you should do the following:
 
 1: Open the mysql console using `mysql -u root -p`  
-2: Check the database exists by typing `SHOW DATABASES;` 
-3: Then delete the database through `DROP DATABASE valetbike_development;`  
-4: Check that the database was deleted with the command from step 2  
-5: To recreate the database, use `CREATE DATABASE valetbike_development;`. Exit the console by typing `quit` 
-6: Run the migrations with `rake db:migrate`  
-7: Import stations and bikes by using `rake import_data:import_stations` and `rake import_data:import_bikes`
+2: Check the database exists by typing `SHOW DATABASES;`  
+3: Then delete the database through `DROP DATABASE valetbike_development;` 
+4: Check that the database was deleted with the command from step 2   
+5: To recreate the database, use `CREATE DATABASE valetbike_development;`. Exit the console by typing `quit`    
+6: Run the migrations with `rake db:migrate`    
+7: Import stations and bikes by using `rake import_data:import_stations` and `rake import_data:import_bikes`    
 
 ## The prototype's functionality
 Our prototype allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling things would include.
