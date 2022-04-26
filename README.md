@@ -1,7 +1,7 @@
 # csc223-cloaf (Group C)
 
 ## Additional dev environment setup
-In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetbike), two additional gems were added to the `Gemfile`: 
+In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetbike), several additional gems were added to the `Gemfile`: 
 1. `gem 'leaflet-rails'`
 2. `gem 'devise'`
 3. `gem 'stripe'`
@@ -17,10 +17,19 @@ This gem allows for functional map tiles to appear on the ValetBike map page usi
 ### 'Devise'
 This gem allows for users to register and log in to personal accounts associated with the ValetBike website. Without it, users will be unable to store payment info, nor will they be able to look into personal stats (e.g. previous purchases, total riding time, etc.).
 
-Verify that both of these gems are located at the bottom of the `Gemfile`
+### 'Pay', 'Stripe', 'Stripe-rails', 'Braintree', 'Receipts'
+Thse gem allows for users to enter in payment information to purchase ValetBike passes to be associated with their personal accounts. Without them, users will be unable to purchase passes online, nor will they receive a receipt for their purchase.
+
+Verify that all of these gems are located at the bottom of the `Gemfile`
 * If they are missing, add them to the bottom of the `Gemfile`.
 
 Finally, install the missing gems by running `bundle install`.
+
+### Updates to .env
+For your personal .env file, be sure to set two API keys to enable Stripe functionality. These variables should be named `STRIPE_SECRET_KEY` and `STRIPE_PUBLISHABLE_KEY` to ensure that the API can be accessed through all relevant pages.
+
+* ex. `STRIPE_SECRET_KEY='sk_test_randomstringofcharacters'`
+* ex. `STRIPE_PUBLISHABLE_KEY='pk_test_randomstringofcharacters'`
 
 ## Populating the database
 Since we are using Devise, our database is populated by Devise each time a user registers.
