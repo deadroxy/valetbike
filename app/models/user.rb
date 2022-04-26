@@ -7,6 +7,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def time_fmt
+    str = created_at.strftime("%m/%d/%Y")
+  end
+
   pay_customer
 
   # pay_customer stripe_attributes: :stripe_attributes
@@ -25,4 +29,5 @@ class User < ApplicationRecord
   #     }
   #   }
   # end
+
 end
