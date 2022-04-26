@@ -18,7 +18,7 @@ This gem allows for functional map tiles to appear on the ValetBike map page usi
 This gem allows for users to register and log in to personal accounts associated with the ValetBike website. Without it, users will be unable to store payment info, nor will they be able to look into personal stats (e.g. previous purchases, total riding time, etc.).
 
 ### 'Pay', 'Stripe', 'Stripe-rails', 'Braintree', 'Receipts'
-Thse gem allows for users to enter in payment information to purchase ValetBike passes to be associated with their personal accounts. Without them, users will be unable to purchase passes online, nor will they receive a receipt for their purchase.
+These gems allow for users to enter in payment information to purchase ValetBike passes to be associated with their personal accounts. Without them, users will be unable to purchase passes online, nor will they receive a receipt for their purchase.
 
 Verify that all of these gems are located at the bottom of the `Gemfile`
 * If they are missing, add them to the bottom of the `Gemfile`.
