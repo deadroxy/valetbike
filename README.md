@@ -9,7 +9,6 @@ In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetb
 5. `gem 'braintree'`
 6. `gem 'pay'`
 7. `gem 'receipts'`
-8. `gem 'sqlite3'`
 
 ### 'Leaflet-rails'
 This gem allows for functional map tiles to appear on the ValetBike map page using a separate map tileset. Without it, the map will not function correctly, and the user will only be able to access station information via the stations table.
@@ -44,8 +43,12 @@ Note, if you have old data populating the stations database, you should do the f
 6. Run the migrations with `rake db:migrate`
 7. Import stations and bikes by using `rake import_data:import_stations` and `rake import_data:import_bikes`    
 
+## Changes made since the prototype
+Since the prototype, which focused on setting up the html skeleton and creating a map with pins, we added a lot of this prototype's functionality to enhance the user's experience. We populated our pages on the navigation bar with information, used information from the csvs to populate our database, further developed our map to have pins that link to the Rent page and pins that are located on every station in our database, used Devise to allow users to register, sign up, and sign out, and allow users to rent bikes and pay.
+
 ## The prototype's functionality
-Our prototype allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling things would include.
+Our prototype allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling services would include.
+
 
 ## How to observe key features
 Upon startup of the server, you will be brought to the **Home page**. Scroll down to read through a brief introduction to ValetBike. Now you can click on each of the links in our navigation bar or the footer. We suggest going to the **About Us page** first to read a small blurb on who the ValetBike system is meant for!
