@@ -1,5 +1,7 @@
 # csc223-cloaf (Group C)
 
+NOTE: Be sure to follow the configuration steps listed in the [deadroxy/valetbike_repo](https://github.com/deadroxy/valetbike) README.md in order to set up the initial environment!
+
 ## Additional dev environment setup
 In this fork of the [deadroxy/valetbike repo](https://github.com/deadroxy/valetbike), several additional gems were added to the `Gemfile`: 
 1. `gem 'leaflet-rails'`
@@ -46,8 +48,8 @@ Note, if you have old data populating the stations database, you should do the f
 ## Changes made since the prototype
 Since the prototype, which focused on setting up the html skeleton and creating a map with pins, we added a lot of this prototype's functionality to enhance the user's experience. We populated our pages on the navigation bar with information, used information from the csvs to populate our database, further developed our map to have pins that link to the Rent page and pins that are located on every station in our database, used Devise to allow users to register, sign up, and sign out, and allow users to rent bikes and pay.
 
-## The prototype's functionality
-Our prototype allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling services would include.
+## The MVP's functionality
+Our MVP allows the user to make an account, sign in and sign out, as well as having a working interactive map. We have a navigation bar to lead to each page we thought integral to the user's experience, alongside the pages that we thought a website selling services would include.
 
 
 ## How to observe key features
