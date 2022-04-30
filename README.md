@@ -33,7 +33,8 @@ We used the same .env file as the valetbike github page describes.
 * ride.rb, station.rb, user.rb cooperate with each other for the riding process
 ### Views cooperate with Controllers to show the corresponding information
 
-
+## Changes you have made since the prototype
+We linked the membership to the users. We added renting and returning bike features. We unified the styles of our website pages. And we created a beautiful welcome page. We added some detailed designs: in the signup page, users can directly do to login page if they misclick the signup button. And in the user profile page, if the user has a payment plan, the cancel payment plan button will show up, but if the user do not have a plan, join the membership button will appear. 
 
 ## Recommended walkthrough steps to observe key features
 The welcome page displays our company's description and values; it contains buttons allowing the user to 'signup' or 'login'. 
@@ -49,6 +50,9 @@ If the user clicks on the 'account information', they can view their email, chan
 'How it works' button leads to the introduction of the renting process.
 
 Clicking 'VALETBIKE' will always bring users back to the welcome page.
+
+## Live production deployment 
+Check this link for a google doc containing screenshot of our website main features: https://docs.google.com/document/d/1aiC3D7K261IH2zpoQZf9UB1944gPZnhDuSOx7lp7S8M/edit?usp=sharing
 
 ## Reference
 
