@@ -1,0 +1,12 @@
+<h1>Riding Time</h1>
+<h2>Bike ID: <%= @ride.bike.identifier %></h2>
+<script>
+    totalSeconds = Math.floor(<%= Time.now - @ride.start_time %>);
+    <% if @ride.end_time %>
+        clearInterval(timerVar);
+    <% end %>
+</script>
+<div id="timer" style="font-size:10rem;"></div>
+<% if !@ride.end_time %>
+<%= button_to "Return Bike to Original Station", "/end/#{@ride.id}", method: :get %>
+<% end %>

@@ -16,13 +16,13 @@
          <p class="alert"><%= alert %></p>
          <%= yield %>
          <% if Current.user %>
-                  <div class="sidenav">
-                    <a href="welcome">VALETBIKE</a>
-                    <a href="#">Account Information</a>
-                    <a href="plans">Membership Plan</a>
-                    <a href="#">Preferences</a>
-                    <a href="#">Privacy</a>
-                  </div>
+         <div class="sidenav">
+                           <a href="/root">VALETBIKE</a><br>
+                           <a href="/map">Station Map</a><br>
+                           <a href="/profile">Account Information</a><br>
+                           <a href="/plans">Membership Plan</a><br>
+                           <a href="/howToUse">How It Works</a>
+                         </div>
                   <% end %>
 
   </body>

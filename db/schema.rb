@@ -10,13 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_125552) do
+ActiveRecord::Schema.define(version: 2022_04_28_182128) do
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "password_digest"
+  create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.integer "current_station_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "rides", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bike_id", null: false
+    t.datetime "start_time"
+    t.integer "start_station_id"
+    t.datetime "end_time"
+    t.integer "end_station_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bike_id"], name: "index_rides_on_bike_id"
+    t.index ["user_id"], name: "index_rides_on_user_id"
+  end
+
+  create_table "stations", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "name"
+    t.string "address"
+    t.integer "dock_count"
+    t.decimal "latitude", precision: 16, scale: 14
+    t.decimal "longitude", precision: 16, scale: 14
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_520_ci", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest"
+    t.string "payment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "rides", "bikes"
+  add_foreign_key "rides", "users"
 end

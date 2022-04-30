@@ -1,4 +1,10 @@
-<%= map(:center => {:latlng => [42.31696351371122, -72.64029537328165], :zoom => 16}, :min_zoom => 13, :max_zoom => 16, :zoom => 16) %>
+<%= map(:center => {:latlng => [42.31696351371122, -72.64029537328165], :zoom => 16},
+        :min_zoom => 13,
+        :max_zoom => 16,
+        :zoom => 16,
+        :maxBoundsViscosity => 1.0,
+        :markers => @markers) %>
 <script>
-    L.tileLayer("https://stamen-tiles.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png", {maxZoom: 16, minZoom: 13}).addTo(map); 
+    L.tileLayer("https://stamen-tiles.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png", {maxZoom: 16, minZoom: 13}).addTo(map);
+    map.setMaxBounds([[42.37542, -72.74131], [42.28388, -72.58531]]);
 </script>
