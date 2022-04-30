@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  bike: one
+  start_time: 2022-04-28 14:21:28
+  start_station_id: 1
+  end_time: 2022-04-28 14:21:28
+  end_station_id: 1
+
+two:
+  user: two
+  bike: two
+  start_time: 2022-04-28 14:21:28
+  start_station_id: 1
+  end_time: 2022-04-28 14:21:28
+  end_station_id: 1

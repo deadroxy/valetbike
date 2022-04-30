@@ -4,8 +4,14 @@ one:
   identifier: 1
   name: MyString
   address: MyString
+  dock_count: 1
+  latitude: 9.99
+  longitude: 9.99
 
 two:
   identifier: 1
   name: MyString
   address: MyString
+  dock_count: 1
+  latitude: 9.99
+  longitude: 9.99
