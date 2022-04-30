@@ -1,5 +1,7 @@
 # README
 
+### We developed the code in another repo, in case we failed to copy some important things here, the original repo is: https://github.com/Chenhui-Jia/Valet_bike_first 
+
 ## environment setup
 We added `gem 'bcrypt', '~> 3.1.7` to enable `has_secure_password` function. This function would allow us to use build-in password confirmation. 
 
