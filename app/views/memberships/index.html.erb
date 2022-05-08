@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Memberships</h1>
+
+<h6>Select your membership tier based on the plan that works for you</h6>
+
+  <img src ="https://www.northamptonma.gov/ImageRepository/Document?documentID=18288" style="width:805px;height:278px;">
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>PAYMENT</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |membership| %>
+      <tr>
+        <td><%= membership.name %></td>
+        <td> $<%= membership.price / 100%> / month</td>
+        <td><%= button_to "Buy now!", checkout_create_path, params: {id: membership.id}, remote: true %></td>
+        <td><%= link_to 'Show', membership %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
