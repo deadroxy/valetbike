@@ -1,0 +1,9 @@
+<h1>Welcome to ValetBike</h1>
+<% if logged_in? %>
+    <h2>You are Logged In, <%= current_user.username %></h2>
+<%end%>
+<div class="find-a-bike">
+<%= link_to "Find A Bike", "/map", class: "find-a-bike" %>
+</div>
+
+

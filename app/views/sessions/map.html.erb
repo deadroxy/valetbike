@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""></script>
+
+<h1>Map</h1>
+  
+<div id="map" style="width: 600px; height: 400px;"></div>
+
+<script>
+
+var map = L.map('map').setView([42.325, -72.65], 14);
+
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+<% Station.all.each do |s| %>
+  <% if s.has_kiosk %>
+    L.marker([<%= s.lat %>, <%= s.lng %>]).addTo(map).bindPopup('<h6><%=s.name%></h6> \n <p> <%=s.address%> </p> \n <p> Available Slots: <%=s.available_slots%>/<%=s.total_slots%> </p> \n <p> Has a kiosk </p>');
+  <% else %>
+    L.marker([<%= s.lat %>, <%= s.lng %>]).addTo(map).bindPopup('<h6><%=s.name%></h6> \n <p> <%=s.address%> </p> \n Available Slots: <%=s.available_slots%>/<%=s.total_slots%>');
+  <% end %>
+<% end %>
+
+</script>
+
+<div class="find-a-bike">
+<%= link_to "Purchase a Membership to Rent a Bike", "/pricing", class: "find-a-bike" %>
+</div>

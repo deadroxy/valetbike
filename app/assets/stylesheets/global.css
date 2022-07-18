@@ -12,6 +12,13 @@ html, body {
   height: 100%;
 }
 
+main {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 1.5%;
+}
+
 body {
   font-size: 12pt;
   -webkit-text-size-adjust:none;
@@ -30,6 +37,161 @@ body {
   min-height: 100%;
   font-family: var(--body-font);
   font-weight: 400;
-  color: var(--black-color);
-  background: var(--white-color);
+  color: black;
+  background: white;
+}
+
+.navbar {
+  padding: 0.25rem 0.5rem;
+  background-color: #1C0F13 !important;
+}
+
+.brandbox {
+  width: 12%;
+  padding-right: 0px;
+}
+
+.navbar-brand {
+  margin-right: 0.5rem;
+  padding-right: 0px;
+}
+
+.navbar-brand img {
+  width: 100%;
+  filter: invert(1);
+}
+
+.nav-link {
+  color: white !important;
+  text-decoration: underline #c0a9b0 solid 30%;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+  transition: 1s;
+  transition-timing-function: ease-out;
+}
+
+.nav-link:hover {
+  text-decoration-color: #1C0F13;
+  color: #dcd0d4 !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+header {
+  margin: 0px;
+  padding: 0px;
+  background-image: url(/banner.jpg);
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 13vw;
+  max-height: 500px;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #f7ebef !important;
+  color: #7d223d !important;
+}
+
+.accordion-button:focus {
+  border-color: #f7779d;
+  box-shadow: 0 0 0 .25rem rgba(100, 35, 53, 0.25);
+}
+
+.find-a-bike {
+  background-color: var(--pink-color);
+  border-radius: 20px;
+  color: var(--white-color);
+  text-transform: uppercase;
+  font-size: 1.25em;
+  padding: .5em;
+  margin-top: 2em;
+}
+
+.find-a-bike a {
+  text-decoration: none;
+  transition: 1s;
+  transition-timing-function: ease-out;
+}
+
+.find-a-bike a:hover {
+  color: var(--raspberry-color);
+}
+
+.card:hover {
+  border: 1px solid #383347 !important;
+}
+
+.card-body {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.btn-primary {
+    /* background-color: #383347; */
+    background-image: url(/banner_small.jpg);
+    background-size: contain;
+    border: 1px solid #383347 !important;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    transition: .55s;
+    transition-timing-function: ease-out;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    color: #383347 !important;
+    background-color: white !important;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    box-shadow: 0 0 0 .25rem rgba(56, 51, 71,.5);
+}
+
+#flex-item-1 {
+    flex: 0 0 30%;
+}
+
+#flex-item-2 {
+    flex: 0 0 70%;
+}
+
+.pfp {
+    max-width: 70%;
+}
+
+#secret {
+    display: inline-block;
+}
+
+.wrapper {
+    padding-top: 3%;
+}
+
+footer {
+    padding: 0.5% 1%;
+    background-color: #1C0F13;
+    color: white;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+    transition: .5s;
+}
+
+footer > div {
+    flex: 1 1 33%;
+    text-align: center;
+}
+
+footer a:hover {
+    color: #f7779d;
 }
