@@ -118,11 +118,16 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 ### Submission Guidelines to Exceed Expectations or Distinguish yourself
 1. Complete all of the Meets Expectations tasks
 2. Implement one (Exceeds) or more (Distinguished) of the features below
-   - Show number of docked bikes at each station
-   - Create rake task to import station & bike data from csv files
-   - Allow user to view list of bikes
-   - Allow user to switch between station and bike list views
-   - Allow user to reverse sort order of stations or bikes in list view
+  - Show number of docked bikes at each station
+    - **DONE:** There are 2 methods that give different answer:
+      - Count number of docked bikes from the Bike table by ```current_station_id``` and map the number onto the Station table
+      - Directly display the number on columns ```docked_bike_count``` of Station table
+    - We follow the first method
+  - Create rake task to import station & bike data from csv files
+    - **DONE:** from the shell, run ```rake db:seed``` or ```rake db:load```
+  - Allow user to view list of bikes
+  - Allow user to switch between station and bike list views
+  - Allow user to reverse sort order of stations or bikes in list view
 3. Commit and push your changes to your fork on GitHub
 4. Create a pull request from your modified fork to the main ValetBike repo
 5. Create a file called "youremail-a1-pr.txt" (for me it would be "jbrewer-a1-pr.txt")
