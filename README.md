@@ -124,10 +124,13 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
       - Directly display the number on columns ```docked_bike_count``` of Station table
     - We follow the first method
   - Create rake task to import station & bike data from csv files
-    - **DONE:** from the shell, run ```rake db:seed``` or ```rake db:load```
+    - **DONE:** From the shell, run ```rake db:seed``` or ```rake db:load```
   - Allow user to view list of bikes
+    - **DONE:** At route ```GET /bikes```
   - Allow user to switch between station and bike list views
+    - **DONE:** Click on View Station/View Bikes to switch
   - Allow user to reverse sort order of stations or bikes in list view
+    - **TODO...**
 3. Commit and push your changes to your fork on GitHub
 4. Create a pull request from your modified fork to the main ValetBike repo
 5. Create a file called "youremail-a1-pr.txt" (for me it would be "jbrewer-a1-pr.txt")

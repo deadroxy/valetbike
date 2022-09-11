@@ -2,16 +2,16 @@
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
       Explore your city on two wheels!
-    </div>  
+    </div>
     <div>
-      <a href="/bikes" class="button-section">View Bikes</a>
+      <a href="/stations" class="button-section">View Stations</a>
     </div>
     <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/table", as: :stations) %>
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/table", as: :bikes) %>
       <% else %>
       <div class="empty">
-        No stations found.
+        No bikes found.
       </div>
       <% end %>
     </div>

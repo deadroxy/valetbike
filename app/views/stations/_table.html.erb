@@ -1,0 +1,12 @@
+<table>
+  <thead>
+		<tr class="record-row">
+			<th>ID</th>
+			<th style="text-align: left;">Name (Location)</th>
+			<th>Docked Count</th>
+		</tr>
+  </thead>
+  <tbody>
+    <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+  </tbody>
+</table>

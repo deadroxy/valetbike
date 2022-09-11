@@ -1,0 +1,12 @@
+<table>
+  <thead>
+		<tr class="record-row">
+			<th>ID</th>
+			<th>Station ID</th>
+			<th style="text-align: left;">Station Name</th>
+		</tr>
+  </thead>
+  <tbody>
+    <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+  </tbody>
+</table>

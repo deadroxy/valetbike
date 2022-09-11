@@ -1,0 +1,11 @@
+<tr class="record-row <%= cycle "odd", "even", name: "row-cycler" %>">
+  <td><%= bike.identifier %></td>
+  <td><%= bike.current_station_id %></td>
+  <td style="text-align: left;">
+    <% if bike.current_station.present? %>
+      <%= bike.current_station.name %> (<%= bike.current_station.address %>)
+		<% else %>
+			<div style="color: red;">ERR: Station Not Found</div>
+		<% end %>
+  </td>
+</tr>
