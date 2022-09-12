@@ -1,3 +1,5 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
   <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
+  <br> <%= "Bikes stationed" %>: <%= station.docked_bikes.count %> 
+  <br> <%= "IDs of docked Bikes" %>: <%= station.docked_bikes.pluck(:identifier) %>
 </div>
