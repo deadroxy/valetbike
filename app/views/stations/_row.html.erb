@@ -1,6 +1,4 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%# <%= station.includes(:docked_bikes).map(&:docked_bikes).flatten %> 
-  <%# <%= station.map(&:docked_bikes) %> 
   <%= station.identifier %>: <%= station.name %> (<%= station.address %>) <%= station.docked_bikes.count %>
 </div>
 
