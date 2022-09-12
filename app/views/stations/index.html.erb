@@ -6,6 +6,8 @@
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%#= render(partial: "stations/row", collection: @stations, as: :station) %>
+
+        <%# https://medium.com/swlh/using-rails-and-html-to-view-sort-and-search-tables-fbf8a0543558%>
         <table>
           <tr>
             <th><%="Station Name"%> </th>
