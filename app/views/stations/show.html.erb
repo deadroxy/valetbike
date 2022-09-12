@@ -17,11 +17,10 @@
             <th><%="Station"%> </th>
             <th><%="Bikes Docked"%> </th>
           </tr>
-          <%# TODO: add stations data (from csv) - name and docked_bike_count/dock_count %>
         <% @stations.each do |station| %>
           <tr>
             <td><%= station.name%></td>
-            <td><%=station.dock_count %></td><td>
+            <td><%=station.docked_bikes_count %></td><td>
           </tr>
           <% end %>
           </table>
