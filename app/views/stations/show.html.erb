@@ -1,7 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      <h1>Status</h1>
+      <h1>Stations</h1>
     </div>  
     <div class="flexbox vertical stretch">
     </div>
@@ -10,12 +10,18 @@
 
 <%#= render(partial: "stations/row", collection: @stations, as: :station) %>
 
-        <%# https://medium.com/swlh/using-rails-and-html-to-view-sort-and-search-tables-fbf8a0543558%>
+        <%# https://medium.com/swlh/using-rails-and-html-to-view-sort-and-search-tables-fbf8a0543558 %>
         <table>
           <tr>
           <%# TODO: figure out how to space out table headers%>
             <th><%="Station"%> </th>
-            <th><%="Number of Bikes Docked"%> </th>
+            <th><%="Bikes Docked"%> </th>
           </tr>
           <%# TODO: add stations data (from csv) - name and docked_bike_count/dock_count %>
+        <% @stations.each do |station| %>
+          <tr>
+            <td><%= station.name%></td>
+            <td><%=station.dock_count %></td><td>
+          </tr>
+          <% end %>
           </table>
