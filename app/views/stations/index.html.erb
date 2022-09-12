@@ -5,7 +5,7 @@
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
-        <%= link_to("Stations", {:action => "status"}) %>
+        <%= link_to("Stations", {:action => "show"}) %>
       <% else %>
       <div class="empty">
         No stations found.
