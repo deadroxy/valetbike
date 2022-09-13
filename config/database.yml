@@ -17,6 +17,7 @@ default: &default
   password: <%= ENV['MYSQL_PASSWORD'] || '' %>
   socket: <%= ENV['MYSQL_SOCKET'] || '/tmp/mysql.sock' %>
 
+
 development:
   <<: *default
   database: valetbike_development
