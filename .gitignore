@@ -1,3 +1,7 @@
+git init
+git add .
+git commit -m "Initial commit."
+
 # Ignore bundler config.
 /.bundle
 
