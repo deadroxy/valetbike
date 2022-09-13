@@ -1,0 +1,26 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      <h1>Stations</h1>
+    </div>  
+    <div class="flexbox vertical stretch">
+    </div>
+	</div>
+</div>
+
+<%#= render(partial: "stations/row", collection: @stations, as: :station) %>
+
+        <%# https://medium.com/swlh/using-rails-and-html-to-view-sort-and-search-tables-fbf8a0543558 %>
+        <table>
+          <tr>
+          <%# TODO: figure out how to space out table headers%>
+            <th><%="Station"%> </th>
+            <th><%="Bikes Docked"%> </th>
+          </tr>
+        <% @stations.each do |station| %>
+          <tr>
+            <td><%= station.name%></td>
+            <td><%=station.docked_bikes_count %></td><td>
+          </tr>
+          <% end %>
+          </table>
