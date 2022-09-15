@@ -1,7 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
+      Welcome to ValetBike, Asher :D!
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
@@ -12,5 +12,28 @@
       </div>
       <% end %>
     </div>
+  </div>
+</div>
+
+
+<div class="page-section flexbox vertical stretch">
+<details>
+<summary>
+    <div class="section-title">
+      Click for bikes:  
+    </div>  
+  </summary>
+  <div class="section-inner flexbox vertical stretch">
+
+    <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "stations/bikerow", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+    </div>
 	</div>
+</details>
 </div>
