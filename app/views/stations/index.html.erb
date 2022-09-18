@@ -3,6 +3,7 @@
     <div class="section-title">
       Welcome to ValetBike! I modified this.
     </div>  
+    List of stations:
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
@@ -12,13 +13,13 @@
       </div>
       <% end %>
     </div>
+    List of bikes:
     <div class="flexbox vertical stretch">
       <% if @bikes.present? %>
-      bikes present evaluates true
-        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+        <%= render(partial: "stations/bikerow", collection: @bikes, as: :bike) %>
       <% else %>
       <div class="empty">
-        No bikes found yet.
+        No bikes found.
       </div>
       <% end %>
     </div>
