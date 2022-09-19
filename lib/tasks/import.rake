@@ -8,6 +8,8 @@ namespace :import do
             s.name = row["name"]
             s.address = row["address"]
             s.identifier = row["identifier"]
+            s.docked_bike_count = row["docked_bike_count"]
+            puts s.docked_bike_count
             s.save
         end
 
@@ -15,7 +17,7 @@ namespace :import do
         CSV.foreach(bikes_data, headers: true) do |row|
             b = Bike.new
             b.identifier = row["identifier"]
-            b.current_station_id = row["current_station_id"] 
+            b.current_station_id = row["current_station_identifier"] 
             b.save
         end
     end

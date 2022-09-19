@@ -6,7 +6,7 @@
     <div class="title">
       Station List:  
     </div> 
-    <div class="flexbox vertical stretch stations">
+    <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
       <% else %>
@@ -14,6 +14,19 @@
         No stations found.
       </div>
       <% end %>
+
+      <div class="title">
+      Bike List:  
+      </div> 
+      <div class="flexbox vertical stretch">
+        <% if @bikes.present? %>
+          <%= render(partial: "stations/bikerow", collection: @bikes, as: :bike) %>
+        <% else %>
+        <div class="empty">
+          No bikes found.
+        </div>
+      <% end %>
+    </div>
     </div>
 	</div>
 </div>
