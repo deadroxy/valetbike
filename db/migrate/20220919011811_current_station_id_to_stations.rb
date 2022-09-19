@@ -1,0 +1,4 @@
+class CurrentStationIdToStations < ActiveRecord::Migration[7.0]
+  def change
+  end
+end
