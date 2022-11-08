@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
-    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <%# <link href="/favicon.ico" rel="icon" type="image/x-icon"> %>
     <%# CSS for leaflet %>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
@@ -29,7 +29,9 @@
       <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container brandbox">
       <a class="navbar-brand" href="/">
-        <img src="/pretendlogo.jpg" alt="ValetBike"> <%#located in assets. Might work better in index.html %>
+        <%# <h1>ValetBike</h1> %>
+        <%= image_tag('bike.webp', size: '80x80', alt: 'ValetBike') %>
+        <%# <h1>ValetBike</h1> %>
       </a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,21 +39,21 @@
       </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
           <div>
-            <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto">
 
-              <li class="nav-item active">
+              <li style="display:inline-block;">
                 <%= link_to "Home", "/home", class: "nav-link", method: :get %>
               </li>
 
-              <li class="nav-item">
+              <li style="display:inline-block;">
                 <%= link_to "Rent", "/rent", class: "nav-link", method: :get %>
               </li>
 
-              <li class="nav-item">
+              <li style="display:inline-block;">
                 <%= link_to "Help", "/help", class: "nav-link", method: :get %>
               </li>
 
-              <li class="nav-item">
+              <li style="display:inline-block;">
                 <% if user_signed_in? %> 
                   <div> Welcome <%= current_user.first_name %> </div> 
                     <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
@@ -62,10 +64,6 @@
             </ul>
           </div>
 
-          <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form>
       </div>
     </nav>
 
