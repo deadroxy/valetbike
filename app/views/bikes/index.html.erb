@@ -1,20 +1,20 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Station status:
+      Check the bike here!!
     </div>
     <div class="section-subtitle">
-       Right place to check your nearest stations :-)
+       Wanna find your faviourite bike?
     </div>
-    <a href= "/">
+     <a href= "/">
       Back to Main Page
     </a>
     <div class="flexbox vertical stretch"><br>
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
       <% else %>
       <div class="empty">
-        No stations found.
+        No bikes found.
       </div>
       <% end %>
     </div>

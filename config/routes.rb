@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  root to: "stations#index"
+
+   
+  resources :bikes, :stations
+
+  root to: "main#index"
+
 end
