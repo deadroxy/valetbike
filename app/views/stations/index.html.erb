@@ -1,11 +1,13 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
+      This is a modified welcome message!
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <div class="empty">
+        </div>
       <% else %>
       <div class="empty">
         No stations found.
