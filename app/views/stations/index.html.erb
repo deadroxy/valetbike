@@ -5,12 +5,36 @@
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <%# <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <table>                        
+          <tr>                          
+            <th>Identifier</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Has Kiosk</th>
+            <th>Needs Maintenance</th>
+            <th>Dock Count</th>
+            <th>Docked Bike Count</th>
+          </tr>
+          <% @stations.each do |station|%>
+          <tr>
+            <td><%= station.identifier %></td>  
+            <td><%= station.name %></td> 
+            <td><%= station.address %></td> 
+            <td><%= station.has_kiosk %></td> 
+            <td><%= station.needs_maintenance %></td> 
+            <td><%= station.dock_count %></td> 
+            <td><%= station.docked_bike_count %></td> 
+            
+          </tr>   
+          <%end%>                  
+        </table> 
       <% else %>
       <div class="empty">
         No stations found.
       </div>
       <% end %>
+      <%= button_to 'View Bikes', bike_path, method: 'get'%>
     </div>
 	</div>
 </div>

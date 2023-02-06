@@ -1,0 +1,31 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      Bikes Available
+    </div>  
+    <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%# <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+            <table>                        
+          <tr>                          
+            <th>Identifier</th>
+            <th>Current Station Identifier</th>
+            <th>Station Id</th>
+          </tr>
+          <% @bikes.each do |bike|%>
+          <tr>
+            <td><%= bike.identifier %></td>  
+            <td><%= bike.current_station_identifier %></td> 
+            <td><%= bike.station_id %></td> 
+          </tr>   
+          <%end%>                  
+        </table> 
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+      <%= button_to 'View Stations', root_path, method: 'get'%>
+    </div>
+	</div>
+</div>
