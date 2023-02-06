@@ -3,9 +3,25 @@
     <div class="section-title">
       Welcome to ValetBike, the best bike sharing platform!
     </div>
+    <div>
+      <h2> List of Stations </h2>
+    </div>
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <table>
+          <tr>
+            <th> <%= link_to "Identifier", :sort => "identifier"%> </th>              
+            <th> <%= link_to "Name", :sort => "name"%> </th>     
+            <th> <%= link_to "Address", :sort => "address"%> </th>     
+          </tr>
+          <% @stations.each do |station| %>
+          <tr>
+            <td><%= station.identifier%></td>
+            <td><%= station.name %></td>
+            <td><%= station.address %></td>     
+          </tr>
+          <% end %>
+        </table>
       <% else %>
       <div class="empty">
         No stations found.
