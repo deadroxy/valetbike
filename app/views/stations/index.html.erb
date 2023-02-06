@@ -1,8 +1,10 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
+
     <div class="section-title">
       ValetBike by Chaira!
     </div>  
+
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
@@ -12,5 +14,10 @@
       </div>
       <% end %>
     </div>
+
+    <div class="rights-text">
+      2023 Version 01 CSC 223-01
+    </div>  
+
 	</div>
 </div>
