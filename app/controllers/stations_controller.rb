@@ -1,7 +1,12 @@
 class StationsController < ApplicationController
   
   def index
-    @stations = Station.all.order(identifier: :asc)
+    if params[:order] == "desc"
+      @stations = Station.all.order(identifier: :desc)
+    else 
+      @stations = Station.all.order(identifier: :asc)
+    end
+    
   end
   
 end
