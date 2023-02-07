@@ -7,8 +7,20 @@
 
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+       <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+
+       <button type="reverse_st">Reverse Station Order</button>
+        <%= render(partial: "stations/row", collection: @stations.reverse(), as: :station) %>
+
+        <% # link_to 'Reverse Stations!!', station_rev_path(@stations) %>
+        
+
+
+        <% # this part isn't working -- showing the bikes %>
+         <% if @bikes.present? %>
+         <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+         <% end %>
+
       <% else %>
       <div class="empty">
         Features coming soon.
@@ -17,6 +29,7 @@
     </div>
 
     <div class="rights-text">
+      <br></br>
       2023 Version 01 CSC 223-01
     </div>  
 
