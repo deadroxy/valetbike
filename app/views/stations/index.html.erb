@@ -12,5 +12,14 @@
       </div>
       <% end %>
     </div>
+    <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "stations/bikerow", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+    </div>
 	</div>
 </div>
