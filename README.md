@@ -1,3 +1,4 @@
+# Emma Schumacher
 # ValetBike
 
 Smith College CSC223: Software Engineering\
