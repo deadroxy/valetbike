@@ -1,6 +1,7 @@
 # Chaira Harder (branch)
 # ValetBike
 
+# Helen Yu
 Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
 
