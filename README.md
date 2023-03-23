@@ -1,7 +1,15 @@
-# Chaira Harder (branch)
 # ValetBike
+======= 
+# Emma T Schumacher 
+======= 
+# Yina Bao
+=======
+# Chaira Harder 
+=======
+Hamssatou Almahamoudou Maiga
+=======
+# Helen Yu
 
-Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
 
 ## Environment Configuration
