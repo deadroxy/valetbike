@@ -4,11 +4,10 @@
 =======
 # Chaira Harder 
 =======
-
-# ValetBike
-
+Hamssatou Almahamoudou Maiga
+=======
 # Helen Yu
-Smith College CSC223: Software Engineering\
+
 Starter App for ValetBike project
 
 ## Environment Configuration
