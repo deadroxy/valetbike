@@ -1,7 +1,13 @@
-# ValetBike
 
-Smith College CSC223: Software Engineering\ 
+ 
+# Yina Bao
+=======
+# Chaira Harder 
+=======
 Hamssatou Almahamoudou Maiga
+=======
+# Helen Yu
+
 Starter App for ValetBike project
 
 ## Environment Configuration
