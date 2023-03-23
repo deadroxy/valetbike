@@ -1,6 +1,7 @@
 # ValetBike
 
-Smith College CSC223: Software Engineering\
+Smith College CSC223: Software Engineering
+Hamssatou Almahamoudou Maiga
 Starter App for ValetBike project
 
 ## Environment Configuration
