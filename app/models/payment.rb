@@ -17,12 +17,13 @@ class Payment < ApplicationRecord
     # belongs_to :membership, class_name: :Membership, foreign_key: membership_id, optional: true
     
     # returns the purpose
-    def getPurpose
-        @purpose
+    def isMembership?
+        purpose == "membership"
     end
-    # def getUser
-    #     @purpose
-    # end
+    def isRental?
+        purpose == "rental"
+    end
+
     private
     # returns true if this payment belongs to either a membership or a rental but not both
     def has_rental_or_membership

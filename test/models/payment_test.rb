@@ -28,4 +28,20 @@ class PaymentTest < ActiveSupport::TestCase
 
     assert_not payment.save
   end
+  test "accessors work" do
+    date = DateTime.new(2001,2,3,4,5,6)
+    payment = Payment.new
+    payment.identifier = 0
+    payment.card_id = 6
+    payment.rental_id = 4
+    payment.user_id = 3
+    payment.purpose = "rental"
+    payment.amount = 1
+    payment.date = date
+    payment.save
+
+    assert_equal(payment.getPurpose, "rental")
+    assert_equal(payment.isRental?, true)
+    assert_equal(payment.isMembership?, false)
+  end
 end
