@@ -1,10 +1,10 @@
 class Station < ApplicationRecord
-  validates_presence_of    :station_id,
-                           :station_name,
+  validates_presence_of    :identifier,
+                           :name,
                            :address,
-                           :has kiosk,
+                           :has_kiosk,
                            :num_docks
-  validates_uniqueness_of  :station_id
+  validates_uniqueness_of  :identifier
   
   has_many :docked_bikes, class_name: :Bike, foreign_key: :current_station_id
   def getAddress 
