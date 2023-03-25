@@ -14,6 +14,8 @@ class Station < ApplicationRecord
   def has_bikes
     if docked_bikes >= 1
         true
+    else
+      false
     end
   end
 
