@@ -1,9 +1,11 @@
 class User < ApplicationRecord
 
+    EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
+
     validates :first_name, presence: true, length: { maximum: 20 }
     validates :last_name, presence: true, length: { maximum: 20 }
     validates :email, presence: true,
-                      format: ,
+                      format: { with: EMAIL_REGEX },
                       length: { maximum: 50 },
                       uniqueness: true,
                       confirmation: true
@@ -13,14 +15,13 @@ class User < ApplicationRecord
 
 
     def get_name
+
     end
 
     def get_email
     end
 
-    def has_phone
-        if !phone.empty?
-            
+    def has_phone        
     end
 
     def get_phone
