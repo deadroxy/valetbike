@@ -1,0 +1,43 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      User Profile
+    </div>  
+    <div class="flexbox vertical stretch"><br>
+      <b>User Information</b>
+    </div>
+    <div class="flexbox vertical stretch">
+      <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+        <b>User id:</b> 12345
+        <b>Username:</b> XXXXX
+        <b>Phone number:</b> xxx-xxx-xxxx
+        <b>Payment information:</b>
+      </div>
+    </div>
+     <div class="flexbox vertical stretch"><br>
+      <b>In-progress trip</b>
+    </div>
+    <div class="flexbox vertical stretch">
+    <%#= if user.renting? %>
+    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+      <b>Starting Station</b> Station A 
+      <b>Starting time:</b> 16:44:30
+      <b>Duration</b> (currentTime - startingTime)<br>
+
+      <button type="button" style= "background-color:#E5E7E9">Click Me to return the bike!</button>
+      <%# <%= else %><br>
+      <button type="button" style= "background-color:#E5E7E9">Click me to rent a bike!</button>
+    </div>
+    <div class="flexbox vertical stretch"><br>
+      <b>Travel History</b>
+    </div>
+    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+      <b>Date:</b> 3/22/2023
+      <b>Trip:</b> Station A -> Station B
+      <b>Time:</b> 11:30:45 - 12:29:44
+      <b>Duration:</b> 1 hr
+      <b>Total Cost:</b> $23
+    </div>
+    </div>
+	</div>
+</div>
