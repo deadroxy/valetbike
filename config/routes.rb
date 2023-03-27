@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "main#welcome"
   get 'main/welcome'
   get 'main/tutorial'
   get 'main/help'
@@ -8,5 +9,6 @@ Rails.application.routes.draw do
   get 'main/createAccount'
   get 'main/rent'
   get 'main/return'
-  root to: "stations#index"
+  root to: "main/welcome"
+
 end
