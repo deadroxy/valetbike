@@ -1,3 +1,5 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%= bike.current_station %>: bike number <%= bike.id %>
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
+  <div><%= bike.identifier %>: <%= station.name %> </div>
+
+  <div><%= bike.current_station.blank? ?  "In Use" : Docked (#{bike.current_station.address})" %></div>
 </div>

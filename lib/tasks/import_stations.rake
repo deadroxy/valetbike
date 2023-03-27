@@ -7,7 +7,7 @@ namespace :db do
     task :import_station, [:filename] => :environment do |task, args|
         require 'csv'
 
-        put "Importings station data..."
+        puts "Importings station data..."
 
         CSV.parse(File.read(args[:filename]), headers: true).each do |row|
             puts "Importing: #{row.to_hash["name"]}\n"
