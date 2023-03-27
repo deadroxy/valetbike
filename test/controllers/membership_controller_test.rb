@@ -16,28 +16,13 @@ class MembershipControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get create" do
-    get membership_create_url
-    assert_response :success
-  end
-
   test "should get edit" do
     get membership_edit_url
     assert_response :success
   end
 
-  test "should get update" do
-    get membership_update_url
-    assert_response :success
-  end
-
   test "should get delete" do
     get membership_delete_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get membership_destroy_url
     assert_response :success
   end
 end
