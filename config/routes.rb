@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   match "payments", to:"payments#index", via: :get
 
   match "locations", to:"stations#index", via: :get
+  
+  get "faq", to: "faq#index"
+  
+  get "payments", to: "payments#index"
 end
