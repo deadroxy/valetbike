@@ -2,12 +2,14 @@ class StationsController < ApplicationController
   
   def index
     @stations = Station.all.order(identifier: :asc)
-    @bikes = Bike.all.order(identifier: :asc)
+    #@bikes = Bike.all.order(identifier: :asc)
   end
   def new
     @station = Station.new
   end
-
+  def show
+    @station = Station.find(params[:id])
+  end
   def create
     @station = Station.new(station_params)
     
@@ -19,11 +21,11 @@ class StationsController < ApplicationController
   end
 
   def edit
-    @station = station.find(params[:identifier])
+    @station = Station.find(params[:id])
   end
 
   def update
-    @station = station.find(params[:identifier])
+    @station = Station.find(params[:id])
     if @station.update(station_params)
       redirect_to(stations_path)
     else
@@ -32,11 +34,11 @@ class StationsController < ApplicationController
   end
 
   def delete
-    @station = station.find(params[:identifier])
+    @station = Station.find(params[:id])
   end
 
   def destroy
-    @station = station.find(params[:identifier])
+    @station = Station.find(params[:id])
     @station.destroy
     redirect_to(stations_path)
   end

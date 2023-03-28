@@ -1,4 +1,25 @@
-<div>
-  <h1 class="font-bold text-4xl">Station#show</h1>
-  <p>Find me in app/views/station/show.html.erb</p>
-</div>
+<div class="stations show">
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      Station: <%= @station.name %>
+    </div>  
+    <div class="flexbox vertical stretch">
+    Actions:
+    <%= link_to('Edit', edit_station_path(@station)) %>
+    <%= link_to('Delete', delete_station_path(@station)) %> <br>
+      <% if @station.docked_bikes.present? %>
+        Bikes docked:
+        <%= render(partial: "stations/bike_row", collection: @station.docked_bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found at this station.
+      </div>
+      <% end %>
+    </div>
+    <div class="flexbox vertical stretch">
+      Station created at: <%= @station.created_at.to_fs(:long) %> <br>
+      Station last updated at: <%= @station.updated_at.to_fs(:long) %>
+    </div>
+	</div>
+  </div>

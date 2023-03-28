@@ -1,7 +1,8 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Hello and Welcome to ValetBike!
+      Hello and Welcome to ValetBike!<br>
+      Available stations:
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
@@ -14,3 +15,30 @@
     </div>
 	</div>
 </div>
+<div class="stations index">
+  <h2>Stations</h2>
+
+  <%= link_to("Add New Station", new_station_path, class: 'action new') %>
+
+  <table class="listing" summary="Station list" style="width: 100%;">
+    <tr class="header">
+      <th>#</th>
+      <th>Station Name</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+    <% @stations.each do |station| %>
+    <tr>
+      <td><%= station.identifier %></td>
+      <td><%= station.name %></td>
+      <td><%= station.address %></td>
+      <td class="actions">
+        <%= link_to("Show", station_path(station), class: 'action show') %>
+        <%= link_to("Edit", edit_station_path(station), class: 'action edit') %>
+        <%= link_to("Delete", delete_station_path(station), class: 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
