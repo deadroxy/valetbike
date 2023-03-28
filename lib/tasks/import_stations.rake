@@ -1,4 +1,4 @@
-# rake db:import_stations["notes/stations-data.csv"]
+# rake db:import_station["notes/station-data.csv"]
 
 namespace :db do
 
