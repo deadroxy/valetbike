@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+<!doctype html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,6 +11,37 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
+    <style>
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 120px;
+        text-align: center;
+        padding: 20px;
+        background-color: #FFEEE4;
+      }
+      .footer_parts img {
+        float: left;
+      }
+
+      .footer_parts p {
+        position: absolute;
+        bottom: 10px;
+      }
+      .btn_group button {
+        cursor: pointer;
+        background-color: transparent;
+        color: black;
+        margin: 0;
+      }
+      .btn_group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        float: right;
+      }
+    </style>
   </head>
   <body>
     <div id="site-container" class="flexbox vertical stretch flex-1">
@@ -18,5 +49,21 @@
         <%= yield %>
       </div>
     </div>
+
+    
+    <footer>
+    <div class = "footer_parts">
+      <%= image_tag("logo.png") %>
+      <p> We believe in getting you from A to B easily </p>
+      <div class = "btn_group">
+        <button> How It Works </button>
+        <button> Locations </button>
+        <button> FAQs </button>
+        <button> Support </button>
+        <button> Login/Signup </button>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
+
