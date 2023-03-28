@@ -1,0 +1,15 @@
+<% #link_to("Back to Stations List", stations_path, :class => 'back-link') %>
+
+<div class="stations new">
+  <h2>Create Station</h2>
+
+  <%= form_for(@station) do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Create Station") %>
+    </div>
+
+  <% end %>
+</div>

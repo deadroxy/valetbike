@@ -30,18 +30,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_001753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "payment_frequency"
+    t.integer "cost"
+    t.string "time_unit"
+    t.integer "rentals_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "payments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "purpose"
+    t.datetime "date"
     t.integer "user_id"
     t.integer "card_id"
     t.integer "amount"
     t.integer "rental_id"
-    t.integer "membership_id"
-    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "membership_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

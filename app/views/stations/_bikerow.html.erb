@@ -1,7 +1,0 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-    <% if bike.current_station_id.present? %>
-        Bike: <%= bike.identifier %>, address: <%= Station.find_by(id: bike.current_station_id).address%>    
-    <% else %>
-        Bike: <%= bike.identifier %>, address: NULL
-    <% end %>
-</div>
