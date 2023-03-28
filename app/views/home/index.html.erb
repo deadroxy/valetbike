@@ -3,34 +3,30 @@
   <head>
     <title> About Us </title>
     <style>
-      .container {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-      }
       .row::after {
       content: "";
       clear: both;
       display: table;
       }
       button{
-        padding: 15px 32px;
+        padding: 10px 70px;
         text-align: center;
         display: inline-block;
         font-size: 16px;
-        margin: 4px 2px;
+        margin: 6px 2px;
         cursor: pointer;
         color: white;
         background-color: #8C1627;
+        float: right;
+        position: absolute;
+        top: 270px;
+        right: 400px;
       }
       h1 {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
         color: #8C1627;
+        font-family: "Lucida Console";
       }
       img {
       max-width: 100%;
@@ -49,17 +45,15 @@
 
   <div class="row">
      <p>
-       <div class="img">
-        <%= image_tag("Bitmap.png") %>
-      <p class="text">For all your bike needs </p> 
-      <h1 style = "font-size: 20px;"> ValetBike Gliders</h1> 
-      <button> Start Now </button>
-      </div>
+       <%# <div class="img"> %>
+        <%= image_tag("Group 310.png") %> <button> Start Now </button>
+        <%= image_tag("Bitmap.png") %> 
+      <%# </div> %>
       </p>
   </div>
 
   <div class="row">
-     <h1 style = "font-size: 20px;"> About Us</h1>
+     <h1> About Us</h1>
       <p>
       <div class="img">
         <%= image_tag("image 55.png") %>
