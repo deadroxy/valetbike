@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "stations#index"
+  root to: "home#index"
 
 
   get 'user/profile'
