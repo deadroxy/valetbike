@@ -12,12 +12,24 @@
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
   </head>
+
+
   <body>
-    <div id="site-container" class="flexbox vertical stretch flex-1">
-      <div class="flexbox vertical center">
-        <%= render 'layouts/sidebar' %>
-         <%= yield %>
+    <header>
+      <h1><%= link_to_unless_current("ValleyScoot", "/main/welcome")%> <h1>
+    </header>
+    <div class="sidebar" id="sidebar" style="width:25%" >
+      <%= render 'layouts/sidebar' %>
+        <%# <%= yield %>
+    </div>
+
+    <div style="margin-left:25%"> 
+      <div class="container">
+        <%= yield %>
       </div>
     </div>
+    <footer>
+    Copyright <%=Time.now.year %>
+    <footer>
   </body>
 </html>
