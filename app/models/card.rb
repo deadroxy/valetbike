@@ -5,6 +5,8 @@ class Card < ApplicationRecord
                              :CVC,
                              :expiration_date,
                              :billing_address
+                             :billing_zip,
+                             :billing_state,
 
     validates_uniqueness_of  :identifier
 

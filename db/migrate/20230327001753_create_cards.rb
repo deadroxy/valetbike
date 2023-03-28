@@ -1,11 +1,13 @@
 class CreateCards < ActiveRecord::Migration[7.0]
   def change
     create_table :cards do |t|
-      t.integer :identifier
+      t.integer :identifier,
       t.string :card_holder_name,
       t.integer :card_number,
       t.integer :CVC,
-      t.string :billing_address
+      t.string :billing_address,
+      t.integer :billing_zip,
+      t.string :billing_state,
       t.datetime :expiration_date,
       t.timestamps
     end
