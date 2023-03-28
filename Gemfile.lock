@@ -93,8 +93,10 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.11.0)
+    geocoder (1.3.7)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -231,6 +233,8 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  geocoder (~> 1.3, >= 1.3.7)
+  gmaps4rails
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
