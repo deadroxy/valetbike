@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :phone_number
       t.integer :user_id
       t.boolean :is_admin
-      t.integer :card_id
 
       t.timestamps
     end
