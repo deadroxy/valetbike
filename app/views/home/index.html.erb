@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> About Us </title>
+    <style>
+      .container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .row::after {
+      content: "";
+      clear: both;
+      display: table;
+      }
+      button{
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        color: white;
+        background-color: #8C1627;
+      }
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #8C1627;
+      }
+      img {
+      max-width: 100%;
+      max-height:100%;
+      float: right;
+      }
+      .text {
+      font-size: 20px;
+      /* padding-left: 20px; */
+      /* float: right; */
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <div class="row">
+     <p>
+       <div class="img">
+        <%= image_tag("Bitmap.png") %>
+      <p class="text">For all your bike needs </p> 
+      <h1 style = "font-size: 20px;"> ValetBike Gliders</h1> 
+      <button> Start Now </button>
+      </div>
+      </p>
+  </div>
+
+  <div class="row">
+     <h1 style = "font-size: 20px;"> About Us</h1>
+      <p>
+      <div class="img">
+        <%= image_tag("image 55.png") %>
+      <p class="text">Valet Bike is designed to make cycling in your city convenient, affordable and eco-friendly. With our app, you can easily locate and 
+      rent bikes from any of our many bike stations scattered throughout the city. We believe that cycling is not just a means of transportation,
+      but also a great way to stay healthy while reducing your carbon footprint. That's why we have made our application affordable and accessible
+      to everyone. With our flexible pricing options, you can rent a bike for as long or as short as you need, making it a cost-effective alternative
+      to other modes of transportation </p>
+      </div>
+      </p>
+    </div>
+  </body>
+
+</html>
+
+
