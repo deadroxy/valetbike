@@ -1,14 +1,3 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <div class = "container">
-    <div class= "box">
-      <%= image_tag("station.jpg", size: '90×55', :style => "float :left;margin-right:15px;") %>
-    </div>
-
-    <div class="box">
-    <%= station.identifier %>: <%= station.name %> 
-    <b>Location:</b> <%= station.address %>
-    <a href="renting/index" class="button">Details</a>
-    </div>
-  </div>
-
+  <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
 </div>
