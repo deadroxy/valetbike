@@ -19,11 +19,11 @@ class StationsController < ApplicationController
   end
 
   def edit
-    @station = station.find(params[:id])
+    @station = station.find(params[:identifier])
   end
 
   def update
-    @station = station.find(params[:id])
+    @station = station.find(params[:identifier])
     if @station.update(station_params)
       redirect_to(stations_path)
     else
@@ -32,11 +32,11 @@ class StationsController < ApplicationController
   end
 
   def delete
-    @station = station.find(params[:id])
+    @station = station.find(params[:identifier])
   end
 
   def destroy
-    @station = station.find(params[:id])
+    @station = station.find(params[:identifier])
     @station.destroy
     redirect_to(stations_path)
   end

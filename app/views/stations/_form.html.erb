@@ -1,0 +1,25 @@
+<%# error_messages_for(f.object) %>
+<% # copied from the linkedin learning task_manager %>
+
+<table summary="Task form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td><%= f.text_field(:address) %></td>
+  </tr>
+  <tr>
+    <th>has_kiosk</th>
+    <td><%= f.check_box(:has_kiosk) %></td>
+  </tr>
+  <tr>
+    <th>Number of Docks</th>
+    <td><%= f.text_field(:num_docks) %></td>
+  </tr>
+  <tr>
+    <th>Identifier</th>
+    <td><%= f.text_field(:identifier) %></td>
+  </tr>
+</table>

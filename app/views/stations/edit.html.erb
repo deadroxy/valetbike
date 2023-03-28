@@ -1,4 +1,14 @@
-<div>
-  <h1 class="font-bold text-4xl">Station#edit</h1>
-  <p>Find me in app/views/station/edit.html.erb</p>
+<% #link_to("Back to List", stations_path, :class => 'back-link') %>
+
+<div class="stations edit">
+  <h2>Edit Station</h2>
+
+  <%= form_for(@station) do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Edit Station") %>
+    </div>
+  <% end %>
 </div>

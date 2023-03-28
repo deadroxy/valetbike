@@ -5,11 +5,16 @@ Rails.application.routes.draw do
   get 'membership/edit'
   get 'membership/delete'
 
-  get 'station/index'
-  get 'station/show'
-  get 'station/new'
-  get 'station/edit'
-  get 'station/delete'
+  resources :stations do
+    member do
+      get :delete
+    end
+  end
+  # get 'stations/index'
+  # get 'stations/show'
+  # get 'stations/new'
+  # get 'stations/edit'
+  # get 'stations/delete'
 
   get 'users/index'
   get 'users/new'
