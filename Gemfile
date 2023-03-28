@@ -77,6 +77,12 @@ end
 # Developer Added Gems
 gem 'dotenv-rails'
 
+# Geocoder gem [https://github.com/alexreisner/geocoder]
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
+# for adding locations to map [https://gist.github.com/NickManos/14c2c601a08486009f14]
+gem "gmaps4rails"
+
 # Suggested Potentially Useful Gems
 # gem 'devise'
 # gem 'httparty'
