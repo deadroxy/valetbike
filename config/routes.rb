@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :logins, controllers: {
     sessions: 'logins/sessions',
     registrations: 'logins/registrations',
-    passwords: 'logins/passwords'
+    passwords: 'logins/passwords',
     confirmations: 'logins/confirmations',
-    omniauth_callbacks: 'logins/omniauth_callbacks',
+    #omniauth_callbacks: 'logins/omniauth_callbacks',
     unlocks: 'logins/unlocks'
   }
 
