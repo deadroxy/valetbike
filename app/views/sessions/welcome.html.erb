@@ -3,7 +3,9 @@
   
   <h2> Let's Scoot! </h2>
 
-  <p>Find me in app/views/sessions/welcome.html.erb</p>
+  <% if logged_in? %>
+    <h1>You are Logged In, <%= current_user.username %></h1>
+  <%end%>
 
 
 </div>

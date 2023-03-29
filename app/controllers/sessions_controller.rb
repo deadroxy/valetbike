@@ -12,9 +12,14 @@ class SessionsController < ApplicationController
           redirect_to '/welcome'
       end
     end
+
+    def destroy
+      session.clear
+      redirect_to 'welcome' 
+    end
   
     def welcome
-      
+    
     end
   
     def login
