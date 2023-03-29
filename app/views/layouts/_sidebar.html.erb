@@ -1,11 +1,11 @@
-<div class="sidebar">
+<div class="sidebar" style="width:25%" id="mySidebar">
   <ul>
-    <li><%=link_to("Menu", "/main/menu")%></li>
-    <li> <%=link_to("Profile", "/main/profile")%></li>
-    <li> <%=link_to("Renting", "/main/rent")%> </li>
-   <li> <%=link_to("Return", "/main/return")%> </li>
-   <li> <%=link_to("Help", "/main/help")%> </li>
-   <li> <%=link_to("Login", "/users/new")%> </li>
-   <li> <%=link_to("Signin", "/login")%> </li>
-  </ul>
+    <li><%=link_to_unless_current("Menu", "/main/menu")%></li>
+    <li> <%=link_to_unless_current("Profile", "/main/profile")%></li>
+    <li> <%=link_to_unless_current("Rent a Bike", "/main/rent")%> </li>
+   <li> <%=link_to_unless_current("Return Bike", "/main/return")%> </li>
+   <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
+   <li> <%=link_to_unless_current("Create an Account", "/users/new")%> </li>
+   <li> <%=link_to_unless_current("Existing Users", "/login")%> </li>
+  <li>  <%=link_to 'Log Out', "/login" , method: :delete %> </li>
 </div>
