@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-
   get 'user/profile'
 
   get 'renting/index'
@@ -15,10 +14,5 @@ Rails.application.routes.draw do
   
   get "faq", to: "faq#index"
   
-  get "payments", to: "payments#index"
-  
-  get 'user/profile'
-
-  get 'renting/index'
 
 end
