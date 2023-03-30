@@ -8,7 +8,6 @@ class StationsController < ApplicationController
       puts station[:name]
       puts station[:address]
     end
-
   end
 
 end
