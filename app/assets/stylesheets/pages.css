@@ -20,10 +20,28 @@
   margin-bottom: 1em;
 }
 
+.page-section .section-title a.toggle{
+  font-size: 0.35em;
+  margin-left: 1em;
+  color: var(--green-color);
+}
+
+.page-section .section-title a.toggle:hover{
+  color: var(--orange-color);
+}
+
 .record-row {
   padding: 0.5em 1.25em 0.5em 1.25em;
   font-size: 0.85em;
   line-height: 1.75em;
+}
+
+.record-row.header{
+  background: var(--light-gray-color);
+}
+
+.record-row.header a:hover{
+  color: var(--orange-color);
 }
 
 .record-row.even {

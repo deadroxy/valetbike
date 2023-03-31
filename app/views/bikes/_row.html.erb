@@ -1,5 +1,7 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
+
   <div><%= bike.identifier %> : <%= bike.current_station.nil? ? "Not currently in any station" : bike.current_station.name %> </div>
 
   <div><%= bike.current_station.blank? ?  "In Use" : bike.current_station.address %></div>
 </div>
+
