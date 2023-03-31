@@ -12,6 +12,26 @@
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
     <style>
+    body
+      {
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+      }
+      header
+      {
+        width:100%;
+        height: 120px;
+        position:absolute;
+        padding: 20px;
+        top:0;
+        text-align: center;
+        padding: 20px;
+        left:0;
+        background-color: #FFEEE4;
+      }
     footer {
         position: absolute;
         bottom: 0;
@@ -19,9 +39,17 @@
         height: 120px;
         text-align: center;
         padding: 20px;
+        left:0;
         background-color: #FFEEE4;
       }
       .footer_parts img {
+        float: left;
+      }
+      .header_parts p {
+        position: absolute;
+        bottom: 10px;
+      }
+      .header_parts img {
         float: left;
       }
 
@@ -46,24 +74,10 @@
   <body>
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
-        <%= yield %>
+      <%= render "layouts/header" %>
+      <%=yield %>
+      <%= render "layouts/footer" %>
       </div>
     </div>
-
-    
-    <footer>
-    <div class = "footer_parts">
-      <%= image_tag("logo.png") %>
-      <p> We believe in getting you from A to B easily </p>
-      <div class = "btn_group">
-        <button> How It Works </button>
-        <button> Locations </button>
-        <button> FAQs </button>
-        <button> Support </button>
-        <button> Login/Signup </button>
-      </div>
-    </div>
-  </footer>
   </body>
 </html>
-
