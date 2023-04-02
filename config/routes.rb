@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "stations#index"
-  
-#  get "/stations/:identification", to: "stations#index"
-    get "/stations/:identifier", to: "station#reverse", as: "station_rev"
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
 end
