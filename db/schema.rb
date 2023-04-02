@@ -11,7 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_28_070637) do
-  create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+
+create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
@@ -30,17 +31,43 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_070637) do
     t.index ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true
   end
 
+create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "card_holder_name"
+    t.integer "card_number"
+    t.integer "CVC"
+    t.string "billing_address"
+    t.integer "billing_zip"
+    t.string "billing_state"
+    t.datetime "expiration_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
+  create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "payment_frequency"
+    t.integer "cost"
+    t.string "time_unit"
+    t.integer "rentals_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "payments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "purpose"
+    t.datetime "date"
     t.integer "user_id"
     t.integer "card_id"
     t.integer "amount"
     t.integer "rental_id"
-    t.integer "membership_id"
-    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "membership_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
