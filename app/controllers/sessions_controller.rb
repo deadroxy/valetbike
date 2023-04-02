@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
 
     def create
-        user = User.find_by(username: params[:session][:username])
+        user = User.find_by(email: params[:session][:email].downcase)
         if user && user.authenticate(params[:session][:password])
           session[:user_id] = user.id
+          session[:username] = user.username
+          #cookies[:username] = params[:username]
           flash[:notice] = "Logged in successfully."
-          redirect_to root_path
+          redirect_to user_home_path
         else
           flash.now[:alert] = "There was something wrong with your login details."
           render 'new'
