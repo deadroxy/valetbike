@@ -48,8 +48,10 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
   <<: *default
   database: valetbike_production
   username: valetbike
   password: <%= ENV["VALETBIKE_DATABASE_PASSWORD"] %>
+  host: localhost
