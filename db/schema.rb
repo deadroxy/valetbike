@@ -18,26 +18,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_031806) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bikes_rentingProcesses", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "rentingProcess_id", null: false
-    t.bigint "bike_id", null: false
-  end
-
   create_table "bikes_rentings", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "renting_id", null: false
     t.bigint "bike_id", null: false
-  end
-
-  create_table "rentingProcesses_stations", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "rentingProcess_id", null: false
-    t.bigint "station_id", null: false
+    t.index ["bike_id", "renting_id"], name: "index_bikes_rentings_on_bike_id_and_renting_id"
+    t.index ["renting_id", "bike_id"], name: "index_bikes_rentings_on_renting_id_and_bike_id"
   end
 
   create_table "rentings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bike_id"
-    t.integer "identifier"
     t.string "current_station_name"
     t.integer "current_station_id"
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_031806) do
   create_table "rentings_stations", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "renting_id", null: false
     t.bigint "station_id", null: false
+    t.index ["renting_id", "station_id"], name: "index_rentings_stations_on_renting_id_and_station_id"
+    t.index ["station_id", "renting_id"], name: "index_rentings_stations_on_station_id_and_renting_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

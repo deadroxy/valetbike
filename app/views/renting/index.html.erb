@@ -1,12 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-    Renting Page
-    </div>  
-    <div class="flexbox vertical stretch" style="text-align:center">
-      <b>Already a registered User? Login to rent a bike. Sign up otherwise</b>
-      <a href="new" class="button" style="text-align:center;background-color:#8C1627">Rent A bike</a>
+    Details
+    </div>   
+     <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
+
+    <b>Already a registered User? Login to rent a bike. Sign up otherwise</b>
+    <%= link_to 'Rent A bike', newRenting_path(@station), class: "button", style: 'color:#8C1627;'%>
+    
 
     </div>
 	</div>
 </div>
+
+
