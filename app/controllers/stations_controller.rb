@@ -1,6 +1,6 @@
 class StationsController < ApplicationController
   
-  def index
+  def main
     @stations = Station.all.order(identifier: :asc)
   end
   
