@@ -1,0 +1,30 @@
+<div class = "new_card_form">
+  <h2> Add new card </h2>
+  <%= form_for(Card.new) do |f| %>
+    <table summary = "Card form fields">
+      <tr> 
+        <th> CardHolder Name </th>
+        <td> <%= f.text_field :cardholder_name, required: true %> </td>
+      </tr>
+      <tr> 
+        <th> Card Number </th>
+        <td> <%= f.text_field :card_number, required: true %> </td>
+      </tr>
+      <tr> 
+        <th> Expiration Date </th>
+        <td> <%= f.month_field :expiration_date %> </td>
+        
+      </tr>
+      <tr> 
+        <th> CVV </th>
+        <td> <%= f.text_field :cvv, required: true%> </td>
+      </tr>
+    </table>
+
+    <div class = "form_button">
+      <%= f.submit("Add New Card")%>
+    </div>
+
+    <% end %>
+</div>
+
