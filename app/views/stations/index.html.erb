@@ -1,26 +1,18 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
-
     <div class="section-title">
-      bikesia
-      <a class="toggle" href="<%= bikes_path %>">View Bike Fleet</a>
-    </div>  
+      Welcome to ValetBike, the bike finding app!
 
+    </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
-       <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
 
       <% else %>
       <div class="empty">
         No stations found.
       </div>
-      <% end %>
-
-      <div class="rights-text">
-      <br></br>
-      2023 Version 01 CSC 223-01
-      </div>  
-
+      <% end %> 
     </div>
-  </div>
+	</div>
 </div>
