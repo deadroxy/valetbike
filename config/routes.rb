@@ -14,11 +14,10 @@ Rails.application.routes.draw do
   match "locations", to:"stations#index", via: :get
   
   get "faq", to: "faq#index"
+  get "renting", to: "renting#index"
   
   get "payments", to: "payments#index"
   
   get 'user/profile'
-
-  get 'renting/index'
 
 end
