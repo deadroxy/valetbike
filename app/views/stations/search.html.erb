@@ -1,0 +1,13 @@
+
+<div class="section-inner flexbox vertical stretch">
+    <div class="grid grid-rows-1 gap-2 mt-2 md:mt-16 md:grid-rows-2">
+    <% if @results.present? %>
+        <%= render(partial: "stations/station_row", collection: @results, as: :station) %>
+    <% else %>
+    
+    <div class="empty">
+        No stations found.
+    </div>
+    <% end %>
+    </div> 
+</div>

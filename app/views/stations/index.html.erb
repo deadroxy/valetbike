@@ -11,18 +11,18 @@
     </div>
     
     <div class="container mx-auto">
-      <div class="flex justify-center">
+      <div class="flex justify-center m-5">
         <!-- Row -->
         <div class="w-full flex">
-          <div class="w-full lg:w-1/2 bg-white px-5 ">
-      <div class="container mx-auto">
-        <form class=" bg-white p-1">
-          <div class="mb-4 flex items-center">
-            <input type="search" class="w-full border border-gray-400" placeholder="Enter a city, zipcode (eg. South Hadley/ 01075)" required/>
-            <button class="ml-2 bg-blue-500 p-2 text-white hover:bg-blue-600" type="submit">Search</button>
-          </div>
-        </form>
-      </div>
+          <div class="w-full lg:w-1/2 bg-white pr-5 ">
+            <div class="container mx-auto">
+              <form class=" bg-white p-1" action='locations/index'>
+                <div class="mb-4 flex items-center">
+                  <input type="search" class="w-full border border-gray-400" placeholder="Enter a city, zipcode (eg. South Hadley/ 01075)" required/>
+                  <button class="ml-2 bg-blue-500 p-2 text-white hover:bg-blue-600" type="submit">Search</button>
+                </div>
+              </form>
+            </div>
             <div class="section-inner flexbox vertical stretch">
               <div class="grid grid-rows-1 gap-2 mt-2 md:mt-16 md:grid-rows-2">
                 <% if @stations.present? %>
@@ -37,14 +37,52 @@
             </div>
           </div>
 
-          <div class="w-full px-5 lg:w-1/2">
-            <% results = Geocoder.search("Northampton, MA") %> 
+          <script>
+            var geocoder;
+            var map;
+            var address = "Northampton, MA";
+            function initMap() {
+              console.log("init");
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: {lat: -34.397, lng: 150.644}
+              });
+              geocoder = new google.maps.Geocoder();
+
+              codeAddress(geocoder, map, address);
+            }
+
+            function codeAddress(geocoder, map, address) {
+              console.log("got here");
+              geocoder.geocode({'address': address}, function(results, status) {
+               
+                if (status === 'OK') {
+                  map.setCenter(results[0].geometry.location);
+                  var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                  });
+                } else {
+                  alert('Geocode was not successful for the following reason: ' + status);
+                }
+              });
+            }
+          </script>
+
+          <div id="map" class="w-full px-5 lg:w-1/2">
             <% maps_api_key = "AIzaSyCp5mAqPHORth7ssHydyqRCwDjIuLnHT_E"%>
-              <iframe position="fixed" width="100%" height="100%" frameborder="1" style="border:0"
-              src="https://www.google.com/maps/embed/v1/place?key=<%= maps_api_key%>&q=<%= results.first.coordinates%>"
-              allowfullscreen>
-              </iframe>
+              
+            <script async defer 
+              src="https://maps.googleapis.com/maps/api/js?key=<%= maps_api_key%>&callback=initMap">
+            </script>
+            <%# <script>
+              <%= @stations.each do |station|%>
+                <%# codeAddress(<%=station[:address])%>
+              <%# <%end%>
+            <%# </script> %> 
+                
           </div>
+
         </div>
       </div>
     </div>

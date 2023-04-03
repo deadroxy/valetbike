@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+
+<script>
+    var geocoder;
+    var map;
+    function initMap(address) {
+        var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {lat: -34.397, lng: 150.644}
+        });
+        geocoder = new google.maps.Geocoder(); 
+        codeAddress(geocoder, map, address);
+    }
+
+    function codeAddress(geocoder, map, address) {
+        geocoder.geocode({'address': address }, function(results, status) {
+        if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+        });
+    }
+</script>
+
+<div id="map" class="w-full px-5 lg:w-1/2">
+    <% maps_api_key = "AIzaSyCp5mAqPHORth7ssHydyqRCwDjIuLnHT_E"%>
+        
+    <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=<%= maps_api_key%>&callback=initMap(<%=station[:address]%>)">
+    </script>
+</div>
