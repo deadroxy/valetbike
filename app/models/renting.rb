@@ -19,8 +19,8 @@ class Renting < ApplicationRecord
         endTime - startTime
     end
 
-    def date
-        created_at.to_fs(:db)
+    def date date
+        date.to_fs(:db)
     end 
 
 end

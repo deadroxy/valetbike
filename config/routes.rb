@@ -16,13 +16,11 @@ Rails.application.routes.draw do
 
   get "renting/new"
 
-  #get '/station/:id', to: 'renting#index', as: 'station'
-
   get ':station_id/renting', to: 'renting#index', as: 'renting'
 
   get 'renting/:station_id/rentings', to: 'renting#create', as: 'newRenting'
 
-  get 'renting/:id', to: 'renting#show', as: 'rentingDetail'
+  get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
 
 
 
