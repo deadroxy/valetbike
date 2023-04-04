@@ -12,8 +12,9 @@ class User < ApplicationRecord
     #validates :membership_id, presence: true
     #validates :user_id, presence: true
     #validates :card_id, presence: true
-
-
+    has_many :rentals, class_name: :Rental, foreign_key: :renter_id
+    has_many: payments, class_name: :Payment, foreign_key: user_id
+    
     def get_name
 
     end
@@ -48,7 +49,6 @@ class User < ApplicationRecord
         [first_initial, last_name].join(' ')
     end
 
-    has_many: payments
-    #has_many: rentals
+    
 end
 
