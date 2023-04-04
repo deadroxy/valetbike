@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_033408) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_04_042756) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -43,6 +43,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_033408) do
     t.index ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true
   end
 
+  create_table "membership_assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "membership_id", null: false
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "rentals_remaining"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["membership_id"], name: "index_membership_assignments_on_membership_id"
+    t.index ["user_id"], name: "index_membership_assignments_on_user_id"
+  end
+
   create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
@@ -54,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_033408) do
     t.integer "rentals_available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
   end
 
   create_table "payments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -102,4 +115,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_033408) do
     t.integer "card_id"
   end
 
+  add_foreign_key "membership_assignments", "memberships"
+  add_foreign_key "membership_assignments", "users"
 end
