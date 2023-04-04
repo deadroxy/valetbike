@@ -1,0 +1,147 @@
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE DATABASE `valetbike_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE DATABASE `valetbike_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (6.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStations (20220831090424)
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE `stations` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `identifier` int, `name` varchar(255), `address` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220831090424')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBikes (20220831090719)
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE `bikes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `identifier` int, `current_station_id` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220831090719')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2023-02-07 17:53:54.953606', '2023-02-07 17:53:54.953606')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-02-07 13:00:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by StationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering stations/index.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/index.html.erb:7
+  Rendered stations/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1281)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 5311)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.6ms | Allocations: 12783)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-02-07 13:05:19 -0500
+Processing by StationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering stations/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/index.html.erb:7
+  Rendered stations/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 645)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3219)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 3537)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2023-02-07 13:07:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by StationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering stations/index.html.erb within layouts/application
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/index.html.erb:7
+  Rendered stations/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1173)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 4326)
+Completed 200 OK in 49ms (Views: 22.4ms | ActiveRecord: 2.7ms | Allocations: 10332)
+
+
+Started GET "/" for ::1 at 2023-02-07 13:11:14 -0500
+Processing by StationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering stations/index.html.erb within layouts/application
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/index.html.erb:7
+  Rendered stations/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 647)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1562)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1931)
+
+
+Started GET "/" for ::1 at 2023-02-13 22:41:20 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.5ms | Allocations: 333)
+Completed 200 OK in 5ms (Views: 3.3ms | Allocations: 1169)
+
+
+Started GET "/" for ::1 at 2023-02-13 22:41:23 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 327)
+Completed 200 OK in 2ms (Views: 1.5ms | Allocations: 1009)
+
+
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE DATABASE `valetbike_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (23.4ms)[0m  [1m[35mCREATE DATABASE `valetbike_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+Started GET "/" for ::1 at 2023-02-20 19:41:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.3ms | Allocations: 634)
+Completed 200 OK in 31ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5076)
+
+
+Started GET "/" for ::1 at 2023-02-20 19:42:16 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 297)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 993)
+
+
+Started GET "/" for ::1 at 2023-02-20 19:42:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 526)
+Completed 200 OK in 12ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 3737)
+
+
+Started GET "/" for ::1 at 2023-02-20 19:47:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 526)
+Completed 200 OK in 13ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 3763)
+
+
+Started GET "/" for 127.0.0.1 at 2023-02-20 20:04:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/emmaschumacher/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | Allocations: 526)
+Completed 200 OK in 12ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 3762)
+
+
