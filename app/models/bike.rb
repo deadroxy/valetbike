@@ -3,4 +3,6 @@ class Bike < ApplicationRecord
   validates_uniqueness_of  :identifier
   
   belongs_to :current_station, class_name: :Station, foreign_key: :current_station_id, optional: true
+  has_many :rentals, class_name: :Rental, foreign_key: :bike_id
+
 end
