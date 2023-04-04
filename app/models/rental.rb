@@ -2,17 +2,19 @@ class Rental < ApplicationRecord
     
     belongs_to :bike, class_name: :Bike, foreign_key: :bike_id, optional: false
     belongs_to :renter, class_name: :User, foreign_key: :renter_id, optional: false
+    has_one :payment, class_name: :Payment, foreign_key: :rental_id, optional: false
+
     def is_ongoing?
         if end_time
-            return False
+            return false
         end
-        True
+        true
     end
     def is_done?
         if end_time
-            return True
+            return true
         end
-        False
+        false
     end
     def getTimeElapsed
         if self.is_done? 
@@ -22,7 +24,7 @@ class Rental < ApplicationRecord
     end
     def getAverageSpeed
         if self.is_ongoing? || !distance
-            return Nil
+            return nil
         end
         return distance / self.getTimeElapsed
     end

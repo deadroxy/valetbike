@@ -12,8 +12,8 @@ class Payment < ApplicationRecord
     validates_numericality_of :amount, greater_than_or_equal_to: 0
     
     # belongs_to :card, class_name: :Card, foreign_key: :card_id
-    # belongs_to :user, class_name: :User, foreign_key: :user_id
-    # belongs_to :rental, class_name: :Rental, foreign_key: rental_id, optional: true
+    belongs_to :user, class_name: :User, foreign_key: :user_id
+    belongs_to :rental, class_name: :Rental, foreign_key: rental_id, optional: true
     belongs_to :membership, class_name: :Membership, foreign_key: membership_id, optional: true
     
     # returns the purpose
