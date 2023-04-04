@@ -1,0 +1,41 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+
+    <div class="section-title">
+      Welcome to bikesia
+      
+    </div> 
+
+    <% if @user %>
+        Logged in as: <%= @user.email %>
+    <% end %>
+
+
+
+    <html>
+        <head> 
+            <title> How to make a page</title>
+            <link rel="stylesheets" href="/style.css">
+        </head>
+        <body>
+            <div class="banner">
+            <div class="navbar">
+                <ul>
+                    <li><a href=" "><%= link_to("Log In", login_path) %></a ></li>
+                    <li><a href="#"><%= link_to("Sign Up", signup_path) %></a ></li>
+                    <li><a href="#"><%= link_to("Stations", stations_path) %></a ></li>
+                    <li><a href="#"><%= link_to("Profile", user_home_path) %></a ></li>
+                </ul>
+            </div>
+            </div>
+    
+        </body>
+    </html>
+
+
+  
+    
+    
+
+    </div>
+</div>

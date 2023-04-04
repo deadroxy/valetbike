@@ -11,16 +11,12 @@
 
        <button type="reverse_st">Reverse Station Order</button>
         <%= render(partial: "stations/row", collection: @stations.reverse(), as: :station) %>
-
         <% # link_to 'Reverse Stations!!', station_rev_path(@stations) %>
         
-
-
         <% # this part isn't working -- showing the bikes %>
          <% if @bikes.present? %>
          <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
          <% end %>
-
       <% else %>
       <div class="empty">
         Features coming soon.
