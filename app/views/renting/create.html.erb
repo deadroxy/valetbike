@@ -1,0 +1,7 @@
+<h1>Rental Page</h1>
+
+
+<%= render(partial: "/stations/station_row", object: @station, as: :station) %>
+<%= @renting.rentCode%>
+
+<%= link_to "NEXT", rentingDetail_path(@renting)%>

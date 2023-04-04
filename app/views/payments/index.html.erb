@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title> Payment </title>
   <style>
@@ -20,11 +19,13 @@
     .container {
       width: 90%;
       height: auto;
-      # display: flex;
-      # flex-direction: row;
-      # flex-wrap: wrap;
-      # justify-content: space-around;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: auto;
+      padding-top: 230px;
+      overflow-x: hidden;
     }
 
     # .section {
@@ -59,24 +60,21 @@
 
     .bike img {
       float: left;
+      bottom: 0;
     }
-    
     .border {
       border: 1px solid grey;
       border-radius: 5px;
-      width: 90% ;
-      
+      width: 90% ;   
     }
-    
+     .text {
+      font-size: 20px;
+     }
   </style>
 </head>
 
 <body>
-
-  <header> This is the header </header>
-  
-  <div class="container">
-
+ <div class="container">
     <div class="left_column">
       <h2> Payment </h2>
       <br>
@@ -102,8 +100,11 @@
         </div>
       </div>
       <br>
-      <button> Add new card </button>
+      
       <br>
+      
+      <button><a href="cards/new">Add New Card</a></button>
+
       <div class="first_row">
         <h3> Card Number </h3>
         <input type="text" size = "25">
@@ -127,13 +128,13 @@
        
         <div>
           <input type = "checkbox" id = "save_card">
-          <label for = "save_card" > Save card details </label> >
+          <label for = "save_card"> Save card details </label> >
         </div>
       </div>
       <br>
       <button> Pay USD20.28</button>
-      <p> Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy. </p>
-      
+
+      <p class="text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy. </p>
    </div>
 
     <div class="right_column">
@@ -151,11 +152,11 @@
           </div>
           
           <div class = "section1">
-            <p position: absolute;> Valet Bike 2hr ride  </p>
+            <p position: absolute; class="text"> Valet Bike 2hr ride  </p>
           </div>
   
           <div class = "section1">
-            <h3> $20 </h3>
+            <h3 class="text"> $20 </h3>
           </div>
           
         </div>
@@ -165,12 +166,12 @@
         <br>
         <div class="second_row">
           <div class = "section1">
-              <h3> Total </h3>
-              <p> Including 2% in taxes </p>
+              <h3 class="text">Total </h3>
+              <p class="text">Including 2% in taxes </p>
           </div>
     
           <div class = "section1">
-            <h4> $20.28 </h4>
+            <h4 class="text"> $20.28 </h4>
           </div>
         </div> 
       </div>
