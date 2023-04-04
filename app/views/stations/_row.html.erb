@@ -1,4 +1,5 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
-
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
+  <div><%= station.identifier %>: <%= station.name %> (<%= station.address %>)</div>
+  <div><% station.docked_bikes.count %> </div>
+  <%=link_to('select station', station_path(station.identifier)) %>
 </div>
