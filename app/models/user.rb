@@ -9,12 +9,13 @@ class User < ApplicationRecord
                       length: { maximum: 50 },
                       uniqueness: true,
                       confirmation: true
-    #validates :membership_id, presence: true
+    validates :membership_id, presence: true
     #validates :user_id, presence: true
     #validates :card_id, presence: true
     has_many :rentals, class_name: :Rental, foreign_key: :renter_id
     has_many: payments, class_name: :Payment, foreign_key: user_id
-    
+    has_many: memberships, class_name: :Membership, foreign_key: user_id
+
     def get_name
 
     end

@@ -1,7 +1,7 @@
 class MembershipController < ApplicationController
   def index
     #should add a position and order by that
-    @memberships = Membership.order(:name)
+    @memberships = Membership.order(:position)
   end
 
   def show
