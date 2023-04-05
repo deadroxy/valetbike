@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    puts @user 
   end
 
   def create
@@ -12,3 +13,6 @@ class UsersController < ApplicationController
     redirect_to '/welcome'
   end
 end
+
+
+
