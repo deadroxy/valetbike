@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
-  root to: "main#index"
-  get 'main/index'
-  get 'main/tutorial'
-  get 'main/help'
+  # root to: "main#index"
+  # get 'main/index'
+  # get 'main/tutorial'
+  # get 'main/help'
 
-  resources :users, only: [:new, :create]
+  # resources :users, only: [:new, :create]
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  get 'main/welcome', to: 'sessions#welcome'
+  # get 'login', to: 'sessions#new'
+  # post 'login', to: 'sessions#create'
+  # get 'main/welcome', to: 'sessions#welcome'
   
-  get 'authorized', to: 'sessions#page_requires_login'
+  # get 'authorized', to: 'sessions#page_requires_login'
 
   
 
-  resources :users
+  # resources :users
   
   # get 'sessions/new'
   # get 'sessions/create'
@@ -24,4 +24,26 @@ Rails.application.routes.draw do
   # get 'users/create'
 
   #root to: "stations#index"
+
+  resources :users, only: [:new, :create]
+   get 'login', to: 'sessions#new'
+   post 'login', to: 'sessions#create'
+   get 'welcome', to: 'sessions#welcome'
+   get 'authorized', to: 'sessions#page_requires_login'
+
+  resources :users
+
+
+
+  root "main#index"
+  get 'main/index'
+  get 'main/tutorial'
+  get 'main/help'
+  get 'main/menu'
+  get 'main/profile'
+  get 'main/login'
+  get 'main/createAccount'
+  get 'main/rent'
+  get 'main/return'
+
 end
