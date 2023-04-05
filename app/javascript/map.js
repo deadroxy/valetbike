@@ -1,21 +1,4 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Hello and Welcome to ValetBike!<br>
-      Available stations:
-    </div>  
-    <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-      <% else %>
-      <div class="empty">
-        No stations found.
-      </div>
-      <% end %>
-    </div>
-    <div id = 'map'>
-    <script>
-    function myMap() {
+function myMap() {
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
       var myCenter = new google.maps.LatLng(42.3251,-72.6412);
       var mapCanvas = document.getElementById("map");
@@ -64,36 +47,3 @@
       bridge_street_marker.setMap(map);
       school_marker.setMap(map);
     }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=myMap"></script>
-    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&zoom=11&center=42.3251%2C-72.6412"></iframe>
-    </div>
-  </div>
-</div>
-<div class="stations index">
-  <h2>Stations</h2>
-
-  <%= link_to("Add New Station", new_station_path, class: 'action new') %>
-
-  <table class="listing" summary="Station list" style="width: 100%;">
-    <tr class="header">
-      <th>#</th>
-      <th>Station Name</th>
-      <th>Address</th>
-      <th>Actions</th>
-    </tr>
-    <% @stations.each do |station| %>
-    <tr>
-      <td><%= station.identifier %></td>
-      <td><%= station.name %></td>
-      <td><%= station.address %></td>
-      <td class="actions">
-        <%= link_to("Show", station_path(station), class: 'action show') %>
-        <%= link_to("Edit", edit_station_path(station), class: 'action edit') %>
-        <%= link_to("Delete", delete_station_path(station), class: 'action delete') %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-</div>
-
