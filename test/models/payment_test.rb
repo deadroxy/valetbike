@@ -2,7 +2,7 @@ require "test_helper"
 
 class PaymentTest < ActiveSupport::TestCase
   test "Payment gets created" do
-    date = DateTime.new(2001,2,3,4,5,6)
+    date = Time.new(2001,2,3,4,5,6)
     payment = Payment.new
     payment.identifier = 0
     payment.card_id = 6
@@ -15,7 +15,7 @@ class PaymentTest < ActiveSupport::TestCase
     assert payment.save
   end
   test "Payment can't have rental and membership" do
-    date = DateTime.new(2001,2,3,4,5,6)
+    date = Time.new(2001,2,3,4,5,6)
     payment = Payment.new
     payment.identifier = 0
     payment.card_id = 6
@@ -29,7 +29,7 @@ class PaymentTest < ActiveSupport::TestCase
     assert_not payment.save
   end
   test "accessors work" do
-    date = DateTime.new(2001,2,3,4,5,6)
+    date = Time.new(2001,2,3,4,5,6)
     payment = Payment.new
     payment.identifier = 0
     payment.card_id = 6
