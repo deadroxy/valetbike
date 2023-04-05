@@ -1,0 +1,9 @@
+<h1>Available Stations</h1>
+    <%# <% "User name"%>
+<%# <%  @renting[:startTime].to_fs(:db) %>
+<%# <% @renting[:endTime].to_fs(:db) %>
+<%# <%  @renting.status? ? 'End' : 'In-Progress' %>
+<%# <%  @renting.current_station_name%>  
+
+
+<%= render(partial: "stations/availableStations_row", collection: @stations, as: :station) %>
