@@ -1,17 +1,30 @@
-require 'csv'
-namespace :a1 do
-    namespace :station do 
-    desc "Imports a CSV file to create Stations database"
-    task :import  => [:environment] do    
-        file = '/Users/yonglinh/Desktop/Software/valetbike/notes/station-data.csv'
-        CSV.foreach(file, :headers => true) do |row|
-            station_hash = Hash.new
-            station_hash[:name] = row['name']
-            station_hash[:address] = row['address']
-            station_hash[:identifier] = row['identifier']
-            s = Station.create!(station_hash)
-        end
-        
+# This task imports station data from a CV file
+# Use before importing bike data
+# Usage: rake db: import_stations ["notes/station-data.csv"]
+
+namespace :db do
+
+    desc "Import bike data from csv file"
+
+    task :import_bikes, [:filename] => :environment do |task, args| 
+        require 'csv'
+    
+        puts "Importing bike data..."
+
+        CSV.parse(File.read(args[:filename]), headers: true).each do |row|
+            puts "Importing: #{row.to_hash["identifier"]}\n" 
+            import_bike(row.to_hash)
+        end 
     end
-end
+
+    def import_bike(item)
+        bike = Bike.new({
+            identifier: item["identifier"], 
+            current_station_id: item ["current_station_identifier"]})
+        if bike.save
+            puts "Successfully imported: #{item["identifier"]}\n"
+        else
+            puts "Failed to import: #{item["identifier"]}\n"
+        end
+    end
 end
