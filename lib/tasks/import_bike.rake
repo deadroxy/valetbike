@@ -1,6 +1,6 @@
 # This task imports station data from a CV file
 # Use before importing bike data
-# Usage: rake db: import_stations ["notes/station-data.csv"]
+# Usage: rake db: import_bikes["notes/bike-data.csv"]
 
 namespace :db do
 
@@ -20,7 +20,8 @@ namespace :db do
     def import_bike(item)
         bike = Bike.new({
             identifier: item["identifier"], 
-            current_station_id: item ["current_station_identifier"]})
+            current_station_id: item["current_station_identifier"]})
+            
         if bike.save
             puts "Successfully imported: #{item["identifier"]}\n"
         else
