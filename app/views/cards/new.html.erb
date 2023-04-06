@@ -1,30 +1,63 @@
-<div class = "new_card_form">
-  <h2> Add new card </h2>
-  <%= form_for(Card.new) do |f| %>
-    <table summary = "Card form fields">
-      <tr> 
-        <th> CardHolder Name </th>
-        <td> <%= f.text_field :cardholder_name, required: true %> </td>
-      </tr>
-      <tr> 
-        <th> Card Number </th>
-        <td> <%= f.text_field :card_number, required: true %> </td>
-      </tr>
-      <tr> 
-        <th> Expiration Date </th>
-        <td> <%= f.month_field :expiration_date %> </td>
-        
-      </tr>
-      <tr> 
-        <th> CVV </th>
-        <td> <%= f.text_field :cvv, required: true%> </td>
-      </tr>
-    </table>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .new_card_form { 
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .form_button {
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        color: white;
+        background-color: #8C1627;
+        border-radius: 10px;
+        width: 25%
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "new_card_form", align = "center", height = "150px">
+      <h2 style= "text-align:center"> Add new card </h2>
 
-    <div class = "form_button">
-      <%= f.submit("Add New Card")%>
+      <%= form_for(@card) do |f| %>
+        <% # url: cards_path, method: 'post' %>
+      
+        <table summary = "Card form fields">
+          <tr> 
+            <th> CardHolder Name </th>
+            <td> <%= f.text_field :cardholder_name, required: true %> </td>
+          </tr>
+          <tr> 
+            <th> Card Number </th>
+            <td> <%= f.text_field :card_number, required: true %> </td>
+          </tr>
+          <tr> 
+            <th> Expiration Date </th>
+          
+            <td> <%= f.date_select :expiration_date, discard_day: true, start_year: Date.today.year, end_year: Date.today.year + 10 %> </td>
+            
+          </tr>
+          <tr> 
+            <th> CVV </th>
+            <td> <%= f.text_field :cvv, required: true%> </td>
+          </tr>
+        </table>
+
+        <div class = "form_button">
+          <%= f.submit("Add New Card")%>
+        </div>
+
+        <% end %>
     </div>
-
-    <% end %>
-</div>
+  </body>
+</html>
 

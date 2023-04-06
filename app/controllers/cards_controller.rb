@@ -6,17 +6,22 @@ class CardsController < ApplicationController
     @card = Card.new(card_balance: 100)
   end
 
+
+  def create
+    @card = Card.new(card_balance: 100, **card_params)
+
+    if @card.save
+      redirect_to payments_path, notice: "Card was successfully added."
+    else
+      puts @card.errors.full_messages
+      render ('new')
+    end
+  end 
+
+
   def edit
   end
 
-  def create
-    @card = Card.new(card_params)
-    if @card.save
-      redirect_to payments_path
-    else 
-      render ('new')
-    end
-  end
 
   def pay
   end

@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'cards/index'
-  get 'cards/new'
-  get 'cards/edit'
-  get 'cards/create'
-  get 'cards/pay'
+  
 
   root to: "home#index"
 
@@ -26,5 +22,19 @@ Rails.application.routes.draw do
   get 'user/profile'
 
   get 'renting/index'
+
+  # post '/card', to: 'cards#create'
+  # post '/card', to: 'cards#new'
+  # get 'cards/index'
+  # get 'cards/new'
+  # get 'cards/edit'
+  # get 'cards/create'
+  # get 'cards/pay'
+
+  resources :cards do 
+    member do
+      get :delete
+    end
+  end
 
 end
