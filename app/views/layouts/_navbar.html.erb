@@ -1,12 +1,7 @@
-<header>
-        <nav>
-            <ul>
-                <li> <%= link_to "Home", pages_home_path %></li>
-                <li> <%= link_to "About Us", pages_about_path %></li>
-                <li> Sign up</li>
-                <li> Login</li>
-                <li> Membership </li>
-                <li> <%= link_to "Contact", pages_contact_path %></li>
-            </ul>
-        </nav>
-</header>
+<div class="grid-container">
+    <div class="item1"><%= link_to "About Us!", pages_about_path %></div>
+    <div class="item2">Sign Up</div>
+    <div class="item3">Log In</div>
+    <div class="item4">Membership</div>
+    <div class="item5"><%= link_to "Contact", pages_contact_path %></div>
+  </div>
