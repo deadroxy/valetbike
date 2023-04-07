@@ -15,7 +15,7 @@ end
 
 file = "notes/station-data.csv"
 CSV.foreach(file, :headers => true) do |row|
-    station_has_kiosk = !row[2].zero?
+    station_has_kiosk = !row[2].to_i.zero?
   s = Station.new(name: row[1], address: row[6], identifier: row[0], has_kiosk: station_has_kiosk, num_docks: row[4])
 
   s.save

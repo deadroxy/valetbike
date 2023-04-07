@@ -2,10 +2,10 @@ class Station < ApplicationRecord
   validates_presence_of    :identifier,
                            :name,
                            :address,
-                           :has_kiosk,
                            :num_docks
   validates_uniqueness_of  :identifier
   
+  validates_inclusion_of :has_kiosk, :in => [true, false]
   has_many :docked_bikes, class_name: :Bike, foreign_key: :current_station_id
   def getAddress 
     address
@@ -13,10 +13,9 @@ class Station < ApplicationRecord
   
   def has_bikes
     if docked_bikes >= 1
-        true
-    else
-      false
+        return true
     end
+    false
   end
 
   def get_num_docks
