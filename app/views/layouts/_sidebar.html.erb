@@ -1,11 +1,15 @@
-<div class="sidebar" style="width:25%" id="mySidebar">
+<div class="sidebar" style="width:35%" id="mySidebar">
   <ul>
+     <%if !logged_in?%>
+      <li> <%=link_to_unless_current("Create Account", "/users/new")%> </li>
+      <li> <%=link_to_unless_current("Log In", "/login")%> </li>
+    <%else%>
+      <li> <%=link_to_unless_current("Profile", "/users/profile")%></li>
+      <li>  <%=link_to 'Log Out', '/login', method: :delete %> </li>
+    <%end%>
     <li><%=link_to_unless_current("Menu", "/main/menu")%></li>
-    <li> <%=link_to_unless_current("Profile", "/main/profile")%></li>
     <li> <%=link_to_unless_current("Rent a Bike", "/main/rent")%> </li>
-   <li> <%=link_to_unless_current("Return Bike", "/main/return")%> </li>
-   <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
-   <li> <%=link_to_unless_current("Create an Account", "/users/new")%> </li>
-   <li> <%=link_to_unless_current("Existing Users", "/login")%> </li>
-  <li>  <%=link_to 'Log Out', '/login', method: :delete %> </li>
+    <li> <%=link_to_unless_current("Return Bike", "/main/return")%> </li>
+    <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
+   
 </div>

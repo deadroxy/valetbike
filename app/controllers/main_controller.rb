@@ -7,4 +7,6 @@ class MainController < ApplicationController
   end
   def help
   end
+  def show
+  end
 end

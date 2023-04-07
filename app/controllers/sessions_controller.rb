@@ -5,18 +5,20 @@ class SessionsController < ApplicationController
    end
 
    def create
-      @user = User.find_by(username: params[:username])
+      @user = User.find_by(email: params[:email])
       if @user && @user.authenticate(params[:password])
          session[:user_id] = @user.id
          redirect_to '/welcome'
       else
-         flash.alert = "Incorrect username or password"
+         flash.alert = "Incorrect email or password"
       end
    end
 
    def destory
       session.clear
-      redirect_to 'welcome'
+      logged_in?
+      redirect_to '/index'
+      
    end
 
    def login
@@ -26,5 +28,7 @@ class SessionsController < ApplicationController
    end
 
    def page_requires_login
+   end
+   def show
    end
 end

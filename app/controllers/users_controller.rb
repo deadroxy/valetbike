@@ -8,9 +8,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params.require(:user).permit(:username, :password, :email, :address, :date_birth, :phone_number))
+    @user = User.create(params.require(:email).permit(:username, :password, :email, :address, :date_birth, :phone_number))
     session[:user_id] = @user.id
     redirect_to '/welcome'
+  end
+  def profile
+  end
+  def show
   end
 end
 

@@ -11,10 +11,12 @@ class ApplicationController < ActionController::Base
 
     def logged_in?
         # byebug
-        !current_user.nil?  
+        !current_user.nil? #not the case the the current user  
     end
 
     def authorized
-        redirect_to '/welcome' unless logged_in?
+        redirect_to '/index' unless logged_in?
+     end
+     def show
      end
 end
