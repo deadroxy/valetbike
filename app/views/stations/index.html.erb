@@ -65,8 +65,9 @@
       school_marker.setMap(map);
     }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=myMap"></script>
-    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&zoom=11&center=42.3251%2C-72.6412"></iframe>
+    <% api_key = ENV['REACT_APP_API_KEY'] %>
+    <script src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%> ></script>
+    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%>></iframe>
     </div>
   </div>
 </div>
