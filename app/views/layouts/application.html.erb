@@ -13,10 +13,12 @@
     <title>ValetBike</title>
   </head>
   <body>
+  <%= render 'layouts/navbar' %>
+
     <div id="site-container" class="flexbox vertical stretch flex-1">
-      <div class="flexbox vertical center">
-        <%= yield %>
-      </div>
+    <%= yield %>
     </div>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>
