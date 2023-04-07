@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :logins, controllers: {
-    sessions: 'logins/sessions',
-    registrations: 'logins/registrations',
-    passwords: 'logins/passwords',
-    confirmations: 'logins/confirmations',
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations',
     #omniauth_callbacks: 'logins/omniauth_callbacks',
-    unlocks: 'logins/unlocks'
+    unlocks: 'users/unlocks'
   }
+  # devise_for :logins, controllers: {
+  #   sessions: 'logins/sessions',
+  #   registrations: 'logins/registrations',
+  #   passwords: 'logins/passwords',
+  #   confirmations: 'logins/confirmations',
+  #   #omniauth_callbacks: 'logins/omniauth_callbacks',
+  #   unlocks: 'logins/unlocks'
+  # }
 
-  get 'logins/custom_action', to: 'logins/custom_controller#custom_action'
+  # get 'logins/custom_action', to: 'logins/custom_controller#custom_action'
+  # get 'users/custom_action', to: 'users/custom_controller#custom_action'
 
   get 'membership/index'
   get 'membership/show'
