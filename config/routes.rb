@@ -23,6 +23,13 @@ Rails.application.routes.draw do
 
   get 'renting/index'
 
+  resources :cards do 
+    member do
+      get :delete
+      get 'pay', to: 'cards#pay'
+    end
+  end
+
   # post '/card', to: 'cards#create'
   # post '/card', to: 'cards#new'
   # get 'cards/index'
@@ -31,10 +38,7 @@ Rails.application.routes.draw do
   # get 'cards/create'
   # get 'cards/pay'
 
-  resources :cards do 
-    member do
-      get :delete
-    end
-  end
+  # get 'cards/:id', to: 'cards#show', as: 'card'
+
 
 end
