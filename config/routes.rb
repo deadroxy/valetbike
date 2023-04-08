@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :billing_infos
+  #get 'billing_infos/new'
+  #get 'billing_infos/create'
   devise_for :logins, controllers: {
     sessions: 'logins/sessions',
     registrations: 'logins/registrations',

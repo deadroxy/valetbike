@@ -12,6 +12,9 @@ class User < ApplicationRecord
     #validates :membership_id, presence: true
     #validates :user_id, presence: true
     #validates :card_id, presence: true
+    validates :phone, optional: true, 
+                      format: { with: /\A[0-9]{10}\z/, 
+                      message: "Please enter a valid 10-digit phone number" }
 
 
     def get_name
