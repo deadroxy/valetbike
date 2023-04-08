@@ -13,3 +13,108 @@
  *= require_tree .
  *= require_self
  */
+
+/**{
+    margin: 0;
+    padding: 0;
+} */
+
+h1{
+    text-align:center;
+    font-size:62px;
+}
+.text-box{
+    width: 90%;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.text-box h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 62px;
+}
+
+body{
+    min-height: 100vh;
+}
+.item1 { grid-area: aboutus; }
+.item2 { grid-area: signup; }
+.item3 { grid-area: login; }
+.item4 { grid-area: membership; }
+.item5 { grid-area: help; }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'aboutus login signup membership help';
+    gap: 5px;
+    background-color: #90EE90;
+    padding: 5px;
+}
+
+.grid-container > div {
+    background-color: #32CD32;
+    text-align: center;
+    border: 2px solid rgba(0,0,0,0.8);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.grid-containertwo {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: auto auto;
+  grid-gap: 5px;
+}
+
+.item6 {
+  grid-column: 3 / 4;
+  grid-row: 1;
+  text-align: center;
+  background-color: #32CD32;
+}
+
+.grid-containerthree {
+    margin-top: auto;
+    background-color: #32CD32;
+    text-align: center;
+    border: 2px solid rgba(0,0,0,0.8);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.bottomitems {
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+  text-align: center;
+}
+
+/*.row: after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.left {
+  font-size: 15px;
+}
+.right {
+  border: 3px solid green;
+  font-size: 20px;
+} */    
+

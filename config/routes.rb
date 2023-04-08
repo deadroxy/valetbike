@@ -19,6 +19,15 @@ Rails.application.routes.draw do
   get 'membership/edit'
   get 'membership/delete'
 
+  get 'pages/about'
+  get 'pages/contact'
+  get 'pages/faq'
+  get 'pages/home'
+  get 'pages/privacypol'
+  get 'pages/terms'
+  get 'pages/userag'
+
+
   resources :stations do
     member do
       get :delete
@@ -34,5 +43,6 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/edit'
   
-  root to: "stations#index"
+
+  root to: "pages#home"
 end
