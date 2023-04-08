@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'cards/index'
-  get 'cards/new'
-  get 'cards/edit'
-  get 'cards/create'
-  get 'cards/pay'
+  
 
   root to: "home#index"
 
@@ -30,6 +26,23 @@ Rails.application.routes.draw do
   get 'renting/:renting_id/availableStations/:station_id', to: 'renting#return', as: 'return'
 
   get 'renting/index'
+
+  resources :cards do 
+    member do
+      get :delete
+      get 'pay', to: 'cards#pay'
+    end
+  end
+
+  # post '/card', to: 'cards#create'
+  # post '/card', to: 'cards#new'
+  # get 'cards/index'
+  # get 'cards/new'
+  # get 'cards/edit'
+  # get 'cards/create'
+  # get 'cards/pay'
+
+  # get 'cards/:id', to: 'cards#show', as: 'card'
 
 
 end

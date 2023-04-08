@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_003451) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -27,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_003451) do
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "cardholder_name"
-    t.decimal "card_number", precision: 10
+    t.integer "card_number"
     t.date "expiration_date"
     t.integer "cvv"
     t.float "card_balance"
