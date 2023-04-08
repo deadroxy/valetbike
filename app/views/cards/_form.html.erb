@@ -1,0 +1,18 @@
+<table summary = "Card form fields">
+    <tr> 
+        <th> CardHolder Name </th>
+        <td> <%= f.text_field :cardholder_name, required: true %> </td>
+    </tr>
+    <tr> 
+        <th> Card Number </th>
+        <td> <%= f.text_field :card_number, required: true %> </td>
+    </tr>
+    <tr> 
+        <th> Expiration Date </th>
+        <td> <%= f.date_select :expiration_date, discard_day: true, start_year: Date.today.year, end_year: Date.today.year + 10 %> </td>   
+    </tr>
+    <tr> 
+        <th> CVV </th>
+        <td> <%= f.text_field :cvv, required: true%> </td>
+    </tr>
+</table>
