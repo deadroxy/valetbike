@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_04_01_150743) do
-=======
-
->>>>>>> master
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_003451) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "current_station_identifier"
-    t.integer "station_id"
   end
 
   create_table "bikes_rentings", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -59,38 +53,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_150743) do
     t.index ["station_id", "renting_id"], name: "index_rentings_stations_on_station_id_and_renting_id"
   end
 
-<<<<<<< HEAD
-=======
   create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "bike_number"
     t.string "bike_station"
     t.string "additional_information"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
->>>>>>> master
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.string "address"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.integer "has_kiosk"
-    t.integer "needs_maintenance"
-    t.integer "dock_count"
-    t.integer "docked_bike_count"
-=======
-
-    t.integer "has_kiosk_identifier"
-    t.integer "needs_maintenance"
-    t.integer "dock_count"
-    t.integer "docked_bike_count"
-
->>>>>>> master
   end
 
 end
