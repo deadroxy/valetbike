@@ -3,6 +3,7 @@
 <head>
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
+
 <style>
 body {
   background-color: white;
@@ -128,6 +129,10 @@ section2 {
   font-size: 20px;
 }
 
+.is-hidden { 
+  display: none; 
+}
+
 </style>
 </head>
 
@@ -136,8 +141,9 @@ section2 {
     <br>
     <p class="header_p">Have any questions? We are here to assist you. </p>
     <br>
-    <input type="search" id="site-search" name="q" style="color:grey" placeholder="Search here" border = "none" border: 0;
-outline= "0" border-radius = "25px" class = "round" >
+    <input type="search" id="searchbox" onkeyup="search_faq()" type="text"
+    name="search" style="color:grey" placeholder="Search here" ;
+outline= "0" border-radius = "25px" class = "round" oninput="liveSearch()"  >
     <br>
 </section>
 
@@ -148,7 +154,7 @@ outline= "0" border-radius = "25px" class = "round" >
 
 <div class="grid1">
 
-<div>
+<div class="cards">
 <div class="faq_icon">
 <i class="ri-price-tag-3-line"></i>
 </div>
@@ -157,7 +163,7 @@ outline= "0" border-radius = "25px" class = "round" >
 </div>
 
 
-<div> 
+<div class="cards">
 <div class="faq_icon">
 <i class="ri-riding-line"></i>
 </div>
@@ -166,7 +172,7 @@ outline= "0" border-radius = "25px" class = "round" >
 </div>
 
 
-<div>
+<div class="cards">
 <div class="faq_icon">
 <i class="ri-bank-card-line"></i>
 </div>
@@ -174,7 +180,7 @@ outline= "0" border-radius = "25px" class = "round" >
 <p class="faq_p">Check the live maps — available on the kiosk screen, on the website or on the mobile app. Maps will display the real-time availability of the bikes at all docking stations.</p>
 </div>
 
-<div>
+<div class="cards">
 <div class="faq_icon">
 <i class="ri-forbid-line"></i>
 </div>
@@ -182,7 +188,7 @@ outline= "0" border-radius = "25px" class = "round" >
 <p class="faq_p">You can ride anywhere as long as you remain within the system area. You can check the designated area on the website map. Please note that leaving the system area can result in penalties incurred on your account.</p>
 </div>
 
-<div>
+<div class="cards">
 <div class="faq_icon">
 <i class="ri-truck-line"></i>
 </div>
@@ -190,7 +196,7 @@ outline= "0" border-radius = "25px" class = "round" >
 <p class="faq_p">Each individual ride lasts for 2 hours. If you choose to keep the bike longer than that, you will be charged a fee of $0.15 for each additional minute thereafter. The bike must be returned after 24 hours else, it will be considered stolen and a fee of $2,000 will be charged to your credit card.</p>
 </div>
 
-<div>
+<div class="cards">
 <div class="faq_icon">
 <i class="ri-money-dollar-circle-line"></i>
 </div>
@@ -205,7 +211,7 @@ outline= "0" border-radius = "25px" class = "round" >
 
 <div> 
 <h3>Still have questions?</h3>
-<p class="lower_section_p">Can’t find the answer you’re looking for? Please chat with our friendly team.</p>
+<p class="lower_section_p">Can't find the answer you're looking for? Please chat with our friendly team.</p>
 </div>
 
 <div>
@@ -213,6 +219,31 @@ outline= "0" border-radius = "25px" class = "round" >
 </div>
 
 </div>
+
+<script>
+
+function liveSearch() {
+  // Locate the card elements
+  let cards = document.querySelectorAll('.cards')
+  // Locate the search input
+  let search_query = document.getElementById("searchbox").value;
+  // Loop through the cards
+  for (var i = 0; i < cards.length; i++) {
+    // If the text is within the card...
+    if(cards[i].innerText.toLowerCase()
+      // ...and the text matches the search query...
+      .includes(search_query.toLowerCase())) {
+        // ...removes the `.is-hidden` class.
+        cards[i].classList.remove("is-hidden");
+    } else {
+      // Otherwise, add the class.
+      cards[i].classList.add("is-hidden");
+    }
+  }
+}
+
+</script>
+
 
 </body>
 </html>

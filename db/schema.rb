@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_151655) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "current_station_identifier"
-    t.integer "station_id"
+  end
+
+  create_table "bikes_rentings", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "renting_id", null: false
+    t.bigint "bike_id", null: false
+    t.index ["bike_id", "renting_id"], name: "index_bikes_rentings_on_bike_id_and_renting_id"
+    t.index ["renting_id", "bike_id"], name: "index_bikes_rentings_on_renting_id_and_bike_id"
   end
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -30,16 +34,48 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_151655) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rentings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "bike_id"
+    t.string "current_station_name"
+    t.integer "current_station_id"
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rentings_stations", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "renting_id", null: false
+    t.bigint "station_id", null: false
+    t.index ["renting_id", "station_id"], name: "index_rentings_stations_on_renting_id_and_station_id"
+    t.index ["station_id", "renting_id"], name: "index_rentings_stations_on_station_id_and_renting_id"
+  end
+
+  create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "bike_number"
+    t.string "bike_station"
+    t.string "additional_information"
+  end
+
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.string "address"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "has_kiosk"
+
+    t.integer "has_kiosk_identifier"
     t.integer "needs_maintenance"
     t.integer "dock_count"
     t.integer "docked_bike_count"
+
   end
 
 end
