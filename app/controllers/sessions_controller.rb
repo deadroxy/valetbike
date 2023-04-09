@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
           session[:username] = user.username
           #cookies[:username] = params[:username]
           flash[:notice] = "Logged in successfully."
-          redirect_to user_home_path
+          redirect_to root_path
         else
           flash.now[:alert] = "There was something wrong with your login details."
           render 'new'
