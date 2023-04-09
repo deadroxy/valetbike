@@ -26,6 +26,7 @@
     cursor: pointer;
 }
 
+
 .navbar ul li{
     list-style: none;
     display: inline-block;
@@ -52,4 +53,15 @@
 
 .navbar ul li:hover::after{
     width: 100%;
+}
+
+.navbar-nav{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
 }
