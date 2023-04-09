@@ -38,6 +38,7 @@ user = User.new(
   :email         => '123457@email.com',
   :password => 'password',
   :password_confirmation => 'password',
-  :membership_id => '000001'
+  :membership_id => '000001',
+  :is_admin => true
 )
 user.save!
