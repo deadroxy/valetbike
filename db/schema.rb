@@ -55,11 +55,11 @@
   create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "bike_number"
     t.string "bike_station"
     t.string "additional_information"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -70,12 +70,6 @@
     t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-    t.integer "has_kiosk_identifier"
-    t.integer "needs_maintenance"
-    t.integer "dock_count"
-    t.integer "docked_bike_count"
-
   end
 
 end

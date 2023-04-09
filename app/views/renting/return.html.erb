@@ -1,11 +1,11 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-    Rental Details
+    Return Bike 
     </div>   
-    <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
+    <%= render(partial: "/stations/availableStations_row", object: @station, as: :station) %>
 
-    <table summary="Renting details">
+    <table summary="Rental Summary">
       <tr>
         <th>User</th>
         <td>Name here</td>
@@ -29,10 +29,17 @@
       
     </table>
 
-    <%= link_to "Return Bike", returnStations_path, class: "button", style: "background-color: #FFEEE4;padding: 15px 42px;width:250px;margin-left: 40%"%>
+
+    <form>
+        <div class="form-row">
+            <div class="col">
+            <input type="integer" class="form-control" placeholder="Rental Code">
+            </div>
+            <div class="col">
+           <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </div>
+    </form>
     </div>
 	</div>
 </div>
-
-
-
