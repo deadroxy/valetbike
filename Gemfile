@@ -84,4 +84,6 @@ gem 'dotenv-rails'
 # gem 'uniquify'
 # gem 'will_paginate'
 
-gem "devise"
+gem 'devise'
+
+gem 'country_select'

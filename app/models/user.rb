@@ -12,6 +12,10 @@ class User < ApplicationRecord
     validates :membership_id, presence: true
     #validates :user_id, presence: true
     #validates :card_id, presence: true
+    validates :phone, optional: true, 
+                      format: { with: /\A[0-9]{10}\z/, 
+                      message: "Please enter a valid 10-digit phone number" }
+
     has_many :rentals, class_name: :Rental, foreign_key: :renter_id
     has_many :payments, class_name: :Payment, foreign_key: user_id
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
