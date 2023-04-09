@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
     EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
+    PHONE_REGEX = /\A[0-9]{10}\z/
 
     validates :first_name, presence: true, length: { maximum: 20 }
     validates :last_name, presence: true, length: { maximum: 20 }
@@ -16,9 +17,7 @@ class User < ApplicationRecord
     validates :membership_id, presence: true
     #validates :user_id, presence: true
     #validates :card_id, presence: true
-    validates :phone, optional: true, 
-                      format: { with: /\A[0-9]{10}\z/, 
-                      message: "Please enter a valid 10-digit phone number" }
+    validate :validate_optional_phone_number
 
     has_many :rentals, class_name: :Rental, foreign_key: :renter_id
     has_many :payments, class_name: :Payment, foreign_key: :user_id
@@ -59,6 +58,15 @@ class User < ApplicationRecord
         [first_initial, last_name].join(' ')
     end
 
+    private
+    def validate_optional_phone_number
+        unless phone_number.present? 
+            return
+        end
+        unless PHONE_REGEX.match(phone_number)
+            errors.add(:phone_number, "must be a valid 10-digit phone number")
+        end
+    end
     
 end
 
