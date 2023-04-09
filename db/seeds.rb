@@ -22,4 +22,34 @@ CSV.foreach(file, :headers => true) do |row|
     b.save
 end
 
+file = "notes/station-data.csv"
+CSV.foreach(file, :headers => true) do |row|
+    station_has_kiosk = !row[2].to_i.zero?
+  s = Station.new(name: row[1], address: row[6], identifier: row[0], has_kiosk: station_has_kiosk, num_docks: row[4])
+
+  s.save
+end
+
+
+user = User.new(
+  :first_name    => 'Elena',
+  :last_name     => 'Gilbert',
+  :email         => '123456@email.com',
+  :password => 'password',
+  :password_confirmation => 'password',
+  :membership_id => '000000'
+)
+user.save!
+
+user = User.new(
+  :first_name    => 'Stefan',
+  :last_name     => 'Salvatore',
+  :email         => '123457@email.com',
+  :password => 'password',
+  :password_confirmation => 'password',
+  :membership_id => '000001',
+  :is_admin => true
+)
+user.save!
+
 Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
