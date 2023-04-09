@@ -14,7 +14,7 @@ class User < ApplicationRecord
                       length: { maximum: 50 },
                       uniqueness: true,
                       confirmation: true
-    validates :membership_id, presence: true
+    #validates :membership_id, presence: true
     #validates :user_id, presence: true
     #validates :card_id, presence: true
     validate :validate_optional_phone_number

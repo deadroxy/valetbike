@@ -5,13 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-file = "notes/bike-data.csv"
-CSV.foreach(file, :headers => true) do |row|
-    b_current_station = Station.find_by(identifier: row[1])
-    b = Bike.new(identifier: row[0])
-    b.update(current_station: b_current_station)
-    b.save
-end
 
 file = "notes/station-data.csv"
 CSV.foreach(file, :headers => true) do |row|
@@ -20,3 +13,13 @@ CSV.foreach(file, :headers => true) do |row|
 
   s.save
 end
+
+file = "notes/bike-data.csv"
+CSV.foreach(file, :headers => true) do |row|
+    b_current_station = Station.find_by(identifier: row[1])
+    b = Bike.new(identifier: row[0])
+    b.update(current_station: b_current_station)
+    b.save
+end
+
+Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
