@@ -88,9 +88,14 @@
         justify-content: space-between;
         float: right;
       }
-    </style>
-  </head>
-  <body>
+   </style>
+ </head>
+ <body>
+
+ <% flash.each do |key, value| %>
+  <div class = "alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
       <%= render "layouts/header" %>
@@ -98,5 +103,5 @@
       <%= render "layouts/footer" %>
       </div>
     </div>
-  </body>
+ </body>
 </html>
