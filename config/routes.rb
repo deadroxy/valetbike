@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get 'cards/index'
+  get 'cards/show'
+  get 'cards/new'
+  get 'cards/edit'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords',
     confirmations: 'users/confirmations',
     #omniauth_callbacks: 'users/omniauth_callbacks',
-    #unlocks: 'users/unlocks'
+    unlocks: 'users/unlocks'
   }
   resources :billing_infos
   #get 'billing_infos/new'
