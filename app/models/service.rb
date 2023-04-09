@@ -12,6 +12,7 @@ class Service < ApplicationRecord
                            :bike_number
                            :bike_station
                            :additional_information
-  validates_uniqueness_of  :name
+  #validates_uniqueness_of  :identifier
 
+ #belongs_to :renting
 end

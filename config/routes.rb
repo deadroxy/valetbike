@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 
   get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
 
+  get "service", to: "service#index"
+  post "service", to: "service#create"
+  get 'service/index', to: 'service#index', as: 'new_service'
+
+
+
 
 
   get 'renting/index'
