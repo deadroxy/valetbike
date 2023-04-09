@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
     EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
@@ -17,7 +21,7 @@ class User < ApplicationRecord
                       message: "Please enter a valid 10-digit phone number" }
 
     has_many :rentals, class_name: :Rental, foreign_key: :renter_id
-    has_many :payments, class_name: :Payment, foreign_key: user_id
+    has_many :payments, class_name: :Payment, foreign_key: :user_id
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
 
