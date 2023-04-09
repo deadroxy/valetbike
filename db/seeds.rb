@@ -20,3 +20,24 @@ CSV.foreach(file, :headers => true) do |row|
 
   s.save
 end
+
+
+user = User.new(
+  :first_name    => 'Elena',
+  :last_name     => 'Gilbert',
+  :email         => '123456@email.com',
+  :password => 'password',
+  :password_confirmation => 'password',
+  :membership_id => '000000'
+)
+user.save!
+
+user = User.new(
+  :first_name    => 'Stefan',
+  :last_name     => 'Salvatore',
+  :email         => '123457@email.com',
+  :password => 'password',
+  :password_confirmation => 'password',
+  :membership_id => '000001'
+)
+user.save!
