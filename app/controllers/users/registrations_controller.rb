@@ -7,9 +7,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
   # def create
@@ -55,7 +55,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
    def after_sign_up_path_for(resource)
      path = super(resource) 
-     path = new_card_path if path == root_path
-     path   
+     path = cards_new_path if path == root_path
+     #path   
    end
 end
