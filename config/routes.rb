@@ -4,8 +4,18 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords',
     confirmations: 'users/confirmations',
+    #omniauth_callbacks: 'users/omniauth_callbacks',
+    #unlocks: 'users/unlocks'
+  }
+  resources :billing_infos
+  #get 'billing_infos/new'
+  #get 'billing_infos/create'
+  devise_for :logins, controllers: {
+    sessions: 'logins/sessions',
+    registrations: 'logins/registrations',
+    passwords: 'logins/passwords',
+    confirmations: 'logins/confirmations',
     #omniauth_callbacks: 'logins/omniauth_callbacks',
-    unlocks: 'users/unlocks'
   }
   # devise_for :logins, controllers: {
   #   sessions: 'logins/sessions',
