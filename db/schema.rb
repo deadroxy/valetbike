@@ -26,10 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_000750) do
     t.string "state_province"
     t.string "zip_code"
     t.string "country"
-    t.bigint "Login_id", null: false
+    t.bigint "logins_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Login_id"], name: "index_billing_infos_on_Login_id"
+    t.index ["logins_id"], name: "index_billing_infos_on_logins_id"
   end
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -136,6 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_000750) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "billing_infos", "logins", column: "logins_id"
   add_foreign_key "membership_assignments", "memberships"
   add_foreign_key "membership_assignments", "users"
 end
