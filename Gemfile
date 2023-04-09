@@ -89,3 +89,8 @@ gem "gmaps4rails"
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+gem 'erb'
+gem 'devise'
+
+

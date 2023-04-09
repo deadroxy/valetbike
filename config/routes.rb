@@ -27,6 +27,22 @@ Rails.application.routes.draw do
 
   get 'renting/index'
 
+ 
+
+  devise_for :users, skip: [:sessions, :registrations], controllers: {
+  sessions: 'users/sessions',
+  registrations: 'users/registrations'
+}
+
+as :user do
+  get 'login', to: 'users/sessions#new', as: :new_user_session
+  post 'login', to: 'users/sessions#create', as: :user_session
+  delete 'logout', to: 'users/sessions#destroy', as: :destroy_user_session
+  get 'signup', to: 'users/registrations#new', as: :new_user_registration
+  post 'signup', to: 'users/registrations#create', as: :user_registration
+end
+
+
   resources :cards do 
     member do
       get :delete

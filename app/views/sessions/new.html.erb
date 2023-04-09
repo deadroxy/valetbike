@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<style>
+	body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFEEE4;
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	display: flex;
+    flex-direction: wrap;
+    align-items: stretch;
+    border: 80px solid #FFFFFF;
+}
+
+
+
+.left-box {
+	background-color: #FFEEE4;
+	height: 100vh;
+	width: calc(100vw / 3);
+}
+
+.right-box {
+	background-color: #FFFFFF;
+	height: 100vh;
+	width: calc(2 * 100vw / 3);
+	padding: 50px;
+    border-radius: 50px;
+    text-align: center; /* add this line */
+}
+
+label {
+  text-align: left;
+}
+    
+   
+    
+
+
+
+h2 {
+	font-size: 36px;
+	color: #333333;
+	margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    display: block;
+    
+}
+
+
+button {
+	background-color: #FFFFFF;
+	color: #000000;
+	border: 1px solid #5B86E5;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font-size: 16px;
+	margin-right: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.or {
+	font-size: 30px;
+	font-weight: 800;
+	color: #838383;
+	margin-top: 30px;
+	margin-bottom: 30px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	font-size: 20px;
+	color: #333333;
+	margin-bottom: 10px;
+}
+
+input {
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.create-btn {
+	background-color: #838383;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 15px;
+  padding: 20px 40px;
+  font-size: 16px;
+  margin-top: 20px;
+  align-self: center;
+  width: 80%;
+    
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    background-color: #f7f7f7;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+   
+}
+
+	</style>
+
+	
+
+</head>
+<body>
+	<div class="container">
+		<div class="left-box">
+		</div>
+		<div class="right-box">
+			<h2>Login</h2>
+			<% resource ||= User.new %>
+			<% resource_name ||= :user %>
+			<% devise_mapping ||= Devise.mappings[:user] %>
+						
+			<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+				
+				<label for="email">Email</label>
+				<%= f.email_field :email, autofocus: true, id: "email", required: true %>
+  
+				<label for="password">Password</label>
+				<%= f.password_field :password, id: "password", required: true %>
+  
+				<!-- Add error messages right before the submit button -->
+				<p class="error-messages" style="color: red;"><%= render 'shared/error_messages', resource: resource %></p>
+  
+				<%= f.submit "Login", class: "create-btn" %>
+  
+				<p>Dont have an account? <%= link_to "Sign up here!", new_user_registration_path %></p>
+			<% end %>
+           
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
