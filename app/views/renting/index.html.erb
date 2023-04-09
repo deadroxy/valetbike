@@ -1,0 +1,18 @@
+    <style>
+        .text{
+        font-size: 20px;
+            }
+    </style>
+
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title" style="font-size: 25px;">
+          <h1> Renting Page <h1>
+    </div>  
+    <div class="flexbox vertical stretch">
+    <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
+      <p class="text" style="margin: 10px 350px"> Already a registered User? Login to rent a bike. Sign up otherwise <p>
+       <%= link_to 'Rent A bike', newRenting_path(@station), class: "button", style: "height:50px; width:200px; margin: 40px 520px;"%>
+    </div>
+	</div>
+</div>

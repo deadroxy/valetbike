@@ -93,8 +93,10 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.11.0)
+    geocoder (1.3.7)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -134,6 +136,8 @@ GEM
       timeout
     nio4r (2.5.8)
     nokogiri (1.13.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
@@ -194,6 +198,8 @@ GEM
     strscan (3.0.4)
     tailwindcss-rails (2.0.12-arm64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.12-x86_64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.12-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -223,6 +229,8 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  arm64-darwin-22
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -230,6 +238,8 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  geocoder (~> 1.3, >= 1.3.7)
+  gmaps4rails
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)

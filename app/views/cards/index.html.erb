@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Payment </title>
+  <style>
+    button {
+      padding: 15px 32px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      color: white;
+      background-color: #8C1627;
+      border-radius: 10px;
+      width: 90%
+    }
+
+    .container {
+      width: 90%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: auto;
+      padding-top: 230px;
+      overflow-x: hidden;
+    }
+
+    # .section {
+    #   flex: 50%
+    #   float: left;
+    #   /* width: 300px; */
+    #   height: 200px;
+    #   margin: 10px;
+    # }
+    .left_column{
+      width: 50%;
+      float: left;
+      
+    }
+    .right_column{
+      width: 50%;
+      float: right;
+
+    }
+    .section1 {
+      display: inline-block;
+      float: center;
+    }
+    .registered_cards img {
+      float: left;
+    }
+
+    .registered_cards h3 {
+      position: relative;
+      left: 20px
+    }
+
+    .bike img {
+      float: left;
+      bottom: 0;
+    }
+    .border {
+      border: 1px solid grey;
+      border-radius: 5px;
+      width: 90% ;   
+    }
+     .text {
+      font-size: 20px;
+     }
+  </style>
+</head>
+
+<body>
+ <div class="container">
+    <div class="left_column">
+      <h2> Payment </h2>
+      <br>
+      <div class = "border">
+        <div class = "registered_cards">
+          <%= image_tag("creditcard.png") %>
+          <h3> Registered Cards </h3>
+        </div>
+        <hr>
+        <div class = "card_table"> 
+          <table>
+            <tr>
+              <th> <%= image_tag("Success.png") %> </th>
+              <th> Name </th>
+              <th> Card Number </th>
+            </tr>
+            <% @cards.each do |card| %>
+            <tr>
+              <td> <%= image_tag("creditcard.png") %> </td>
+              <td> <%= card.cardholder_name %> </td>
+              <td> <%= card.card_number %> </td>
+              <td class = "actions">
+                <%= link_to "Show", card_path(card) %>
+                <%= link_to "Edit", edit_card_path(card) %>
+                <%= link_to "Delete", delete_card_path(card) %>
+                <%= link_to("Pay $6.12", pay_card_path(card)) %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <br>
+      
+      <br>
+      
+      <button><a href="cards/new">Add New Card</a></button>
+      
+
+      <br>
+      
+      <p class="text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy. </p>
+   </div>
+
+    <div class="right_column">
+      <div class="border">
+      <br>
+        <h2> Order Summary </h2>
+        <br>
+        <hr>
+        <br>
+        <div class="first_row">
+
+          <div class = "section1">
+            <%= image_tag "bike.png", alt: "Bike icon", style: "position: absolute; margin: auto;" %>
+
+          </div>
+          
+          <div class = "section1">
+            <p position: absolute; class="text"> Valet Bike 2hr ride  </p>
+          </div>
+  
+          <div class = "section1">
+            <h3 class="text"> $6 </h3>
+          </div>
+          
+        </div>
+
+        <hr>
+        <br>
+        <br>
+        <div class="second_row">
+          <div class = "section1">
+              <h3 class="text">Total </h3>
+              <p class="text">Including 2% in taxes </p>
+          </div>
+    
+          <div class = "section1">
+            <h4 class="text"> $6.12 </h4>
+          </div>
+        </div> 
+      </div>
+    </div> 
+  </div>
+</body>
+
+</html>
