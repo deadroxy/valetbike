@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
     ActionController::Base
-    before_action :authorized
     helper_method :logged_in?
     helper_method :current_user
     
     
-    def current_user   
+    def current_user
         User.find_by(id: session[:user_id])
     end
 

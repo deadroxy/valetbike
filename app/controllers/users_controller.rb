@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:new, :create]
+  before_action :authorized, only: [:profile, :show]
   
   def new
     @user = User.new
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params.require(:email).permit(:username, :password, :email, :address, :date_birth, :phone_number))
+    @user = User.create(params.require(:user).permit(:username, :password, :email, :address, :date_birth, :phone_number))
     session[:user_id] = @user.id
     redirect_to '/welcome'
   end

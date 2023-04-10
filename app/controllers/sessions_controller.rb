@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
-   skip_before_action :authorized, only: [:new, :create, :welcome]
+   before_action :authorized, only: [:destroy, :login, :page_requires_login, :show]
 
    def new
    end
 
    def create
-      @user = User.find_by(email: params[:email])
+      @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
          session[:user_id] = @user.id
          redirect_to '/welcome'
@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
       session.clear
       logged_in?
       redirect_to '/index'
-      
    end
 
    def login
