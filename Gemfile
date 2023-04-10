@@ -78,3 +78,4 @@ end
 
 # Developer added gem
 gem 'dotenv-rails'
+gem 'jquery-rails'
