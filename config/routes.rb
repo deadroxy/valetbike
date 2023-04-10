@@ -22,6 +22,12 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#menu', as: 'user'
   get "user/show"
+  
+  # payment page info
+  get "payment", to:'payment#new' # testing
+  get "bikes", to: "bikes#index" # testing
+=======
+
 
   match'ride',to:"bikes#index", via: :get
   resources :bikes, only: [:index]
