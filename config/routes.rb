@@ -26,8 +26,6 @@ Rails.application.routes.draw do
   # payment page info
   get "payment", to:'payment#new' # testing
   get "bikes", to: "bikes#index" # testing
-=======
-
 
   match'ride',to:"bikes#index", via: :get
   resources :bikes, only: [:index]
