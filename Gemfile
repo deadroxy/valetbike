@@ -85,8 +85,7 @@ gem "gmaps4rails"
 
 # countdown gem
 gem 'jquery-rails'
-gem 'jquery-countdown-rails'
-gem 'jquery-turbolinks'
+
 
 
 # Suggested Potentially Useful Gems
