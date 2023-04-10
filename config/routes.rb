@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get '/users/:id', to: 'users#menu', as: 'user'
   get "user/show"
+  get "payment", to:'payment#new' # testing
+  get "bikes", to: "bikes#index" # testing
   match'ride',to:"bikes#index", via: :get
   resources :bikes, only: [:index]
   resources :stations, only: [:main, :show]
