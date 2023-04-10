@@ -10,13 +10,13 @@ class SessionsController < ApplicationController
          session[:user_id] = @user.id
          redirect_to '/welcome'
       else
-         flash.alert = "Incorrect email or password"
+         flash.alert = "Incorrect username or password"
       end
    end
 
    def destroy
-      # session.clear
-      session.delete(:user_id)
+      # session.delete(:user_id)
+      session.clear()
       print("here")
       # session.clear
       #render 'layouts/sidebar'
