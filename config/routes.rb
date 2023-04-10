@@ -18,10 +18,12 @@ Rails.application.routes.draw do
 
 
 
+
   
  
 
   # get 'main/menu'
+  get 'sessions/destroy'
   get 'users/profile' 
   get 'sessions/new'
   get 'users/new'

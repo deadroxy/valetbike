@@ -14,13 +14,13 @@ class SessionsController < ApplicationController
       end
    end
 
-   def destory
+   def destroy
       # session.clear
       session.delete(:user_id)
       print("here")
       # session.clear
-      render 'layouts/sidebar'
-      redirect_to '/index'
+      #render 'layouts/sidebar'
+      redirect_to '/users/new'
    end
 
    def login

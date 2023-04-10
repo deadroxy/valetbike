@@ -5,7 +5,7 @@
       <li> <%=link_to_unless_current("Log In", "/login")%> </li>
     <%else%>
       <li> <%=link_to_unless_current("Profile", "/users/profile")%></li>
-      <li>  <%=link_to('Log Out', 'login', method: :destory) %> </li>
+      <li>  <%=link_to('Log Out', controller: "sessions", action: "destroy") %> </li>
     <%end%>
     <li><%=link_to_unless_current("Menu", "/main/menu")%></li>
     <li> <%=link_to_unless_current("Rent a Bike", "/main/rent")%> </li>
