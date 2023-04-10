@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body> 
+  <head> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  </head> 
+  <div>
+    <h1>MAP</h1>
+  </div>
+  <style>map{ 
+    position: absolute; 
+    top: 10;
+    Left: 10;
+    bottom: 10;
+    right: 10;
+
+  }
+  </style> 
+
+    <div id="map" class = "map-page"></div>
+    <script> 
+      var map=L.map('map').setView([40,-75],20);
+      L.tileLayer('https://api.maptiler.com/maps/streets-v2/tiles.json?key=NVXrfGtGgLVfuBW8IdPK%27',
+      {attribute:'<a href="https://www.maptiler.com/copyright/" target="_blank">0
+      &copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; 
+      OpenStreetMap contributors</a>',}).addTo(map);
+    </script> 
+  </body> 
+</html>
