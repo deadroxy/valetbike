@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root "main#index"
 
   get 'index', to: "main#index"
-  get 'tutorial', to: "main#tutorial"
-  get 'help', to: "main#help"
+  #get 'tutorial', to: "main#tutorial"
+  #get 'help', to: "main/help"
 
   resources :users, only: [:new, :create]
   get 'login', to: 'sessions#new'
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
  
 
   # get 'main/menu'
+  get 'main/help'
+  get 'main/tutorial'
   get 'sessions/destroy'
   get 'users/profile' 
   get 'sessions/new'

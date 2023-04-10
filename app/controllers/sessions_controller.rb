@@ -17,10 +17,10 @@ class SessionsController < ApplicationController
    def destroy
       # session.delete(:user_id)
       session.clear()
-      print("here")
+      #print("here")
       # session.clear
       #render 'layouts/sidebar'
-      redirect_to '/users/new'
+      redirect_to '/index'
    end
 
    def login
@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
 
    def page_requires_login
    end
+   
    def show
    end
 end

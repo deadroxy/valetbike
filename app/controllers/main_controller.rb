@@ -5,8 +5,10 @@ class MainController < ApplicationController
   def tutorial
 
   end
+
   def help
   end
+  
   def show
   end
 end
