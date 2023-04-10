@@ -16,6 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_170637) do
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "current_station_identifier"
+    t.integer "station_id"
   end
 
   create_table "bikes_rentings", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -27,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_170637) do
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "cardholder_name"
-    t.integer "card_number"
+    t.bigint "card_number"
     t.date "expiration_date"
     t.integer "cvv"
     t.float "card_balance"
@@ -78,6 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_170637) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "has_kiosk"
+    t.integer "needs_maintenance"
+    t.integer "dock_count"
+    t.integer "docked_bike_count"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

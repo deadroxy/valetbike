@@ -12,11 +12,11 @@
       </tr>
       <tr>
         <th>Start Time</th>
-        <td><%= @renting[:startTime].to_fs(:db) %></td>
+        <td><%= @renting[:startTime].to_fs(:long) %></td>
       </tr>
       <tr>
         <th>End Time</th>
-      <td><%= @renting[:endTime].to_fs(:db) %></td>
+      <td><%= @renting[:endTime].to_fs(:long) %></td>
     </tr>
       <tr>
         <th>Status</th>
@@ -30,16 +30,17 @@
     </table>
 
 
-    <form>
-        <div class="form-row">
-            <div class="col">
-            <input type="integer" class="form-control" placeholder="Rental Code">
-            </div>
-            <div class="col">
-           <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
-        </div>
-    </form>
+    <%# <%= form_tag(submit_code_renting_path, :method => :get) do %>
+      <%# <%= text_field_tag :submit_code, params[:submit_code], placeholder: "Rental Code" %> 
+      <%# <%= submit_tag 'Submit' %>
+    <%# <% end %> 
+
+    <%= form_tag 'submit_code_path' do %>
+      <%= label_tag ':submit_code', 'Rental Code:' %>
+       <%= text_field_tag :submit_code  %>
+      <%= submit_tag 'Submit' %>
+     <% end %> 
+    
     </div>
 	</div>
 </div>
