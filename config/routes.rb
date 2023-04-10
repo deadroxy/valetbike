@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   match "how-it-works", to:"how_it_works#index", via: :get
 
-  match "payments", to:"payments#index", via: :get
-
   match "locations", to:"stations#index", via: :get
   
   get "faq", to: "faq#index"
@@ -23,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
 
+
   get "service", to: "service#index"
   post "service", to: "service#create"
   get 'service/index', to: 'service#index', as: 'new_service'
@@ -31,7 +30,17 @@ Rails.application.routes.draw do
 
 
 
+  get 'renting/:renting_id/availableStations', to: 'renting#availableStations', as: 'returnStations'
+  get 'renting/:renting_id/:station_id', to: 'renting#return', as: 'return'
+  get 'renting/:renting_id/:station_id/:returnCode', to: 'renting#submit', as: 'submit'
+  #post 'renting/:renting_id/:station_id', to: 'renting#submit', as: 'submit'
   get 'renting/index'
+
+  resources :renting do
+    member do
+      get :submit_code
+    end
+  end
 
   resources :cards do 
     member do
