@@ -15,8 +15,11 @@ class SessionsController < ApplicationController
    end
 
    def destory
-      session.clear
-      logged_in?
+      # session.clear
+      session.delete(:user_id)
+      print("here")
+      # session.clear
+      render 'layouts/sidebar'
       redirect_to '/index'
    end
 
