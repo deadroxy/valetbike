@@ -83,6 +83,12 @@ gem 'geocoder', '~> 1.3', '>= 1.3.7'
 # for adding locations to map [https://gist.github.com/NickManos/14c2c601a08486009f14]
 gem "gmaps4rails"
 
+# countdown gem
+gem 'jquery-rails'
+gem 'jquery-countdown-rails'
+gem 'jquery-turbolinks'
+
+
 # Suggested Potentially Useful Gems
 # gem 'devise'
 # gem 'httparty'

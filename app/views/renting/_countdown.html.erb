@@ -1,0 +1,15 @@
+<div class="countdown">
+    Remaining time: <span id="clock"> </span>
+</div>
+
+<%= content_tag :div, class: "temp_information", data: {temp: @renting[:endTime].strftime("%Y/%m/%d %H:%M:%S")} do %> 
+<script>
+    $('#clock').countdown($('.temp_information').data('temp'), function(event) {
+    $(this).html(event.strftime('%H:%M:%S'));
+    })
+    .on('finish.countdown', function(event) {
+    $(this).html('Your time has expired! Return to station to avoid extra fee')
+        .parent().addClass('disabled');
+    });
+    </script>
+<% end %>

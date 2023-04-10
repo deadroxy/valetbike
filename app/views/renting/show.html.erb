@@ -3,8 +3,9 @@
     <div class="section-title">
     Rental Details
     </div>   
+   
+    <%= render(partial: "/renting/countdown", object: @renting, as: :renting)%>
     <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
-
     <table summary="Renting details">
       <tr>
         <th>User</th>
@@ -12,11 +13,11 @@
       </tr>
       <tr>
         <th>Start Time</th>
-        <td><%= @renting[:startTime].to_fs(:db) %></td>
+        <td><%= @renting[:startTime].to_fs(:long) %></td>
       </tr>
       <tr>
         <th>End Time</th>
-      <td><%= @renting[:endTime].to_fs(:db) %></td>
+      <td><%= @renting[:endTime].to_fs(:long) %></td>
     </tr>
       <tr>
         <th>Status</th>
@@ -33,8 +34,3 @@
 	</div>
 </div>
 
-
-
-
-
-<
