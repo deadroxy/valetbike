@@ -1,6 +1,8 @@
 namespace :slurp do
   desc "TODO"
   task stations: :environment do
+  end
+
     require 'csv'    
 
  csv_text = File.read("/Users/priyadalal-whelan/Desktop/ashleyvaletbike/valetbike/notes/station-data.csv")
@@ -23,7 +25,8 @@ namespace :slurp do
   
   puts "There are now #{Station.count} rows in the transactions table"
 
-  end
+ 
   
 
  
+end
