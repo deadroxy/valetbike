@@ -27,9 +27,11 @@ Rails.application.routes.draw do
 
   get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
 
-
-
-  get 'renting/index'
+  resources :stations  do
+    collection do
+      get :search
+    end
+  end
 
 
 end

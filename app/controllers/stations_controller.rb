@@ -1,20 +1,35 @@
 class StationsController < ApplicationController
   
   def index
-    @stations = Station.all.order(identifier: :asc)
-    # @stations = [{identifier: "wuieiu", name: "Atkins Farms Country Market", address: "Amherst, Massachusetts"}, {identifier: "edyhjds", name: "Atkins Farms Country Market", address: "South Amherst, Massachusetts"}, {identifier: "ewieio", name: "Atkins Farms Country Market", address: "Northampton, Massachusetts"}]
-    @stations = Station.search(params[:search])
-    @stations.each do |station| 
-      puts station[:identifier]
-      puts station[:name]
-      puts station[:address]
+    if params[:search]
+      @stations = Station.search(params[:search]).order(identifier: :asc).paginate(page: params[:page], per_page: 4)
+    else
+      @stations = Station.all.order(identifier: :asc).paginate(page: params[:page], per_page: 4)
     end
 
+
+  end
+
+  def new 
+    @station = Station.new(station_params)
+    
   end
 
   def create 
     @station = Station.new(station_params)
-    
+    if @station.save
+      redirect_to locations_path
+    end
+  end
+
+  def search
+    if params[:search]
+      @stations = Station.search(params[:search]).order(identifier: :asc).paginate(page: params[:page], per_page: 4)
+    else
+      @stations = Station.all.order(identifier: :asc).paginate(page: params[:page], per_page: 4)
+    end
+
+    render ('index')
   end
 
 
@@ -22,12 +37,9 @@ class StationsController < ApplicationController
 
   def station_params
     params.require(:station).permit(
+      :identifier,
       :name, 
-      :street,
-      :city,
-      :state,
-      :country,
-      :zipcode,)
+      :address,)
   end
 
 end

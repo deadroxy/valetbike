@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2023_04_01_150743) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_06_051856) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -24,6 +23,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_150743) do
     t.bigint "bike_id", null: false
     t.index ["bike_id", "renting_id"], name: "index_bikes_rentings_on_bike_id_and_renting_id"
     t.index ["renting_id", "bike_id"], name: "index_bikes_rentings_on_renting_id_and_bike_id"
+  end
+
+  create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "cardholder_name"
+    t.decimal "card_number", precision: 10
+    t.date "expiration_date"
+    t.integer "cvv"
+    t.float "card_balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rentings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -44,24 +53,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_01_150743) do
     t.index ["station_id", "renting_id"], name: "index_rentings_stations_on_station_id_and_renting_id"
   end
 
-  create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "cardholder_name"
-    t.decimal "card_number", precision: 10
-    t.date "expiration_date"
-    t.integer "cvv"
-    t.float "card_balance"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.string "address"
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
 end
