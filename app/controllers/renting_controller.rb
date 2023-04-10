@@ -40,4 +40,18 @@ class RentingController < ApplicationController
     render ("return")
   end
 
+  def submit_code
+    @renting = Renting.find(params[:renting_id])
+    @station = Station.find(params[:station_id])
+    @returnCode = params[:submit_code]
+    if @returnCode
+      if @returnCode == @renting.rentCode
+          redirect_to submit_path
+      else
+          render ("return") 
+          flash[:notice] = "Please enter the correct rental code."
+      end  
+    end 
+  end
+
 end
