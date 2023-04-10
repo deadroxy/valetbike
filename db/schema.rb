@@ -1,5 +1,4 @@
-# DONT EDIT THIS PLS
-#This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -14,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2023_04_10_072559) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
-    t.integer "current_station_id"
+    t.integer "current_station_identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "battery_charge"
