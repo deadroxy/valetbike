@@ -7,7 +7,10 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application.tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
+    <%= yield :javascript %>
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
@@ -88,9 +91,14 @@
         justify-content: space-between;
         float: right;
       }
-    </style>
-  </head>
-  <body>
+   </style>
+ </head>
+ <body>
+
+ <% flash.each do |key, value| %>
+  <div class = "alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
       <%= render "layouts/header" %>
@@ -98,5 +106,5 @@
       <%= render "layouts/footer" %>
       </div>
     </div>
-  </body>
+ </body>
 </html>

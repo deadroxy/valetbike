@@ -22,6 +22,16 @@ Rails.application.routes.draw do
   get 'renting/:station_id/rentings', to: 'renting#create', as: 'newRenting'
 
   get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
+
+
+  get "service", to: "service#index"
+  post "service", to: "service#create"
+  get 'service/index', to: 'service#index', as: 'new_service'
+
+
+
+
+
   get 'renting/:renting_id/availableStations', to: 'renting#availableStations', as: 'returnStations'
   get 'renting/:renting_id/:station_id', to: 'renting#return', as: 'return'
   get 'renting/:renting_id/:station_id/:returnCode', to: 'renting#submit', as: 'submit'
