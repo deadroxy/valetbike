@@ -10,7 +10,7 @@ namespace :slurp2 do
       bike[:current_station_id] = row["current_station_id"]   
       bike[:identifier] = row["identifier"]
       bike[:status] = 0 
-      bike[:battery_charge] = 0 
+      bike[:battery_charge] = 100 
       bike.save!
       puts "#{bike.identifier}, saved!"
       
