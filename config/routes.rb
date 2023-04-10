@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   get 'index', to: "main#index"
   get 'tutorial', to: "main#tutorial"
   get 'help', to: "main#help"
+
   # get 'main/menu'
-  get 'users/profile'
+  get 'users/profile' 
   get 'sessions/new'
   get 'users/new'
   # get 'main/rent'
