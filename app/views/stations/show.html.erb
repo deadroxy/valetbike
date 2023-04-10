@@ -1,5 +1,9 @@
-<%= @station.name %>
+<h1><%=@station.name%></h1>
 
+<ul>
 <% @station.docked_bikes.each do |bike| %>
-<%= bike.identifier%>
+<li><%= bike.identifier%> 
+<%=link_to('unlock bike', '/rentals/new')%>
+</li>
 <%end%>
+</ul>
