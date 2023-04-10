@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+  #root "rentals#new"
   
   #get "/stations/:identification", to: "stations#main"
   get "stations", to: "stations#main", as:"stations"
  # get "/stations/:identifier", to: "station#reverse", as: "station_rev"
-
+  get "/bikes/unlock", to: "bikes#unlock"
   get "signup", to: "users#new"
   get "login", to: "sessions#new"
   get "user_home", to: "users#show"
@@ -12,9 +13,11 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get '/users/:id', to: 'users#menu', as: 'user'
   get "user/show"
+
   match'ride',to:"bikes#index", via: :get
   resources :bikes, only: [:index]
   resources :stations, only: [:main, :show]
   resources :users, except: [:new]
+  resources :rentals, only: [:new, :create]
 
 end
