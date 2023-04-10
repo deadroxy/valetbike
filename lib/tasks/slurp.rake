@@ -24,11 +24,6 @@ namespace :slurp do
   puts "There are now #{Station.count} rows in the transactions table"
 
   end
+  
 
  
- 
- 
- 
-
-
-end

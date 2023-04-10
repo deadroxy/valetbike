@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
 
   root "main#index"
-  get 'main/index'
-  get 'main/tutorial'
-  get 'main/help'
+  get 'index', to: "main#index"
+  get 'tutorial', to: "main#tutorial"
+  get 'help', to: "main#help"
   # get 'main/menu'
   get 'users/profile'
   get 'sessions/new'
