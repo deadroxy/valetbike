@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .cards_show { 
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .actions {
+        padding: 10px 10px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        color: white;
+        background-color: #8C1627;
+        border-radius: 10px;
+        width: 15%
+      }
+    </style>
+  </head>
+  <body>
+   
+
+    <div class="cards_show">
+      <h2>Card Details</h2>
+
+      <table summary="Card detail view">
+        <tr>
+          <th>Name</th>
+          <td><%= @card.cardholder_name %></td>
+        </tr>
+        <tr>
+          <th>Card Number</th>
+          <td><%= @card.card_number %></td>
+        </tr>
+        <tr>
+          <th>Created</th>
+          <td><%= @card.created_at %></td>
+        </tr>
+        <tr>
+          <th>Updated</th>
+          <td><%= @card.updated_at %></td>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= link_to('Edit', edit_card_path(@card)) %>
+      </div>
+      <div class="actions">
+        <%= link_to('Delete', delete_card_path(@card)) %>
+        
+      </div>
+      <div class="actions">
+        <%= link_to("Back to payment page", cards_path, class: 'back-link') %>
+      </div>
+
+    </div>
+  </body>
+</html>

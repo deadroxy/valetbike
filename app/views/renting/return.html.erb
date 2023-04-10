@@ -1,0 +1,45 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+    Return Bike 
+    </div>   
+    <%= render(partial: "/stations/availableStations_row", object: @station, as: :station) %>
+
+    <table summary="Rental Summary">
+      <tr>
+        <th>User</th>
+        <td>Name here</td>
+      </tr>
+      <tr>
+        <th>Start Time</th>
+        <td><%= @renting[:startTime].to_fs(:db) %></td>
+      </tr>
+      <tr>
+        <th>End Time</th>
+      <td><%= @renting[:endTime].to_fs(:db) %></td>
+    </tr>
+      <tr>
+        <th>Status</th>
+        <td><%= @renting.status? ? 'End' : 'In-Progress' %></td>
+      </tr>
+      <tr>
+        <th>Start Station</th>
+        <td><%= @renting.current_station_name%></td>
+      </tr>
+      
+    </table>
+
+
+    <form>
+        <div class="form-row">
+            <div class="col">
+            <input type="integer" class="form-control" placeholder="Rental Code">
+            </div>
+            <div class="col">
+           <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </div>
+    </form>
+    </div>
+	</div>
+</div>

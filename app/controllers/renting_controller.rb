@@ -25,4 +25,19 @@ class RentingController < ApplicationController
     @station = Station.find(@renting[:current_station_id])
   end
 
+
+  def availableStations
+    @stations = Station.all.order(identifier: :asc)
+    puts @stations
+    @renting = Renting.find(params[:renting_id])
+    #render("availableStations") 
+  end
+
+  def return
+    @renting = Renting.find(params[:renting_id])
+    @station = Station.find(params[:station_id])
+    render ("return")
+  end
+
 end
+
