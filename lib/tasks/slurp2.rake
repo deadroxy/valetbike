@@ -3,13 +3,13 @@ namespace :slurp2 do
   task bikes: :environment do
     require 'csv'    
 
-    csv_text = File.read('/Users/priyadalal-whelan/Desktop/ashleyvaletbike/valetbike/notes/bike-data.csv')
+    csv_text = File.read('/mnt/c/Users/ariar/VALLEYSCOOT/valetbike/notes/bike-data.csv')
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
       bike = Bike.new 
       bike[:identifier] = row["identifier"]       
       bike[:current_station_identifier] = row["current_station_identifier"] 
-      if (bike.current_station_identifier.nil?)
+      if (bike.current_station_identifier.nil? || bike.current_station_identifier == 0)
         bike[:status] = 1
       else
         bike[:status] = 0 
