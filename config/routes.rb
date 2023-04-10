@@ -13,10 +13,15 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
 
   resources :users, except: [:show]
+  resources :stations, param: :identifier, except: [:show]
   resources :sessions, except: [:show]
   resources :main, except: [:show]
 
-
+  get 'stations/map'
+  get 'stations/index'
+  get 'stations/return'
+  #get 'stations/:identifier', to 'stations#location'
+  
 
 
   
