@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'renting/:renting_id/availableStations/:station_id', to: 'renting#return', as: 'return'
 
   get 'renting/index'
+  get "locations", to: "stations#index"
+
 
  
 
@@ -33,6 +35,8 @@ Rails.application.routes.draw do
   sessions: 'users/sessions',
   registrations: 'users/registrations'
 }
+
+
 
 as :user do
   get 'login', to: 'users/sessions#new', as: :new_user_session
