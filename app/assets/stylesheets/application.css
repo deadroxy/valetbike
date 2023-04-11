@@ -40,17 +40,17 @@ h1{
 body{
     min-height: 100vh;
 }
-.item0 { grid-area: home; }
-.item1 { grid-area: aboutus; }
-.item2 { grid-area: rent; }
+
+.item1 { grid-area: home; }
+.item2 { grid-area: aboutus; }
 .item3 { grid-area: loginsignup; }
-.item4 { grid-area: membership; }
-.item5 { grid-area: help; }
+.item4 { grid-area: memberships; }
+.item5 { grid-area: contact; }
 
 .grid-container {
     display: grid;
     grid-template-areas:
-        'home aboutus rent loginsignup membership help';
+        'home aboutus loginsignup memberships contact';
     gap: 5px;
     background-color: #90EE90;
     padding: 5px;
