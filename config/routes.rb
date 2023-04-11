@@ -61,13 +61,10 @@ Rails.application.routes.draw do
   # get 'stations/edit'
   # get 'stations/delete'
 
-  get 'users/code'
-  get 'users/consent'
-  get 'users/edit'
+  resources :users do
+  end
   get 'users/index'
-  get 'users/new'
   get 'users/show'
-  get 'users/login'
   
 
   root to: "pages#home"

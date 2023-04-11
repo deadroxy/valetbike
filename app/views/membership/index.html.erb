@@ -1,4 +1,12 @@
 <div>
-  <h1 class="font-bold text-4xl">Membership#index</h1>
-  <p>Find me in app/views/membership/index.html.erb</p>
+  <h1 class="font-bold text-4xl">Available Memberships</h1>
+   <div class="flexbox vertical stretch">
+      <% if @memberships.present? %>
+        <%= render(partial: "membership/row", collection: @memberships, as: :membership) %>
+      <% else %>
+      <div class="empty">
+        No memberships available.
+      </div>
+      <% end %>
+    </div>
 </div>

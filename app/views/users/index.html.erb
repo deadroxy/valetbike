@@ -1,13 +1,5 @@
 <%# This is the user's profile page %>
 <div>
-  <h1>Hi, [user's name]</h1>
+  <h1>Hi, <%=current_user.full_name %> </h1>
   <button type="button">Start biking!</button>
-  <p><%= link_to "Check your membership", membership_show_path %></p>
-  <p><%# link_to "Add/change your membership", membership_edit_path %></p>
-
-  <%# IS MEMBERSHIP EDIT FOR ADMIN OR USERS? I WOULD THINK THE USER PAGE WOULD BE MEMBERSHIP CHANGE OR SOMETHING %>
-  <p> Add/change your membership </p>
-  <p>Add/change your payment method</p>
-  <p>Transaction History</p>
-  <p><%= link_to "View/edit profile", users_show_path %></p>
 </div>
