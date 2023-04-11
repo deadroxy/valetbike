@@ -43,7 +43,7 @@ user = User.new(
 )
 user.save!
 
-Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
+#Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
 
 membership = Membership.new(
   :identifier => 00001,
