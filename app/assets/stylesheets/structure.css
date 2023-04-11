@@ -3,6 +3,8 @@ header {
     padding:3em;
     margin-bottom: 1em;
     background: #b4a9da;
+    font-size: 20px;
+
 }
 header span{
     float:right;
