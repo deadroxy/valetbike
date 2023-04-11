@@ -26,21 +26,20 @@ Rails.application.routes.draw do
   post "service", to: "service#create"
   get 'service/index', to: 'service#index', as: 'new_service'
 
-
-
-
-
   get 'renting/:renting_id/availableStations', to: 'renting#availableStations', as: 'returnStations'
   get 'renting/:renting_id/:station_id', to: 'renting#return', as: 'return'
-  get 'renting/:renting_id/:station_id/:returnCode', to: 'renting#submit', as: 'submit'
-  #post 'renting/:renting_id/:station_id', to: 'renting#submit', as: 'submit'
+  get 'renting/:id/completed', to: 'renting#completed', as: 'completed'
+  post 'renting/:id/submit_code(.:format)', to: 'renting#submit_code', as: 'submit_code_renting'
+
   get 'renting/index'
 
-  resources :renting do
-    member do
-      get :submit_code
-    end
-  end
+  # resources :renting do
+  #   member do
+  #     post :submit_code
+  #     # get :completed
+
+  #   end
+  # end
 
   resources :cards do 
     member do
