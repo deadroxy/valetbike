@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   get 'pages/privacypol'
   get 'pages/terms'
   get 'pages/userag'
+  get 'pages/rental'
+  get 'pages/success'
 
 
   resources :stations do
@@ -59,9 +61,13 @@ Rails.application.routes.draw do
   # get 'stations/edit'
   # get 'stations/delete'
 
+  get 'users/code'
+  get 'users/consent'
+  get 'users/edit'
   get 'users/index'
   get 'users/new'
-  get 'users/edit'
+  get 'users/show'
+  get 'users/login'
   
 
   root to: "pages#home"
