@@ -8,7 +8,7 @@
       <li> <%=link_to_unless_current("Rent a Bike", "/stations/map")%> </li>
       <li> <%=link_to_unless_current("Return Bike", "/stations/return")%> </li>
       <li>  <%=link_to('Log Out', controller: "sessions", action: "destroy") %> </li>
-      # line 9 would be controller rental action destroy
+
     <%end%>
     <li><%=link_to_unless_current("Menu", "/stations/index")%></li>
 

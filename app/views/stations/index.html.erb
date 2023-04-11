@@ -1,7 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
+      Scoot scoot!! With ValetScoot, you can rent and return scooters to any of the following stations!
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
@@ -12,5 +12,8 @@
       </div>
       <% end %>
     </div>
+     <div class="section-title">
+      Ready to scoot? <%=link_to("Click here to create an account", "/users/new")%>
+    </div>  
 	</div>
 </div>
