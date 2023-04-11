@@ -1,7 +1,6 @@
 <%#this would be to view SPECIFIC PROFILE INFORMATION ie settings%>
-<h1>[User Name's] Profile</h1>
-<p> <%=@user.name %> </p>
-<p> Registration Date </p>
+<h1> Hi <%=current_user.name %>  Profile</h1>
+<p> Registration Date: <%=current_user.timestamps %> </p>
 <p> Mobile Number </p>
 <p> Email </p>
 <button type="button">Edit Profile *BROKEN* </button>
