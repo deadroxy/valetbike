@@ -1,4 +1,4 @@
-<% if user_signed_in? && !current_user.is_admin %>
+<% if (user_signed_in? && !current_user.is_admin) || !user_signed_in? %>
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
