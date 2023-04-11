@@ -93,4 +93,11 @@ gem 'jquery-rails'
 # gem 'httparty'
 # gem 'paperclip
 # gem 'uniquify'
+
+# gem 'will_paginate'
+
+gem 'erb'
+gem 'devise'
+
 gem 'will_paginate'
+

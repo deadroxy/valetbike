@@ -1,3 +1,8 @@
+//= require rails-ujs
+
+import "@rails-ujs";
+
+
 import { Application } from "@hotwired/stimulus"
 
 const application = Application.start()
