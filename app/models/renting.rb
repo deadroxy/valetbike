@@ -15,12 +15,5 @@ class Renting < ApplicationRecord
         Random.rand(1111...9999)
     end
 
-    def duration
-        endTime - startTime
-    end
-
-    def date date
-        date.to_fs(:db)
-    end 
 
 end

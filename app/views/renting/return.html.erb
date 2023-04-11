@@ -1,12 +1,11 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-    Rental Details
+    Return Bike 
     </div>   
-   
     <%= render(partial: "/renting/countdown", object: @renting, as: :renting)%>
-    <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
-    <table summary="Renting details">
+    <%= render(partial: "/stations/availableStations_row", object: @endStation, as: :station) %>
+    <table summary="Rental Summary">
       <tr>
         <th>User</th>
         <td>Name here</td>
@@ -25,12 +24,21 @@
       </tr>
       <tr>
         <th>Start Station</th>
-        <td><%= @station.name%></td>
+        <td><%= @startStation.name%></td>
+      </tr>
+      <tr>
+        <th>End Station</th>
+        <td><%= @endStation.name%></td>
       </tr>
       
     </table>
-    <%= link_to "Return Bike", returnStations_path, class: "button", style: "background-color: #FFEEE4;padding: 15px 42px;width:250px;margin-left: 40%"%>
+
+    <%= form_tag submit_code_renting_path(@renting), data: { turbo: false } do %>
+      <%= label_tag ':submit_code', 'Rental Code:' %>
+       <%= text_field_tag :submit_code  %>
+      <%= submit_tag 'Submit' %>
+     <% end %> 
+    
     </div>
 	</div>
 </div>
-
