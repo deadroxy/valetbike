@@ -18,11 +18,13 @@
     body
       {
         width:100%;
-        height:100%;
-        position:absolute;
         top:0;
         left:0;
         padding-bottom: 120px;
+        min-height: 400px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        clear: both;
       }
       a {
         color: inherit;
@@ -46,19 +48,19 @@
       {
         width:100%;
         height: 50px;
-        position:absolute;
+        position:sticky;
         padding: 20px;
         top:0;
         text-align: center;
         left:0;
       }
     footer {
-        position: absolute;
+        position: relative;
         bottom: 0;
         width: 100%;
-        height: 50px;
+        height: 80px;
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         left:0;
         background-color: #FFEEE4;
       }
@@ -75,9 +77,12 @@
 
       .footer_parts p {
         position: absolute;
-        bottom: 10px;
       }
-      .btn_group button {
+      .footer_parts sub {
+        font-size: 0.8em;
+        vertical-align: sub;
+      }
+            .btn_group button {
         cursor: pointer;
         background-color: transparent;
         color: black;

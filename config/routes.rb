@@ -22,6 +22,13 @@ Rails.application.routes.draw do
   get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
 
 
+  resources :stations  do
+    collection do
+      get :search
+    end
+  end
+
+
   get "service", to: "service#index"
   post "service", to: "service#create"
   get 'service/index', to: 'service#index', as: 'new_service'
@@ -51,6 +58,7 @@ as :user do
   get 'signup', to: 'users/registrations#new', as: :new_user_registration
   post 'signup', to: 'users/registrations#create', as: :user_registration
 end
+
 
 
   # resources :renting do

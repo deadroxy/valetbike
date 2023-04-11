@@ -29,7 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_181105) do
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "cardholder_name"
+
     t.bigint "card_number"
+
     t.date "expiration_date"
     t.integer "cvv"
     t.float "card_balance"
@@ -55,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_181105) do
     t.index ["station_id", "renting_id"], name: "index_rentings_stations_on_station_id_and_renting_id"
   end
 
+
   create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -78,10 +81,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_181105) do
     t.integer "identifier"
     t.string "name"
     t.string "address"
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
