@@ -37,7 +37,8 @@ class User < ApplicationRecord
     def get_phone
     end
 
-    def is_admin
+    def is_admin?
+        is_admin
     end
 
     def has_payment_info
