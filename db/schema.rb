@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema[7.0].define(version: 2023_04_10_181105) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "current_station_identifier"
-    t.integer "station_id"
   end
 
   create_table "bikes_rentings", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -38,8 +37,8 @@
 
   create_table "rentings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bike_id"
-    t.string "current_station_name"
-    t.integer "current_station_id"
+    t.integer "start_station_id"
+    t.integer "end_station_id"
     t.datetime "startTime"
     t.datetime "endTime"
     t.boolean "status"
@@ -68,12 +67,10 @@
     t.integer "identifier"
     t.string "name"
     t.string "address"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "has_kiosk"
-    t.integer "needs_maintenance"
-    t.integer "dock_count"
-    t.integer "docked_bike_count"
   end
 
 end
