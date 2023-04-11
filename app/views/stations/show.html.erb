@@ -5,13 +5,13 @@
       Station: <%= @station.name %>
     </div>  
     <div class="flexbox vertical stretch">
-    Actions:
+    <% if user_signed_in? && current_user.is_admin? %>
+    Admin Actions:
     <%= link_to('Edit', edit_station_path(@station)) %>
     <%= link_to('Delete', delete_station_path(@station)) %> <br>
-
-    <%= render 'stations/docklistTEST' %>
+    <% end %>
       <% if @station.docked_bikes.present? %>
-        Bikes docked:
+        Available bikes docked:
         <%= render(partial: "stations/bike_row", collection: @station.docked_bikes, as: :bike) %>
       <% else %>
       <div class="empty">
@@ -19,10 +19,12 @@
       </div>
       <% end %>
     </div>
+    <% if user_signed_in? && current_user.is_admin? %>
     <div class="flexbox vertical stretch">
       Station created at: <%= @station.created_at.to_fs(:long) %> <br>
       Station last updated at: <%= @station.updated_at.to_fs(:long) %>
       <%= link_to "Back", stations_path %>
     </div>
+    <% end %>
 	</div>
   </div>
