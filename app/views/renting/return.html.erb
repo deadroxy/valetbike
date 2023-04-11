@@ -3,8 +3,8 @@
     <div class="section-title">
     Return Bike 
     </div>   
-    <%= render(partial: "/stations/availableStations_row", object: @station, as: :station) %>
-
+    <%= render(partial: "/renting/countdown", object: @renting, as: :renting)%>
+    <%= render(partial: "/stations/availableStations_row", object: @endStation, as: :station) %>
     <table summary="Rental Summary">
       <tr>
         <th>User</th>
@@ -24,18 +24,16 @@
       </tr>
       <tr>
         <th>Start Station</th>
-        <td><%= @renting.current_station_name%></td>
+        <td><%= @startStation.name%></td>
+      </tr>
+      <tr>
+        <th>End Station</th>
+        <td><%= @endStation.name%></td>
       </tr>
       
     </table>
 
-
-    <%# <%= form_tag(submit_code_renting_path, :method => :get) do %>
-      <%# <%= text_field_tag :submit_code, params[:submit_code], placeholder: "Rental Code" %> 
-      <%# <%= submit_tag 'Submit' %>
-    <%# <% end %> 
-
-    <%= form_tag 'submit_code_path' do %>
+    <%= form_tag submit_code_renting_path(@renting), data: { turbo: false } do %>
       <%= label_tag ':submit_code', 'Rental Code:' %>
        <%= text_field_tag :submit_code  %>
       <%= submit_tag 'Submit' %>
