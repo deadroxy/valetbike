@@ -22,6 +22,13 @@ Rails.application.routes.draw do
   get 'renting/:renting_id', to: 'renting#show', as: 'rentingDetail'
 
 
+  resources :stations  do
+    collection do
+      get :search
+    end
+  end
+
+
   get "service", to: "service#index"
   post "service", to: "service#create"
   get 'service/index', to: 'service#index', as: 'new_service'
@@ -32,6 +39,7 @@ Rails.application.routes.draw do
   post 'renting/:id/submit_code(.:format)', to: 'renting#submit_code', as: 'submit_code_renting'
 
   get 'renting/index'
+
 
   # resources :renting do
   #   member do
