@@ -8,6 +8,8 @@
     Actions:
     <%= link_to('Edit', edit_station_path(@station)) %>
     <%= link_to('Delete', delete_station_path(@station)) %> <br>
+
+    <%= render 'stations/docklistTEST' %>
       <% if @station.docked_bikes.present? %>
         Bikes docked:
         <%= render(partial: "stations/bike_row", collection: @station.docked_bikes, as: :bike) %>
@@ -20,6 +22,7 @@
     <div class="flexbox vertical stretch">
       Station created at: <%= @station.created_at.to_fs(:long) %> <br>
       Station last updated at: <%= @station.updated_at.to_fs(:long) %>
+      <%= link_to "Back", stations_path %>
     </div>
 	</div>
   </div>

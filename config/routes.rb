@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get 'pages/privacypol'
   get 'pages/terms'
   get 'pages/userag'
+  get 'pages/rental'
+  get 'pages/success'
 
 
   resources :stations do
