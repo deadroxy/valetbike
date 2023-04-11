@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :authenticate_user! 
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :authenticate_user! 
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
@@ -27,9 +27,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -55,7 +55,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
    def after_sign_up_path_for(resource)
      path = super(resource)
-     path = pages_about_us_path if path == root_path 
+     path = pages_about_path if path == root_path 
      #path = cards_new_path if path == root_path
      #path   
    end
