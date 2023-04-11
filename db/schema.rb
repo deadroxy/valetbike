@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_10_072559) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_001602) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_identifier"
@@ -18,6 +18,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_072559) do
     t.datetime "updated_at", null: false
     t.integer "battery_charge"
     t.integer "status"
+  end
+
+  create_table "rentals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "bike_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "start_station_id"
+    t.integer "end_station_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bike_id", "user_id"], name: "index_rentals_on_bike_id_and_user_id"
+    t.index ["bike_id"], name: "index_rentals_on_bike_id"
+    t.index ["user_id", "bike_id"], name: "index_rentals_on_user_id_and_bike_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -46,4 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_072559) do
     t.decimal "credit", precision: 10
   end
 
+  add_foreign_key "rentals", "bikes"
+  add_foreign_key "rentals", "users"
 end
