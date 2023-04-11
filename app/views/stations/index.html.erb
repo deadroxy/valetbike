@@ -1,3 +1,4 @@
+<% if user_signed_in? && !current_user.is_admin %>
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
@@ -66,17 +67,18 @@
         }
       </script>
       <% api_key = ENV['REACT_APP_API_KEY'] %>
-      <%#<script src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%> ></script> %>
-      <%#<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%>></iframe>%>
+      <script src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%> ></script>
+      =<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%>></iframe>
     </div>
   </div>
 </div>
-
+<% end %>
+<% if user_signed_in? && current_user.is_admin? %>
 <div class="stations index">
-  <h2>Stations</h2>
+  <h2>Admin View: Stations</h2>
 
   <%= link_to("Add New Station", new_station_path, class: 'action new') %>
-
+  
   <table class="listing" summary="Station list" style="width: 100%;">
     <tr class="header">
       <th>#</th>
@@ -98,3 +100,4 @@
     <% end %>
   </table>
 </div>
+<% end %>
