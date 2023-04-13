@@ -1,6 +1,8 @@
 class RentalController < ApplicationController
   def show
     @rental = Rental.find(params[:id])
+    @bike = @rental.bike
+    @renter = @rental.renter
   end
 
   def new
