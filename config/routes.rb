@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'rental/show'
+  get 'rental/new'
+  get 'rental/return'
+  get 'rental/index'
+  get 'rental/confirm'
   get 'cards/index'
   get 'cards/show'
   get 'cards/new'
