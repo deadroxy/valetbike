@@ -5,17 +5,18 @@ Rails.application.routes.draw do
   #get 'tutorial', to: "main#tutorial"
   #get 'help', to: "main/help"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   # delete 'logout' to: 'sessions#delete'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
 
-  resources :users, except: [:show]
-  resources :stations, param: :identifier, except: [:show]
+  #resources :users, except: [:show]
+  resources :stations, param: :identifier
   resources :sessions, except: [:show]
   resources :main, except: [:show]
+  resources :rental 
 
   get 'stations/map'
   get 'stations/index'

@@ -15,11 +15,7 @@ class SessionsController < ApplicationController
    end
 
    def destroy
-      # session.delete(:user_id)
       session.clear()
-      #print("here")
-      # session.clear
-      #render 'layouts/sidebar'
       redirect_to '/index'
    end
 
