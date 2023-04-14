@@ -2,7 +2,8 @@ class Rental < ApplicationRecord
     
     belongs_to :bike, class_name: :Bike, foreign_key: :bike_id, optional: false
     belongs_to :renter, class_name: :User, foreign_key: :renter_id, optional: false
-    has_one :payment, class_name: :Payment, foreign_key: :rental_id, optional: false
+    has_one :payment, class_name: :Payment, foreign_key: :rental_id
+    #, #optional: false
 
     def is_ongoing?
         if end_time
