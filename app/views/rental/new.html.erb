@@ -2,3 +2,16 @@
   <h1 class="font-bold text-4xl">Rental#new</h1>
   <p>Find me in app/views/rental/new.html.erb</p>
 </div>
+<div>
+  <h2>Begin Rental</h2>
+
+  <%= form_for(@rental) do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Begin Rental") %>
+    </div>
+
+  <% end %>
+</div>
