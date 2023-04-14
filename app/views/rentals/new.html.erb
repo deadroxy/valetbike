@@ -1,0 +1,15 @@
+<div>
+  <h1 class="font-bold text-4xl">Rental#new</h1>
+  <p>Find me in app/views/rental/new.html.erb</p>
+</div>
+<div>
+  <h2>Begin Rental</h2>
+  Bike: <%=@bike.identifier %>
+  <%#= form_for(@rental) do |f| %>
+
+    <div class="form-buttons">
+      <%#= f.submit("Begin Rental") %>
+    </div>
+    <%= button_to "Rent", rentals_path(rental: {bike_id: @bike.id, user_id: current_user.id}, method: :post) %>
+  <%# end %>
+</div>

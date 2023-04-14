@@ -4,7 +4,9 @@ class Rental < ApplicationRecord
     belongs_to :renter, class_name: :User, foreign_key: :renter_id, optional: false
     has_one :payment, class_name: :Payment, foreign_key: :rental_id
     #, #optional: false
-
+    def get_bike
+        bike
+    end
     def is_ongoing?
         if end_time
             return false

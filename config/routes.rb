@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'rental/show'
-  get 'rental/new'
-  get 'rental/return'
-  get 'rental/index'
-  get 'rental/confirm'
+  # get 'rental/show'
+  # get 'rental/new'
+  # get 'rental/return'
+  # get 'rental/index'
+  # get 'rental/confirm'
+  resources :rentals
   get 'cards/index'
   get 'cards/show'
   get 'cards/new'
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     passwords: 'users/passwords',
     confirmations: 'users/confirmations',
-    #omniauth_callbacks: 'users/omniauth_callbacks',
     unlocks: 'users/unlocks'
   }
   resources :billing_infos
@@ -24,20 +24,9 @@ Rails.application.routes.draw do
     registrations: 'logins/registrations',
     passwords: 'logins/passwords',
     confirmations: 'logins/confirmations',
-    #omniauth_callbacks: 'logins/omniauth_callbacks',
+
   }
-  # devise_for :logins, controllers: {
-  #   sessions: 'logins/sessions',
-  #   registrations: 'logins/registrations',
-  #   passwords: 'logins/passwords',
-  #   confirmations: 'logins/confirmations',
-  #   #omniauth_callbacks: 'logins/omniauth_callbacks',
-  #   unlocks: 'logins/unlocks'
-  # }
-
-  # get 'logins/custom_action', to: 'logins/custom_controller#custom_action'
-  # get 'users/custom_action', to: 'users/custom_controller#custom_action'
-
+  
   get 'membership/index'
   get 'membership/show'
   get 'membership/new'

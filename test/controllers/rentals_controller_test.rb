@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RentalControllerTest < ActionDispatch::IntegrationTest
+class RentalsControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
     get rental_show_url
     assert_response :success
