@@ -1,0 +1,27 @@
+<table summary="Renting details">
+    <tr>
+    <th>User</th>
+    <td>Name here</td>
+    </tr>
+    <tr>
+    <th>Start Time</th>
+    <td><%= renting[:startTime].to_fs(:long) %></td>
+    </tr>
+    <tr>
+    <th>End Time</th>
+    <td><%= renting[:endTime].to_fs(:long) %></td> 
+    </tr>
+    <tr>
+    <th>Status</th>
+    <td><%= renting.status? ? 'End' : 'In-Progress' %></td>
+    </tr>
+    <tr>
+    <th>Start Station</th>
+    <td><%= startStation.name %></td>
+    <tr>
+    <%if @endStation.present? %>
+    <th>End Station</th>
+    <td><%= @endStation.name%></td>
+    <%end%>
+    </tr>
+</table>

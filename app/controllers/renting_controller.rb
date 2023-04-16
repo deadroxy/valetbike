@@ -1,4 +1,6 @@
 class RentingController < ApplicationController
+
+  
   def index
     @station = Station.find(params[:station_id])
   end
@@ -21,15 +23,8 @@ class RentingController < ApplicationController
   end
 
   def show
-    @renting = Renting.find(params[:renting_id])
-    @station = Station.find(@renting[:start_station_id])
-  end
-
-  def availableStations
-    @stations = Station.all.order(identifier: :asc)
-    puts @stations
-    @renting = Renting.find(params[:renting_id])
-    #render("availableStations") 
+    @renting = Renting.find(params[:id])
+    @startStation = Station.find(@renting[:start_station_id])
   end
 
   def return
@@ -50,12 +45,10 @@ class RentingController < ApplicationController
     @returnCode = params[:submit_code]
 
     session[:returnCode] = 1234.to_s
-    puts session[:returnCode] == @returnCode
-    puts session[:returnCode].class
     if @returnCode
       if @returnCode == session[:returnCode]
           @renting.status = true
-          redirect_to completed_path(@renting)
+          redirect_to action: 'completed', id: @renting[:id]
       else
           render ("return") 
           flash[:notice] = "Please enter the correct rental code."
@@ -64,7 +57,7 @@ class RentingController < ApplicationController
   end
 
   def completed
-    @renting = Renting.find(params[:renting_id])
+    @renting = Renting.find(params[:id])
     @endStation = Station.find(@renting[:end_station_id])
   end
 

@@ -5,7 +5,10 @@ class Card < ApplicationRecord
     validates :cvv, presence: true, numericality: { only_integer: true }, length: { is: 3 }
     # validates :expiration_date, presence: true, format: { with: /\d{2}\/\d{2}/, message: 'must be in the format MM/YY' }
 
-    # belongs_to :user, class_name: :User, foreign_key: :user_id, optional: true
+    belongs_to :user, class_name: :User, foreign_key: :user_id, optional: true
+
+    belongs_to :renting, class_name: :Renting, foreign_key: :renting_id, optional: true
+    
     
 
   

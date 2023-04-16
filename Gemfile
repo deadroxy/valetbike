@@ -101,3 +101,5 @@ gem 'devise'
 
 gem 'will_paginate'
 
+gem 'public_suffix', '5.0.1'
+
