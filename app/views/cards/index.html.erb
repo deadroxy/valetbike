@@ -100,7 +100,7 @@
                 <%= link_to "Show", card_path(card) %>
                 <%= link_to "Edit", edit_card_path(card) %>
                 <%= link_to "Delete", delete_card_path(card) %>
-                <%= link_to("Pay $6.12", pay_card_path(card)) %>
+                <%= link_to("Pay $6.12", pay_card_path(card, station_id: params[:station_id])) %>
               </td>
             </tr>
             <% end %>

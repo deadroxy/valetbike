@@ -4,34 +4,8 @@
     Return Bike 
     </div>   
     <%= render(partial: "/renting/countdown", object: @renting, as: :renting)%>
-    <%= render(partial: "/stations/availableStations_row", object: @endStation, as: :station) %>
-    <table summary="Rental Summary">
-      <tr>
-        <th>User</th>
-        <td>Name here</td>
-      </tr>
-      <tr>
-        <th>Start Time</th>
-        <td><%= @renting[:startTime].to_fs(:long) %></td>
-      </tr>
-      <tr>
-        <th>End Time</th>
-      <td><%= @renting[:endTime].to_fs(:long) %></td>
-    </tr>
-      <tr>
-        <th>Status</th>
-        <td><%= @renting.status? ? 'End' : 'In-Progress' %></td>
-      </tr>
-      <tr>
-        <th>Start Station</th>
-        <td><%= @startStation.name%></td>
-      </tr>
-      <tr>
-        <th>End Station</th>
-        <td><%= @endStation.name%></td>
-      </tr>
-      
-    </table>
+    <%= render(partial: "/stations/station_row", object: @endStation, as: :station) %>
+    <%= render(partial: "rental_info", :locals => { :renting => @renting, :startStation => @startStation}) %>
 
     <%= form_tag submit_code_renting_path(@renting), data: { turbo: false } do %>
       <%= label_tag ':submit_code', 'Rental Code:' %>
