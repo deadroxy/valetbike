@@ -1,9 +1,3 @@
-    <style>
-        .text{
-        font-size: 20px;
-            }
-    </style>
-
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title" style="font-size: 25px;">
@@ -11,8 +5,13 @@
     </div>  
     <div class="flexbox vertical stretch">
     <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
-    <p class="text" style="margin: 10px 350px"> Already a registered User? Login to rent a bike. Sign up otherwise <p>
-    <%= link_to 'Rent A bike', {controller: 'cards', action: 'index', station_id: @station[:id]}, class: "button", style: "height:50px; width:200px; margin: 40px 520px;"%>
+    <% if user_signed_in? %>
+        <button><%#= link_to 'Rent A bike', {controller: 'cards', action: 'index', station_id: @station[:id]}%>  
+        <%= link_to 'Rent A bike', { action: 'create', station_id: @station[:id]}%>
+        </button>
+    <%else%>
+        <p class="text" style="margin: 10px 350px"> Already a registered User? Login to rent a bike. Sign up otherwise <p>
+    <%end%>
     </div>
 	</div>
 </div>

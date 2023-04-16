@@ -8,36 +8,33 @@
     </div>
     <div class="flexbox vertical stretch">
       <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-        <b>User id:</b> 12345
-        <b>Username:</b> XXXXX
-        <b>Phone number:</b> xxx-xxx-xxxx
-        <b>Payment information:</b>
+          <%= render(partial: "user_info", :locals => { :user => @user}) %>
       </div>
     </div>
      <div class="flexbox vertical stretch"><br>
       <b>In-progress trip</b>
     </div>
-    <div class="flexbox vertical stretch">
-    <%#= if user.renting? %>
-    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-      <b>Starting Station</b> Station A 
-      <b>Starting time:</b> 16:44:30
-      <b>Duration</b> (currentTime - startingTime)<br>
 
-      <button type="button" style= "background-color:#E5E77E9">Click Me to return the bike!</button>
-      <%# <%= else %><br>
-      <button type="button" style= "background-color:#E5E77E9">Click me to rent a bike!</button>
+    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+      <% if @inProgressRenting.present? %>
+        <%= render(partial: "renting/rental_info",:locals => { :renting => @inProgressRenting}) %>
+        <button> <%= link_to "Click Me to return the bike!",{controller: 'renting', action: 'show', id: @inProgressRenting[:id]} %> </button>
+      <% else %>
+        <div class = "h3", style = "text-align: center;">You currently don't have in progress rental process </div><br>
+        <button><%= link_to "Click me to rent a bike!", stations_path %></button>
+      <%end%>
     </div>
     <div class="flexbox vertical stretch"><br>
       <b>Travel History</b>
     </div>
-    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-      <b>Date:</b> 3/22/2023
-      <b>Trip:</b> Station A -> Station B
-      <b>Time:</b> 11:30:45 - 12:29:44
-      <b>Duration:</b> 1 hr
-      <b>Total Cost:</b> $23
-    </div>
+    <% if @rentalHistory.present? %>
+      <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+        <%= render(partial: "renting/rental_info",collection: @rentalHistory, as: :renting) %>
+      </div>
+    <%else%>
+       <div class = "flexbox vertical stretch", style = "text-align: center;">You don't have any rental history... <br> Starting your journey today? </div><br>
+
+    <%end%>
     </div>
 	</div>
 </div>

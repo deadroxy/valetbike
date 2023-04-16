@@ -5,7 +5,7 @@
     </div>   
     <%= render(partial: "/renting/countdown", object: @renting, as: :renting)%>
     <%= render(partial: "/stations/station_row", object: @endStation, as: :station) %>
-    <%= render(partial: "user_info", :locals => { :renting => @renting, :startStation => @startStation}) %>
+    <%= render(partial: "rental_info", :locals => { :renting => @renting, :startStation => @startStation}) %>
 
     <%= form_tag submit_code_renting_path(@renting), data: { turbo: false } do %>
       <%= label_tag ':submit_code', 'Rental Code:' %>

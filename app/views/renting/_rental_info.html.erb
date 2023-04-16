@@ -17,11 +17,11 @@
     </tr>
     <tr>
     <th>Start Station</th>
-    <td><%= startStation.name %></td>
+    <td><%= Station.find(renting[:start_station_id]).name%></td>
     <tr>
-    <%if @endStation.present? %>
+    <%if renting[:end_station_id].present? %>
     <th>End Station</th>
-    <td><%= @endStation.name%></td>
+    <td><%=Station.find(renting[:end_station_id]).name%></td>
     <%end%>
     </tr>
 </table>

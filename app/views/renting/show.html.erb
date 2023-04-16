@@ -6,10 +6,9 @@
    
     <%= render(partial: "countdown", object: @renting, as: :renting)%>
     <%= render(partial: "/stations/station_row", object: @startStation, as: :station) %>
-    <%= render(partial: "user_info", :locals => { :renting => @renting, :startStation => @startStation, :endStation => @endStation}) %>
+    <%= render(partial: "rental_info", :locals => { :renting => @renting}) %><br>
 
-    </table>
-    <%= link_to "Return Bike", stations_path(:renting_id => @renting[:id]), class: "button", style: "background-color: #FFEEE4;padding: 15px 42px;width:250px;margin-left: 40%"%>
+    <button><%= link_to "Return Bike", stations_path(:renting_id => @renting[:id])%></button>
     </div>
 	</div>
 </div>

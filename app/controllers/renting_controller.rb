@@ -1,20 +1,28 @@
 class RentingController < ApplicationController
-
   
   def index
     @station = Station.find(params[:station_id])
   end
 
   def create
+    @current_renting = current_user.renting.incompleted.first
+    if @current_renting.present?
+      flash[:notice] = "Please end your previous rental process before starting a new one."
+      redirect_to action: 'show', id: @current_renting[:id]
+    end
+
 
     @station = Station.find(params[:station_id])
-    # start create new renting
-    @renting = Renting.new(status: false, start_station_id: params[:station_id])
 
+    # start create new renting
+    @renting = Renting.new(
+      status: false, 
+      start_station_id: params[:station_id], 
+      user_id: current_user[:id])
     @renting.stations << @station
     @rentCode = @renting.rentCode
 
-    session[:returnCode] = 1234.to_s
+    # record the time
     @renting[:startTime] = Time.zone.now
     @renting[:endTime] = @renting[:startTime] + 2.hour
 
@@ -30,6 +38,7 @@ class RentingController < ApplicationController
   def return
     @renting = Renting.find(params[:renting_id])
     @endStation = Station.find(params[:station_id])
+    @renting 
     @renting[:end_station_id] = params[:station_id]
     @startStation = Station.find(@renting[:start_station_id])
 
@@ -42,6 +51,7 @@ class RentingController < ApplicationController
     @endStation = Station.find(@renting[:end_station_id])
     @startStation = Station.find(@renting[:start_station_id])
 
+    @renting.stations << @endStation
     @returnCode = params[:submit_code]
 
     session[:returnCode] = 1234.to_s
@@ -49,6 +59,7 @@ class RentingController < ApplicationController
       if @returnCode == session[:returnCode]
           @renting.status = true
           redirect_to action: 'completed', id: @renting[:id]
+          @renting.save
       else
           render ("return") 
           flash[:notice] = "Please enter the correct rental code."
