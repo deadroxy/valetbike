@@ -5,8 +5,10 @@ class StationsController < ApplicationController
   end
   
   def show
-    @stations = Station.find_by(identifier: params[:identifier])
+    @station = Station.find(params[:identifier])
   end
+  
+  #@stations = Station.find_by(identifier: params[:identifier])
 
   def map #map to be displayed
     # @stations = Station.all.order(identifier: :asc) #makes the stations appear on the page
