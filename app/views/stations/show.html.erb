@@ -5,8 +5,19 @@
  Number of docks available: <%= @station.num_docks_available%>
 
  
+Bike: <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
+ <%bikes.each do |bike| %>
+ <%= bike.identifier%>
+ <%= link_to("click here to rent this bike", new_rental_path()) %>
+ <br> 
+ <% end%>
 
-The following scooters are here: <%= @station.bikes%>
+
+
+
+
+
+
 
 
 

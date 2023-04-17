@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   #get 'tutorial', to: "main#tutorial"
   #get 'help', to: "main/help"
 
+
   resources :users, only: [:new, :create] 
+  resources :rentals
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   # delete 'logout' to: 'sessions#delete'
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
 
   resources :sessions, except: [:show]
   resources :main, except: [:show]
-  resources :rental 
+  
  
 
 
