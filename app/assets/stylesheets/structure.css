@@ -4,7 +4,6 @@ header {
     margin-bottom: 1em;
     background: #b4a9da;
     font-size: 20px;
-    
 }
 
 header span{
@@ -30,10 +29,10 @@ footer {
     /* height:1em; */
     padding: 1em;
     margin-top: 1em;
-    background: #ddadda
+    background: #b4a9da
 }
 
 
 footer span{
-    float:right;
+    float:center;
 }

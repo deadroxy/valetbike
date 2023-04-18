@@ -11,12 +11,14 @@
 .page-section .section-inner {
   margin-right: 1.4em;
   margin-left: 1.4em;
-  
+}
+
+.mylinks{
+  overflow-x: hidden;
 }
 
 #mySidebar {
   height: 100%; /* 100% Full-height */
-  width: 0%; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -39,7 +41,7 @@
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #DDADDA;
+  color: #b4a9da;
 }
 
 /* Position and style the close button (top right corner) */
@@ -51,6 +53,14 @@
   margin-left: 10px;
   color: black;
   top: 10px;
+}
+
+.sidebar .closebtn:hover{
+  color: #93AE90;
+}
+
+.sidebar .openbtn:hover{
+  color: #93AE90;
 }
 
 /* The button used to open the sidebar */
