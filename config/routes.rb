@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+
+  # test
+  get "map", to: "map#show"
   
   #get "/stations/:identification", to: "stations#main"
   get "stations", to: "stations#main", as:"stations"
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
   get "user_home", to: "users#show"
   post 'login', to: 'sessions#create'
 
+  
 
   delete "logout", to: "sessions#destroy"
 

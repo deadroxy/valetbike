@@ -41,3 +41,4 @@
 
 # Ignore database changes
 /config/database.yml
+
