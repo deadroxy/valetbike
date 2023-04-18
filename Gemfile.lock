@@ -135,7 +135,8 @@ GEM
     mini_mime (1.1.2)
     minitest (5.18.0)
     msgpack (1.7.0)
-    mysql2 (0.5.5)
+
+    mysql2 (0.5.4)
     net-imap (0.2.3)
       digest
     net-pop (0.1.2)
@@ -262,6 +263,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   mysql2 (~> 0.5)
+  public_suffix (= 5.0.1)
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
   redis (~> 4.0)

@@ -7,6 +7,7 @@ class CreateRentings < ActiveRecord::Migration[7.0]
       t.datetime :startTime
       t.datetime :endTime
       t.boolean :status
+      t.integer :user_id
 
 
       t.timestamps

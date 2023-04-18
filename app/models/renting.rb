@@ -1,9 +1,14 @@
 class Renting < ApplicationRecord
     scope :completed, -> { where(status: true) }
-    scope :sorted, -> {order(:identifier)}
 
-    # belongs_to :user
-    # belongs_to :bike, foreign_key: :bike_id
+    scope :incompleted, -> { where(status: false)}
+    
+    scope :sorted, -> {order(:created_at)}
+
+    
+    
+
+    belongs_to :user, class_name: :User, foreign_key: :user_id
     has_and_belongs_to_many :stations
     
 
