@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_021515) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_04_16_174626) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -43,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_021515) do
     t.datetime "startTime"
     t.datetime "endTime"
     t.boolean "status"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,7 +66,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_021515) do
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
-    t.string "address"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
     t.decimal "latitude", precision: 10, scale: 6
     t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
@@ -81,11 +82,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_021515) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "provider", limit: 50, default: "", null: false
-    t.string "uid", limit: 500, default: "", null: false
-    t.string "fullname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider", limit: 50, default: "", null: false
+    t.string "uid", limit: 500, default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
