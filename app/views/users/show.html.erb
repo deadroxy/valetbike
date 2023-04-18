@@ -2,7 +2,23 @@
     <h1>Welcome</h1>
 
     <% if @user %>
-        Logged in as: <%= @user.username %>
+        Logged in as: <%= @user.username %><br>
+        <%= link_to("Edit username", edit_username_path) %><br>
+
+        
+        email:  <%= @user.email %><br>
+        
+        address: <%= @user.address %><br> 
+        <%= link_to("Edit address", edit_address_path) %><br> 
+        
+        birthday: <%= @user.birthday %><br>
+
+        <%= link_to("Payment method", payment_path)%><br>
+
+    <%else%>
+        You haven't logged in. Please log in to see your user profile. 
+        <%= link_to("Click here", login_path) %>
     <% end %>
     
+
 </div>
