@@ -83,14 +83,23 @@ gem 'geocoder', '~> 1.3', '>= 1.3.7'
 # for adding locations to map [https://gist.github.com/NickManos/14c2c601a08486009f14]
 gem "gmaps4rails"
 
+# countdown gem
+gem 'jquery-rails'
+
+
+
 # Suggested Potentially Useful Gems
 # gem 'devise'
 # gem 'httparty'
 # gem 'paperclip
 # gem 'uniquify'
+
 # gem 'will_paginate'
 
 gem 'erb'
 gem 'devise'
 
+gem 'will_paginate'
+
+gem 'public_suffix', '5.0.1'
 

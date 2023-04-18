@@ -1,43 +1,76 @@
 class RentingController < ApplicationController
+  
   def index
     @station = Station.find(params[:station_id])
   end
 
   def create
+    @current_renting = current_user.renting.incompleted.first
+    if @current_renting.present?
+      flash[:notice] = "Please end your previous rental process before starting a new one."
+      redirect_to action: 'show', id: @current_renting[:id]
+    end
 
-    # renting 
-    @renting = Renting.new(status: false)
 
     @station = Station.find(params[:station_id])
+
+    # start create new renting
+    @renting = Renting.new(
+      status: false, 
+      start_station_id: params[:station_id], 
+      user_id: current_user[:id])
     @renting.stations << @station
-    @renting[:current_station_id] = params[:station_id]
-    @renting[:current_station_name] = @station[:name]
-    @station.rentings << @renting
     @rentCode = @renting.rentCode
 
-    session[:returnCode] = @renting.returnCode
-    @renting[:startTime] = Time.now
+    # record the time
+    @renting[:startTime] = Time.zone.now
     @renting[:endTime] = @renting[:startTime] + 2.hour
+
     @renting.save
+
   end
 
   def show
-    @renting = Renting.find(params[:renting_id])
-    @station = Station.find(@renting[:current_station_id])
-    puts "startTime = #{@renting[:startTime]}"
-  end
-
-  def availableStations
-    @stations = Station.all.order(identifier: :asc)
-    puts @stations
-    @renting = Renting.find(params[:renting_id])
-    #render("availableStations") 
+    @renting = Renting.find(params[:id])
+    @startStation = Station.find(@renting[:start_station_id])
   end
 
   def return
     @renting = Renting.find(params[:renting_id])
-    @station = Station.find(params[:station_id])
-    render ("return")
+    @endStation = Station.find(params[:station_id])
+    @renting 
+    @renting[:end_station_id] = params[:station_id]
+    @startStation = Station.find(@renting[:start_station_id])
+
+    @renting.save
   end
+
+  def submit_code
+
+    @renting = Renting.find(params[:id])
+    @endStation = Station.find(@renting[:end_station_id])
+    @startStation = Station.find(@renting[:start_station_id])
+
+    @renting.stations << @endStation
+    @returnCode = params[:submit_code]
+
+    session[:returnCode] = 1234.to_s
+    if @returnCode
+      if @returnCode == session[:returnCode]
+          @renting.status = true
+          redirect_to action: 'completed', id: @renting[:id]
+          @renting.save
+      else
+          render ("return") 
+          flash[:notice] = "Please enter the correct rental code."
+      end  
+    end 
+  end
+
+  def completed
+    @renting = Renting.find(params[:id])
+    @endStation = Station.find(@renting[:end_station_id])
+  end
+
 
 end

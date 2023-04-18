@@ -48,7 +48,7 @@ class CardsController < ApplicationController
       @card.card_balance -= amount
 
       if @card.save
-        redirect_to renting_path, notice: "Payment Successful!"
+        redirect_to renting_create_path(:station_id => params[:station_id]), notice: "Payment Successful!"
       else
         flash.alert = "A problem occured and payment did not go through. Please try again"
       end

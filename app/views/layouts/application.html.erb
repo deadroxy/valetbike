@@ -7,7 +7,10 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application.tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
+    <%= yield :javascript %>
+    
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
@@ -15,11 +18,13 @@
     body
       {
         width:100%;
-        height:100%;
-        position:absolute;
         top:0;
         left:0;
         padding-bottom: 120px;
+        min-height: 400px;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        clear: both;
       }
       a {
         color: inherit;
@@ -43,19 +48,19 @@
       {
         width:100%;
         height: 50px;
-        position:absolute;
+        position:sticky;
         padding: 20px;
         top:0;
         text-align: center;
         left:0;
       }
     footer {
-        position: absolute;
+        position: relative;
         bottom: 0;
         width: 100%;
-        height: 50px;
+        height: 80px;
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         left:0;
         background-color: #FFEEE4;
       }
@@ -72,9 +77,12 @@
 
       .footer_parts p {
         position: absolute;
-        bottom: 10px;
       }
-      .btn_group button {
+      .footer_parts sub {
+        font-size: 0.8em;
+        vertical-align: sub;
+      }
+            .btn_group button {
         cursor: pointer;
         background-color: transparent;
         color: black;
@@ -88,9 +96,14 @@
         justify-content: space-between;
         float: right;
       }
-    </style>
-  </head>
-  <body>
+   </style>
+ </head>
+ <body>
+
+ <% flash.each do |key, value| %>
+  <div class = "alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
       <%= render "layouts/header" %>
@@ -98,5 +111,5 @@
       <%= render "layouts/footer" %>
       </div>
     </div>
-  </body>
+ </body>
 </html>

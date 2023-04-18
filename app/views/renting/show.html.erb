@@ -3,36 +3,13 @@
     <div class="section-title">
     Rental Details
     </div>   
-    <%= render(partial: "/stations/station_row", object: @station, as: :station) %>
+   
+    <%= render(partial: "countdown", object: @renting, as: :renting)%>
+    <%= render(partial: "/stations/station_row", object: @startStation, as: :station) %>
+    <%= render(partial: "rental_info", :locals => { :renting => @renting}) %><br>
 
-    <table summary="Renting details">
-      <tr>
-        <th>User</th>
-        <td>Name here</td>
-      </tr>
-      <tr>
-        <th>Start Time</th>
-        <td><%= @renting[:startTime].to_fs(:db) %></td>
-      </tr>
-      <tr>
-        <th>End Time</th>
-      <td><%= @renting[:endTime].to_fs(:db) %></td>
-    </tr>
-      <tr>
-        <th>Status</th>
-        <td><%= @renting.status? ? 'End' : 'In-Progress' %></td>
-      </tr>
-      <tr>
-        <th>Start Station</th>
-        <td><%= @renting.current_station_name%></td>
-      </tr>
-      
-    </table>
-
-    <%= link_to "Return Bike", returnStations_path, class: "button", style: "background-color: #FFEEE4;padding: 15px 42px;width:250px;margin-left: 40%"%>
+    <button><%= link_to "Return Bike", stations_path(:renting_id => @renting[:id])%></button>
     </div>
 	</div>
 </div>
-
-
 
