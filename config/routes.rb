@@ -25,13 +25,12 @@ Rails.application.routes.draw do
   
   # payment page info
   get "payment", to:'payment#new' # testing
-  get "bikes", to: "bikes#index" # testing
+  get "bikes", to: "bikes#index" # testing 
 
   get "password/reset", to: "password_resets#new"
   post "password/reset", to: "password_resets#create"
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
-
 
   match'ride',to:"bikes#index", via: :get
   resources :bikes, only: [:index]
