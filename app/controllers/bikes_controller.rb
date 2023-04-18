@@ -8,4 +8,7 @@ class BikesController < ApplicationController
        end
   end
 
+  def unlock
+  end
+
 end

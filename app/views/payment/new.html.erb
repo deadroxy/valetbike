@@ -1,0 +1,30 @@
+<div>
+
+<h1>Payment</h1>
+<br>
+
+<div>
+    <a class="toggle" href="<%= bikes_path %>">&emsp; Back to Bike Fleet</a>
+</div>
+
+<br>
+
+    <div>
+        <form action="/action_page.php"> <!-- this should be payment_action or the payment controller page -->
+            <h2>Select payment method:</h2>
+              <input type="radio" id="paypal" name="pay_method" value="PayPal">
+              <label for="paypal">PayPal</label><br>
+              <input type="radio" id="creditdebit" name="pay_method" value="Debit/Credit">
+              <label for="creditdebit">Credit/Debit</label><br>
+              <input type="radio" id="coupon" name="pay_method" value="Coupon">
+              <label for="coupon">Enter a Coupon</label>
+
+        <br><br><br>
+
+            <input type="submit" value="Submit">
+
+
+        </form>
+    </div>
+
+</div>
