@@ -4,15 +4,22 @@ class RentalsController < ApplicationController
         #@current_time = Time.now 
        
     end
+
+    # @form = UserInvitationForm.new(user_invitation_form_params)
+    # if @form.submit
+    #   redirect_to root_path, notice: 'Thank you for your enquiry'
+    # else
+    #   render :new
+    # end
     
     def create
-        @rental = Rental.new(params[:f])
+        @rental = Rental.new(params[:rental])
         if @rental.save 
             redirect_to '/profile' # this should actually go to the active ride page, just wanted somwhere random to send it for now 
         else
             render('new') 
             puts "save failed"
-        end 
+        end
 
 
        #@rental = Rental.create(params.require(:user_id).permit(:user_id, :bike_id, :start_time, :start_station_id,))
@@ -23,7 +30,6 @@ class RentalsController < ApplicationController
         #bike we just redierected from 
          
 
-
     end
 
-end
+end 
