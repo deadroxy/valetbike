@@ -1,0 +1,21 @@
+<h1>Rental!!! weeee </h1>
+
+  <%= form_for @rental do |f|%>
+ <%= f.label :user_id%><br>
+ <%= f.text_field :user_id%><br>
+ <%= f.label :bike_id%><br>
+ <%= f.number_field :bike_id%><br>
+ <%= f.label :start_time%><br>
+ <%= f.date_field :start_time%><br>
+ <%= f.label :start_station_id%><br>
+ <%= f.number_field :start_station_id%><br>
+ <strong><%= submit_tag "Rent"%> </strong>
+ <strong><%= f.submit %></strong>
+
+
+  <% end %>
+
+
+  
+
+
