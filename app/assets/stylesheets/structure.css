@@ -5,9 +5,12 @@ header {
     background: #b4a9da;
     font-size: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> dac9480bb3a1494b409d757519e663ea307e3803
+=======
+>>>>>>> fedc8ed3d9463a535f19ae44b3572b4f1512fa5f
 }
 
 header span{
@@ -18,29 +21,21 @@ header span{
 header span .button_to{
     display: inline;
     padding: 40px;
-    
-
 }
 
 div#content {
-    /* min-height: 400px; */
     margin-left:30%;
     margin-left:10%;
     float:center;
-
 }
 
 footer {
-    /* height:1em; */
     padding: 1em;
     margin-top: 1em;
-<<<<<<< HEAD
     background: #b4a9da
-=======
     background: #b4a9da;
     letter-spacing: .2rem;
     text-align:center;
->>>>>>> dac9480bb3a1494b409d757519e663ea307e3803
 }
 
 

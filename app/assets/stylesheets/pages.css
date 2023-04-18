@@ -6,6 +6,7 @@
   max-width: 80em;
   width: 100%;
   margin-top: 4em;
+
 }
 
 .page-section .section-inner {
@@ -19,11 +20,9 @@
 
 #mySidebar {
   height: 100%; /* 100% Full-height */
-<<<<<<< HEAD
   position: fixed; /* Stay in place */
-=======
   position: absolute; /* Stay in place */
->>>>>>> dac9480bb3a1494b409d757519e663ea307e3803
+  position: absolute; /* for it to not Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
