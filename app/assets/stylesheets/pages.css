@@ -19,7 +19,7 @@
 
 #mySidebar {
   height: 100%; /* 100% Full-height */
-  position: fixed; /* Stay in place */
+  position: absolute; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
@@ -70,7 +70,7 @@
   cursor: pointer;
   background-color: #b4a9da;
   color: black;
-  padding: 55px 20px; /*moves the background square down, makes background color wider*/
+  padding: 39px 20px; /*moves the background square down, makes background color wider*/
   border: none;
   display: block;
   height: 120px;
@@ -112,6 +112,8 @@
 .record-row.odd {
   background: var(--dark-white-color);
 }
+
+
 
 /***********************************/
 /*         Responsiveness          */

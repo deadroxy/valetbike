@@ -4,6 +4,7 @@ header {
     margin-bottom: 1em;
     background: #b4a9da;
     font-size: 20px;
+
 }
 
 header span{
@@ -14,6 +15,7 @@ header span{
 header span .button_to{
     display: inline;
     padding: 40px;
+    
 
 }
 
@@ -29,10 +31,12 @@ footer {
     /* height:1em; */
     padding: 1em;
     margin-top: 1em;
-    background: #b4a9da
+    background: #b4a9da;
+    letter-spacing: .2rem;
+    text-align:center;
 }
 
 
 footer span{
-    float:right;
+    float:center;
 }
