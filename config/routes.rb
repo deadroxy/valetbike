@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   get 'pages/userag'
   get 'pages/rental'
   get 'pages/success'
-
+  get 'pages/paymentdemo'
 
   resources :stations do
     member do
@@ -68,4 +68,6 @@ Rails.application.routes.draw do
   
 
   root to: "pages#home"
+
+  resources :charges, only: [:new, :create]
 end

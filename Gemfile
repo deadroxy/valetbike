@@ -87,3 +87,7 @@ gem 'dotenv-rails'
 gem 'devise'
 
 gem 'country_select'
+
+gem "stripe", "~> 8.5"
+
+gem 'stripe-rails'
