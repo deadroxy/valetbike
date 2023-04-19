@@ -10,7 +10,7 @@
  <%bikes.each do |bike| %>
   <br>
  <%= bike.identifier%>
- <%= link_to("click here to rent this bike", new_rental_path()) %>
+ <%= link_to("click here to rent this bike", new_rental_path(bike: bike.identifier, station: @station.identifier)) %>
  <% end%>
 
 
