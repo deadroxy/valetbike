@@ -1,0 +1,30 @@
+
+ Station name: <%= @station.name %> <br>
+ Station identifer: <%= @station.identifier %> <br>
+ Number of scooters avilable: <%= @station.docked_bike_count%> <br>
+ Number of docks available: <%= @station.num_docks_available%> <br>
+
+
+ 
+ <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
+ <%bikes.each do |bike| %>
+  <br>
+ <%= bike.identifier%>
+ <%= link_to("click here to rent this bike", new_rental_path()) %>
+ <% end%>
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
+ note: the rails id of this station is <%= @station.id %>
+
+
+
+      
