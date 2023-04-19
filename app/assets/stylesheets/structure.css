@@ -11,6 +11,12 @@ header span{
     padding: 40px;
 }
 
+header #logo{
+    width: "10px";
+    height: "10px";
+    float: right;
+}
+
 header span .button_to{
     display: inline;
     padding: 40px;
