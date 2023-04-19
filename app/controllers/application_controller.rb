@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     ActionController::Base
     helper_method :logged_in?
     helper_method :current_user
+    helper_method :current_bike
     
     
     def current_user
@@ -11,6 +12,12 @@ class ApplicationController < ActionController::Base
             @current_user
         end
     end
+
+
+
+
+
+
 
     def logged_in?
         # byebug
