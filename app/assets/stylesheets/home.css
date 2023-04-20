@@ -1,6 +1,5 @@
-body::before {    
+.hero-image {    
     content: "";
-    background-image: url('https://placekitten.com/1200/800');
     background-image: url(./bikeybike.jpg);
     position: absolute;
     top: 0px;
