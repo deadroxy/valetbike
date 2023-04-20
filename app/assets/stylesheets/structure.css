@@ -11,10 +11,11 @@ header span{
     padding: 40px;
 }
 
-header #logo{
-    width: "10px";
-    height: "10px";
-    float: right;
+#logo{
+    width: 120px;
+    right:0%;
+    top: 0%;
+    position: absolute;
 }
 
 header span .button_to{
