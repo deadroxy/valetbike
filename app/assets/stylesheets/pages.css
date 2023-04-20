@@ -19,7 +19,7 @@
 }
 
 #mySidebar {
-  height: 100%; /* 100% Full-height */
+  height: 100x;
   position: absolute; /* for it to not Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -76,7 +76,12 @@
   display: block;
   height: 120px;
 }
-
+.sidebarLogo{
+  width: 120px;
+  left:0%;
+  top: 0%;
+  position: absolute;
+}
 .openbtn:hover {
   background-color: #b4a9da;
 }
