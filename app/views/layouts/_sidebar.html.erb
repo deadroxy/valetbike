@@ -18,16 +18,20 @@
       <li><%=link_to_unless_current("Menu", "/stations/index")%></li>
 
       <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
+      <div id = "sidebarLogo">
+        <img src = "/logo.png" alt = "PAJAS Logo">
+      </div>
 </div>
 
 <script>
   function show() {
     document.getElementById("mySidebar").style.width = "25%";
     document.getElementById("content").style.marginleft = "200px";
-
   }
   function hide() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("sidebar").style.marginLeft = "0";
+    document.getElementById("main").style.marginLeft = "0%"
+
   }
 </script>
