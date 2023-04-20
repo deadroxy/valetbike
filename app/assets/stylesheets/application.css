@@ -56,6 +56,13 @@ body{
     padding: 5px;
 }
 
+.grid-container .logo {
+  width : 130px;
+  height : 80px;
+  background-image: url("ValetBikeLogo.png");
+  background-size: 130px 80px;
+}
+
 .grid-container > div {
     background-color: #32CD32;
     text-align: center;

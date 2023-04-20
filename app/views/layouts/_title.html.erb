@@ -1,4 +1,6 @@
 <div class="grid-container">
+  <div class = "logo">
+  </div>
     <h1> <%= link_to "ValleyBike", pages_home_path %></h1>
     <% if user_signed_in? && current_user.is_admin?%>
     <h1> <%= link_to "Admin Stations View", stations_path %></h1>
