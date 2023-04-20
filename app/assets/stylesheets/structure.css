@@ -10,15 +10,11 @@ header span{
     float:right;
     padding: 40px;
 }
-/*#content{
-    width: 300px;
-}*/
 
-#logo{
-    width: 120px;
-    right:0%;
-    top: 0%;
-    position: absolute;
+header #logo{
+    width: "10px";
+    height: "10px";
+    float: right;
 }
 
 header span .button_to{
