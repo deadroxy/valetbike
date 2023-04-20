@@ -7,6 +7,7 @@ class CreateStations < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :state
       t.string :country
+      t.string :address
       t.decimal :latitude, precision: 10, scale: 6
       t.decimal :longitude, precision: 10, scale: 6
 

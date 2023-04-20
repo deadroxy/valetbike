@@ -3,12 +3,13 @@
   <head>
     <style>
       .new_card_form { 
-        margin: 0;
-        position: absolute;
+
         top: 50%;
         left: 50%;
-        -ms-transform: translate(-50%, -50%);
+        width: 20em;
+        height: 18em;
         transform: translate(-50%, -50%);
+        position: fixed;
       }
       .form_button {
         padding: 15px 32px;
@@ -26,7 +27,7 @@
   </head>
   <body>
     <div class = "new_card_form", align = "center", height = "150px">
-      <h2 style= "text-align:center"> Add new card </h2>
+      <h2 > Add new card </h2>
 
       <%= form_for(@card) do |f| %>
         <% # url: cards_path, method: 'post' %>

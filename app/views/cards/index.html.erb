@@ -69,7 +69,17 @@
     }
      .text {
       font-size: 20px;
-     }
+    }
+
+    .links{
+      background-color: #8C1627;
+      color: white;
+      padding: 8px 8px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 10px;
+    }
   </style>
 </head>
 
@@ -97,10 +107,10 @@
               <td> <%= card.cardholder_name %> </td>
               <td> <%= card.card_number %> </td>
               <td class = "actions">
-                <%= link_to "Show", card_path(card) %>
-                <%= link_to "Edit", edit_card_path(card) %>
-                <%= link_to "Delete", delete_card_path(card) %>
-                <%= link_to("Pay $6.12", pay_card_path(card, station_id: params[:station_id])) %>
+                <%= link_to "Show", card_path(card), class: "links" %>
+                <%= link_to "Edit", edit_card_path(card), class: "links" %>
+                <%= link_to "Delete", delete_card_path(card), class: "links" %>
+                <%= link_to("Pay $6.12", pay_card_path(card, station_id: params[:station_id]), class: "links") %>
               </td>
             </tr>
             <% end %>

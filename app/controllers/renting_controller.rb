@@ -22,6 +22,7 @@ class RentingController < ApplicationController
     @renting.stations << @station
     @rentCode = @renting.rentCode
 
+
     # record the time
     @renting[:startTime] = Time.zone.now
     @renting[:endTime] = @renting[:startTime] + 2.hour
