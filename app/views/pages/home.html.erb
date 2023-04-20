@@ -27,15 +27,6 @@
                     <li><a href="#"><%= link_to("Stations", stations_path) %></a ></li>
                     <li><a href="#"><%= link_to("Profile", user_home_path) %></a ></li>
                 </ul>
-                <ul class = "navbar-nav">
-                    <% if Current.user %>
-                        <%= button_to "Logout", logout_path, method: :delete %>
-
-                    <% else %>
-                        <%= link_to("Log In", login_path) %></a >
-                        <%= link_to("Sign Up", signup_path) %></a >
-                    <% end %>
-                </ul>
             </div>
             </div>
     

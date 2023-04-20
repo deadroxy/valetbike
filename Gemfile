@@ -80,4 +80,7 @@ end
 gem 'dotenv-rails'
 
 # map gems
-gem 'leaflet-rails'  
+gem 'leaflet-rails' 
+
+gem 'jquery-rails'
+
