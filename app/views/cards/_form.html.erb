@@ -1,18 +1,36 @@
+<style>
+.round {
+        width: 100%;
+        border-radius: 15px;
+        border: 1px grey solid;
+        padding: 5px 5px 5px 25px;
+        margin: 20px;
+        top: 0;
+        left: 0;
+        z-index: 5;
+      }
+
+</style>
+
 <table summary = "Card form fields">
     <tr> 
+      
         <th> CardHolder Name </th>
-        <td> <%= f.text_field :cardholder_name, required: true %> </td>
+        <td> <%= f.text_field :cardholder_name, required: true, class: "round" %> </td>
+        
     </tr>
     <tr> 
         <th> Card Number </th>
-        <td> <%= f.text_field :card_number, required: true %> </td>
+        <td> <%= f.text_field :card_number, required: true, class: "round" %> </td>
     </tr>
     <tr> 
         <th> Expiration Date </th>
-        <td> <%= f.date_select :expiration_date, discard_day: true, start_year: Date.today.year, end_year: Date.today.year + 10 %> </td>   
+        <td><%= f.date_select :expiration_date, discard_day: true, start_year: Date.today.year, end_year: Date.today.year + 10, class: "round" %></td>
+   
     </tr>
     <tr> 
         <th> CVV </th>
-        <td> <%= f.text_field :cvv, required: true%> </td>
+        <td> <%= f.text_field :cvv, required: true, class: "round"%> </td>
     </tr>
+    
 </table>
