@@ -103,3 +103,8 @@ gem 'will_paginate'
 
 gem 'public_suffix', '5.0.1'
 
+gem 'omniauth', '~> 1.4.0'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+
+

@@ -1,9 +1,17 @@
 class Users::SessionsController < Devise::SessionsController
-
-   
   def new
     render 'sessions/new'
   end
+  
+  def google_signin
+    redirect_to user_google_oauth2_omniauth_authorize_path
+  end
+
+  def facebook_signin
+    redirect_to user_facebook_omniauth_authorize_path
+  end
+   
+  
 
   
   def destroy

@@ -147,17 +147,15 @@
 		
 		<div class="right-box">
 			<h2>Login</h2>
-			<a href="/users/auth/google_oauth2">
-      <button class="google-btn">
-        Signup with Google
-      </button>
-    </a>
+			<a href="<%= google_signin_path %>">
+			<button class="google-btn">Login with Google</button>
+			</a>
 
-    <a href="/users/auth/facebook">
-      <button class="facebook-btn">
-        Signup with Facebook
-      </button>
-    </a>
+			<a href="<%= facebook_signin_path %>">
+			<button class="facebook-btn">Login with Facebook</button>
+			</a>
+
+			
 			<% resource ||= User.new %>
 			<% resource_name ||= :user %>
 			<% devise_mapping ||= Devise.mappings[:user] %>
