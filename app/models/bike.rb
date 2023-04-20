@@ -11,7 +11,8 @@ class Bike < ApplicationRecord
   has_many :rentals, class_name: :Rental, foreign_key: :bike_id
 
   # belongs_to: user, class_name: :User, foreign_key: :user_id, optional: true
-  # belongs_to :rental, class_name: :Rental, foreign_key: rental_id, optional: true
+
+  attr_accessor :current_station_id
 
 
   def get_station()
@@ -23,7 +24,7 @@ class Bike < ApplicationRecord
   end
 
   def get_dock()
-    @dock_id
+    dock_id
   end
 
   def get_status()
@@ -32,6 +33,10 @@ class Bike < ApplicationRecord
     else
       get_dock()
     end
+  end
+
+  def station_id=(new_station_id)
+    @station_id = new
   end
 
 end

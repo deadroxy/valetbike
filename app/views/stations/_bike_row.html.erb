@@ -1,6 +1,6 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
   <%= bike.identifier %>
   <% if user_signed_in? %>
-  <%= link_to "Rent", {action: 'rental', controller: 'pages', id: bike.id,} %>
+  <%= link_to "Rent", {action: 'new', controller: 'rentals', id: bike.id,} %>
   <% end %>
 </div>
