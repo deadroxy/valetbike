@@ -3,14 +3,16 @@
     <head>
         <style>
         .cards_delete { 
-            margin: 0;
-            position: absolute;
+
+            position: fixed;
             top: 50%;
             left: 50%;
-            -ms-transform: translate(-50%, -50%);
+            width: 30em;
+            height: 18em;
             transform: translate(-50%, -50%);
+
         }
-        .form_button {
+        .form-button {
             padding: 15px 32px;
             text-align: center;
             display: inline-block;
@@ -21,12 +23,11 @@
             background-color: #8C1627;
             border-radius: 10px;
             width: 25%
+
         }
         </style>
     </head>
     <body>
-
-        <%= link_to("Back to Payment page", cards_path, class: 'back-link') %>
 
         <div class="cards_delete">
         <h2>Delete Card</h2>
@@ -34,15 +35,20 @@
         <%= form_for(@card, method: 'delete') do |f| %>
             <% # url: card_path(@card), method: 'delete' %>
 
-            <p>Are you sure you want to permanently delete this card?</p>
-            <p><%= @card.cardholder_name %></p>
+            <p style = "font-size: 20px;">Are you sure you want to permanently delete this card?</p>
+            <p style = "font-size: 20px;"><%= @card.cardholder_name %></p>
 
             <div class="form-button">
             <%= f.submit("Delete Card") %>
             </div>
 
+            <div class="form-button">
+            <%= link_to("Back", cards_path, class: 'back-link') %>
+        </div>
+
         <% end %>
         </div>
+        
 </body>
  </html>
     
