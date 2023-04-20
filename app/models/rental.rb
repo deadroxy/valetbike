@@ -4,6 +4,8 @@ class Rental < ApplicationRecord
     belongs_to :renter, class_name: :User, foreign_key: :renter_id, optional: false
     has_one :payment, class_name: :Payment, foreign_key: :rental_id
     #, #optional: false
+    before_create :add_starting_values
+
     def get_bike
         bike
     end
@@ -31,4 +33,10 @@ class Rental < ApplicationRecord
         end
         return distance / self.getTimeElapsed
     end
+    private
+    def add_starting_values
+        self.start_time = Time.now
+        self.distance = 0
+    end
+    
 end

@@ -10,6 +10,6 @@
     <div class="form-buttons">
       <%#= f.submit("Begin Rental") %>
     </div>
-    <%= button_to 'rent', {:controller => "rentals", :action => "create", :bike_id => params[:id], :renter_id => current_user.id} %>
+    <%= button_to 'rent', {:controller => "rentals", :action => "create", :rental=>{:bike_id=>@bike.id, :renter_id=>current_user.id}} %>
   <%# end %>
 </div>

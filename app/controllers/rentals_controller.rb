@@ -7,14 +7,16 @@ class RentalsController < ApplicationController
 
   def new
     @bike = Bike.find(params[:id])
-    @rental = Rental.new(bike_id: @bike.id, renter_id: current_user.id)
+    @rental = Rental.new
   end
 
   def create
-    #@bike = Bike.find(params[:rental])
     @rental = Rental.new(rental_params)
-    #@rental.user_id = current_user.id
     if @rental.save
+      bike = Bike.find(@rental.bike_id)
+      #bike.current_station_id=nil
+      bike.update(current_station: nil)
+      bike.save
       redirect_to(pages_success_path)
     else
       @rental.get_bike
@@ -34,9 +36,7 @@ class RentalsController < ApplicationController
   private 
 
   def rental_params 
-    params.
-      require(:rental).
-      permit(bike_id: params[:bike_id], user_id: params[:user_id])
+    params.require(:rental).permit(:bike_id, :renter_id)
   end
 
 end
