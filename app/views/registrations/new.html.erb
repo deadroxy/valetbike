@@ -38,11 +38,11 @@
 			
 		h2 {
 			font-size: 36px;
-			color: #333333;
+			color: #8C1627;;
 			margin-top: 0;
 			margin-bottom: 40px;
-			text-align: center;
-			display: block;	
+			margin-left: 350px;
+			align-self: center;
 		}
 		
 		button {
@@ -89,7 +89,7 @@
 		}
 		
 		.create-btn {
-			background-color: #838383;
+			background-color: #8C1627;
 		  color: #FFFFFF;
 		  border: none;
 		  border-radius: 15px;
@@ -116,9 +116,26 @@
 		  }
 		  
 		  a {
+			color:Black;
+			text-decoration: none;
+		  }
+		a:hover {
 			color:#5B86E5;
 			text-decoration: none;
 		  }
+		
+		.login-link {
+			color: #5B86E5;
+			text-decoration: none;
+		  }
+		  
+		.login-link:hover {
+			color: #5B86E5;
+			text-decoration: underline;
+
+		  }
+		  
+		
 		  
 	</style>
 </head>
@@ -147,21 +164,24 @@
 			<% resource_name ||= :user %>
 			<% devise_mapping ||= Devise.mappings[:user] %>
 
-			<%= form_for(resource, as: resource_name, url: new_user_registration_path(resource_name)) do |f| %>
-				<label for="fullname">Full Name</label>
-				<%= f.text_field :fullname, autofocus: true, id: "fullname", required: true %>
-			  
-				<label for="email">Email</label>
-				<%= f.email_field :email, id: "email", required: true %>
-			  
-				<label for="password">Password</label>
-				<%= f.password_field :password, id: "password", required: true %>
-			  
-				<!-- Add error messages right before the submit button -->
-				<p class="error-messages" style="color: red;"><%= render 'shared/error_messages', resource: resource %></p>
-			  
-				<%= f.submit "Create Account", class: "create-btn" %>
-			  <% end %>
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			<label for="fullname">Full Name</label>
+			<%= f.text_field :fullname, autofocus: true, id: "fullname", required: true %>
+			
+			<label for="email">Email</label>
+			<%= f.email_field :email, id: "email", required: true %>
+			
+			<label for="password">Password</label>
+			<%= f.password_field :password, id: "password", required: true %>
+			
+			<!-- Add error messages right before the submit button -->
+			<p class="error-messages" style="color: red;"><%= render 'shared/error_messages', resource: resource %></p>
+			
+			<%= f.submit "Create Account", class: "create-btn" %>
+			<p>Already have an account? <%= link_to "Login", :new_user_session, class: "login-link" %></p>
+
+			<% end %>
+
 			  
 		</div>
 	</div>

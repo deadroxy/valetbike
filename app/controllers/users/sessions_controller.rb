@@ -1,4 +1,11 @@
 class Users::SessionsController < Devise::SessionsController
+
+   
+  def new
+    render 'sessions/new'
+  end
+
+  
   def destroy
     super do
       flash[:notice] = "You have logged out successfully"
@@ -11,6 +18,9 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     super(resource) || locations_path
   end
+
+ 
+  
 
   def login
     # ...
