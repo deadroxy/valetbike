@@ -75,44 +75,7 @@
           </div>
 
           <script>
-            const stationsPerPage = 4;
-
-            function getStations(page) {
-              $.ajax({
-                url: "/stations",
-                data: { page: page, per_page: stationsPerPage },
-                dataType: "html",
-                success: function(data) {
-                  $("#stations-list").html(data);
-                }
-              });
-            }
-
-            $("#pagination").will_paginate({
-              containerClass: "pagination",
-              previousLabel: "&laquo;",
-              nextLabel: "&raquo;",
-              innerWindow: 2,
-              outerWindow: 0,
-              activeClassName: "active",
-              ajax: {
-                dataType: "html",
-                beforeSend: function() {
-                  $("#stations-list").html("<div class='loading'>Loading...</div>");
-                },
-                success: function(data, textStatus, jqXHR) {
-                  $("#stations-list").html(data);
-                }
-              }
-            });
-
-            getStations(1);
-
-            $("#pagination").on("click", ".pagination a", function() {
-              const page = $(this).attr("href").split("=")[1];
-              getStations(page);
-              return false;
-            });
+            <%= render(partial: 'showStation', formats: [:js]) %>
           </script>
 
           <script>
@@ -163,7 +126,7 @@
               const infoWindow = new google.maps.InfoWindow();
 
               for (let station of stations) {
-                const stationLatLng = { lat: station["latitude"], lng: station["longitude"] };
+                const stationLatLng = { lat: Number(station["latitude"]), lng: Number(station["longitude"]) };
                 const docked_bikes_id = station["id"] + "_docked"
                 const station_element = document.getElementById(`${docked_bikes_id}`);
                 const contentString =
