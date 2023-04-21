@@ -5,12 +5,6 @@ class ChargesController < ApplicationController
   end
 
   def create
-    customer = Charge.create_customer(email: params[:stripeEmail], 
-                                          stripe_token: params[:stripeToken])
-
-    charge = Charge.create_charge(customer_id: customer.id, 
-                                      amount: @amount,
-                                      description: 'Rails Stripe customer')
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
