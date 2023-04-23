@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,8 +25,13 @@ class User < ApplicationRecord
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
 
-    def get_name
+    before_create :set_default_values
 
+    def get_name
+    end
+
+    def set_default_values
+        @membership = Membership.find(00004)
     end
 
     def get_email
@@ -44,6 +50,9 @@ class User < ApplicationRecord
     def has_payment_info
     end
 
+    def get_membership
+        @membership
+    end
 
     #(* reference: belows are from the Ruby Training *)#
     def full_name
