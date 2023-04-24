@@ -1,7 +1,10 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     
-    
+    <% if Current.user.try(:admin?) %>
+        Helllllo!
+    <% end %>
+ 
 
     <div class="section-title">
       Welcome to bikesia   <% if Current.user %> <%= Current.user.username %><% end %> 
