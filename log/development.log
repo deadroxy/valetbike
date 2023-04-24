@@ -23462,3 +23462,286 @@ Processing by MapController#show as HTML
 Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 0.5ms | Allocations: 12477)
 
 
+Started GET "/map" for ::1 at 2023-04-24 18:18:31 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 390)
+  Rendered layout layouts/application.html.erb (Duration: 393.9ms | Allocations: 247405)
+Completed 200 OK in 417ms (Views: 395.5ms | ActiveRecord: 5.4ms | Allocations: 261152)
+
+
+Started GET "/map" for ::1 at 2023-04-24 18:18:34 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 9)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 10845)
+Completed 200 OK in 26ms (Views: 18.2ms | ActiveRecord: 2.3ms | Allocations: 11983)
+
+
+Started GET "/" for ::1 at 2023-04-24 18:18:35 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:4:in `home'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 892)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 11873)
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.5ms | Allocations: 14501)
+
+
+Started GET "/stations" for ::1 at 2023-04-24 18:18:42 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (1.3ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:10
+  [1m[36mBike Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 9[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 3[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 16[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 11[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 4[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 6[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 10[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 12[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 14[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 5[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 13[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 15[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 8[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 1[0m
+  ↳ app/views/stations/_row.html.erb:3
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 2[0m
+  ↳ app/views/stations/_row.html.erb:3
+  Rendered collection of stations/_row.html.erb [16 times] (Duration: 30.8ms | Allocations: 16653)
+  Rendered stations/main.html.erb within layouts/application (Duration: 42.4ms | Allocations: 20526)
+  Rendered layout layouts/application.html.erb (Duration: 53.7ms | Allocations: 31553)
+Completed 200 OK in 69ms (Views: 47.8ms | ActiveRecord: 12.3ms | Allocations: 34885)
+
+
+Started GET "/bikes" for ::1 at 2023-04-24 18:18:44 -0400
+Processing by BikesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering bikes/index.html.erb within layouts/application
+  [1m[36mBike Load (0.5ms)[0m  [1m[34mSELECT `bikes`.* FROM `bikes` ORDER BY `bikes`.`identifier` ASC[0m
+  ↳ app/views/bikes/index.html.erb:9
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 16 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 8 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 16 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 15 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 4 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 8 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 7 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 7 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.1ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 8 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 15 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 7 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 7 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 15 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 16 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 16 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 16 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 11 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 8 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 7 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 13 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 9 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 7 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 6 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 16 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 12 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 14 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 5 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  [1m[36mCACHE Station Load (0.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`id` = 10 LIMIT 1[0m
+  ↳ app/views/bikes/_row.html.erb:3
+  Rendered collection of bikes/_row.html.erb [101 times] (Duration: 54.2ms | Allocations: 53288)
+  Rendered bikes/index.html.erb within layouts/application (Duration: 64.0ms | Allocations: 57559)
+  Rendered layout layouts/application.html.erb (Duration: 70.9ms | Allocations: 68596)
+Completed 200 OK in 78ms (Views: 67.9ms | ActiveRecord: 5.7ms | Allocations: 70337)
+
+
+Started GET "/payment" for ::1 at 2023-04-24 18:18:47 -0400
+Processing by PaymentController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering payment/new.html.erb within layouts/application
+  Rendered payment/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1396)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 12027)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.4ms | Allocations: 13575)
+
+
+Started GET "/map" for ::1 at 2023-04-24 18:18:56 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 10778)
+Completed 200 OK in 26ms (Views: 21.5ms | ActiveRecord: 0.7ms | Allocations: 11836)
+
+
+Started GET "/" for ::1 at 2023-04-24 18:19:17 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:4:in `home'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 356)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 11128)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 0.5ms | Allocations: 12531)
+
+
