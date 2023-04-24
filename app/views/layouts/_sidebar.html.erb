@@ -4,7 +4,7 @@
   <a href="javascript:void(0)" class="openbtn" onclick="show()">☰</a>
     
   </div class ="links" id = "myLinks">
-    <ul>
+    <ul >
       <%if !logged_in?%>
         <li> <%=link_to_unless_current("Create Account", "/users/new")%> </li>
         <li> <%=link_to_unless_current("Log In", "/login")%> </li>

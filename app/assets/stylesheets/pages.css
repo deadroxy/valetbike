@@ -18,6 +18,13 @@
   overflow-x: hidden;
 }
 
+.indexLink{
+  background-color: #93AE90; /* Green */
+  border: dotted;
+  padding: 16px 32px;
+  text-align: center;
+}
+
 #mySidebar {
   height: 100%; /* 100% Full-height */
   position: fixed; /* Stay in place */
