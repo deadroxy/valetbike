@@ -1,0 +1,2 @@
+class MembershipAssignmentController < ApplicationController
+end
