@@ -5,6 +5,8 @@ class RentalsController < ApplicationController
        
     end
 
+
+
     # @form = UserInvitationForm.new(user_invitation_form_params)
     # if @form.submit
     #   redirect_to root_path, notice: 'Thank you for your enquiry'
