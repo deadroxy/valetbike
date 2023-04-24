@@ -2,3 +2,5 @@
 <h1> Now ride like you can fly!!!<h1>
 <h3><%=link_to('Go back to Homepage', root_path)%><h3>
 <h3> Your remaining wallet point is <%= @user.wallet_point %><h3>
+<% $bike= params[:format] %>
+<%=link_to('return', return_path($bike))%>

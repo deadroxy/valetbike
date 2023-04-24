@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#menu', as: 'user'
   get "user/show"
+  get 'return', to: 'rentals#return'
   
   # payment page info
   get "payment", to:'payment#new' # testing
@@ -37,11 +38,13 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
+  get '/bikes/return', to: "bikes#return"
   match'ride',to:"bikes#index", via: :get
   resources :bikes, only: [:index]
   resources :stations, only: [:main, :show]
   resources :users, except: [:new]
   resources :rentals, only: [:new, :create]
+  resources :rentals, only: [:return]
 
   get "rename", to: "username#edit", as: :edit_username
   patch "rename", to: "username#update"

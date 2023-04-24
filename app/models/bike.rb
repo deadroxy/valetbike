@@ -1,7 +1,7 @@
 class Bike < ApplicationRecord
-  validates_presence_of    :identifier, 
-                           :current_station_identifier,
-                           :station_id
+  validates_presence_of    :identifier
+                           #:current_station_identifier,
+                           #:station_id
  
   validates_uniqueness_of  :identifier
 

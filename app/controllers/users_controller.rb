@@ -10,7 +10,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             session[:username] = @user.username
             flash[:notice] = "User created."
-            redirect_to root_path
+            redirect_to root_path(@user)
         else
             render 'new'
         end
