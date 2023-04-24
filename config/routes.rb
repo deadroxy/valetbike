@@ -49,4 +49,7 @@ Rails.application.routes.draw do
   get "change_address", to: "address#edit", as: :edit_address
   patch "change_address", to: "address#update"
 
+  get "change_wallet", to: "wallet#edit", as: :edit_wallet
+  post "change_wallet", to: "wallet#update"
+
 end

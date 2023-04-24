@@ -10,17 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-#ActiveRecord::Schema[7.0].define(version: 2023_04_13_015031) do 
-ActiveRecord::Schema[7.0].define(version: 2023_04_09_163516) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_23_234855) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-
-  create_table "maps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
 
   create_table "payments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,17 +34,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_163516) do
     t.integer "identifier"
     t.string "name"
     t.string "address"
-    
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier"
-    t.string "name"
-    t.string "address"
+  create_table "user_logins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "email"
+    t.string "phone_num"
+    t.string "address"
+    t.string "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "wallet_point", default: 0
+    t.string "default_payment"
   end
 
 end
