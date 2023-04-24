@@ -84,3 +84,5 @@ gem 'leaflet-rails'
 
 gem 'jquery-rails'
 
+gem "geocoder", "~> 1.8"
+gem "mapkick-rb"
