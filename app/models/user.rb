@@ -25,13 +25,7 @@ class User < ApplicationRecord
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
 
-    before_create :set_default_values
-
     def get_name
-    end
-
-    def set_default_values
-        @membership = Membership.find(00004)
     end
 
     def get_email

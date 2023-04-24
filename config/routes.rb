@@ -50,6 +50,9 @@ Rails.application.routes.draw do
   get 'pages/success'
 
 
+  get 'membership_assignment/index'
+  get 'membership_assignment/new'
+
   resources :stations do
     member do
       get :delete
