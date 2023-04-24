@@ -15,6 +15,11 @@
 
         <%= link_to("Payment method", payment_path)%><br>
 
+        default payment: <%= @user.default_payment %><br>
+
+        wallet_point: <%= @user.wallet_point%><br>
+        <%= link_to("Edit wallet point", edit_wallet_path) %><br> 
+
     <%else%>
         You haven't logged in. Please log in to see your user profile. 
         <%= link_to("Click here", login_path) %>

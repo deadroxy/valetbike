@@ -1,5 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
+    
+    
 
     <div class="section-title">
       Welcome to bikesia   <% if Current.user %> <%= Current.user.username %><% end %> 
@@ -26,6 +28,7 @@
                 <ul>
                     <li><a href="#"><%= link_to("Stations", stations_path) %></a ></li>
                     <li><a href="#"><%= link_to("Profile", user_home_path) %></a ></li>
+                    <li><a href="#"><%= link_to("Map", map_path) %></a ></li>
                 </ul>
             </div>
             </div>
