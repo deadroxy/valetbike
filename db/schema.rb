@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_135248) do
     t.index ["user_id"], name: "index_membership_assignments_on_user_id"
   end
 
-  create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "memberships", id: :bigint, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.datetime "start"
@@ -140,5 +140,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_135248) do
   end
 
   add_foreign_key "billing_infos", "logins", column: "logins_id"
+  add_foreign_key "membership_assignments", "memberships", name: "membership_assignments_ibfk_1"
   add_foreign_key "membership_assignments", "users"
 end
