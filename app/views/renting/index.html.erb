@@ -42,9 +42,12 @@
     <br>
 
     <% if user_signed_in? %>
+
         <div class= "button"><%#= link_to 'Rent A bike', {controller: 'cards', action: 'index', station_id: @station[:id]}%>  
         <%= link_to 'Rent A bike', { action: 'create', station_id: @station[:id]}%>
         </div>
+
+
     <%else%>
         <p class="text" style="margin: 10px 350px"> Already a registered User? Login to rent a bike. Sign up otherwise <p>
     <%end%>
