@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #get 'help', to: "main/help"
 
 
-  resources :users, only: [:new, :create] 
+  resources :users, only: [:new, :create, :edit, :update] 
   resources :rentals
 
   get 'login', to: 'sessions#new'
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'stations/map'
   get 'stations/index'
   get 'stations/return'
+  get 'users/update', to: 'users#update'
   #get 'stations/:identifier', to 'stations#location'
 
   #resources :users, except: [:show]
@@ -26,18 +27,6 @@ Rails.application.routes.draw do
 
   resources :sessions, except: [:show]
   resources :main, except: [:show]
-  
- 
-
-
-
-
-  
-
-
-  
- 
-
   # get 'main/menu'
   get 'main/help'
   get 'main/tutorial'
@@ -48,5 +37,4 @@ Rails.application.routes.draw do
   # get 'main/rent'
   # get 'main/return'
   # get 'main/return'
-
 end
