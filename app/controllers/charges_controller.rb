@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
+                :find_membership
 
   def new
   end
@@ -15,7 +16,7 @@ class ChargesController < ApplicationController
     Stripe::Charge.create(
       customer: current_user.customer_id,
       source:   stripe_card_id,
-      amount:   @payment.price_in_cents,
+      amount:   @membership.cost,
       currency: 'usd'
     )
   
@@ -25,7 +26,7 @@ class ChargesController < ApplicationController
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to @product
+      redirect_to @membership
     end
 
   private
@@ -38,11 +39,11 @@ class ChargesController < ApplicationController
     params.require(:charge).permit(:card_id)
   end
   
-  def find_payment
-    @payment = Payment.find(params[:payment_id])
+  def find_membership
+    @membership= Membership.find(params[:membership_id])
   
   rescue ActiveRecord::RecordNotFound => e
-    flash[:error] = 'Product not found!'
+    flash[:error] = 'Membership not found!'
     redirect_to root_path
   end
 end

@@ -71,4 +71,7 @@ Rails.application.routes.draw do
 
   resources :charges, only: [:new, :create]
   resources :customer_portal_sessions, only: [:create]
+  resources :cards
+
+  mount StripeEvent::Engine, at: '/payments'
 end
