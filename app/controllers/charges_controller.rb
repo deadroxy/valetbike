@@ -16,12 +16,12 @@ class ChargesController < ApplicationController
     Stripe::Charge.create(
       customer: current_user.customer_id,
       source:   stripe_card_id,
-      amount:   @membership.cost,
+      amount:   @membership.price,
       currency: 'usd'
     )
   
     if params[:card].present? && stripe_card_id
-      current_user.credit_cards.create_with(card_params).find_or_create_by(stripe_id: stripe_card_id)
+      current_user.cards.create_with(card_params).find_or_create_by(stripe_id: stripe_card_id)
     end
 
     rescue Stripe::CardError => e
@@ -36,7 +36,7 @@ class ChargesController < ApplicationController
   end
   
   def charge_params
-    params.require(:charge).permit(:card_id)
+    params.permit(:card_id)
   end
   
   def find_membership

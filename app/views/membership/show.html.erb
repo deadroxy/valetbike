@@ -1,4 +1,23 @@
-<div>
-  <h1 class="font-bold text-4xl">Membership#show</h1>
-  <p>Find me in app/views/membership/show.html.erb</p>
-</div>
+## not sure if this can be in here
+
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <strong>Name:</strong>
+  <%= @membership.name %>
+</p>
+ 
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@membership.cost) %>
+</p>
+ 
+  
+<%= render 'shared/card_and_charge_form', membership: @membership %>
+ 
+<% if current_user.cards.reject{ |card| card.new_record? }.any? %>
+  <%= render 'shared/charge_form', membership: @membership %>
+<% end %>
+ 
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>

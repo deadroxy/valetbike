@@ -7,4 +7,8 @@ class Membership < ApplicationRecord
                             :name,
                             :position
     validates :cost, presence: true
+
+    def price
+        cost
+    end
 end
