@@ -1,7 +1,41 @@
+<%= stylesheet_link_tag 'payment' %>
+
 <div>
 
 <h1>Payment</h1>
 <br>
+
+<script>
+		function showOptions() {
+			var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+			if (paymentMethod === "creditCard") {
+				document.getElementById("creditCardOptions").style.display = "block";
+				document.getElementById("paypalOptions").style.display = "none";
+				document.getElementById("couponOptions").style.display = "none";
+				document.getElementById("applePayOptions").style.display = "none";
+			} else if (paymentMethod === "paypal") {
+				document.getElementById("creditCardOptions").style.display = "none";
+				document.getElementById("paypalOptions").style.display = "block";
+				document.getElementById("couponOptions").style.display = "none";
+				document.getElementById("applePayOptions").style.display = "none";
+			} else if (paymentMethod === "coupon") {
+				document.getElementById("creditCardOptions").style.display = "none";
+				document.getElementById("paypalOptions").style.display = "none";
+				document.getElementById("couponOptions").style.display = "block";
+				document.getElementById("applePayOptions").style.display = "none";
+			} else if (paymentMethod === "applePay") {
+				document.getElementById("creditCardOptions").style.display = "none";
+				document.getElementById("paypalOptions").style.display = "none";
+				document.getElementById("couponOptions").style.display = "none";
+				document.getElementById("applePayOptions").style.display = "block";
+			} else {
+				document.getElementById("creditCardOptions").style.display = "none";
+				document.getElementById("paypalOptions").style.display = "none";
+				document.getElementById("couponOptions").style.display = "none";
+				document.getElementById("applePayOptions").style.display = "none";
+			}
+		}
+	</script>
 
 <div>
     <a class="toggle" href="<%= bikes_path %>">&emsp; Back to Bike Fleet</a>
@@ -11,16 +45,66 @@
 
     <div>
         <form action="/action_page.php"> <!-- this should be payment_action or the payment controller page -->
-            <h2>Select payment method:</h2>
-              <input type="radio" id="paypal" name="pay_method" value="PayPal">
-              <label for="paypal">PayPal</label><br>
-              <input type="radio" id="creditdebit" name="pay_method" value="Debit/Credit">
-              <label for="creditdebit">Credit/Debit</label><br>
-              <input type="radio" id="coupon" name="pay_method" value="Coupon">
-              <label for="coupon">Enter a Coupon</label>
+
+            <h2>Select Payment Method:</h2><br>
+		    <label><input type="radio" name="paymentMethod" value="paypal" onchange="showOptions()">PayPal</label><br>
+		    <label><input type="radio" name="paymentMethod" value="creditCard" onchange="showOptions()">Credit/Debit</label><br>
+		    <label><input type="radio" name="paymentMethod" value="coupon" onchange="showOptions()">Coupon</label><br>
+		    <label><input type="radio" name="paymentMethod" value="applePay" onchange="showOptions()">Apple Pay</label><br>
 
         <br><br><br>
 
+        <!-- hidden div options: -->
+
+        <div id="creditCardOptions" style="display: none;">
+            <h3>Credit / Debit Card Payment</h3>
+            <label for="fnamecard">First Name:</label>
+            <input type="text" id="fnamecard" name="fnamecard">
+            <label for="lnamecard">Last Name:</label>
+            <input type="text" id="lnamecard" name="lnamecard">
+            <br><br>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber">
+            <br><br>
+            
+            <div class="card-details-container">
+                <div class="expiry-date-container">
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="month" id="expiry-date" name="expiry-date">
+                </div>
+                
+                <div class="cvv-container">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="paypalOptions" style="display: none;">
+            <!-- this will eventually redirect to paypal API -->
+            <h3>PayPal Payment</h3>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+
+        <div id="couponOptions" style="display: none;">
+            <h3>Coupon</h3>
+            <label for="couponNumber">Coupon Number:</label>
+            <input type="text" id="couponNumber" name="couponNumber">
+            <label for="couponSecurityCode">Coupon Security Code:</label>
+            <input type="text" id="couponSecurityCode" name="couponSecurityCode">
+        </div>
+
+
+        <div id="applePayOptions" style="display: none;">
+            <h3>ApplePay</h3>
+            <p>Redirecting to your device...</p>
+        </div>
+
+        <br>
             <input type="submit" value="Submit">
 
 
