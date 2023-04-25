@@ -1,11 +1,20 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: Helvetica, sans-serif;
+    background-color: #05113a;
   }
   
-  h1, h2, h3 {
+  h1 {
+    text-align: center;
+    font-weight: 750;
+    font-size: 50px;
+    margin-top: 30px;
+  }
+
+
+  h2, h3 {
     text-align: center;
     font-weight: 700;
+    font-size: 23px;
     margin-top: 30px;
   }
   
@@ -74,9 +83,10 @@ body {
   .toggle {
     display: block;
     margin-top: 30px;
-    text-align: center;
-    color: #666;
-    font-size: 14px;
+    font-weight: 250;
+    text-align: left;
+    color: #0E4D64;
+    font-size: 18px;
     text-decoration: none;
   }
   

@@ -13,26 +13,37 @@
 				document.getElementById("paypalOptions").style.display = "none";
 				document.getElementById("couponOptions").style.display = "none";
 				document.getElementById("applePayOptions").style.display = "none";
+                document.getElementById("walletOptions").style.display = "none";
 			} else if (paymentMethod === "paypal") {
 				document.getElementById("creditCardOptions").style.display = "none";
 				document.getElementById("paypalOptions").style.display = "block";
 				document.getElementById("couponOptions").style.display = "none";
 				document.getElementById("applePayOptions").style.display = "none";
+                document.getElementById("walletOptions").style.display = "none";
 			} else if (paymentMethod === "coupon") {
 				document.getElementById("creditCardOptions").style.display = "none";
 				document.getElementById("paypalOptions").style.display = "none";
 				document.getElementById("couponOptions").style.display = "block";
 				document.getElementById("applePayOptions").style.display = "none";
-			} else if (paymentMethod === "applePay") {
+                document.getElementById("walletOptions").style.display = "none";
+			} else if (paymentMethod === "wallet") {
+				document.getElementById("creditCardOptions").style.display = "none";
+				document.getElementById("paypalOptions").style.display = "none";
+				document.getElementById("couponOptions").style.display = "none";
+				document.getElementById("applePayOptions").style.display = "none";
+                document.getElementById("walletOptions").style.display = "block";
+			}else if (paymentMethod === "applePay") {
 				document.getElementById("creditCardOptions").style.display = "none";
 				document.getElementById("paypalOptions").style.display = "none";
 				document.getElementById("couponOptions").style.display = "none";
 				document.getElementById("applePayOptions").style.display = "block";
+                document.getElementById("walletOptions").style.display = "none";
 			} else {
 				document.getElementById("creditCardOptions").style.display = "none";
 				document.getElementById("paypalOptions").style.display = "none";
 				document.getElementById("couponOptions").style.display = "none";
 				document.getElementById("applePayOptions").style.display = "none";
+                document.getElementById("walletOptions").style.display = "none";
 			}
 		}
 	</script>
@@ -47,6 +58,7 @@
         <form action="/action_page.php"> <!-- this should be payment_action or the payment controller page -->
 
             <h2>Select Payment Method:</h2><br>
+            <label><input type="radio" name="paymentMethod" value="wallet" onchange="showOptions()">My Account Balance</label><br>
 		    <label><input type="radio" name="paymentMethod" value="paypal" onchange="showOptions()">PayPal</label><br>
 		    <label><input type="radio" name="paymentMethod" value="creditCard" onchange="showOptions()">Credit/Debit</label><br>
 		    <label><input type="radio" name="paymentMethod" value="coupon" onchange="showOptions()">Coupon</label><br>
@@ -88,6 +100,12 @@
             <input type="text" id="email" name="email">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
+        </div>
+
+        <div id="walletOptions" style="display: none;">
+            <!-- this will eventually redirect to paypal API -->
+            <h3>Account Balance: $xxx.xx </h3>
+            <p>Showing</p>
         </div>
 
         <div id="couponOptions" style="display: none;">
