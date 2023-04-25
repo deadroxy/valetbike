@@ -78,7 +78,6 @@ end
 
 # Developer added gem
 gem 'dotenv-rails'
-
 # map gems
 gem 'leaflet-rails' 
 

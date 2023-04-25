@@ -38,6 +38,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_163516) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_logins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -47,6 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_163516) do
     t.string "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "wallet_point", default: 0
+    t.string "default_payment"
+    t.boolean "admin"
   end
 
 end
