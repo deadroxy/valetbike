@@ -31,4 +31,10 @@ class Station < ApplicationRecord
     #return number of empty docks at station
     num_docks - docked_bikes.count
   end
+
+  def available_docks
+    Station.docked_bikes
+    # use map to get docks_ids
+    # hash set exclusion 
+  end
 end
