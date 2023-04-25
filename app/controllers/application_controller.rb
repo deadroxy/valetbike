@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
         # byebug
         !current_user.nil? #not the case the the current user  
     end
+    
 
     def authorized
         redirect_to '/index' unless logged_in?
