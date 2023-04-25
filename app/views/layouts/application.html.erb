@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%= csrf_meta_tags %>
-
+    
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= csrf_meta_tags %>
@@ -10,7 +10,10 @@
     <%= stylesheet_link_tag "application.tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-    <%= javascript_importmap_tags %>
+    <%= javascript_importmap_tags %> <!-- Keep this line -->
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+<%= javascript_include_tag 'flash_popup', 'data-turbolinks-track': 'reload' %>
+
     <%= yield :javascript %>
     
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
@@ -98,13 +101,46 @@
         justify-content: space-between;
         float: right;
       }
+
+    
+
+      .flash-popup {
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .flash-message {
+        background-color: #FFEEE4;
+        color: #8C1627;
+        padding: 30px;
+        border-radius: 7px;
+        border_color: grey;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        text-align: center;
+      }
+
+      .flash-popup-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
    </style>
  </head>
  <body>
 
- <% flash.each do |key, value| %>
-  <div class = "alert alert-<%= key %>"><%= value %></div>
-<% end %>
+
 
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
@@ -113,5 +149,6 @@
       <%= render "layouts/footer" %>
       </div>
     </div>
+    <%= render 'shared/flash_popup' %>
  </body>
 </html>

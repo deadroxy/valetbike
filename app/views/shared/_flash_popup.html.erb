@@ -1,0 +1,11 @@
+<% if flash.present? %>
+  <div id="flash-popup" class="flash-popup">
+    <div class="flash-message">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>"><%= message %></div>
+      <% end %>
+      <span class="flash-popup-close" onclick="closeFlashPopup()">&times;</span>
+    </div>
+  </div>
+<% end %>
+
