@@ -12,6 +12,8 @@ class Bike < ApplicationRecord
 
   # belongs_to: user, class_name: :User, foreign_key: :user_id, optional: true
 
+  before_update :set_default_dock, if: Proc.new {|t| t.current_station && (t.dock_id.blank? || t.dock_id < 1) }
+
   attr_accessor :current_station_id
 
 
@@ -38,5 +40,11 @@ class Bike < ApplicationRecord
   def station_id=(new_station_id)
     @station_id = new
   end
+
+  private
+    def set_default_dock
+        max = Bike.where(current_station: self.current_station).maximum(:dock_id) || 0
+        self.dock_id = max + 1
+    end
 
 end
