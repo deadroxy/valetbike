@@ -4,7 +4,7 @@
     <%= membership.id %>
   <% end %>
    <div class="flexbox vertical stretch">
-      <% if @membership.present? %>
+      <% if @memberships.present? %>
         <%= render(partial: "membership/row", collection: @memberships, as: :membership) %>
       <% else %>
       <div class="empty">

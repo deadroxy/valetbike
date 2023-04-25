@@ -45,7 +45,7 @@ class User < ApplicationRecord
     end
 
     def get_membership
-        @membership
+        @membership_assignments
     end
 
     #(* reference: belows are from the Ruby Training *)#
