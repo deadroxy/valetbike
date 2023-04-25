@@ -18,20 +18,47 @@
   overflow-x: hidden;
 }
 
-.indexLink{
-  background-color: #93AE90; /* Green */
-  border: dotted;
-  padding: 16px 32px;
+body,
+html {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  gap: 0.625%;
+}
+
+a {
+  flex: 1;
+  text-decoration: none;
+  outline: none;
   text-align: center;
+  line-height: 3;
+  border-radius: 4px;
+  color: black;
+}
+
+a:link,
+a:visited,
+a:focus {
+  background: #93AE90;
+  color: black;
+}
+
+a:hover {
+  outline: none;
+  background: #bcd5ba ;
+}
+
+a:active {
+  background: #71876f;
+  color: white;
 }
 
 #mySidebar {
-  height: 100%; /* 100% Full-height */
-  position: fixed; /* Stay in place */
+  height: 800px; /* 100% Full-height */
   position: absolute; /* Stay in place */
-  height: 100x;
-  height: 100x;
-  position: absolute; /* for it to not Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
@@ -96,6 +123,7 @@
 .openbtn:hover {
   background-color: #b4a9da;
 }
+
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
