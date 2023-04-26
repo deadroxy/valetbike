@@ -33,8 +33,14 @@ class Station < ApplicationRecord
   end
 
   def available_docks
-    Station.docked_bikes
+    current_docks = docked_bikes.map {|bike| bike.get_dock}
+    all_docks = [*1..num_docks]
+    all_docks.excluding(current_docks)
     # use map to get docks_ids
     # hash set exclusion 
+  end
+
+  def get_available_dock
+    available_docks.first
   end
 end

@@ -52,21 +52,21 @@ class Bike < ApplicationRecord
     def validate_dock
       this_station_bikes = Bike.where(current_station: self.current_station)
       this_station_bikes = this_station_bikes.where(dock_id: dock_id)
-      if this_station_bikes && this_station_bikes.count > 0:
+      if this_station_bikes && this_station_bikes.count > 0
         errors.add(:dock_id, "must be unique at this station")
       end
-      if dock_id > Station.find(station_id).get_num_docks || dock_id < 1
+      if dock_id > Station.find(self.current_station_id).get_num_docks || dock_id < 1
         errors.add(:dock_id, "must be a valid dock")
       end
     end
     
     def validate_station
       unless station_id.present?
-        if Station.find(station_id).get_available_docks < 1:
+        if self.current_station.get_available_docks < 1
           errors.add(:station, "must have available docks")
         end
       end
     end
     
-
+    
 end
