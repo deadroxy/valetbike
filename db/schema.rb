@@ -33,6 +33,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
   end
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "identifier"
+    t.string "card_holder_name"
+    t.integer "card_number"
+    t.integer "CVC"
+    t.string "billing_address"
+    t.integer "billing_zip"
+    t.string "billing_state"
+    t.datetime "expiration_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "digits"
     t.integer "month"
     t.integer "year"
@@ -127,9 +137,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.bigint "customer_id"
@@ -138,5 +145,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
   end
 
   add_foreign_key "billing_infos", "logins", column: "logins_id"
+  add_foreign_key "membership_assignments", "memberships"
   add_foreign_key "membership_assignments", "users"
 end
