@@ -8,6 +8,7 @@
 <p>
   <strong>Price:</strong>
   <%= number_to_currency(@membership.cost) %>
+  <%= hidden_field_tag :membership_id, @membership.id %>
 </p>
  
 <%= render 'shared/card_and_charge_form', membership: @membership %>

@@ -2,21 +2,14 @@ class ChargesController < ApplicationController
   before_action :authenticate_user!
                 :amount_to_be_charged
                 :set_description
-                :find_membership
 
   def thanks
   end
 
-  def index
-    #should add a position and order by that
-    @memberships = Membership.all.order(:position)
-  end
-
-  def show
-    @membership = Membership.find(params[:id])
-  end
-
   def new
+  end
+
+  def index
   end
 
   def create
@@ -44,9 +37,7 @@ class ChargesController < ApplicationController
       @desciprtion = "Some amazing membership"
     end
 
-    def find_membership
-      @membership= Membership.find(params[:id])
-    end
+
   end
 end
 
