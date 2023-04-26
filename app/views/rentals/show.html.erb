@@ -14,7 +14,7 @@ start time: <%= @rental.created_at %> <br>
 current time: <%= Time.now %> <br>
 length of ride: <%= Time.now - @rental.created_at %> 
 
-ready to return? click here! <!-- >
+ <%=link_to('ready to return? click here!', edit_rental_path(@rental.id)) %>
 
 
 

@@ -1,0 +1,21 @@
+<% @current_station = params[:station] %>
+current station: <%= @current_station%>
+
+
+<% stations = Station.where(is_full: 0) %>
+<%stations.each do |station| %>
+<br>
+<%= station.identifier%>
+<%= form_for @rental do |f|%>
+   
+    <%= f.hidden_field :end_time, value: Time.now%><br>
+    <strong><%= f.submit%></strong>
+  
+<% end%>
+
+<div>
+  <h1 Return My Bike </h1>
+
+
+
+<%end%>
