@@ -8,7 +8,7 @@ class Membership < ApplicationRecord
                             :position
     validates :cost, presence: true
 
-    def price
-        cost
+    def price_in_cents
+        (cost * 100).to_i
     end
 end

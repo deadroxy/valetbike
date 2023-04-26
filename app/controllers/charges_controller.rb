@@ -7,6 +7,15 @@ class ChargesController < ApplicationController
   def thanks
   end
 
+  def index
+    #should add a position and order by that
+    @memberships = Membership.all.order(:position)
+  end
+
+  def show
+    @membership = Membership.find(params[:id])
+  end
+
   def new
   end
 
@@ -18,7 +27,7 @@ class ChargesController < ApplicationController
       
     charge = Stripe::Charge.create(
       customer: customer.id,
-      amount: @amount,
+      amount: 1800,
       description: @desciption,
       currency: 'usd'
     )
@@ -28,23 +37,16 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to @memberships
-    end
 
   private
-
-    def amount_to_be_charged
-      @amount = 500
-    end
 
     def description
       @desciprtion = "Some amazing membership"
     end
 
     def find_membership
-      @membership= Membership.find(params[:membership_id])
-      rescue ActiveRecord::RecordNotFound => e
-        flash[:error] = 'Membership not found!'
-        redirect_to root_path
+      @membership= Membership.find(params[:id])
     end
+  end
 end
 

@@ -1,5 +1,3 @@
-## not sure if this can be in here
-
 <p id="notice"><%= notice %></p>
  
 <p>
@@ -12,4 +10,4 @@
   <%= number_to_currency(@membership.cost) %>
 </p>
  
-<%= link_to 'Join!', new_charge_path %>
+<%= render 'shared/card_and_charge_form', membership: @membership %>

@@ -4,6 +4,9 @@ class MembershipController < ApplicationController
     @memberships = Membership.all.order(:position)
   end
 
+  def thanks
+  end
+
   def show
     @membership = Membership.find(params[:id])
   end
