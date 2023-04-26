@@ -1,6 +1,10 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
-  <%= bike.identifier %>
+<td style="">
+  <% if bike %>
+  <%= bike.dock_id %> (<%= bike.identifier %>) <br>
   <% if user_signed_in? %>
-  <%= link_to "Rent", {action: 'new', controller: 'rentals', id: bike.id,} %>
+  <%= link_to "Rent", {action: 'new', controller: 'rentals', id: bike.id} %>
   <% end %>
-</div>
+  <% else %>
+  No bike
+  <% end %>
+</td>

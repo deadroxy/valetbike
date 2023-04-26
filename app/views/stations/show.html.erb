@@ -12,7 +12,12 @@
     <% end %>
       <% if @station.docked_bikes.present? %>
         Available bikes docked:
-        <%= render(partial: "stations/bike_row", collection: @station.docked_bikes, as: :bike) %>
+        <table>
+          <tr>
+            <%= render(partial: "stations/bike_row", collection: @station.docks_with_bikes, as: :bike) %>
+          </tr>
+        </table>
+        
       <% else %>
       <div class="empty">
         No bikes found at this station.
