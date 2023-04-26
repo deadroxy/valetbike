@@ -1,10 +1,11 @@
 class StationsController < ApplicationController
   
   def index
+    @all_stations = Station.all.order(identifier: :asc)
     if params[:search]
       @stations = Station.search(params[:search]).order(identifier: :asc).paginate(page: params[:page], per_page: 4)
     else
-      @stations = Station.all.order(identifier: :asc).paginate(page: params[:page], per_page: 4)
+      @stations = @all_stations.paginate(page: params[:page], per_page: 4)
     end
 
 
@@ -23,10 +24,11 @@ class StationsController < ApplicationController
   end
 
   def search
+    @all_stations = Station.all.order(identifier: :asc)
     if params[:search]
       @stations = Station.search(params[:search]).order(identifier: :asc).paginate(page: params[:page], per_page: 4)
     else
-      @stations = Station.all.order(identifier: :asc).paginate(page: params[:page], per_page: 4)
+      @stations = @all_stations.paginate(page: params[:page], per_page: 4)
     end
 
     render ('index')
