@@ -46,8 +46,8 @@ user.save!
 #Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
 
 membership = Membership.new(
-  :identifier => 00001,
-  :name              => 'Premium Monthly',
+  :identifier        => 00001,
+  :name              => 'Basic Monthly',
   :position          => 1,
   :payment_frequency => 90,
   :cost              => 18.5,
@@ -56,7 +56,7 @@ membership = Membership.new(
 membership.save!
 
 membership = Membership.new(
-  :identifier => 00002,
+  :identifier        => 00002,
   :name              => 'Premium Monthly',
   :position          => 2,
   :payment_frequency => 2.5,
@@ -66,7 +66,7 @@ membership = Membership.new(
 membership.save!
 
 membership = Membership.new(
-  :identifier => 00003,
+  :identifier        => 00003,
   :name              => 'Student Special',
   :position          => 3,
   :payment_frequency => 1,

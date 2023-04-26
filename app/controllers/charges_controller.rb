@@ -1,50 +1,50 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
+                :amount_to_be_charged
+                :set_description
                 :find_membership
+
+  def thanks
+  end
 
   def new
   end
 
   def create
-    stripe_card_id =
-      if params[:card].present?
-        CreditCardService.new(current_user.id, card_params).create_card
-      else
-        charge_params[:card_id]
-      end
-  
-    Stripe::Charge.create(
-      customer: current_user.customer_id,
-      source:   stripe_card_id,
-      amount:   @membership.price,
+    customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
+    )
+      
+    charge = Stripe::Charge.create(
+      customer: customer.id,
+      amount: @amount,
+      description: @desciption,
       currency: 'usd'
     )
   
-    if params[:card].present? && stripe_card_id
-      current_user.cards.create_with(card_params).find_or_create_by(stripe_id: stripe_card_id)
-    end
+    redirect_to thanks_path
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
-      redirect_to @membership
+      redirect_to @memberships
     end
 
   private
 
-  def card_params
-    params.require(:card).permit(:number, :month, :year, :cvc)
-  end
-  
-  def charge_params
-    params.permit(:card_id)
-  end
-  
-  def find_membership
-    @membership= Membership.find(params[:membership_id])
-  
-  rescue ActiveRecord::RecordNotFound => e
-    flash[:error] = 'Membership not found!'
-    redirect_to root_path
-  end
+    def amount_to_be_charged
+      @amount = 500
+    end
+
+    def description
+      @desciprtion = "Some amazing membership"
+    end
+
+    def find_membership
+      @membership= Membership.find(params[:membership_id])
+      rescue ActiveRecord::RecordNotFound => e
+        flash[:error] = 'Membership not found!'
+        redirect_to root_path
+    end
 end
 

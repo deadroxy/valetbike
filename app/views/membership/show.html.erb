@@ -12,12 +12,4 @@
   <%= number_to_currency(@membership.cost) %>
 </p>
  
-  
-<%= render 'shared/card_and_charge_form', membership: @membership %>
- 
-<% if current_user.cards.reject{ |card| card.new_record? }.any? %>
-  <%= render 'shared/charge_form', membership: @membership %>
-<% end %>
- 
-<%= link_to 'Edit', edit_membership_path(@membership) %> |
-<%= link_to 'Back', memberships_path %>
+<%= link_to 'Join!', new_charge_path %>

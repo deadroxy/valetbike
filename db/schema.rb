@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_170856) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_183426) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_170856) do
     t.string "digits"
     t.integer "month"
     t.integer "year"
+    t.integer "user_id"
   end
 
   create_table "logins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -62,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_170856) do
     t.index ["user_id"], name: "index_membership_assignments_on_user_id"
   end
 
-  create_table "memberships", id: :bigint, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
     t.datetime "start"
@@ -136,6 +137,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_170856) do
   end
 
   add_foreign_key "billing_infos", "logins", column: "logins_id"
-  add_foreign_key "membership_assignments", "memberships", name: "membership_assignments_ibfk_1"
   add_foreign_key "membership_assignments", "users"
 end
