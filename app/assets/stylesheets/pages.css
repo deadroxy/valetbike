@@ -57,7 +57,7 @@ a:active {
 }
 
 #mySidebar {
-  height: 800px; /* 100% Full-height */
+  height: 825px; /* 100% Full-height */
   position: absolute; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -128,7 +128,7 @@ a:active {
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s; /* If you want a transition effect */
-  padding: 20px;
+  padding: 5px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
