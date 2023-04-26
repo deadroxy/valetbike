@@ -5,6 +5,9 @@ class RentalsController < ApplicationController
        
     end
 
+    def show 
+        @rental = Rental.find(params[:id])
+    end 
 
 
     # @form = UserInvitationForm.new(user_invitation_form_params)
@@ -16,11 +19,25 @@ class RentalsController < ApplicationController
     
 
     def create
-        puts "rental is #{:rental}"
+        puts "rental is #{@rental}"
         @rental = Rental.new(params.require(:rental).permit(:user_id, :bike_id, :start_station_id, :end_station_id, :end_time, :price, :start_time, :end_time ))
         if @rental.save 
             puts "saved"
-            redirect_to '/rentals/show' # this should actually go to the active ride page, just wanted somwhere random to send it for now 
+            @current_bike = Bike.where(id: @rental.bike_id )
+            @current_bike.update(current_station_identifier: 0, status: 1) 
+            
+
+            #puts params[:bike_id]
+            #bikes = Bike.where(current_station_identifier: @station.identifier )
+           #
+            # puts "bike is "
+            # puts  @current_bike 
+            # @current_bike.update(current_station_identifier: 00)
+            # puts "changed station"
+
+            #remove bike from station 
+            #change bike status to one 
+            redirect_to rental_path(@rental) # this should actually go to the active ride page, just wanted somwhere random to send it for now 
         else
             render('new') 
             puts "save failed"

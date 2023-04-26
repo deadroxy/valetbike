@@ -1,18 +1,19 @@
-<!DOCTYPE html>
 <html>
-<body>
-<head>
-   <meta name="viewport" content="width=device=-width, initial-scale=1.0">
-   <title>MAP</title>
-   <link rel="stylesheet" href="pages.css">
-</head>
-</body>
-   <div>
-   <h1 style="border:2px solid #93AE90"> Embed Location Map</h1>
-   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94387.44077292664!2d-72.73344028994573!3d42.329569187989264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e6d73e7c8e2a05%3A0xc316750b13d8db0b!2sNorthampton%2C%20MA!5e0!3m2!1sen!2sus!4v1681171717942!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-   <div>
+  <head>
+    <title>Add Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-   <br/><br/><br/><br/><br/>
-</body>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- prettier-ignore -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyC9hw8FI-IhiSv5WnFYkbvWHNf3fYNjLUQ", v: "beta"});</script>
+  </body>
 </html>
 
