@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_16_234432) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_16_174626) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -33,19 +33,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_234432) do
     t.float "card_balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "uid"
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "rentings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bike_id"
-    t.integer "start_station_id"
-    t.integer "end_station_id"
+    t.string "current_station_name"
+    t.integer "current_station_id"
     t.datetime "startTime"
     t.datetime "endTime"
     t.boolean "status"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,15 +66,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_234432) do
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "country"
     t.string "address"
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
