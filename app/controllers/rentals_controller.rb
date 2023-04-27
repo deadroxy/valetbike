@@ -44,18 +44,18 @@ class RentalsController < ApplicationController
     
     def update
         @rental = Rental.find(params[:id])
-        if @rental.update(params.require(:station).permit(:user_id, :bike_id, :start_station_id, :end_station_id, :end_time, :price, :start_time, :end_time ))
-      
-        @current_user = User.where(id: @rental.user_id)
-        @new_credit = current_user.credit-10
-        @current_user.update(credit: new_credit)
-        @rental.save
+        if @rental.update(params.require(:rental).permit(:user_id, :bike_id, :start_station_id, :end_station_id, :end_time, :price, :start_time, :end_time ))
+            @current_bike = Bike.where(id: @rental.bike_id ) #update bike location
+            @current_bike.update(current_station_identifier: @rental.end_station_id, status: 0) 
+            #charge user credits. this needs to eventually look at the  amount of time the bike was out, mutliply it by something
+            # and then subtract that number from the users credits. should this be a user action?
+            @current_user = User.where(id: @rental.user_id) 
+            @current_user.update(credit: 19.0)
         flash[:success] = "Your scooter is successfully returned!"
         redirect_to '/index'
-
         else
-        puts 'save failed'
-        render ('edit')
+            puts 'update failed'
+            render ('edit')
         end
     end
     
