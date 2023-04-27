@@ -44,11 +44,33 @@ user = User.new(
 user.save!
 
 #Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
+membership = Membership.new(
+  :identifier        => 00001,
+  :name              => 'One Time Minute Version',
+  :category          => 'One Time',
+  :position          => 1,
+  :payment_frequency => 60,
+  :cost              => 5,
+  :time_unit         => 'minute'
+)
+membership.save!
 
 membership = Membership.new(
-  :identifier => 00001,
-  :name              => 'Premium Monthly',
-  :position          => 1,
+  :identifier        => 00002,
+  :name              => 'One Time Hour Version',
+  :category          => 'One Time',
+  :position          => 2,
+  :payment_frequency => 12,
+  :cost              => 50,
+  :time_unit         => 'hour'
+)
+membership.save!
+
+membership = Membership.new(
+  :identifier        => 00003,
+  :name              => 'Basic Monthly',
+  :category          => 'Monthly Subscription',
+  :position          => 3,
   :payment_frequency => 90,
   :cost              => 18.5,
   :time_unit         => 'minute'
@@ -56,22 +78,24 @@ membership = Membership.new(
 membership.save!
 
 membership = Membership.new(
-  :identifier => 00002,
+  :identifier        => 00004,
   :name              => 'Premium Monthly',
-  :position          => 2,
+  :category          => 'Monthly Subscription',
+  :position          => 4,
   :payment_frequency => 2.5,
   :cost              => 25,
-  :time_unit         => 'hours'
+  :time_unit         => 'hour'
 )
 membership.save!
 
 membership = Membership.new(
-  :identifier => 00003,
-  :name              => 'Student Special',
-  :position          => 3,
+  :identifier        => 00005,
+  :name              => 'Student',
+  :category          => 'Special',
+  :position          => 5,
   :payment_frequency => 1,
-  :cost              => 5,
-  :time_unit         => 'month'
+  :cost              => 60,
+  :time_unit         => 'year'
 )
 membership.save!
 

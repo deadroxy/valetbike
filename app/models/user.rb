@@ -24,6 +24,7 @@ class User < ApplicationRecord
     has_many :payments, class_name: :Payment, foreign_key: :user_id
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
+    has_many :cards, dependent: :destroy #new
 
     def get_name
     end

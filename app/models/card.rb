@@ -1,16 +1,18 @@
-class Card < ApplicationRecord
-    validates_presence_of    :identifier,
-                             :card_holder_name,
-                             :card_number,
-                             :CVC,
-                             :expiration_date,
-                             :billing_address,
-                             :billing_zip,
-                             :billing_state
-
-    validates_uniqueness_of  :identifier
-
-    belongs_to :user, class_name: :User, foreign_key: :user_id, optional: true
-    has_many :payments, class_name: :Payment, foreign_key: card_id
-    
-end
+class Card < ActiveRecord::Base
+    belongs_to :user
+   
+    before_validation :set_last_digits
+   
+    attr_accessor :number, :cvc
+   
+    validates :digits, presence: true
+    validates :month, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 12 }
+    validates :year, presence: true, numericality: { greater_than_or_equal_to: 23 }
+   
+    def set_last_digits
+      if number
+        number.to_s.gsub!(/\s/,'')
+        self.digits ||= number.to_s.length <= 4 ? number : number.to_s.slice(-4..-1)
+      end
+    end
+  end

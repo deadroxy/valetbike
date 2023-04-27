@@ -39,3 +39,5 @@
 # Ignore ENV variable file
 .env
 
+# Ignor config/secrets.yml file
+/config/secrets.yml

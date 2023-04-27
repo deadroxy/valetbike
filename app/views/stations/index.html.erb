@@ -67,8 +67,8 @@
         }
       </script>
       <% api_key = ENV['REACT_APP_API_KEY'] %>
-      <script src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%> ></script>
-      =<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=myMap"%>></iframe>
+      <script src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key.to_s + "&callback=myMap"%> ></script>
+      =<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key.to_s + "&callback=myMap"%>></iframe>
     </div>
   </div>
 </div>

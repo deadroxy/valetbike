@@ -1,4 +1,23 @@
-<div>
-  <h1 class="font-bold text-4xl">Membership#show</h1>
-  <p>Find me in app/views/membership/show.html.erb</p>
-</div>
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <strong>Plan Name:</strong>
+  <%= @membership.name %>
+</p>
+
+<p>
+  <strong>Plan Category:</strong>
+  <%= @membership.category %>
+</p>
+ 
+<p>
+  <strong>Plan Price:</strong>
+  <%= number_to_currency(@membership.cost) %>
+</p>
+
+<p>
+  <strong>Plan Duration:</strong>
+  <%= @membership.payment_frequency %> <%= @membership.time_unit %>
+</p>
+ 
+<%= render 'shared/card_and_charge_form', membership: @membership %>
