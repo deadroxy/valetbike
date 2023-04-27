@@ -6,6 +6,7 @@ class RentingController < ApplicationController
 
   def create
     @current_renting = current_user.renting.incompleted.first
+    
     if @current_renting.present?
       flash[:notice] = "Please end your previous rental process before starting a new one."
       redirect_to action: 'show', id: @current_renting[:id]
@@ -13,6 +14,8 @@ class RentingController < ApplicationController
 
 
     @station = Station.find(params[:station_id])
+    @bike = @station.docked_bikes.first
+    @station.docked_bikes.first.delete
 
     # start create new renting
     @renting = Renting.new(
@@ -42,7 +45,7 @@ class RentingController < ApplicationController
     @renting 
     @renting[:end_station_id] = params[:station_id]
     @startStation = Station.find(@renting[:start_station_id])
-
+    
     @renting.save
   end
 
