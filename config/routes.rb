@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'rental/show'
   # get 'rental/new'
-  # get 'rental/return'
+  patch 'rentals/return'
   # get 'rental/index'
   # get 'rental/confirm'
   resources :rentals

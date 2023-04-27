@@ -45,7 +45,8 @@ class Station < ApplicationRecord
   end
 
   def docks_with_bikes
-    all_docks = Array.new(num_docks)
+    #all_docks = Array.new(num_docks)
+    all_docks = [*1..num_docks]
     docked_bikes.order(dock_id: :asc).each do |bike|
       all_docks[bike.dock_id - 1] = bike
     end
