@@ -5,7 +5,7 @@ class Station < ApplicationRecord
                            :num_docks
   validates_uniqueness_of  :identifier
   
-  validates_inclusion_of :has_kiosk, :in => [true, false]
+  # validates_inclusion_of :has_kiosk, :in => [true, false]
   has_many :docked_bikes, class_name: :Bike, foreign_key: :current_station_id
   def getAddress 
     address
