@@ -1,5 +1,7 @@
 <%# This is the user's profile page %>
 <div>
   <h1>Hi, <%=current_user.full_name %> </h1>
+  <h3> Your Membership Status: <%=current_user.get_membership%> </h3>
+  <button type="button"><%= link_to "Membership Plans", membership_assignment_new_path %></button>
   <button type="button">Start biking!</button>
 </div>

@@ -14,7 +14,6 @@ class MembershipController < ApplicationController
 
   def create
     @membership = Membership.new(membership_params)
-    
     if @membership.save
       redirect_to(memberships_path)
     else

@@ -74,3 +74,13 @@ membership = Membership.new(
   :time_unit         => 'month'
 )
 membership.save!
+
+membership = Membership.new(
+  :identifier => 00004,
+  :name              => 'Basic',
+  :position          => 4,
+  :payment_frequency => 0,
+  :cost              => 0,
+  :time_unit         => 'month'
+)
+membership.save!
