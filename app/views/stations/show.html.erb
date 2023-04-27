@@ -14,6 +14,12 @@
         Available bikes docked:
         <table>
           <tr>
+           <%= @num_docks %>
+            <% @station.get_num_docks.times do |i| %>
+              <th> <%=i + 1%> </th>
+            <% end %>
+          </tr>
+          <tr>
             <%= render(partial: "stations/bike_row", collection: @station.docks_with_bikes, as: :bike) %>
           </tr>
         </table>
