@@ -65,8 +65,8 @@ class Bike < ApplicationRecord
     
     def validate_station
       if current_station_id.present?
-        if self.current_station.get_available_docks < 1
-          errors.add(:station, "must have available docks")
+        if current_station.get_available_docks < 1
+          errors.add(:current_station, "must have available docks")
         end
       end
     end
