@@ -6,7 +6,7 @@ class MembershipAssignmentController < ApplicationController
       end
     
       def new
-        @membership = Membership.find(00004)
+        @membership = Membership.find(00006)
         @memberships = Membership.order(:position)
         @membershipassignment = MembershipAssignment.new
       end

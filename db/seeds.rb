@@ -100,9 +100,9 @@ membership = Membership.new(
 membership.save!
 
 membership = Membership.new(
-  :identifier => 00004,
+  :identifier => 00006,
   :name              => 'Basic',
-  :position          => 4,
+  :position          => 6,
   :payment_frequency => 0,
   :cost              => 0,
   :time_unit         => 'month'

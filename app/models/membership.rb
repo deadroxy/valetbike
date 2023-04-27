@@ -5,10 +5,18 @@ class Membership < ApplicationRecord
                             :position
     validates_presence_of   :identifier,
                             :name,
-                            :position
-    validates :cost, presence: true
-
+                            :position,
+                            :cost
+    before_validation :set_default_position,
+        if: Proc.new {|t| t.position.blank? || t.position < 0 }
+    
     def price_in_cents
         (cost * 100).to_i
+    end
+    
+    private
+    def set_default_position
+        max = Membership.maximum(:position) || 0
+        self.position = max + 1
     end
 end

@@ -16,6 +16,8 @@ class RentalsController < ApplicationController
       bike = Bike.find(@rental.bike_id)
       #bike.current_station_id=nil
       bike.update(current_station: nil)
+      bike.update(current_station_id: nil)
+      bike.update(dock_id: nil)
       bike.save
       redirect_to(pages_success_path)
     else

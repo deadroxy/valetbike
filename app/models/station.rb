@@ -31,4 +31,24 @@ class Station < ApplicationRecord
     #return number of empty docks at station
     num_docks - docked_bikes.count
   end
+
+  def available_docks
+    current_docks = docked_bikes.map {|bike| bike.get_dock}
+    all_docks = [*1..num_docks]
+    all_docks.excluding(current_docks)
+    # use map to get docks_ids
+    # hash set exclusion 
+  end
+
+  def get_available_dock
+    available_docks.first
+  end
+
+  def docks_with_bikes
+    all_docks = Array.new(num_docks)
+    docked_bikes.order(dock_id: :asc).each do |bike|
+      all_docks[bike.dock_id - 1] = bike
+    end
+    all_docks
+  end
 end

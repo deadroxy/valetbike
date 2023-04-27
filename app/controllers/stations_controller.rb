@@ -9,6 +9,7 @@ class StationsController < ApplicationController
   end
   def show
     @station = Station.find(params[:id])
+    @num_dock = @station.get_num_docks
   end
   def create
     @station = Station.new(station_params)
