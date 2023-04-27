@@ -59,7 +59,6 @@ class CardsController < ApplicationController
       @cards = current_user.cards
       flash.alert = "Card does not have enough funds"
       render('index')
-
     end
 
   end
