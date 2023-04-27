@@ -15,18 +15,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     confirmations: 'users/confirmations',
     unlocks: 'users/unlocks'
-  }
-  resources :billing_infos
-  #get 'billing_infos/new'
-  #get 'billing_infos/create'
-  devise_for :logins, controllers: {
-    sessions: 'logins/sessions',
-    registrations: 'logins/registrations',
-    passwords: 'logins/passwords',
-    confirmations: 'logins/confirmations',
-
-  }
-  
+  }  
   get 'membership/index'
   get 'membership/show'
   get 'membership/new'
@@ -52,11 +41,6 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  # get 'stations/index'
-  # get 'stations/show'
-  # get 'stations/new'
-  # get 'stations/edit'
-  # get 'stations/delete'
 
   resources :users do
   end
@@ -67,7 +51,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :charges
-  resources :customer_portal_sessions, only: [:create]
   resources :membership
 
   get 'thanks', to: 'charges#thanks', as: 'thanks'
