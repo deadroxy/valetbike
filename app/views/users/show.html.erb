@@ -1,7 +1,10 @@
-<%#this would be to view SPECIFIC PROFILE INFORMATION ie settings%>
-<h1> Hi <%=current_user.name %>  Profile</h1>
-<p> Registration Date: <%=current_user.timestamps %> </p>
-<p> Mobile Number </p>
-<p> Email </p>
+<%# This is the user's profile page %>
+<div>
+  <h1>Hi, <%=current_user.full_name %> </h1>
+  <p> Registration Date: <%=current_user.created_at %> </p>
+  <p> Email </p>
+  <h3> Your Membership Status: <%=current_user.get_membership%> </h3>
+  <button type="button"><%= link_to "Membership Plans", membership_assignment_new_path %></button>
+  <button type="button">Start biking!</button>
+</div>
 <button type="button">Edit Profile *BROKEN* </button>
-<button type="button"><%= link_to "Back", users_index_path %></button>
