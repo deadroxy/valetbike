@@ -54,4 +54,6 @@ Rails.application.routes.draw do
   resources :membership
 
   get 'thanks', to: 'charges#thanks', as: 'thanks'
+
+  default_url_options :host => "example.com"
 end
