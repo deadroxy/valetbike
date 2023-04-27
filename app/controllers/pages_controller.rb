@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
     def home
-      if session[:user_id]
-        @user = User.find(session[:user_id])
+      if session[:email]
+        @user = User.find(session[:email])
       end
     end
   end

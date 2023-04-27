@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_223656) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_010909) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -44,12 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_223656) do
     t.string "email"
     t.string "phone_num"
     t.string "address"
-    t.string "birthday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date "birthday"
+    t.boolean "admin", default: false
+    t.boolean "block", default: false
     t.integer "wallet_point", default: 0
     t.string "default_payment"
-    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

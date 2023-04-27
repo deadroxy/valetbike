@@ -2070,3 +2070,474 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.0ms | Allocations: 13297)
 
 
+Started GET "/" for ::1 at 2023-04-26 20:44:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1102)
+  Rendered layout layouts/application.html.erb (Duration: 302.7ms | Allocations: 93970)
+Completed 200 OK in 320ms (Views: 306.8ms | ActiveRecord: 0.0ms | Allocations: 97843)
+
+
+Started GET "/signup" for ::1 at 2023-04-26 20:44:47 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 5217)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 16463)
+Completed 200 OK in 53ms (Views: 31.9ms | ActiveRecord: 3.0ms | Allocations: 26694)
+
+
+Started POST "/users" for ::1 at 2023-04-26 20:45:02 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"e", "password"=>"[FILTERED]", "email"=>"eschumacher@smith.edu", "phone_num"=>"", "address"=>"385 Massachusetts Ave", "birthday"=>"2001-02-03", "default_payment"=>""}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_digest`, `email`, `phone_num`, `address`, `birthday`, `admin`, `block`, `wallet_point`, `default_payment`, `created_at`, `updated_at`) VALUES ('e', '$2a$12$I2Elr3AhyX9NYM8qo7imL.sXtim4Ve6mql/ZatTl5avjrBvb3lKZ2', 'eschumacher@smith.edu', '', '385 Massachusetts Ave', '2001-02-03', NULL, NULL, NULL, '', '2023-04-27 00:45:02.712744', '2023-04-27 00:45:02.712744')[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 300ms (ActiveRecord: 2.0ms | Allocations: 4375)
+
+
+Started GET "/" for ::1 at 2023-04-26 20:45:02 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:4:in `home'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 152)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 11519)
+Completed 200 OK in 25ms (Views: 18.6ms | ActiveRecord: 0.4ms | Allocations: 15477)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (19.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS `valetbike_development`[0m
+  [1m[35m (22.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `valetbike_test`[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE `valetbike_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE `valetbike_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS `bikes` CASCADE[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE `bikes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `identifier` int, `current_station_id` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `payments` CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `payments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `rental` CASCADE[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE `rental` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `hours` int, `price` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS `stations` CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE `stations` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `identifier` int, `name` varchar(255), `address` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS `users` CASCADE[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `email` varchar(255), `phone_num` varchar(255), `address` varchar(255), `birthday` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, `wallet_point` int DEFAULT 0, `default_payment` varchar(255), `admin` tinyint(1)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20230424223656)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20220831090424),
+(20220831090719),
+(20230402185208),
+(20230409044128),
+(20230409163516),
+(20230423173301),
+(20230423234855);
+
+[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2023-04-27 00:48:59.699308', '2023-04-27 00:48:59.699308')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '7e976c95cac7cfff0babfb0def0ae19b9796ce7d', '2023-04-27 00:48:59.708439', '2023-04-27 00:48:59.708439')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `bikes` CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `bikes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `identifier` int, `current_station_id` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS `payments` CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE `payments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `rental` CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `rental` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `hours` int, `price` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `stations` CASCADE[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE `stations` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `identifier` int, `name` varchar(255), `address` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS `users` CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `email` varchar(255), `phone_num` varchar(255), `address` varchar(255), `birthday` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, `wallet_point` int DEFAULT 0, `default_payment` varchar(255), `admin` tinyint(1)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20230424223656)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20220831090424),
+(20220831090719),
+(20230402185208),
+(20230409044128),
+(20230409163516),
+(20230423173301),
+(20230423234855);
+
+[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2023-04-27 00:48:59.775880', '2023-04-27 00:48:59.775880')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE `ar_internal_metadata` SET `ar_internal_metadata`.`value` = 'test', `ar_internal_metadata`.`updated_at` = '2023-04-27 00:48:59.782162' WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '7e976c95cac7cfff0babfb0def0ae19b9796ce7d', '2023-04-27 00:48:59.787903', '2023-04-27 00:48:59.787903')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20230427003234)
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `email` varchar(255), `phone_num` varchar(255), `address` varchar(255), `birthday` date, `admin` tinyint(1), `block` tinyint(1), `wallet_point` int, `default_payment` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20230427003234)
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `email` varchar(255), `phone_num` varchar(255), `address` varchar(255), `birthday` date, `admin` tinyint(1), `block` tinyint(1), `wallet_point` int, `default_payment` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230427003234')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20230427010814)
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `email` varchar(255), `phone_num` varchar(255), `address` varchar(255), `birthday` date, `admin` tinyint(1), `block` tinyint(1), `wallet_point` int, `default_payment` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230427010814')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ModifyUsers (20230427010909)
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE `users` CHANGE `block` `block` tinyint(1) DEFAULT FALSE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mALTER TABLE `users` CHANGE `admin` `admin` tinyint(1) DEFAULT FALSE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mALTER TABLE `users` CHANGE `wallet_point` `wallet_point` int DEFAULT 0[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230427010909')[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started GET "/" for ::1 at 2023-04-26 21:12:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/pages_controller.rb:4:in `home'
+Completed 404 Not Found in 24ms (ActiveRecord: 5.3ms | Allocations: 7810)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/pages_controller.rb:4:in `home'
+Started GET "/" for ::1 at 2023-04-26 21:12:55 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 501)
+  Rendered layout layouts/application.html.erb (Duration: 252.8ms | Allocations: 81166)
+Completed 200 OK in 265ms (Views: 256.1ms | ActiveRecord: 1.7ms | Allocations: 85379)
+
+
+Started GET "/login" for ::1 at 2023-04-26 21:13:26 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2762)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 13873)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.4ms | Allocations: 15389)
+
+
+Started POST "/login" for ::1 at 2023-04-26 21:13:33 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"eschumacher@smith.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'eschumacher@smith.edu' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 637)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 11621)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 0.6ms | Allocations: 13567)
+
+
+Started GET "/signup" for ::1 at 2023-04-26 21:13:37 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3342)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 14521)
+Completed 200 OK in 55ms (Views: 35.9ms | ActiveRecord: 3.8ms | Allocations: 23410)
+
+
+Started POST "/users" for ::1 at 2023-04-26 21:13:47 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"e", "password"=>"[FILTERED]", "email"=>"eschumacher@smith.edu", "phone_num"=>"", "address"=>"385 Massachusetts Ave", "birthday"=>"2001-02-03", "default_payment"=>""}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_digest`, `email`, `phone_num`, `address`, `birthday`, `admin`, `block`, `wallet_point`, `default_payment`, `created_at`, `updated_at`) VALUES ('e', '$2a$12$39aKFwH8u7UF8q3Hc3kjx.Zjpj7aN.kGTwR0gC6cSWsMXZj5KrAOC', 'eschumacher@smith.edu', '', '385 Massachusetts Ave', '2001-02-03', FALSE, FALSE, 0, '', '2023-04-27 01:13:47.743307', '2023-04-27 01:13:47.743307')[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 297ms (ActiveRecord: 2.0ms | Allocations: 4746)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:13:47 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 118)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 11214)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 12258)
+
+
+Started GET "/user_home" for ::1 at 2023-04-26 21:13:55 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:32:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 527)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 11611)
+Completed 200 OK in 23ms (Views: 18.8ms | ActiveRecord: 0.4ms | Allocations: 13689)
+
+
+Started GET "/user_home" for ::1 at 2023-04-26 21:14:32 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:32:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 564)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 12296)
+Completed 200 OK in 37ms (Views: 27.5ms | ActiveRecord: 1.0ms | Allocations: 14259)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:14:59 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2192)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2280)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3934)
+
+
+  
+ActionView::Template::Error (undefined method `block' for nil:NilClass
+
+    block: '.freeze;@output_buffer.append=( @user.block == false );@output_buffer.safe_append='<br>
+                                                 ^^^^^^):
+     5:         Helllllo!
+     6:     <% end %>
+     7:  
+     8:     block: <%= @user.block == false %><br>
+     9: 
+    10:     <div class="section-title">
+    11:       <h1>
+  
+app/views/pages/home.html.erb:8
+Started GET "/" for ::1 at 2023-04-26 21:15:12 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2111)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2199)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 3839)
+
+
+  
+ActionView::Template::Error (undefined method `block' for nil:NilClass
+
+    block: '.freeze;@output_buffer.append=( @user.block  );@output_buffer.safe_append='<br>
+                                                 ^^^^^^):
+     5:         Helllllo!
+     6:     <% end %>
+     7:  
+     8:     block: <%= @user.block  %><br>
+     9: 
+    10:     <div class="section-title">
+    11:       <h1>
+  
+app/views/pages/home.html.erb:8
+Started GET "/" for ::1 at 2023-04-26 21:15:13 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1791)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1870)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 2920)
+
+
+  
+ActionView::Template::Error (undefined method `block' for nil:NilClass
+
+    block: '.freeze;@output_buffer.append=( @user.block  );@output_buffer.safe_append='<br>
+                                                 ^^^^^^):
+     5:         Helllllo!
+     6:     <% end %>
+     7:  
+     8:     block: <%= @user.block  %><br>
+     9: 
+    10:     <div class="section-title">
+    11:       <h1>
+  
+app/views/pages/home.html.erb:8
+Started GET "/" for ::1 at 2023-04-26 21:15:22 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2112)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2200)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 3724)
+
+
+  
+ActionView::Template::Error (undefined method `block' for nil:NilClass
+
+    block: '.freeze;@output_buffer.append=( @user.block  );@output_buffer.safe_append='</br>
+                                                 ^^^^^^):
+     5:         Helllllo!
+     6:     <% end %>
+     7:  
+     8:     block: <%= @user.block  %></br>
+     9: 
+    10:     <div class="section-title">
+    11:       <h1>
+  
+app/views/pages/home.html.erb:8
+Started GET "/" for ::1 at 2023-04-26 21:15:34 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1791)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1870)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 2920)
+
+
+  
+ActionView::Template::Error (undefined method `block' for nil:NilClass
+
+    block: '.freeze;@output_buffer.append=( @user.block  );@output_buffer.safe_append='</br>
+                                                 ^^^^^^):
+     5:         Helllllo!
+     6:     <% end %>
+     7:  
+     8:     block: <%= @user.block  %></br>
+     9: 
+    10:     <div class="section-title">
+    11:       <h1>
+  
+app/views/pages/home.html.erb:8
+Started GET "/" for ::1 at 2023-04-26 21:17:14 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 457)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 12309)
+Completed 200 OK in 49ms (Views: 25.2ms | ActiveRecord: 0.4ms | Allocations: 13863)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:17:35 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 459)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 12177)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.4ms | Allocations: 13824)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:17:36 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 11172)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.3ms | Allocations: 12242)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:17:43 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.8ms | Allocations: 457)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 12311)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.3ms | Allocations: 13857)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:17:44 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 11172)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.4ms | Allocations: 12225)
+
+
+Started DELETE "/logout" for ::1 at 2023-04-26 21:19:58 -0400
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 918)
+
+
+Started GET "/" for ::1 at 2023-04-26 21:19:58 -0400
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 99)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 11088)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 11602)
+
+
