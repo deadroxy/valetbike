@@ -24,6 +24,10 @@ class Payment < ApplicationRecord
         purpose == "rental"
     end
 
+    def price_in_cents
+        (price * 100).to_i
+      end
+    
     private
     # returns true if this payment belongs to either a membership or a rental but not both
     def has_rental_or_membership

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,9 +24,9 @@ class User < ApplicationRecord
     has_many :payments, class_name: :Payment, foreign_key: :user_id
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
+    has_many :cards, dependent: :destroy #new
 
     def get_name
-
     end
 
     def get_email
@@ -44,6 +45,9 @@ class User < ApplicationRecord
     def has_payment_info
     end
 
+    def get_membership
+        @membership_assignments
+    end
 
     #(* reference: belows are from the Ruby Training *)#
     def full_name

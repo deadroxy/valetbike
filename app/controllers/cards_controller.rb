@@ -9,6 +9,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    @user = current_user
   end
 
   def create

@@ -42,7 +42,10 @@ Rails.application.routes.draw do
   get 'pages/userag'
   get 'pages/rental'
   get 'pages/success'
+  get 'pages/paymentdemo'
 
+  get 'membership_assignment/index'
+  get 'membership_assignment/new'
 
   resources :stations do
     member do
@@ -62,4 +65,10 @@ Rails.application.routes.draw do
   
 
   root to: "pages#home"
+
+  resources :charges
+  resources :customer_portal_sessions, only: [:create]
+  resources :membership
+
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
 end

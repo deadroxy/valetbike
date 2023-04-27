@@ -1,11 +1,19 @@
 class Membership < ApplicationRecord
     
-    validates_uniqueness_of :identifier, :position
-    validates_presence_of   :identifier,
+    validates_uniqueness_of :identifier, 
                             :name,
                             :position
+    validates_presence_of   :identifier,
+                            :name,
+                            :position,
+                            :cost
     before_validation :set_default_position,
         if: Proc.new {|t| t.position.blank? || t.position < 0 }
+    
+    def price_in_cents
+        (cost * 100).to_i
+    end
+    
     private
     def set_default_position
         max = Membership.maximum(:position) || 0

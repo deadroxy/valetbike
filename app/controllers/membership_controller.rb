@@ -1,7 +1,7 @@
 class MembershipController < ApplicationController
   def index
     #should add a position and order by that
-    @memberships = Membership.order(:position)
+    @memberships = Membership.all.order(:position)
   end
 
   def show
@@ -14,7 +14,6 @@ class MembershipController < ApplicationController
 
   def create
     @membership = Membership.new(membership_params)
-    
     if @membership.save
       redirect_to(memberships_path)
     else
