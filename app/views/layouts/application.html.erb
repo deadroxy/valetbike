@@ -15,17 +15,6 @@
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
     <style>
-    body
-      {
-        width:100%;
-        top:0;
-        left:0;
-        padding-bottom: 120px;
-        min-height: 400px;
-        margin-top: 50px;
-        margin-bottom: 100px;
-        clear: both;
-      }
       a {
         color: inherit;
         text-decoration: none;
@@ -60,7 +49,7 @@
       }
     footer {
       position: absolute;
-        bottom: 0;
+        bottom: -17%;
         width: 100vw;
         height: 80px;
         text-align: center;
@@ -69,10 +58,10 @@
         background-color: #FFEEE4;
         z-index: 3;
         display: flex;
-  flex-direction: column;
+        flex-direction: column;
       }
       .footer_parts img {
-        position:sticky;
+        position: sticky;
         bottom: 0;
         float: left;
       }
@@ -86,7 +75,7 @@
 
       .footer_parts p {
         position: absolute;
-        bottom: 0;
+        bottom: -17%;
       }
       .footer_parts sub {
         font-size: 0.8em;
@@ -117,13 +106,13 @@
       }
    </style>
  </head>
+ 
  <body>
+    <% flash.each do |key, value| %>
+      <div class = "alert alert-<%= key %>"><%= value %></div>
+    <% end %>
 
- <% flash.each do |key, value| %>
-  <div class = "alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
-    <div id="site-container" class="flexbox vertical stretch flex-1">
+    <div id="site-container">
       <div class="flexbox vertical center">
       <%= render "layouts/header" %>
       <%=yield %>

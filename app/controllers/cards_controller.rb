@@ -1,6 +1,12 @@
 class CardsController < ApplicationController
   def index
-    @cards = current_user.cards # Only show cards belonging to the current user
+    if user_signed_in?
+      @cards = current_user.cards 
+    else
+      flash.alert = "Please Login First!"
+      redirect_to root_path
+    end
+    
   end
 
   def show
@@ -36,6 +42,7 @@ class CardsController < ApplicationController
   end
     
   def pay
+    
     @card = current_user.cards.find(params[:id])
     amount = 6.12
 
@@ -49,6 +56,7 @@ class CardsController < ApplicationController
       end
 
     else
+      @cards = current_user.cards
       flash.alert = "Card does not have enough funds"
       render('index')
     end

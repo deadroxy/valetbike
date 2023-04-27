@@ -56,32 +56,32 @@
         justify-content: space-around;
       }
 
-      # h1 {
-      #   color: #8C1627;
-      #   text-align: center;
-      #   font-family: inter;
-      #   font-size: 35.5px;
-      #   font-weight: 600;
+      h1 {
+        color: #8C1627;
+        text-align: center;
+        font-family: inter;
+        font-size: 35.5px;
+        font-weight: 600;
         
-      # }
-      # h2 {
-      #   color: #8C1627;
-      #   text-align: left;
-      #   font-family: inter;
-      #   font-size: 20px;
-      #   font-weight: 600;
-      #   width: 100vw;
-      #   padding-left:50px;
+       }
+      h2 {
+        color: #8C1627;
+        text-align: left;
+        font-family: inter;
+        font-size: 20px;
+        font-weight: 600;
+        width: 100vw;
+        padding-left:50px;
 
-      # }
+       }
 
-      # h3 {
-      #   color: black;
-      #   text-align: left;
-      #   font-family: inter;
-      #   font-size: 14px;
-      #   font-weight: bold;
-      # }
+      h3 {
+        color: black;
+        text-align: left;
+        font-family: inter;
+        font-size: 14px;
+        font-weight: bold;
+      }
 
       p {
         font-family: inter;
@@ -162,66 +162,55 @@
     </style>
   </head>
 
-  
- 
-
   <body>
-  <div class ="div1">
-  <h1 line-height = "2em" >Service Requests </h1>
-  <br>
-  <p class="header_p">Had an issue with your bike? Submit a service request </p>
-  <br>
-  </div>
+    <div class ="div1">
+    <h1 line-height = "2em" >Service Requests </h1>
+    <br>
+    <p class="header_p">Had an issue with your bike? Submit a service request </p>
+    <br>
+    </div>
 
-  <div class ="container">
+    <div class ="container">
 
-  <%= form_with model: @service, url: service_path, method: :post do |form| %>
-  <% if @service && @service.errors.any? %>
-    <div class= "alert alert-danger" >
-    <% @service.errors.full_messages.each do |message| %>
-      <div> <%= message %> </div> 
+    <%= form_with model: @service, url: service_path, method: :post do |form| %>
+    <% if @service && @service.errors.any? %>
+      <div class= "alert alert-danger" >
+      <% @service.errors.full_messages.each do |message| %>
+        <div> <%= message %> </div> 
+      <% end %>
+      </div>
+    <% end %>
+
+    <div class ="mb-3">
+        <%= form.label :name %><br>
+        <%= form.text_field :name,  class: "round" , required: true%>
+        </div>
+
+      <div class ="mb-3">
+        <%= form.label :email %><br>
+        <%= form.text_field :email , class: "form-control", class: "round", type: "email", required: true, placeholder: "jane@gmail.com" %>
+        </div>
+
+        <div class ="mb-3">
+        <%= form.label :bike_number %><br>
+        <%= form.text_field :bike_number , class: "form-control" , class: "round", required: true  %>
+        </div>
+
+        <div class ="mb-3">
+        <%= form.label :bike_station %><br>
+        <%= form.text_field :bike_station , class: "form-control", class: "round ", required: true %>
+        </div>
+
+        <div class ="mb-3">
+        <%= form.label :additional_information %><br>
+        <%= form.text_field :additional_information , class: "form-control" , class: "info", required: true  %>
+        </div> 
+
+      <div class ="mb-3">
+        <%= form.submit "Submit", class: "form-control", class: "lower_section_button"%>
+        </div>
     <% end %>
     </div>
-  <% end %>
-
-  <div class ="mb-3">
-      <%= form.label :name %><br>
-      <%= form.text_field :name,  class: "round" , required: true%>
-      </div>
-
-    <div class ="mb-3">
-      <%= form.label :email %><br>
-      <%= form.text_field :email , class: "form-control", class: "round", type: "email", required: true, placeholder: "jane@gmail.com" %>
-      </div>
-
-      <div class ="mb-3">
-      <%= form.label :bike_number %><br>
-      <%= form.text_field :bike_number , class: "form-control" , class: "round", required: true  %>
-      </div>
-
-      <div class ="mb-3">
-      <%= form.label :bike_station %><br>
-      <%= form.text_field :bike_station , class: "form-control", class: "round ", required: true %>
-      </div>
-
-      <div class ="mb-3">
-      <%= form.label :additional_information %><br>
-      <%= form.text_field :additional_information , class: "form-control" , class: "info", required: true  %>
-      </div> 
-
-    <div class ="mb-3">
-      <%= form.submit "Submit", class: "form-control", class: "lower_section_button"%>
-      </div>
-
-
-
-  <% end %>
-  </div>
-  <script>
-
-
-  </script>
-
 
   </body>
 </html>
