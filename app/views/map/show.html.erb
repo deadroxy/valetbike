@@ -1,37 +1,70 @@
-
-<div>
-    <h1> Map View </h1>
-</div>
-
-<!--my map-->
-<div id="map" style="height:600px; width:600px;"></div>
-        
-<script>
-    <!--initialize map, set coordinates to noho and zoom to 13-->
-    var map = L.map('map').setView([42.3251, -72.6412], 10);
-
-    <!--add a tile layer-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Bikesia Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js'></script>
+    <link
+      rel='stylesheet'
+      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css'
+      type='text/css'
+    />
+  </head>
+  
+  
+  <body>
+   
+    <div id='title'><h3>bikesia</h3></div>
     
+    <div id='route-bar'>
+      <input type='text' id='from' placeholder='From' />
+      <div id='from-to-arrow'>&#10142;</div>
+      <input type='text' id='to' placeholder='To' />
+    </div>
     
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
+    <div id='map'></div>
+
+            <!-- mapbox functionality -->
+            <script>
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhcmRlcjAxIiwiYSI6ImNsZnJsb2Q4MjA3azA0NG1pcGF2aWYzZ2UifQ.WAN-lZjly71QAhJx5kUu4Q';
+
+            var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-72.634802, 42.317751],
+            zoom: 13
+            });
+
+            var directions = new MapboxDirections({
+            accessToken: mapboxgl.accessToken,
+            unit: 'metric',
+            profile: 'mapbox/driving',
+            controls: {
+                inputs: false,
+                instructions: true
+            }
+            });
+
+            map.addControl(directions, 'top-left');
+
+            var fromInput = document.getElementById('from');
+            var toInput = document.getElementById('to');
+
+            fromInput.addEventListener('change', function () {
+            var from = this.value;
+            directions.setOrigin(from);
+            });
+
+            toInput.addEventListener('change', function () {
+            var to = this.value;
+            directions.setDestination(to);
+            });
+
+            </script>
     
-
-
-    <!--add markers to map-->
-    var marker = L.marker([42.3251, -73]).addTo(map);
-    var circle = L.circle([0, 0], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(map);
-
-    <!--label markers-->
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-    circle.bindPopup("I am a circle.");
-    
-</script>
-<!--turbo = false no reloads, linkto-->
+    </body>
+ </html>

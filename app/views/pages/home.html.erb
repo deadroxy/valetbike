@@ -4,20 +4,16 @@
     <% if Current.user.try(:admin?) %>
         Helllllo!
     <% end %>
- 
 
     <div class="section-title">
-      Welcome to bikesia   <% if Current.user %> <%= Current.user.username %><% end %> 
+      <h1>
+      Welcome to Bikesia   <% if Current.user %> <%= Current.user.username %><% end %> 
+      </h1>
       
+      <h3>
+      Get ready to explore! 
+      </h3> 
     </div> 
-
-    <% if Current.user %>
-        <%= button_to "Logout", logout_path, method: :delete %>
-        <%= link_to("Change Password", edit_password_path) %>
-    <% else %>
-        <%= link_to("Log In", login_path) %>
-        <%= link_to("Sign Up", signup_path) %>
-    <% end %>
 
 
     <html>
@@ -42,7 +38,6 @@
 
   
     
-    
-
+     
     </div>
 </div>

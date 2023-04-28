@@ -1,41 +1,48 @@
-<h1>Sign up</h1>
+<h2>Sign up</h2>
 <%= form_with(model: @user, local: true) do |f| %>
  
 <div class="form-group">
-  <%= f.label :username %><br/>
+  <%= f.label :username %>
   <%= f.text_field :username, class: "form-control" %>
 </div>
 
+<br/>
 <div class="form-group">
-  <%= f.label :password %><br/>
+  <%= f.label :password %>
   <%= f.password_field :password, class: "form-control" %>
 </div>
- 
+
+<br/>
 <div class="form-group">
-  <%= f.label :email %><br/>
-  <%= f.email_field :email, class: "form-control" %><br/>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: "form-control" %>
 </div> 
 
+<br/>
 <div class="form-group">
-  <%= f.label :phone_num %><br/>
+  <%= f.label :phone_num %>
   <%= f.text_field :phone_num, class: "form-control" %><br/>
 </div> 
+<br/>
 
 <div class="form-group">
-  <%= f.label :address %><br/>
+  <%= f.label :address %> 
   <%= f.text_field :address, class: "form-control" %><br/>
 </div> 
-
+<br/>
 <div class="form-group">
-  <%= f.label :birthday %><br/>
+  <%= f.label :birthday %> 
   <%= f.date_field :birthday, class: "form-control" %><br/>
 </div>
-
+<br/>
+<br/>
 <div class="form-group">
-  <%= f.label :default_payment %><br/>
+  <%= f.label :default_payment %> 
   <%= f.text_field :default_payment, class: "form-control" %><br/>
 </div>
- 
+
+<br/>
+
 <div class="form-group">
   <%= f.submit %>
 </div>

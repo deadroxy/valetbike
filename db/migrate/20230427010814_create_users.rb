@@ -6,7 +6,12 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :phone_num
       t.string :address
-      t.string :birthday
+      t.date :birthday
+      t.boolean :admin
+      t.boolean :block
+      t.integer :wallet_point
+      t.string :default_payment
+
       t.timestamps
     end
   end

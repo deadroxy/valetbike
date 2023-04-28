@@ -1,11 +1,11 @@
 <div  class = "user index"> 
-    <h1>Welcome</h1>
+    <h2>User Profile</h2>
 
     <% if @user %>
         Logged in as: <%= @user.username %><br>
         <%= link_to("Edit username", edit_username_path) %><br>
 
-        
+        block: <%= @user.block %><br>
         email:  <%= @user.email %><br>
         
         address: <%= @user.address %><br> 
