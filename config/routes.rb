@@ -55,5 +55,5 @@ Rails.application.routes.draw do
 
   get 'thanks', to: 'charges#thanks', as: 'thanks'
 
-  default_url_options :host => "example.com"
+  default_url_options :host => "127.0.0.1:3000"
 end
