@@ -31,18 +31,6 @@ class UsersController < ApplicationController
         if session[:user_id]
             @user = User.find(session[:user_id])
         end
-        # if session[:username]
-        #      @user = User.find(session[:username])
-        # end
-        # if logged_in?
-        #     redirect_to user_home_path
-        #  else
-        #     redirect_to login_path
-        # end
-        #@username =cookies[:username]
-        #@user = User.find params.require(:id)
-        #@user = User.find(params[:id])
-        #@username =cookies[:username]
     end
      
     private

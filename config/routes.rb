@@ -8,12 +8,15 @@ Rails.application.routes.draw do
   
   #get "/stations/:identification", to: "stations#main"
   get "stations", to: "stations#main", as:"stations"
+  get "add_stations", to: "stations#new"
+  post "stations", to: "stations#create"
   #get "/stations/:identifier", to: "station#reverse", as: "station_rev"
 
   # hsm mods
   get "/bikes/unlock", to: "bikes#unlock"
   get "password", to: "passwords#edit", as: :edit_password
   patch "password", to: "passwords#update"
+
 
 
   get "signup", to: "users#new"

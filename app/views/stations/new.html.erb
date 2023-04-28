@@ -1,0 +1,25 @@
+<h2>Add Stations</h2>
+<%= form_with(model: @station, local: true) do |f| %>
+ 
+<div class="form-group">
+  <%= f.label :identifier %>
+  <%= f.number_field :identifier, class: "form-control" %>
+</div>
+
+<br/>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+
+<br/>
+<div class="form-group">
+  <%= f.label :address %>
+  <%= f.text_field :address, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.submit %>
+</div>
+ 
+<% end %>
