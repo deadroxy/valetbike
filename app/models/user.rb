@@ -16,6 +16,9 @@ class User < ApplicationRecord
     validates_presence_of :credit
     validates_numericality_of :credit, greater_than_or_equal_to: 0
 
+    #validate :age
+
+
     #validates_
 
     # username 
