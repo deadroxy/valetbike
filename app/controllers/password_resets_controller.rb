@@ -7,7 +7,12 @@ class PasswordResetsController < ApplicationController
 
         if @user.present?
             # send to email
+            puts "User found #{@user}"
+            flash[:notice] = "User found"
             PasswordMailer.with(user: @user).reset.deliver_now
+        else
+            puts "No user"
+            flash[:alert] = "No user"
         end
             
         redirect_to root_path, notice: "if an email is found, we will send an reset link to your email"
