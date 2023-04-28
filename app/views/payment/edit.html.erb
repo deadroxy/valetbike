@@ -1,4 +1,18 @@
-<h1>Edit Wallet Point</h1>
+
+<%= stylesheet_link_tag 'payment' %>
+
+
+
+
+<div>
+
+
+<h1>Payment</h1>
+<br>
+
+
+<h1>You would need to pay $<%=@rental.hours%> for this ride </h1>
+
 
 <script>
        function showOptions() {
@@ -35,6 +49,9 @@
    </script>
 
 
+<div>
+   <a class="toggle" href="<%= bikes_path %>">&emsp; Back to Bike Fleet</a>
+</div>
 
 
 <br>
@@ -55,7 +72,7 @@
 
        <div id="creditCardOptions" style="display: none;">
            <h3>Credit / Debit Card Payment</h3>
-            <%= form_with url: change_wallet_path do |form| %>
+            <%= form_with url: payment_path do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
@@ -89,11 +106,6 @@
                     <%= form.text_field :cvv, class: "form-control"%>
                 </div>
 
-                <div class="mb-3" >
-                    <%= form.label :wallet_add_card, "How much do you want to add" %>
-                    <%= form.number_field :wallet_add_card, class: "form-control"%>
-                </div>
-
                 <div class="mb-3">
                     <%= form.submit "Submit", class: "btn btn-primary" %>
                 </div>
@@ -105,7 +117,7 @@
        <div id="paypalOptions" style="display: none;">
            <!-- this will eventually redirect to paypal API -->
            <h3>PayPal Payment</h3>
-            <%= form_with url: change_wallet_path do |form| %>
+            <%= form_with url: payment_path do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
@@ -124,11 +136,6 @@
                     <%= form.text_field :password_paypal, class: "form-control"%>
                 </div>
 
-                <div class="mb-3" >
-                    <%= form.label :wallet_add_paypal, "How much do you want to add" %>
-                    <%= form.number_field :wallet_add_paypal, class: "form-control"%>
-                </div>
-
                 <div class="mb-3">
                     <%= form.submit "Submit", class: "btn btn-primary" %>
                 </div>
@@ -139,7 +146,7 @@
 
        <div id="couponOptions" style="display: none;">
            <h3>Coupon</h3>
-            <%= form_with url: change_wallet_path do |form| %>
+            <%= form_with url: payment_path do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
@@ -164,5 +171,34 @@
 
             <% end %>
        </div>
-      
+
+
+
+
+       <div id="walletMoneyOptions" style="display: none;">
+           <h3>Wallet Money</h3>
+           <p>The money currently in your account is $ <%= @user.wallet_point%></p>
+           <p>Your remaining money would be $ <%= @user.wallet_point- @rental.hours%>
+           <%= form_with url: payment_path do |form| %>
+                <% if Current.user.errors.any? %>
+                    <div class="alert alert-danger">
+                        <% Current.user.errors.full_messages.each do |message| %>
+                            <div><%= message %></div>
+                        <% end %>
+                    </div>
+                <% end %>
+
+                <div class="mb-3" >
+                    <%= form.label :yn_wallet, "Do you confirm to pay with you Paypal Enter y/n" %>
+                    <%= form.text_field :yn_wallet, class: "form-control"%>
+                </div>
+
+                <div class="mb-3">
+                    <%= form.submit "Submit", class: "btn btn-primary" %>
+                </div>
+
+            <% end %>
+       </div>
    </div>
+
+</div>
