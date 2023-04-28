@@ -19,6 +19,9 @@
 
         wallet_point: <%= @user.wallet_point%><br>
         <%= link_to("Edit wallet point", edit_wallet_path) %><br> 
+        <% if @user. admin == true%>
+        Logged in as: admin
+        <%end%>
 
     <%else%>
         You haven't logged in. Please log in to see your user profile. 
