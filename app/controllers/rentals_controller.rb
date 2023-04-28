@@ -5,18 +5,12 @@ class RentalsController < ApplicationController
   
     def create
       @rental = Rental.new(rental_params)
-      @price = @rental.hours*10
-      if @price > Current.user.wallet_point
-        redirect_to change_wallet_path, notice:"Not enough money point in your Wallet"
+      @price = @rental.hours
+      if @rental.save
+        session[:payment_id] = @rental.id
+        redirect_to payment_path, notice: "Plase select your payment mehtod!"
       else
-        Current.user.wallet_point-=@price
-        Current.user.save
-        puts @rental
-        if @rental.save
-         redirect_to ('/bikes/unlock'), notice: "Bike rented successfully!"
-        else
-          render :new
-        end
+        render :new
       end
     end
  

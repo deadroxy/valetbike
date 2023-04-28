@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_27_010909) do
     t.boolean "block", default: false
     t.integer "wallet_point", default: 0
     t.string "default_payment"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
