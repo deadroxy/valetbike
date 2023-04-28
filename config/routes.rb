@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   resources :users do
   end
   get 'users/index'
-  get 'users/show'
+  get 'account', to: 'users#show', as: 'account'
   
 
   root to: "pages#home"
