@@ -25,7 +25,7 @@ class User < ApplicationRecord
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
     has_many :cards, dependent: :destroy #new
-
+    has_many :overdues
     def get_name
     end
 
@@ -51,6 +51,12 @@ class User < ApplicationRecord
 
     def ongoing_rental?
         rentals.order(created_at: :desc).present? && rentals.order(created_at: :desc).first.is_ongoing?
+    end
+    def current_rental
+        unless rentals.order(created_at: :desc).present?
+            return nil
+        end
+        rentals.order(created_at: :desc).first
     end
     #(* reference: belows are from the Ruby Training *)#
     def full_name

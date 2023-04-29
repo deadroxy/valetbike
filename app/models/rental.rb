@@ -23,15 +23,24 @@ class Rental < ApplicationRecord
     end
     def getTimeElapsed
         if self.is_done? 
-            return end_time - start_time
+            return round((end_time - start_time)/60)
         end
-        Time.now - start_time
+        round(Time.now - start_time)
     end
     def getAverageSpeed
         if self.is_ongoing? || !distance
             return nil
         end
         return distance / self.getTimeElapsed
+    end
+    def is_overdue?
+        self.getTimeElapsed > time_limit
+    end
+    def minutes_over
+        unless isOverdue?
+            return 0
+        end
+        self.getTimeElapsed - time_limit
     end
     private
     def add_starting_values

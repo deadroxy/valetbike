@@ -30,6 +30,10 @@ class RentalsController < ApplicationController
     station_id = params[:station_id]
     @rental = current_user.rentals.order(created_at: :desc).first
     @rental.update(end_time: Time.now)
+    if @rental.is_overdue?
+      overdue = Overdue.new(user_id: current_user.id, time_over: @rental.minutes_over)
+      overdue.save
+    end
     bike = @rental.bike
     bike.update(current_station: Station.find(station_id))
     bike.update(dock_id: params[:dock_id])
