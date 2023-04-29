@@ -58,7 +58,7 @@
 
 
    <div>
-       <form action="/action_page.php"> <!-- this should be payment_action or the payment controller page -->
+       <form url: payment_url(params[:format])> <!-- this should be payment_action or the payment controller page -->
            <h2>Select Payment Method:</h2><br>
            <label><input type="radio" name="paymentMethod" value="paypal" onchange="showOptions()">PayPal</label><br>
            <label><input type="radio" name="paymentMethod" value="creditCard" onchange="showOptions()">Credit/Debit</label><br>
@@ -72,7 +72,7 @@
 
        <div id="creditCardOptions" style="display: none;">
            <h3>Credit / Debit Card Payment</h3>
-            <%= form_with url: payment_path do |form| %>
+            <%= form_with url: payment_path(params[:format]) do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
@@ -117,7 +117,7 @@
        <div id="paypalOptions" style="display: none;">
            <!-- this will eventually redirect to paypal API -->
            <h3>PayPal Payment</h3>
-            <%= form_with url: payment_path do |form| %>
+            <%= form_with url: payment_path(params[:format]) do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
@@ -146,7 +146,7 @@
 
        <div id="couponOptions" style="display: none;">
            <h3>Coupon</h3>
-            <%= form_with url: payment_path do |form| %>
+            <%= form_with url: payment_path(params[:format]) do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
@@ -179,7 +179,7 @@
            <h3>Wallet Money</h3>
            <p>The money currently in your account is $ <%= @user.wallet_point%></p>
            <p>Your remaining money would be $ <%= @user.wallet_point- @rental.hours%>
-           <%= form_with url: payment_path do |form| %>
+           <%= form_with url: payment_path(params[:format]) do |form| %>
                 <% if Current.user.errors.any? %>
                     <div class="alert alert-danger">
                         <% Current.user.errors.full_messages.each do |message| %>
