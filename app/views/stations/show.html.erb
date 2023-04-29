@@ -3,7 +3,7 @@
 <ul>
 <% @station.docked_bikes.each do |bike| %>
 <li><%= bike.identifier%> 
-<%=link_to('unlock bike', '/rentals/new')%>
+<%=link_to('unlock bike', new_rental_path(bike.identifier))%>
 </li>
 <%end%>
 </ul>

@@ -42,11 +42,14 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
+  get 'return', to: 'rentals#return'
   match'ride',to:"bikes#index", via: :get
+  get '/bikes/return', to: "bikes#return"
   resources :bikes, only: [:index]
   resources :stations, only: [:main, :show]
   resources :users, except: [:new]
   resources :rentals, only: [:new, :create]
+  resources :rentals, only: [:return]
   #resources :payment, only: [:new, :edit]
 
   get "rename", to: "username#edit", as: :edit_username
