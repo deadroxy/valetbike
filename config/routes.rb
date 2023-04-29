@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   post "password/reset", to: "password_resets#create"
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
-
+ get '/reports/success', to: "reports#success"
   get 'return', to: 'rentals#return'
   match'ride',to:"bikes#index", via: :get
   get '/bikes/return', to: "bikes#return"
@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :rentals, only: [:new, :create]
   resources :rentals, only: [:return]
+  resources :reports, only: [:new, :create]
+
   #resources :payment, only: [:new, :edit]
 
   get "rename", to: "username#edit", as: :edit_username
