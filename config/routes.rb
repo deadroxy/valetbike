@@ -52,10 +52,15 @@ Rails.application.routes.draw do
 
   resources :charges
   resources :membership
+  resources :membership_assignment
 
   get 'thanks', to: 'charges#thanks', as: 'thanks'
 
   default_url_options :host => "127.0.0.1:3000"
 
-  post 'checkout/create' => 'checkout#create', as: "checkout_create"
+  post 'checkouts/create' => 'checkouts#create', as: "checkouts_create"
+  post 'membership_assignment/create' => 'membership_assignment#create', as: "membership_assignment_create"
+  
+  get 'membership_assignments/confirm' => 'membership_assignment#confirm', as: "membership_assignment_confirm"
+  get 'membership_assignment/show' => 'membership_assignment#show', as: "membership_assignment_show"
 end

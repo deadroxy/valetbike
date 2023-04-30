@@ -2,6 +2,7 @@
   <strong><%= membership.name %></strong>: <%= membership.cost %>$ every <%= membership.payment_frequency %> <%= membership.time_unit %><br>
   <% if user_signed_in? %>
   <%= link_to("Join!", membership_path(membership), class: 'action show') %>
-  <%= button_to "Submit Payment", checkout_create_path, params: {:membership_id => membership.id }, remote: true %>
+  <%# button_to "Submit Payment", checkouts_create_path, params: {:id => membership.id, :type => 0}, remote: true %>
+  <%= button_to "new membership", membership_assignment_create_url(:membership_assignment=>{:user_id=>current_user.id, :membership_id=>membership.id}) %>
   <% end %>
 </div>

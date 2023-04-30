@@ -15,7 +15,9 @@ class MembershipAssignmentController < ApplicationController
         @membershipassignment = MembershipAssignment.new(membershipassignment_params)
         if @membershipassignment.save
           membership = Membership.find(@membershipassignment.membership_id)
-          redirect_to(user_path)
+          puts membership_assignment_confirm_path(:membership_assignment_id => @membershipassignment)
+          redirect_to membership_assignment_confirm_path(:membership_assignment_id => @membershipassignment)
+          #redirect_to(checkouts_create_path, params: {:id => @membershipassignment.id, :type => 0}, remote: true, action: :post)
           #redirect_to(pages_success_path)
         else
           @membershipassignment.get_membership
@@ -30,12 +32,13 @@ class MembershipAssignmentController < ApplicationController
       end
     
       def confirm
+        @membership_assignment = MembershipAssignment.find(params[:membership_assignment_id])
       end
     
       private 
     
       def membershipassignment_params 
-        params.require(:membershipassignment).permit(:user_id, :membership_id)
+        params.require(:membership_assignment).permit(:user_id, :membership_id)
       end
     
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_29_230040) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_30_194300) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_29_230040) do
     t.integer "rentals_remaining"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_paid", default: false
     t.index ["membership_id"], name: "index_membership_assignments_on_membership_id"
     t.index ["user_id"], name: "index_membership_assignments_on_user_id"
   end
@@ -61,6 +62,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_29_230040) do
     t.datetime "updated_at", null: false
     t.integer "position"
     t.string "category"
+  end
+
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "membership_id"
+    t.integer "user_id"
+    t.integer "status", default: 0
+    t.string "token"
+    t.string "charge_id"
+    t.string "error_message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "overdues", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
