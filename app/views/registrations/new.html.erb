@@ -146,12 +146,12 @@
 		<div class="right-box">
 			<h2>Sign Up</h2>
 			
-			<a href="<%= google_signin_path %>">
-				<button class="google-btn">Signup with Google</button>
+			<a href="<%= user_google_oauth2_omniauth_authorize_path(action_type: 'signup') %>">
+			<button class="google-btn">Signup with Google</button>
 			</a>
 
-			<a href="<%= facebook_signin_path %>">
-				<button class="facebook-btn">Signup with Facebook</button>
+			<a href="<%= user_facebook_omniauth_authorize_path(action_type: 'signup') %>">
+			<button class="facebook-btn">Signup with Facebook</button>
 			</a>
 
 			<div class="or">- OR -</div>

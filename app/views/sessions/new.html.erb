@@ -147,13 +147,15 @@
 		
 		<div class="right-box">
 			<h2>Login</h2>
-			<a href="<%= google_signin_path %>">
+			<a href="<%= google_signin_path %>?action_type=login">
 			<button class="google-btn">Login with Google</button>
 			</a>
 
-			<a href="<%= facebook_signin_path %>">
+			<a href="<%= facebook_signin_path %>?action_type=login">
 			<button class="facebook-btn">Login with Facebook</button>
 			</a>
+
+
 
 			
 			<% resource ||= User.new %>
