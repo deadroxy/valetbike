@@ -11,3 +11,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails-ujs", to: "rails-ujs@6.1.4/lib/assets/compiled/rails-ujs.js"
 # ... other entries ...
 pin "flash_popup", to: "flash_popup.js", preload: true
+
+

@@ -5,3 +5,6 @@ function closeFlashPopup() {
     flashPopup.style.display = "none";
   }
   
+  // Add this line
+  window.closeFlashPopup = closeFlashPopup;
+  
