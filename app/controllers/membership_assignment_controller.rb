@@ -35,7 +35,7 @@ class MembershipAssignmentController < ApplicationController
       private 
     
       def membershipassignment_params 
-        params.require(:membershipassignment, :user_id, :membership_id)
+        params.require(:membershipassignment).permit(:user_id, :membership_id)
       end
     
     end
