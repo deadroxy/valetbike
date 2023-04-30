@@ -20,7 +20,9 @@
         wallet_point: <%= @user.wallet_point%><br>
         <%= link_to("Edit wallet point", edit_wallet_path) %><br> 
         <% if @user. admin == true%>
-        Logged in as: admin
+            Logged in as: admin <br>
+            Add Blocking list: <br>
+            <%= link_to("Click here", edit_blocking_path)%> <br>
         <%end%>
 
     <%else%>

@@ -1,0 +1,26 @@
+<h1>Blocking User</h1>
+
+<%= form_with url: edit_blocking_path do |form| %>
+    <% if Current.user.errors.any? %>
+        <div class="alert alert-danger">
+            <% Current.user.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <% if Current.user.admin%>
+        <div class="mb-3" >
+            <%= form.label :email %>
+            <%= form.text_field :email, class: "form-control", placeholder: "Enter the email" %>
+        </div>
+        <div class="mb-3">
+            <%= form.submit "Update", class: "btn btn-primary" %>
+        </div>
+    <%else%>
+        You do not have the right to modify blocking list please go back to the profile page
+        <%= link_to("Click Here", user_home_path) %>
+    <%end%>
+
+
+<% end %>
