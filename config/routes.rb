@@ -63,4 +63,11 @@ Rails.application.routes.draw do
   
   get 'membership_assignments/confirm' => 'membership_assignment#confirm', as: "membership_assignment_confirm"
   get 'membership_assignment/show' => 'membership_assignment#show', as: "membership_assignment_show"
+  get '/checkout-session' do
+    content_type 'application/json'
+    session_id = params[:sessionId]
+  
+    session = Stripe::Checkout::Session.retrieve(session_id)
+    session.to_json
+  end
 end

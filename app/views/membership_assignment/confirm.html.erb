@@ -1,2 +1,7 @@
-<%= button_to "Submit Payment", checkouts_create_path, params: {:id => @membership_assignment.id, :type => 0}, remote: true %>
-  
+<% button_to "Submit Payment", checkouts_create_path, params: {:id => @membership_assignment.id, :type => 0}, remote: true %>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @description %>"
+            data-amount="<%= 5 %>"
+            data-email="<%= current_user.email %>"
+            data-locale="checkout"></script>

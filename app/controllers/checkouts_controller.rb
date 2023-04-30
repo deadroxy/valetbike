@@ -44,7 +44,8 @@ class CheckoutsController < ApplicationController
           #customer_email: current_user.email        
         })
         
-        render 'checkouts/pay'
+        # render 'checkouts/pay'
+        redirect_to '/checkout-session', {:session_id => @session.id}
         # respond_to do |format|
         #   format.js
         # end
