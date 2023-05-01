@@ -13,8 +13,8 @@ class UsersController < ApplicationController
             end
             session[:user_id] = @user.id
             session[:username] = @user.username
-            #session[:email] = @user.email
-            flash[:notice] = "User created."
+            flash[:notice] = "User created"
+            flash[:danger] = @user.errors.full_messages.to_sentence
             redirect_to root_path
         else
             render 'new'
