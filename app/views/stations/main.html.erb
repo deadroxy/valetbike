@@ -8,8 +8,9 @@
         <a class="toggle" href="<%= add_bikes_path %>">Add Bikes</a> 
       <% end %>
       
-      <a class="toggle" href="<%= bikes_path %>">View Bike Fleet</a>
-      <a class="toggle" href="<%= root_path %>">Home page</a> 
+
+      <button class="unlock-button"><%=link_to('View Bike Fleet', bikes_path )%></button>
+      <button class="unlock-button"><%=link_to('Homepage', root_path)%></button>
     </div>  
 
     <div class="flexbox vertical stretch">

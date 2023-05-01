@@ -2,8 +2,12 @@
 
 <ul>
 <% @station.docked_bikes.each do |bike| %>
-<li><h3><%= bike.identifier%> </h3>
-<h4 style="color:#0CCAA8;"><%=link_to('unlock bike', new_rental_path(bike.identifier))%></h4>
+<div class="bike-box">
+<li><div class="bike-id"><%= bike.identifier%> </div>
+  <button class="unlock-button"><%=link_to('unlock bike', new_rental_path(bike.identifier))%></button>
 </li>
+</div>
 <%end%>
 </ul>
+<a class="toggle" href="<%= root_path %>">&emsp; Return to Homepage</a>
+<a class="toggle" href="<%= stations_path %>">&emsp; Return Stations</a>
