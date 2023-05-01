@@ -2,5 +2,5 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
   <div><%= station.identifier %>: <%= station.name %> (<%= station.address %>)</div>
   <div><% station.docked_bikes.count %> </div>
-  <h4 style="color:#0CCAA8;text-align:center;"><%=link_to('select station', station_path(station.identifier)) %></h4>
+  <h4> <button class="unlock-button"><%=link_to('select station', station_path(station.identifier)) %></button></h4>
 </div>

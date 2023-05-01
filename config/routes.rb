@@ -27,7 +27,11 @@ Rails.application.routes.draw do
 
   get "bikes_unlock", to: "bikes#unlock"
 
-  delete "logout", to: "sessions#destroy"
+
+  #delete "logout", to: "sessions#destroy"
+
+  get "/logout", to: "sessions#destroy"
+
 
   get '/users/:id', to: 'users#menu', as: 'user'
   get "user/show"
@@ -41,6 +45,7 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
  get '/reports/success', to: "reports#success"
+ get '/reports/empty', to: "reports#empty"
   get 'return', to: 'rentals#return'
   match'ride',to:"bikes#index", via: :get
   get '/bikes/return', to: "bikes#return"
