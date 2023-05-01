@@ -2,31 +2,32 @@
     <h2>User Profile</h2>
 
     <% if @user %>
-        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
-
-        Logged in as: <b><%= @user.username %> </b> <br>
-        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit username", edit_username_path) %></h4>
-
-        Email: <b><%= @user.email %></b><br>
-        
-        Home address: <b><%= @user.address %></b><br> 
-        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit address", edit_address_path, class: "link") %></h4>
-        
-        Birthday: <b><%= @user.birthday %></b><br>
-
-        Wallet points: <b><%= @user.wallet_point%></b><br>
-        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit wallet point", edit_wallet_path) %><br> </h4>
-
-        <% if @user. admin == true%>
-            Logged in as: admin <br>
-            Add Blocking list: <br>
-            <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit Blocking", edit_blocking_path) %><br> </h4>
+         <% if @user. admin == true%>
+            <h3> Hi Admin! What do you want to next? </h3>
+            <h3> <%= link_to("Add Blocking list", edit_blocking_path)%> </h3 >
+            <h3> <%= link_to("Add Station", add_stations_path)%> </h3>
+            <h3> <%= link_to("Add Bike", add_bikes_path)%> </h3>
+            <br> <br>
         <%end%>
+            <h3> User information </h3>
+            Logged in as: <b><%= @user.username %> </b> <br>
+            <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit username", edit_username_path) %></h4>
 
+            <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
+        
+            Email: <b><%= @user.email %></b><br>
+            
+            Home address: <b><%= @user.address %></b><br> 
+            <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit address", edit_address_path, class: "link") %></h4>
+            
+            Birthday: <b><%= @user.birthday %></b><br>
+
+
+            Wallet points: <b><%= @user.wallet_point%></b><br>
+            <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit wallet point", edit_wallet_path) %><br> </h4>
     <%else%>
         You haven't logged in. Please log in to see your user profile. 
         <%= link_to("Click here", login_path) %>
     <% end %>
-<a class="toggle" href="<%= root_path %>">&emsp; Return to Homepage</a>
     
 </div>

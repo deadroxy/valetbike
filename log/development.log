@@ -31260,3 +31260,589 @@ Processing by UsersController#show as TURBO_STREAM
 Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 0.6ms | Allocations: 13406)
 
 
+Started GET "/" for ::1 at 2023-05-01 18:50:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1578)
+  Rendered layout layouts/application.html.erb (Duration: 1092.6ms | Allocations: 243862)
+Completed 200 OK in 1125ms (Views: 1103.8ms | ActiveRecord: 0.0ms | Allocations: 251619)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReports (20230429193420)
+  [1m[35m (7.1ms)[0m  [1m[35mDROP TABLE `reports`[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.8ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20230429193420'[0m
+Migrating to SetAdminDefauly (20230427235836)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReports (20230429193420)
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE `reports` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `description` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230429193420')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReports (20230429193420)
+  [1m[35m (5.7ms)[0m  [1m[35mDROP TABLE `reports`[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (1.0ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20230429193420'[0m
+Migrating to CreateUsers (20230427010814)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20230427010814)
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReports (20230429193420)
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE `reports` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `description` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230429193420')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20230501230031)
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `email` varchar(255), `phone_num` varchar(255), `address` varchar(255), `birthday` date, `admin` tinyint(1), `block` tinyint(1), `wallet_point` int, `default_payment` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230501230031')[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ModifyUsers (20230501230159)
+  [1m[35m (8.0ms)[0m  [1m[35mALTER TABLE `users` CHANGE `block` `block` tinyint(1) DEFAULT FALSE[0m
+  [1m[35m (6.6ms)[0m  [1m[35mALTER TABLE `users` CHANGE `admin` `admin` tinyint(1) DEFAULT FALSE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mALTER TABLE `users` CHANGE `wallet_point` `wallet_point` int DEFAULT 0[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230501230159')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started GET "/" for ::1 at 2023-05-01 19:03:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1298)
+  Rendered layout layouts/application.html.erb (Duration: 258.8ms | Allocations: 84603)
+Completed 200 OK in 276ms (Views: 263.3ms | ActiveRecord: 0.0ms | Allocations: 88496)
+
+
+Started GET "/signup" for ::1 at 2023-05-01 19:03:34 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 38.1ms | Allocations: 7854)
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 20202)
+Completed 200 OK in 68ms (Views: 51.4ms | ActiveRecord: 2.7ms | Allocations: 30408)
+
+
+Started POST "/users" for ::1 at 2023-05-01 19:03:59 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"bikesia", "password"=>"[FILTERED]", "email"=>"bikesia@example.com", "phone_num"=>"9299770109", "address"=>"vwnurgb", "birthday"=>"2023-05-03", "default_payment"=>"paypal"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_digest`, `email`, `phone_num`, `address`, `birthday`, `admin`, `block`, `wallet_point`, `default_payment`, `created_at`, `updated_at`) VALUES ('bikesia', '$2a$12$Y4ZqoZF2cni9gVXX8HaC9uipuHFosVsuTpePkGW68ideNCRvMwcKa', 'bikesia@example.com', '9299770109', 'vwnurgb', '2023-05-03', FALSE, FALSE, 0, 'paypal', '2023-05-01 23:03:59.379218', '2023-05-01 23:03:59.379218')[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE `users` SET `users`.`admin` = TRUE, `users`.`updated_at` = '2023-05-01 23:03:59.388537' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 256ms (ActiveRecord: 4.0ms | Allocations: 7242)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:03:59 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 214)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 11905)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.4ms | Allocations: 14225)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:04:03 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 695)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 12255)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.4ms | Allocations: 14291)
+
+
+Started GET "/change_wallet" for ::1 at 2023-05-01 19:04:05 -0400
+Processing by WalletController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering wallet/edit.html.erb within layouts/application
+  Rendered wallet/edit.html.erb within layouts/application (Duration: 16.3ms | Allocations: 12356)
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 24298)
+Completed 200 OK in 34ms (Views: 30.3ms | ActiveRecord: 0.4ms | Allocations: 25998)
+
+
+Started POST "/change_wallet" for ::1 at 2023-05-01 19:04:18 -0400
+Processing by WalletController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email_paypal"=>"test@smith.edu", "password_paypal"=>"[FILTERED]", "wallet_add_paypal"=>"10", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`wallet_point` = 10, `users`.`updated_at` = '2023-05-01 23:04:18.238828' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms | Allocations: 3009)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:04:18 -0400
+Processing by UsersController#show as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 228)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 11788)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.3ms | Allocations: 13213)
+
+
+Started GET "/change_blocking" for ::1 at 2023-05-01 19:04:27 -0400
+Processing by BlockingController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering blocking/edit.html.erb within layouts/application
+  Rendered blocking/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1845)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 13682)
+Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 0.3ms | Allocations: 15366)
+
+
+Started GET "/add_stations" for ::1 at 2023-05-01 19:04:30 -0400
+Processing by StationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/new.html.erb within layouts/application
+  Rendered stations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1662)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 13446)
+Completed 200 OK in 34ms (Views: 14.5ms | ActiveRecord: 2.3ms | Allocations: 19295)
+
+
+Started GET "/add_bikes" for ::1 at 2023-05-01 19:04:32 -0400
+Processing by BikesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering bikes/new.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations`[0m
+  ↳ app/views/bikes/new.html.erb:7
+  Rendered bikes/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3028)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 14812)
+Completed 200 OK in 35ms (Views: 19.0ms | ActiveRecord: 2.7ms | Allocations: 20156)
+
+
+Started GET "/change_wallet" for ::1 at 2023-05-01 19:04:34 -0400
+Processing by WalletController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering wallet/edit.html.erb within layouts/application
+  Rendered wallet/edit.html.erb within layouts/application (Duration: 4.1ms | Allocations: 10932)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 22486)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.5ms | Allocations: 23531)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:04:35 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 11753)
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.3ms | Allocations: 12707)
+
+
+Started GET "/stations" for ::1 at 2023-05-01 19:04:37 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:17
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 1[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 14[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 9[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 2[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 4[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 8[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 10[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 12[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 5[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 3[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 11[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 13[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 6[0m
+  ↳ app/views/stations/_row.html.erb:4
+  Rendered collection of stations/_row.html.erb [14 times] (Duration: 42.8ms | Allocations: 15914)
+  Rendered stations/main.html.erb within layouts/application (Duration: 46.0ms | Allocations: 17265)
+  Rendered layout layouts/application.html.erb (Duration: 56.7ms | Allocations: 29110)
+Completed 200 OK in 61ms (Views: 51.6ms | ActiveRecord: 6.7ms | Allocations: 30227)
+
+
+Started GET "/stations/20" for ::1 at 2023-05-01 19:04:42 -0400
+Processing by StationsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` = 20 LIMIT 1[0m
+  ↳ app/controllers/stations_controller.rb:26:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/show.html.erb within layouts/application
+  [1m[36mBike Load (0.5ms)[0m  [1m[34mSELECT `bikes`.* FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
+  ↳ app/views/stations/show.html.erb:4
+  Rendered stations/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1961)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 13511)
+Completed 200 OK in 22ms (Views: 16.1ms | ActiveRecord: 1.2ms | Allocations: 15867)
+
+
+Started GET "/stations" for ::1 at 2023-05-01 19:08:05 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:17
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 1[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 14[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 9[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 2[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 4[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 8[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 10[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 12[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 5[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 3[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 11[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 13[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 6[0m
+  ↳ app/views/stations/_row.html.erb:4
+  Rendered collection of stations/_row.html.erb [14 times] (Duration: 23.5ms | Allocations: 11413)
+  Rendered stations/main.html.erb within layouts/application (Duration: 26.3ms | Allocations: 12866)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 25138)
+Completed 200 OK in 42ms (Views: 33.9ms | ActiveRecord: 5.5ms | Allocations: 26728)
+
+
+Started GET "/add_bikes" for ::1 at 2023-05-01 19:08:07 -0400
+Processing by BikesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering bikes/new.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations`[0m
+  ↳ app/views/bikes/new.html.erb:7
+  Rendered bikes/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2504)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 14708)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 0.9ms | Allocations: 16336)
+
+
+Started GET "/add_stations" for ::1 at 2023-05-01 19:08:09 -0400
+Processing by StationsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/new.html.erb within layouts/application
+  Rendered stations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1507)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 13290)
+Completed 200 OK in 39ms (Views: 34.7ms | ActiveRecord: 0.9ms | Allocations: 14745)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:08:11 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 12376)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.4ms | Allocations: 13861)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/logout" for ::1 at 2023-05-01 19:09:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 36ms (ActiveRecord: 4.2ms | Allocations: 14106)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:09:56 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.1ms | Allocations: 891)
+  Rendered layout layouts/application.html.erb (Duration: 258.9ms | Allocations: 84136)
+Completed 200 OK in 287ms (Views: 271.7ms | ActiveRecord: 0.0ms | Allocations: 86594)
+
+
+Started GET "/signup" for ::1 at 2023-05-01 19:09:59 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 19.3ms | Allocations: 5218)
+  Rendered layout layouts/application.html.erb (Duration: 58.7ms | Allocations: 17564)
+Completed 200 OK in 64ms (Views: 61.7ms | ActiveRecord: 0.0ms | Allocations: 18657)
+
+
+Started POST "/users" for ::1 at 2023-05-01 19:10:21 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"bikesia", "password"=>"[FILTERED]", "email"=>"bikesia@example.com", "phone_num"=>"2323232", "address"=>"wgrgbw", "birthday"=>"2023-05-16", "default_payment"=>""}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`phone_num` = '2323232' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2782)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 15004)
+Completed 200 OK in 254ms (Views: 14.2ms | ActiveRecord: 1.2ms | Allocations: 19765)
+
+
+Started POST "/users" for ::1 at 2023-05-01 19:10:22 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"bikesia", "password"=>"[FILTERED]", "email"=>"bikesia@example.com", "phone_num"=>"2323232", "address"=>"wgrgbw", "birthday"=>"2023-05-16", "default_payment"=>""}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`phone_num` = '2323232' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2589)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 14685)
+Completed 200 OK in 268ms (Views: 16.8ms | ActiveRecord: 1.2ms | Allocations: 18539)
+
+
+Started POST "/users" for ::1 at 2023-05-01 19:10:26 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"bikesia", "password"=>"[FILTERED]", "email"=>"bikesia@exampl.com", "phone_num"=>"2323232", "address"=>"wgrgbw", "birthday"=>"2023-05-16", "default_payment"=>""}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'bikesia@exampl.com' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`phone_num` = '2323232' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `password_digest`, `email`, `phone_num`, `address`, `birthday`, `admin`, `block`, `wallet_point`, `default_payment`, `created_at`, `updated_at`) VALUES ('bikesia', '$2a$12$wDG7cCIi/bNq1nj15KTGtOI3PavtDCFLuEM75lG15czA1nFad/hWy', 'bikesia@exampl.com', '2323232', 'wgrgbw', '2023-05-16', FALSE, FALSE, 0, '', '2023-05-01 23:10:26.550879', '2023-05-01 23:10:26.550879')[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 250ms (ActiveRecord: 2.3ms | Allocations: 5340)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:10:26 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 12158)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.3ms | Allocations: 13151)
+
+
+Started GET "/logout" for ::1 at 2023-05-01 19:10:30 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms | Allocations: 838)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:10:30 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 12312)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 12769)
+
+
+Started GET "/login" for ::1 at 2023-05-01 19:10:31 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1064)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 13538)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 14368)
+
+
+Started POST "/login" for ::1 at 2023-05-01 19:10:37 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@exampl.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@exampl.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 256ms (ActiveRecord: 1.7ms | Allocations: 6018)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:10:37 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 201)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 12020)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.3ms | Allocations: 13090)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:10:39 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 599)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 12158)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 14172)
+
+
+Started GET "/change_wallet" for ::1 at 2023-05-01 19:10:41 -0400
+Processing by WalletController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering wallet/edit.html.erb within layouts/application
+  Rendered wallet/edit.html.erb within layouts/application (Duration: 9.0ms | Allocations: 12298)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 24086)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.4ms | Allocations: 25758)
+
+
+Started POST "/change_wallet" for ::1 at 2023-05-01 19:11:50 -0400
+Processing by WalletController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email_paypal"=>"test@smith.edu", "password_paypal"=>"[FILTERED]", "wallet_add_paypal"=>"10", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'bikesia@exampl.com' AND `users`.`id` != 2 LIMIT 1[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`phone_num` = '2323232' AND `users`.`id` != 2 LIMIT 1[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`wallet_point` = 10, `users`.`updated_at` = '2023-05-01 23:11:50.552589' WHERE `users`.`id` = 2[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallet_controller.rb:16:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 11ms (ActiveRecord: 2.5ms | Allocations: 4898)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:11:50 -0400
+Processing by UsersController#show as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 147)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 11703)
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.4ms | Allocations: 13115)
+
+

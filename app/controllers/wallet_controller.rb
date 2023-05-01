@@ -7,11 +7,12 @@ class WalletController < ApplicationController
     def update
 
         if params[:finamecard] == "Bikesia" && params[:lanamecard] =="Team" && params[:card_num] == "1111111111" && params[:card_date] == "2023-02-01" && params[:cvv] == "111"
-            Current.user.wallet_point+=params[:wallet_add_card]
+            Current.user.wallet_point+=params[:wallet_add_card].to_i
             Current.user.save
             redirect_to user_home_path, notice: "Added through credit card"
         elsif params[:email_paypal] =="test@smith.edu" && params[:password_paypal] =="password"
-            Current.user.wallet_point+=params[:wallet_add_card]
+            Current.user.wallet_point+=params[:wallet_add_paypal].to_i
+            puts params[:wallet_add_paypal].to_i
             Current.user.save
             redirect_to user_home_path, notice: "Added through paypal"
         elsif params[:coupon_number] == "CYBER" && params[:coupon_sc] =="2023"
@@ -23,7 +24,6 @@ class WalletController < ApplicationController
             redirect_to change_wallet_path
         end
     end
-
     private
 
 end
