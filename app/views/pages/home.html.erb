@@ -11,7 +11,7 @@
       </h3> 
 
       <% if Current.user.try(:admin?) %>
-        <h3>Helllllo! Admin. What you want to do next? </h3>
+        <h3>Helllllo! Admin. What do you want to do next? </h3>
       <% end %>
       
     </div> 
@@ -23,7 +23,7 @@
             <link rel="stylesheets" href="/style.css">
         </head>
         <body>
-            <div class="banner">
+            <div class="banner1">
             <div class="navbar">
                 <ul>
                     <li><a href="#"><%= link_to("Stations", stations_path) %></a ></li>
@@ -32,10 +32,47 @@
                     <li><a href="#"><%= link_to("Return", return_path($bike)) %></a ></li>
                     <li><a href="#"><%= link_to("Report", new_report_path) %></a ></li>
                 </ul>
+                
+            </div> 
+            <br>
+
+            <div class="banner">
             </div>
-            </div>
-    
+            
+          <br>
+          <h2> About Us </h2>
+          <h3> Proudly serving since 2023 </h3> 
+          <div class="banner2">
+          </div>
+          <p> 
+          The Bikesia team is passionate about helping people in the 
+          Western Massachusetts Valley explore the outdoors and access 
+          nearby towns in an environmentally friendly way! <br>
+          That is why we created Bikesia, the ultimate bike rental 
+          service. With our service, you can easily unlock one of
+          our top of the line bikes for a low fee. 
+          Spend time with friends, explore the world around you, 
+          and more with our simple bike rental process.
+          </p>
+          <br>
+
+          <h2> How Does It Work? </h2>
+          <h3>  Our rental service is as easy as 1, 2, 3! </h3> 
+          <br>
+          <p> 
+          1.  Sign up to join the ValetBike community, or log in to you account <br>
+          <br>
+          2.  Use our map to reserve a bike and calculate your optimal route  <br>
+          <br>
+          3.  Ride your bike for the allotted time, then return it to any station  <br>
+          <br>
+          See you on the roads!
+          <br>
+          <br>
+          
+          </p>
         </body>
+
     </html>
 
 
