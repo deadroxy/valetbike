@@ -2,6 +2,7 @@
     <h2>User Profile</h2>
 
     <% if @user %>
+
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
 
         Logged in as: <b><%= @user.username %> </b> <br>

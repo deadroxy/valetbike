@@ -22,13 +22,24 @@
     crossorigin=""></script>
     
   </head>
+
+<html lang="en">  
+<head>  
+  <title>Bootstrap Example</title>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>  
+</head>  
+</html>
+
   
-  <div class="banner0"> #onclick="location.href='http://localhost:3000/';" > 
+  <div class="banner0"> 
   <% if Current.user %>
         <div class = "button-div">
-        <!--<%= link_to("Log Out", "logout_path", method: :delete, class: 'logins-link navbar-link-right') %> -->
-         
-        
+        <!--<%= link_to("Log Out", "logout_path", method: :delete, class: 'logins-link navbar-link-right') %> -->      
         <%= button_to "Logout", logout_path, method: :delete, class: "button-30" %> 
         </div> 
 
@@ -36,20 +47,24 @@
         <div class = "button-div">
         <button class="button-30"><%= link_to("Log In", login_path) %></button>
         <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
-        <!--<%= link_to image_tag("logo.png", height: 70, width: 70), root_path %>-->
-        
-        </div>
-        
+        <!--<%= link_to image_tag("logo.png", height: 70, width: 70), root_path %>-->        
+        </div>       
     <% end %> 
     </div> 
-  
-
   <body>
+
+  <div class="container">
     <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
+      <div class = "alert alert-danger alert-dismissable fade show" role = "alert">
+        <h6><strong> <%= msg %></strong></h6>
+        <button type="button" class="close" data-miss="alert" aria-label="Close">
+          <span aria-hidden="false">&times;</span>
+        </button>
+      </div> 
     <% end %>
+  </div>
+
+  
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
         <%= yield %>
