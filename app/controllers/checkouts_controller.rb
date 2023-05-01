@@ -11,6 +11,7 @@ class CheckoutsController < ApplicationController
                 @membershipassignment.get_membership
                 render('membership_assignment/new')
             end
+            @membershipassignment.update(start: Time.now)
             puts(@membershipassignment.membership.cost == 0)
             if @membershipassignment.membership.cost == 0
                 redirect_to pages_home_path

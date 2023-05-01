@@ -11,9 +11,14 @@ class RentalsController < ApplicationController
   end
 
   def create
+    if current_user.overdues.present?
+      redirect_to account_path
+      return
+    end
     @rental = Rental.new(rental_params)
-    @rental.time_limit = current_user.memberships.order(created_at: :desc).first.time_limit
     if @rental.save
+      @rental.time_limit = current_user.memberships.order(created_at: :desc).first.time_limit
+      @rental.save
       bike = Bike.find(@rental.bike_id)
       #bike.current_station_id=nil
       bike.update(current_station: nil)
@@ -31,7 +36,7 @@ class RentalsController < ApplicationController
     station_id = params[:station_id]
     @rental = current_user.rentals.order(created_at: :desc).first
     @rental.update(end_time: Time.now)
-    if @rental.is_overdue?
+    if @rental.is_overdue? && @rental.minutes_over >0
       overdue = Overdue.new(user_id: current_user.id, time_over: @rental.minutes_over)
       overdue.save
     end
