@@ -3,25 +3,22 @@
 
     <% if @user %>
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
-
+    
         Logged in as: <b><%= @user.username %> </b> <br>
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit username", edit_username_path) %></h4>
 
  
-        Block: <%= @user.block %><br>
-        Email:  <%= @user.email %><br>
+        Block: <b><%= @user.block %></b><br>
+        Email: <b><%= @user.email %></b><br>
         
-        Home address: <%= @user.address %><br> 
+        Home address: <b><%= @user.address %></b><br> 
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit address", edit_address_path, class: "link") %></h4>
         
-        Birthday: <%= @user.birthday %><br>
+        Birthday: <b><%= @user.birthday %></b><br>
 
         
-        Default payment: <%= @user.default_payment %><br>
-        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Payment method", payment_path)%><br></h4>
 
-
-        Wallet points: <%= @user.wallet_point%><br>
+        Wallet points: <b><%= @user.wallet_point%></b><br>
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit wallet point", edit_wallet_path) %><br> </h4>
         <% if @user. admin == true%>
             Logged in as: admin <br>
