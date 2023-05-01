@@ -2,23 +2,27 @@
     <h2>User Profile</h2>
 
     <% if @user %>
-        Logged in as: <%= @user.username %><br>
-        <%= link_to("Edit username", edit_username_path) %><br>
+        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
 
-        block: <%= @user.block %><br>
-        email:  <%= @user.email %><br>
+        Logged in as: <b><%= @user.username %> </b> <br>
+        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit username", edit_username_path) %></h4>
+
+ 
+        Block: <%= @user.block %><br>
+        Email:  <%= @user.email %><br>
         
-        address: <%= @user.address %><br> 
-        <%= link_to("Edit address", edit_address_path) %><br> 
+        Home address: <%= @user.address %><br> 
+        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit address", edit_address_path, class: "link") %></h4>
         
-        birthday: <%= @user.birthday %><br>
+        Birthday: <%= @user.birthday %><br>
 
-        <%= link_to("Payment method", payment_path)%><br>
+        
+        Default payment: <%= @user.default_payment %><br>
+        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Payment method", payment_path)%><br></h4>
 
-        default payment: <%= @user.default_payment %><br>
 
-        wallet_point: <%= @user.wallet_point%><br>
-        <%= link_to("Edit wallet point", edit_wallet_path) %><br> 
+        Wallet points: <%= @user.wallet_point%><br>
+        <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit wallet point", edit_wallet_path) %><br> </h4>
         <% if @user. admin == true%>
             Logged in as: admin <br>
             Add Blocking list: <br>
