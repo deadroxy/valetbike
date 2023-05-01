@@ -32554,3 +32554,171 @@ Processing by UsersController#show as TURBO_STREAM
 Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.4ms | Allocations: 32362)
 
 
+Started GET "/user_home" for ::1 at 2023-05-01 19:40:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1100)
+  Rendered layout layouts/application.html.erb (Duration: 145.9ms | Allocations: 84487)
+Completed 200 OK in 187ms (Views: 150.0ms | ActiveRecord: 4.9ms | Allocations: 100390)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:41:18 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 741)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 13218)
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 0.4ms | Allocations: 14944)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:42:05 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 741)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 13101)
+Completed 200 OK in 26ms (Views: 23.2ms | ActiveRecord: 0.4ms | Allocations: 14753)
+
+
+Started GET "/logout" for ::1 at 2023-05-01 19:42:38 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1138)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:42:38 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 13723)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.0ms | Allocations: 14977)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:42:41 -0400
+Processing by UsersController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 525)
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 12992)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.0ms | Allocations: 13888)
+
+
+Started GET "/login" for ::1 at 2023-05-01 19:42:45 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 36.0ms | Allocations: 2785)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 15332)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.0ms | Allocations: 16237)
+
+
+Started POST "/login" for ::1 at 2023-05-01 19:43:06 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 299ms (ActiveRecord: 2.1ms | Allocations: 3752)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:43:07 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 216)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 12040)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.4ms | Allocations: 13158)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:43:46 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 254)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 12073)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.3ms | Allocations: 13042)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:44:07 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 744)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 13105)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.3ms | Allocations: 14670)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:44:27 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 739)
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 13091)
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 0.4ms | Allocations: 14755)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:46:22 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 737)
+  Rendered layout layouts/application.html.erb (Duration: 188.0ms | Allocations: 39448)
+Completed 200 OK in 193ms (Views: 190.3ms | ActiveRecord: 0.4ms | Allocations: 41118)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:46:23 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 11999)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.4ms | Allocations: 13043)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:46:42 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 29631)
+Completed 200 OK in 62ms (Views: 50.4ms | ActiveRecord: 0.3ms | Allocations: 30576)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 19:46:52 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 29588)
+Completed 200 OK in 53ms (Views: 50.3ms | ActiveRecord: 0.3ms | Allocations: 30542)
+
+

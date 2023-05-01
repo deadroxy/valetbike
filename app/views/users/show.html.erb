@@ -4,9 +4,9 @@
     <% if Current.user %>
          <% if Current.user.admin == true%>
             <h3> Hi Admin! What do you want to next? </h3>
-            <h3> <%= link_to("Add Blocking list", edit_blocking_path)%> </h3 >
-            <h3> <%= link_to("Add Station", add_stations_path)%> </h3>
-            <h3> <%= link_to("Add Bike", add_bikes_path)%> </h3>
+            <button class="unlock-button"> <%= link_to("Add Blocking list", edit_blocking_path)%> </button >
+            <button class="unlock-button">  <%= link_to("Add Station", add_stations_path)%> </button >
+            <button class="unlock-button">  <%= link_to("Add Bike", add_bikes_path)%> </button >
             <br> <br>
         <%end%>
             <h3> User information </h3>
@@ -16,7 +16,7 @@
             <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
         
             Phone Number : <b><%= Current.user.phone_num%></b><br>
-            
+
             Email: <b><%= Current.user.email %></b><br>
             
             Home address: <b><%= Current.user.address %></b><br> 
