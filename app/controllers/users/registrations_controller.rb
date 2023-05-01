@@ -12,9 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -56,9 +56,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def after_sign_up_path_for(resource)
      path = super(resource)
      path = add_membership_path(membership_id: @membership_id) if path == root_path 
-     path
-
-     #path = cards_new_path if path == root_path
-     #path   
+     path   
    end
 end

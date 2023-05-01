@@ -4,6 +4,10 @@ class MembershipAssignment < ApplicationRecord
   has_one :payment, class_name: :Payment, foreign_key: :membership_id
   validates_presence_of :start
   after_validation :add_end
+  scope :nil_end, -> {where(end: nil)}
+  scope :end_before, -> (end_time) {where("end > ?", end_time)}
+  scope :un_expired, -> (now = Time.now) {nil_end.or(end_before(now)).order(created_at: :desc)}
+
   private
   def add_end
     membership = Membership.find(membership_id)
@@ -40,3 +44,4 @@ class MembershipAssignment < ApplicationRecord
     self.end > Time.now
   end
 end
+# MembershipAssignment.where(end: nil).or(MemberhsipAssignment.where.not("end > ?", Time.now)).order(created_at: :desc)

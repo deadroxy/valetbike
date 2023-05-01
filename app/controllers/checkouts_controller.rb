@@ -33,10 +33,15 @@ class CheckoutsController < ApplicationController
             name = "30 minute bike rental"
         elsif params[:type] == "2"
             cancel_url = account_url
-            success_url = account_url
+            success_url = remove_overdue_url(overdue_paid: 1)
             metadata = {overdue_id: params[:id]}
             amount = Overdue.find(params[:id]).cost
-            Overdue.destroy(params[:id])
+            if amount == 0
+                Overdue.destroy(params[:id])
+                redirect_to success_url
+                return
+            end
+            #Overdue.destroy(params[:id])
             name = "Overtime charge"
         end
         @session = Stripe::Checkout::Session.create({

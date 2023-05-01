@@ -15,9 +15,14 @@ class RentalsController < ApplicationController
       redirect_to account_path
       return
     end
+    if !current_user.has_active_membership?
+      flash[:error] = "Please select a membership before renting a bike."
+      redirect_to add_membership_path
+      return
+    end
     @rental = Rental.new(rental_params)
     if @rental.save
-      @rental.time_limit = current_user.memberships.order(created_at: :desc).first.time_limit
+      @rental.time_limit = current_user.get_membership.time_limit
       @rental.save
       bike = Bike.find(@rental.bike_id)
       #bike.current_station_id=nil
@@ -25,7 +30,7 @@ class RentalsController < ApplicationController
       bike.update(current_station_id: nil)
       bike.update(dock_id: nil)
       bike.save
-      redirect_to(pages_success_path)
+      redirect_to(rental_path(@rental))
     else
       @rental.get_bike
       render('new')

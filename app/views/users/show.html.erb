@@ -3,12 +3,10 @@
   <h1>Hi, <%=current_user.full_name %> </h1>
   <p> Registration Date: <%=current_user.created_at %> </p>
   <p> Email </p>
-  <h3> Your Membership Status: <%=current_user.memberships.order(created_at: :desc).first.name%> </h3>
+  <h3> Your Membership Status: <%=current_user.get_membership.name%> </h3>
   <button type="button"><%= link_to "Membership Plans", membership_assignment_new_path %></button>
-  <button type="button">Start biking!</button>
 </div>
 <% if current_user.overdues.present? %>
   You need to pay for the extra <%= current_user.overdues.first.time_over %> minutes you spent on your bike before you can rent again. Pay below. 
   <%= button_to "Pay overtime fee", checkouts_create_path, params: {:id => current_user.overdues.first.id, :type => 2}, remote: true %>
 <% end %>
-<button type="button">Edit Profile *BROKEN* </button>
