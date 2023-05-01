@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 <%= form_with(model: @user, local: true) do |f| %>
- 
+
 <div class="form-group">
   <%= f.label :username %>
   <%= f.text_field :username, class: "form-control" %>
@@ -23,18 +23,19 @@
   <%= f.label :phone_num %>
   <%= f.text_field :phone_num, class: "form-control" %><br/>
 </div> 
-<br/>
 
+<br/>
 <div class="form-group">
   <%= f.label :address %> 
   <%= f.text_field :address, class: "form-control" %><br/>
 </div> 
+
 <br/>
 <div class="form-group">
   <%= f.label :birthday %> 
   <%= f.date_field :birthday, class: "form-control" %><br/>
 </div>
-<br/>
+
 <br/>
 <div class="form-group">
   <%= f.label :default_payment %> 
@@ -42,7 +43,6 @@
 </div>
 
 <br/>
-
 <div class="form-group">
   <%= f.submit %>
 </div>

@@ -3,12 +3,10 @@
 
     <% if @user %>
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
-    
+
         Logged in as: <b><%= @user.username %> </b> <br>
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit username", edit_username_path) %></h4>
 
- 
-        Block: <b><%= @user.block %></b><br>
         Email: <b><%= @user.email %></b><br>
         
         Home address: <b><%= @user.address %></b><br> 
@@ -16,14 +14,13 @@
         
         Birthday: <b><%= @user.birthday %></b><br>
 
-        
-
         Wallet points: <b><%= @user.wallet_point%></b><br>
         <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit wallet point", edit_wallet_path) %><br> </h4>
+
         <% if @user. admin == true%>
             Logged in as: admin <br>
             Add Blocking list: <br>
-            <%= link_to("Click here", edit_blocking_path)%> <br>
+            <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit Blocking", edit_blocking_path) %><br> </h4>
         <%end%>
 
     <%else%>
