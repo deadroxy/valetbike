@@ -6,7 +6,7 @@ class AddressController < ApplicationController
 
     def update
         if Current.user.update(address_params)
-            redirect_to user_home_path, notice: "Address"
+            redirect_to user_home_path, notice: "Address changed"
         else
             render :edit
         end

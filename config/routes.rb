@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # hsm mods
   get "/bikes/unlock", to: "bikes#unlock"
   get "password", to: "passwords#edit", as: :edit_password
-  patch "password", to: "passwords#update"
+  post "password", to: "passwords#update"
 
 
 
@@ -65,6 +65,10 @@ Rails.application.routes.draw do
 
   get "payment", to: "payment#edit", as: :payment
   post "payment", to: "payment#update"
+
+
+  get "change_blocking", to: "blocking#edit", as: :edit_blocking
+  post "change_blocking", to: "blocking#update"
 
 
 

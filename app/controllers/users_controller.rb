@@ -13,6 +13,7 @@ class UsersController < ApplicationController
             end
             session[:user_id] = @user.id
             session[:username] = @user.username
+            #session[:email] = @user.email
             flash[:notice] = "User created."
             redirect_to root_path
         else
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
     private
  
     def user_params
-        params.require(:user).permit(:username, :email, :password, :phone_num, :address, :birthday, :wallet_point, :default_payment)
+        params.require(:user).permit(:username, :email, :password, :phone_num, :address, :birthday, :wallet_point, :default_payment, :blocking, :admin)
     end
 
 end
