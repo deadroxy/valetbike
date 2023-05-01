@@ -1,25 +1,30 @@
 <!doctype html>
 <html lang="en">
-<header>
-    <div class = "footer_parts">
-      <%= image_tag("logo.png") %>
-      <div class = "btn_group">
 
-        <button> <%= link_to "How It Works", how_it_works_path%> </button>
-        <button> <%= link_to "Locations", stations_path%> </button>
-        <button> <%= link_to "FAQ", faq_path%> </button>
 
-        <button> Support </button>
-        <% if user_signed_in? %>
-        <%= form_for :session, url: destroy_user_session_path, html: { method: :delete, style: 'display: inline;' } do |f| %>
-          <%= f.submit 'Logout', style: 'background-color: #8C1627; color:white; text-decoration: none; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; padding: 6px 12px;' %>
+
+  <header>
+    <div class = "header_parts", background_color = "white" >
+      <div class = "nav" >
+        <div class="logo_style" > 
+          <%= link_to image_tag("logo.png"), root_path %>  
+        </div>
+        <div class = "btn_group">
+          <button> <%= link_to "How It Works", how_it_works_path%> </button>
+          <button> <%= link_to "Locations", stations_path%> </button>
+          <button> <%= link_to "FAQ", faq_path %> </button>
+          <button> <%= link_to "Support", service_path %> </button>
+          <% if user_signed_in? %>
+
           <button> <%= link_to "Profile", user_profile_path%> </button>
-        <% end %>
-        
-        <% else %>
-          <button><%= link_to "Login", new_user_session_path %></button>
-          <button style="background-color: #8C1627;color:white"><%= link_to "Signup", new_user_registration_path %></button>
-        <% end %>
+            <%= form_for :session, url: destroy_user_session_path, html: { method: :delete, style: 'display: inline;' } do |f| %>
+              <%= f.submit 'Logout', style: 'background-color: #8C1627; color:white; text-decoration: none; border: 1px solid #dee2e6; border-radius: 8px; cursor: pointer; padding: 6px 12px;' %>      
+            <% end %>
+          <% else %>
+            <button> <%= link_to "Login", new_user_session_path %> </button>
+            <button style="background-color: #8C1627;color:white"> <%= link_to "Signup", new_user_registration_path %> </button>
+          <% end %>
+        </div>
       </div>
     </div>
   </header>

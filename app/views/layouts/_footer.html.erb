@@ -2,14 +2,14 @@
 <html lang="en">
   <footer>
     <div class = "footer_parts">
-      <div><%= image_tag("logo.png", size: "160x45") %>
+    <div class = "logo_style">
+      <%= link_to image_tag("logo.png"), root_path %>  
+    </div>
       <div class = "btn_group">
         <button> <%= link_to "How It Works", how_it_works_path%> </button>
         <button> <%= link_to "Locations", stations_path%> </button>
-        <button> <%= link_to "FAQ", faq_path%> </button>
-
-        <button><a href="service"> Support </a></button>
-        <button> Login/Signup </button>
+        <button> <%= link_to "FAQ", faq_path %> </button>
+        <button> <%= link_to "Support", service_path %> </button>
       </div>
     </div>
   </footer>

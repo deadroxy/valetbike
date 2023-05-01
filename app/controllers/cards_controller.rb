@@ -1,21 +1,24 @@
 class CardsController < ApplicationController
   def index
-    @cards = Card.all
+    if user_signed_in?
+      @cards = current_user.cards 
+    else
+      flash.alert = "Please Login First!"
+      redirect_to root_path
+    end
     
   end
 
   def show
-    @card = Card.find(params[:id])
-    # puts @card.inspect
+    @card = current_user.cards.find(params[:id])
   end
 
-
   def new
-    @card = Card.new(card_balance: 100)
+    @card = current_user.cards.new(card_balance: 1000)
   end
 
   def create
-    @card = Card.new(card_balance: 100, **card_params)
+    @card = current_user.cards.new(card_balance: 1000, **card_params)
 
     if @card.save
       redirect_to cards_path, notice: "Card was successfully added."
@@ -25,23 +28,22 @@ class CardsController < ApplicationController
     end
   end 
 
-
   def edit
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end
-
+    
   def update
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
       if @card.update(card_params)
         redirect_to card_path(@card)
       else
         render('edit')
       end
   end
-
-
+    
   def pay
-    @card = Card.find(params[:id])
+    
+    @card = current_user.cards.find(params[:id])
     amount = 6.12
 
     if @card.card_balance >= amount
@@ -54,19 +56,19 @@ class CardsController < ApplicationController
       end
 
     else
+      @cards = current_user.cards
       flash.alert = "Card does not have enough funds"
       render('index')
-
     end
 
   end
 
   def delete
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end 
 
   def destroy
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
     @card.destroy
     redirect_to cards_path
   end 
@@ -81,5 +83,4 @@ class CardsController < ApplicationController
       :card_balance
     )
   end
-
 end

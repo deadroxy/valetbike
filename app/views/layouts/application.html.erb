@@ -20,17 +20,6 @@
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
     <style>
-    body
-      {
-        width:100%;
-        top:0;
-        left:0;
-        padding-bottom: 120px;
-        min-height: 400px;
-        margin-top: 50px;
-        margin-bottom: 100px;
-        clear: both;
-      }
       a {
         color: inherit;
         text-decoration: none;
@@ -49,27 +38,36 @@
         color: #8C1627;
         font-size: 25px;
       }
-      header
+      .nav
       {
-        width:100%;
-        height: 50px;
+        width: 100vw;
+        height: 70px;
         position:sticky;
-        padding: 20px;
+        padding: 0px;
         top:0;
         text-align: center;
         left:0;
+        z-index: 2;
+        background-color: white;
+        display: inline-block;
+
       }
     footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
+      position: absolute;
+        bottom: -17%;
+        width: 100vw;
         height: 80px;
         text-align: center;
         padding: 10px;
         left:0;
         background-color: #FFEEE4;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
       }
       .footer_parts img {
+        position: sticky;
+        bottom: 0;
         float: left;
       }
       .header_parts p {
@@ -82,25 +80,31 @@
 
       .footer_parts p {
         position: absolute;
+        bottom: -17%;
       }
       .footer_parts sub {
         font-size: 0.8em;
         vertical-align: sub;
       }
-            .btn_group button {
+      .btn_group button {
+       width: 50vw;
         cursor: pointer;
         background-color: transparent;
         color: black;
-        margin: 0;
+        margin: 10;
         padding: 10px 14px;
         border: none;
+        float: right;
       }
       .btn_group {
+        width: 50vw;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        background-color: transparent;
         float: right;
       }
+
 
     
 
@@ -136,17 +140,30 @@
         cursor: pointer;
       }
 
+
+      .logo_style {
+        width: 150px ;
+        height: 150px;
+        float: left;
+      }
+
    </style>
  </head>
+ 
  <body>
+    <% flash.each do |key, value| %>
+      <div class = "alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
 
 
 
     <div id="site-container" class="flexbox vertical stretch flex-1">
+
       <div class="flexbox vertical center">
       <%= render "layouts/header" %>
       <%=yield %>
-      <%= render "layouts/footer" %>
+      <%#= render "layouts/footer" %>
       </div>
     </div>
     <%= render 'shared/flash_popup' %>

@@ -75,44 +75,7 @@
           </div>
 
           <script>
-            const stationsPerPage = 4;
-
-            function getStations(page) {
-              $.ajax({
-                url: "/stations",
-                data: { page: page, per_page: stationsPerPage },
-                dataType: "html",
-                success: function(data) {
-                  $("#stations-list").html(data);
-                }
-              });
-            }
-
-            $("#pagination").will_paginate({
-              containerClass: "pagination",
-              previousLabel: "&laquo;",
-              nextLabel: "&raquo;",
-              innerWindow: 2,
-              outerWindow: 0,
-              activeClassName: "active",
-              ajax: {
-                dataType: "html",
-                beforeSend: function() {
-                  $("#stations-list").html("<div class='loading'>Loading...</div>");
-                },
-                success: function(data, textStatus, jqXHR) {
-                  $("#stations-list").html(data);
-                }
-              }
-            });
-
-            getStations(1);
-
-            $("#pagination").on("click", ".pagination a", function() {
-              const page = $(this).attr("href").split("=")[1];
-              getStations(page);
-              return false;
-            });
+            <%= render(partial: 'paginate', formats: [:js]) %>
           </script>
 
           <script>
@@ -132,14 +95,13 @@
                   anchor: new google.maps.Point(25, 50),
                 };
                 map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 12,
-                  center: {lat: -34.397, lng: 150.644}
+                  zoom: 14,
+                  center: latlng
                 });
                 geocoder = new google.maps.Geocoder();
 
                 geocoder.geocode({ 'latLng': latlng }, function(results, status) {
                     if (status === 'OK') {
-                    map.setCenter(results[0].geometry.location);
                     var marker = new google.maps.Marker({
                       map: map,
                       position: results[0].geometry.location,
@@ -151,44 +113,62 @@
                   }
                 });
 
-                codeAddress()
+                addStations()
                 
               });
 
             }
 
-            function codeAddress() {
-              let stations = <%=@stations.to_json.html_safe%>;
-                            
+            function addStations() {
+              let all_stations = <%=@all_stations.to_json.html_safe%>;
+              let page_stations = <%=@stations.to_json.html_safe%>;
               const infoWindow = new google.maps.InfoWindow();
 
-              for (let station of stations) {
-                const stationLatLng = { lat: station["latitude"], lng: station["longitude"] };
+              for (let station of all_stations) {
+                const stationLatLng = { lat: Number(station["latitude"]), lng: Number(station["longitude"]) };
                 const docked_bikes_id = station["id"] + "_docked"
                 const station_element = document.getElementById(`${docked_bikes_id}`);
-                const contentString =
-                  "<div>" +
-                  `<h1>${station["name"]}</h1>` +
-                  '<div id="bodyContent" justify=space-between>' +
-                  `<p>${station["address"]}</p>` +
-                  `<p>${station_element.getAttribute('value')}</p>` +
-                  '<p>Available Docks: 4</p>' +
-                  "</div>" +
-                  "</div>";
+
+                const isPageStation = () => {
+                  var x;
+                  for (x of page_stations) {
+                    if (x["identifier"] === station["identifier"]){
+                      return true
+                    }
+                  }
+                  return false
+                }
 
                 const marker = new google.maps.Marker({
                   map: map,
                   position: stationLatLng,
                   title: `${station["name"]}`,
                   label: `${station["identifier"]}`,
+                  animation: null,
                   optimized: false,
                 });
 
-                marker.addListener("click", () => {
-                  infoWindow.close();
-                  infoWindow.setContent(contentString);
-                  infoWindow.open(marker.getMap(), marker);
-                });
+                if (isPageStation()) {
+                  map.setCenter(stationLatLng);
+
+                  const contentString =
+                    "<div>" +
+                    `<h1>${station["name"]}</h1>` +
+                    '<div id="bodyContent" justify=space-between>' +
+                    `<p>${station["address"]}</p>` +
+                    `<p>${station_element.getAttribute('value')}</p>` +
+                    '<p>Total Docks: 10</p>' +
+                    "</div>" +
+                    "</div>";
+
+                  marker.addListener("click", () => {
+                    infoWindow.close();
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(marker.getMap(), marker);
+                  });
+
+                  marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
               }
             }
           </script>

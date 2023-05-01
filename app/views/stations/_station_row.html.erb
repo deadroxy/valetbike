@@ -13,9 +13,9 @@
       <span class="text-sm text-gray-500 dark:text-gray-500">
 
       <% if params[:renting_id].present? %>
-         <%= link_to "Return", {controller: 'renting', action: 'return', renting_id: params[:renting_id],station_id: station[:id]}%>
+        <%= link_to "Return", {controller: 'renting', action: 'return', renting_id: params[:renting_id],station_id: station[:id]}%>
       <% else %>
-       <%= link_to "Details", {controller: 'renting', action: 'index', station_id: station[:id]}%>
+        <%= link_to "Details", {controller: 'renting', action: 'index', station_id: station[:id]}%>
        <%end%>
       </span>
     </div>

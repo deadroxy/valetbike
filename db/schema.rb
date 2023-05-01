@@ -37,12 +37,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_174626) do
 
   create_table "rentings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bike_id"
-    t.integer "start_station_id"
-    t.integer "end_station_id"
+    t.string "current_station_name"
+    t.integer "current_station_id"
     t.datetime "startTime"
     t.datetime "endTime"
     t.boolean "status"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,14 +66,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_174626) do
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
+
     t.string "street"
     t.string "city"
     t.string "state"
     t.string "country"
     t.decimal "latitude", precision: 10, scale: 6
     t.decimal "longitude", precision: 10, scale: 6
+
+    t.string "address"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

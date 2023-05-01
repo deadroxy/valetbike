@@ -2,8 +2,6 @@ class ServiceController < ApplicationController
 
     def new
       @service = Service.new(params)
-      #@service= Service.new(params.require(:service).permit(:name, :email, :bike_number, :bike_station, :additional_information))
-
       render :new
     end
 
@@ -11,9 +9,6 @@ class ServiceController < ApplicationController
 
     def create
        @service = Service.new(service_params)
-      # @service[:name] = Renting.find(params[:renting_id])
-        #@service= Service.new(params.require(:service).permit(:name, :email, :bike_number, :bike_station, :additional_information))
-       # @service.save
         if @service.save
             puts "###############"
             redirect_to service_path
@@ -25,19 +20,6 @@ class ServiceController < ApplicationController
 
         end
     end
-
-    # def create
-    #     @service= Service.new(service_params)
-
-    #     begin
-    #         @service.save
-    #         flash[:success] = "New to-do item service added!"
-            
-    #     rescue 
-    #         redirect_to service_path #ActiveRecord: :RecordInvalid => e
-    #         #render 'new', :status => :unprocessable_entity
-    #     end
-    # end
       
     private
       
