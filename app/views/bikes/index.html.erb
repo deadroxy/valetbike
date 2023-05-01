@@ -2,17 +2,18 @@
   <div class="section-inner flexbox vertical stretch"> 
     <div class="section-title flexbox horizontal center">
       Meet the Bikesia Fleet!
-      <a class="toggle" href="<%= payment_path %>">Payment page</a>
-      <a class="toggle" href="<%= stations_path %>">View Stations</a> 
-      <a class="toggle" href="<%= root_path %>">Home page</a> 
+      <button class="unlock-button"><%=link_to('View Stations', stations_path)%></button>
+      <button class="unlock-button"><%=link_to('Homepage', root_path)%></button>
     </div>
     <div class="flexbox vertical stretch">
       <% if @bikes.present? %>
         <div class="record-row header flexbox horizontal justify-space-between">
           <% if params[:reverse].blank? || params[:reverse] == "0" %>
-            <a href="<%= bikes_path(params: {reverse: 1})%>">Sort :desc</a>
+            <button class="unlock-button"><%=link_to('Order', bikes_path(params: {reverse: 1}))%></button>
+          
           <% else %>
-            <a href="<%= bikes_path %>">Sort :asc</a> 
+           <button class="unlock-button"><%=link_to('Order', bikes_path)%></button>
+
           <% end %>
         </div>
         <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
