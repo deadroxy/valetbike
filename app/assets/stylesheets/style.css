@@ -14,6 +14,8 @@
     margin:0 auto;
     
 }
+
+
 .banner0{
     width: 100%; 
     height: 12vh;
@@ -40,6 +42,16 @@
     background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(team.png);
     background-size: cover;
     background-position: center;
+}
+
+.banner3{
+    width: 100%; 
+    height: 40vh;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(phone.png);
+    background-size: cover;
+    background-position: center;
+    text-align:left; 
+    margin:0 auto;
 }
 
 .navbar{
