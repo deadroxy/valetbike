@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   end
   get 'users/index'
   get 'account', to: 'users#show', as: 'account'
-  
+  get 'add_membership', to: 'membership_assignment#new', as: 'add_membership'
 
   root to: "pages#home"
 

@@ -1,2 +1,4 @@
 <h1> Select Your Membership Plan:</h1>
-<%= render(partial: "membership_assignment/row", collection: @memberships, as: :membership) %>
+ <div class="flexbox vertical stretch">
+<%= render(partial: "shared/membership_new_row", collection: @memberships, as: :membership) %>
+</div>
