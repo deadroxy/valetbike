@@ -32,9 +32,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        if session[:user_id]
-            @user = User.find(session[:user_id])
-        end
+        # if session[:email]
+        #     @user = User.find(session[:email])
+        #     puts 112
+        # end
     end
      
     private
