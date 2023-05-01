@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:sessions, :registrations], controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    passwords: 'users/passwords'
   }
 
   devise_scope :user do

@@ -172,7 +172,8 @@
   
 				<!-- Add error messages right before the submit button -->
 				<p class="error-messages" style="color: red;"><%= render 'shared/error_messages', resource: resource %></p>
-  
+                <p classname="forgotpass"><%= link_to "Forgot your password?", new_user_password_path %></p>
+
 				<%= f.submit "Login", class: "create-btn" %>
   
 				<p>Dont have an account? <%= link_to "Sign up here!", new_user_registration_path,class: "login-link" %></p>
