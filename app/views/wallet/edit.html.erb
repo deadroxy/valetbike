@@ -8,27 +8,18 @@
                document.getElementById("creditCardOptions").style.display = "block";
                document.getElementById("paypalOptions").style.display = "none";
                document.getElementById("couponOptions").style.display = "none";
-               document.getElementById("walletMoneyOptions").style.display = "none";
            } else if (paymentMethod === "paypal") {
                document.getElementById("creditCardOptions").style.display = "none";
                document.getElementById("paypalOptions").style.display = "block";
                document.getElementById("couponOptions").style.display = "none";
-               document.getElementById("applePayOptions").style.display = "none";
            } else if (paymentMethod === "coupon") {
                document.getElementById("creditCardOptions").style.display = "none";
                document.getElementById("paypalOptions").style.display = "none";
                document.getElementById("couponOptions").style.display = "block";
-               document.getElementById("walletMoneyOptions").style.display = "none";
-           } else if (paymentMethod === "walletMoney") {
-               document.getElementById("creditCardOptions").style.display = "none";
-               document.getElementById("paypalOptions").style.display = "none";
-               document.getElementById("couponOptions").style.display = "none";
-               document.getElementById("walletMoneyOptions").style.display = "block";
            } else {
                document.getElementById("creditCardOptions").style.display = "none";
                document.getElementById("paypalOptions").style.display = "none";
                document.getElementById("couponOptions").style.display = "none";
-               document.getElementById("walletMoneyOptions").style.display = "none";
            }
        }
 
@@ -46,8 +37,6 @@
            <label><input type="radio" name="paymentMethod" value="paypal" onchange="showOptions()">PayPal</label><br>
            <label><input type="radio" name="paymentMethod" value="creditCard" onchange="showOptions()">Credit/Debit</label><br>
            <label><input type="radio" name="paymentMethod" value="coupon" onchange="showOptions()">Coupon</label><br>
-           <label><input type="radio" name="paymentMethod" value="walletMoney" onchange="showOptions()">Wallet Money</label><br>
-
         </form>
        <br><br><br>
 
