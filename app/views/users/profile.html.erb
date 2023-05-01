@@ -6,7 +6,8 @@
   <strong>Date of Birth:</strong><%=current_user.date_birth%><br>
   <strong>Address:</strong><%=current_user.address%><br>
   <strong>Credits:</strong><%=current_user.credit%><br>
-
+  <p> <%= link_to("Edit My Profile",edit_user_path(current_user.id))%>  <p> <br/>
+  
 </div>
 
   <!--<p>Find me in app/views/users/profile.html.erb</p>

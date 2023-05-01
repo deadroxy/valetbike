@@ -1,0 +1,36 @@
+<h1> weeeeeeeee<h1>
+
+<% @current_user = current_user %>
+user: <%=@current_user.username %>
+<% @current_bike = Bike.where(id: @rental.bike_id ) %> 
+
+<%= @rental %>
+
+<%= @rental.bike_id %>
+
+bike: <%= @rental.bike_id %> <br>
+start station:  <%= @rental.start_station_id%> <br>
+start time: <%= @rental.created_at %> <br>
+current time: <%= Time.now %> <br>
+length of ride: <%= Time.now - @rental.created_at%> second(s)
+
+ <%=link_to('ready to return? click here!', edit_rental_path(@rental.id)) %>
+
+
+
+
+
+
+<!
+
+ --> 
+
+    
+
+
+
+
+
+
+
+

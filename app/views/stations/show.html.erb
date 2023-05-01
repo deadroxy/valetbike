@@ -1,22 +1,22 @@
-
- Station name: <%= @station.name %> <br>
- Station identifer: <%= @station.identifier %> <br>
- Number of scooters avilable: <%= @station.docked_bike_count%> <br>
- Number of docks available: <%= @station.num_docks_available%> <br>
-
-
- 
  <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
- <%bikes.each do |bike| %>
-  <br>
- <%= bike.identifier%>
- <%= link_to("click here to rent this bike", new_rental_path()) %>
- <% end%>
+ Station identifer: <%= @station.identifier %> <br>
+ 
+ Station name: <%= @station.name %> <br>
+ 
+ <% if (bikes.length > 0)%>
 
+    Number of scooters avilable: <%= bikes.length%> <br>
+    Number of docks available: <%= @station.dock_count - bikes.length%> <br>
 
-
-
-
+    <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
+        <%bikes.each do |bike| %>
+          <br>
+        <%= bike.identifier%>
+        <%= link_to("click here to rent this bike", new_rental_path(bike: bike.id, station: @station.id)) %>
+        <% end%>
+    <% else %>
+    all out of scooters here! please leave  
+    <% end  %>
 
 
 
@@ -24,7 +24,6 @@
 
 <br><br><br>
  note: the rails id of this station is <%= @station.id %>
-
 
 
       

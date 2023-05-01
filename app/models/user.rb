@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :rentals 
+    has_many :rentals
     has_many :bikes, through: :rentals 
 
     validates_presence_of :username
@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
     validates_presence_of :credit
     validates_numericality_of :credit, greater_than_or_equal_to: 0
+
+    #validate :age
+
 
     #validates_
 
