@@ -51,6 +51,7 @@
 
 <div>
    <a class="toggle" href="<%= bikes_path %>">&emsp; Back to Bike Fleet</a>
+   <a class="toggle" href="<%= root_path %>">&emsp; Not ready to rent? Back to Homepage</a>
 </div>
 
 
@@ -189,7 +190,7 @@
                 <% end %>
 
                 <div class="mb-3" >
-                    <%= form.label :yn_wallet, "Do you confirm to pay with you Paypal Enter y/n" %>
+                    <%= form.label :yn_wallet, "Do you confirm to pay with your wallet? Enter y for yes or n for no" %>
                     <%= form.text_field :yn_wallet, class: "form-control"%>
                 </div>
 

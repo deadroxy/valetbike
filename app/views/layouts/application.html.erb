@@ -21,7 +21,7 @@
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
     
-  </head>
+  </head> 
 
 <html lang="en">  
 <head>  
@@ -34,21 +34,31 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>  
 </head>  
 </html>
-
-  
+ 
+  <link rel="stylesheets" href="/style.css">
   <div class="banner0"> 
   <% if Current.user %>
         <div class = "button-div">
-        <!--<%= link_to("Log Out", "logout_path", method: :delete, class: 'logins-link navbar-link-right') %> -->      
-        <%= button_to "Logout", logout_path, method: :delete, class: "button-30" %> 
+        <!--<%= link_to("Log Out", "logout_path", method: :delete, class: 'logins-link navbar-link-right') %> -->
+         
+        <button type="button", class="button-30"><%= link_to("Log Out", logout_path, method: :delete) %></button>
+        </div> 
+        <div style="text-align:center; opacity: 0;">
+        <%= link_to image_tag("logo.png", height: 100, width: 100), root_path %>
+        </div> 
         </div> 
 
     <% else %>
-        <div class = "button-div">
-        <button class="button-30"><%= link_to("Log In", login_path) %></button>
-        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
-        <!--<%= link_to image_tag("logo.png", height: 70, width: 70), root_path %>-->        
-        </div>       
+        <div class = "button-div"> 
+        <button type="button" class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button type="button" class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        <!--<%= link_to image_tag("logo.png", height: 70, width: 70), root_path %>-->
+        </div>
+        
+        <div style="text-align:center; opacity: 0;">
+        <%= link_to image_tag("logo.png", height: 100, width: 100), root_path %>
+        </div>
+ 
     <% end %> 
     </div> 
   <body>
