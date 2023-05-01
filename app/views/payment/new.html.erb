@@ -55,7 +55,7 @@
 <br>
 
     <div>
-        <form action="/action_page.php"> <!-- this should be payment_action or the payment controller page -->
+        <form url: payment_url(params[:format])> <!-- this should be payment_action or the payment controller page -->
 
             <h2>Select Payment Method:</h2><br>
             <label><input type="radio" name="paymentMethod" value="wallet" onchange="showOptions()">My Account Balance</label><br>

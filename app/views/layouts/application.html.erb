@@ -25,8 +25,9 @@
   
   
   <% if Current.user %>
-        <%= button_to "Logout", logout_path, method: :delete %>
-        <%= link_to("Change Password", edit_password_path) %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        </div>
     <% else %>
         <div class = "button-div">
         <button class="button-30"><%= link_to("Log In", login_path) %></button>

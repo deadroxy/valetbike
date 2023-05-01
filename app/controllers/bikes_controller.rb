@@ -30,14 +30,11 @@ end
           @user = User.find(session[:user_id])
       end
   end
-
+ 
   def bike_params
      params.require(:bike).permit(:identifier, :current_station_id)
   end
 
-  #def sta_params
-     #params.require(:bike).permit(:Select_Stations, :name, :address)
-   #end
 
 
 end
