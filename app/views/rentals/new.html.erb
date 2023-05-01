@@ -12,7 +12,8 @@ current station: <%= @current_station%>
  <%= f.hidden_field :user_id, value: @current_user.id%><br>
 
  <%= f.hidden_field :start_station_id, value: @current_station%><br>
-
+ <%= f.hidden_field :start_time, value: @rental.created_at%><br>
+ <%= f.hidden_field :end_time, value: Time.now()%><br>
  <%= f.hidden_field :bike_id, value: @current_bike%><br>
 
  <strong><%= submit_tag "Rent"%> </strong>

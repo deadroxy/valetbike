@@ -7,6 +7,7 @@ class RentalsController < ApplicationController
 
     def show 
         @rental = Rental.find(params[:id])
+        @rental.start_time = @rental.created_at
     end 
 
 
@@ -21,10 +22,12 @@ class RentalsController < ApplicationController
     def create
         puts "rental is #{@rental}"
         @rental = Rental.new(params.require(:rental).permit(:user_id, :bike_id, :start_station_id, :end_station_id, :end_time, :price, :start_time, :end_time ))
+        @rental.save
         if @rental.save 
-            puts "saved"
             @current_bike = Bike.where(id: @rental.bike_id )
             @current_bike.update(current_station_identifier: 0, status: 1) 
+            @rental.save
+            puts "saved"
 
             #puts params[:bike_id]
             #bikes = Bike.where(current_station_identifier: @station.identifier )
@@ -66,6 +69,7 @@ class RentalsController < ApplicationController
             puts @rental.user.credit
             @rental.user.update(credit: 10.0) 
             puts @rental.user.credit
+            @rental.end_time=Time.now()
 
             #@user.update(credit: 19)
         flash[:success] = "Your scooter is successfully returned!"

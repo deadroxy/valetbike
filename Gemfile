@@ -83,3 +83,5 @@ gem 'dotenv-rails'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+gem "local_time", "~> 2.1"

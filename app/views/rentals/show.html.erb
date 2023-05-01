@@ -12,7 +12,7 @@ bike: <%= @rental.bike_id %> <br>
 start station:  <%= @rental.start_station_id%> <br>
 start time: <%= @rental.created_at %> <br>
 current time: <%= Time.now %> <br>
-length of ride: <%= Time.now - @rental.created_at %> 
+length of ride: <%= Time.now - @rental.created_at%> second(s)
 
  <%=link_to('ready to return? click here!', edit_rental_path(@rental.id)) %>
 
