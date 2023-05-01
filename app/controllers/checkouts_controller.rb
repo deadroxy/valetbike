@@ -7,11 +7,11 @@ class CheckoutsController < ApplicationController
         name = "Test"
         if params[:type] == "0"
             @membershipassignment = MembershipAssignment.new(user_id: current_user.id, membership_id: params[:id])
+            @membershipassignment.start = Time.now
             unless @membershipassignment.save 
                 @membershipassignment.get_membership
                 render('membership_assignment/new')
             end
-            @membershipassignment.update(start: Time.now)
             puts(@membershipassignment.membership.cost == 0)
             if @membershipassignment.membership.cost == 0
                 redirect_to pages_home_path
