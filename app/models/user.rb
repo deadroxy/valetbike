@@ -15,6 +15,17 @@ class User < ApplicationRecord
 
     validates_presence_of :credit
     validates_numericality_of :credit, greater_than_or_equal_to: 0
+    validates_presence_of :date_birth
+
+    validate :user_age 
+
+    #creds to this stack overflow post https://stackoverflow.com/questions/40457247/id-like-to-validate-a-birthdate-attribute-to-be-over-18-years-old 
+
+    def user_age 
+       if date_birth.present? && date_birth > 18.years.ago 
+            errors.add( :date_birth, 'you must be at least 18 years old to use valetscoot')
+    end 
+    end
 
     #validate :age
 
