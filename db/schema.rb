@@ -66,7 +66,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_174626) do
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.string "name"
+
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+
     t.string "address"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
