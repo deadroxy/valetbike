@@ -59,15 +59,17 @@ Rails.application.routes.draw do
   default_url_options :host => "127.0.0.1:3000"
 
   post 'checkouts/create' => 'checkouts#create', as: "checkouts_create"
+  get 'checkouts/pay' => 'checkouts#pay', as: "checkouts_pay"
   post 'membership_assignment/create' => 'membership_assignment#create', as: "membership_assignment_create"
   
   get 'membership_assignments/confirm' => 'membership_assignment#confirm', as: "membership_assignment_confirm"
   get 'membership_assignment/show' => 'membership_assignment#show', as: "membership_assignment_show"
-  get '/checkout-session' do
-    content_type 'application/json'
-    session_id = params[:sessionId]
+  # get '/checkout-session' do
+  #   content_type 'application/json'
+  #   session_id = params[:sessionId]
   
-    session = Stripe::Checkout::Session.retrieve(session_id)
-    session.to_json
-  end
+  #   session = Stripe::Checkout::Session.retrieve(session_id)
+  #   session.to_json
+  # end
+  resources :webhooks, only: [:create]
 end

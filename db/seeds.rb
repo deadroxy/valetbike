@@ -51,6 +51,7 @@ membership = Membership.new(
   :position          => 1,
   :payment_frequency => 60,
   :cost              => 5,
+  :time_limit        => 60,
   :time_unit         => 'minute'
 )
 membership.save!
@@ -60,8 +61,9 @@ membership = Membership.new(
   :name              => 'One Time Hour Version',
   :category          => 'One Time',
   :position          => 2,
-  :payment_frequency => 12,
+  :payment_frequency => 24,
   :cost              => 50,
+  :time_limit        => 120,
   :time_unit         => 'hour'
 )
 membership.save!
@@ -71,9 +73,10 @@ membership = Membership.new(
   :name              => 'Basic Monthly',
   :category          => 'Monthly Subscription',
   :position          => 3,
-  :payment_frequency => 90,
+  :payment_frequency => 1,
   :cost              => 18.5,
-  :time_unit         => 'minute'
+  :time_limit       => 90,
+  :time_unit         => 'month'
 )
 membership.save!
 
@@ -82,9 +85,10 @@ membership = Membership.new(
   :name              => 'Premium Monthly',
   :category          => 'Monthly Subscription',
   :position          => 4,
-  :payment_frequency => 2.5,
+  :payment_frequency => 1,
   :cost              => 25,
-  :time_unit         => 'hour'
+  :time_limit        => 150,
+  :time_unit         => 'month'
 )
 membership.save!
 
@@ -95,6 +99,7 @@ membership = Membership.new(
   :position          => 5,
   :payment_frequency => 1,
   :cost              => 60,
+  :time_limit        => 45,
   :time_unit         => 'year'
 )
 membership.save!
@@ -105,6 +110,7 @@ membership = Membership.new(
   :position          => 6,
   :payment_frequency => 0,
   :cost              => 0,
+  :time_limit        => 0,
   :time_unit         => 'month'
 )
 membership.save!

@@ -23,7 +23,7 @@ class Rental < ApplicationRecord
     end
     def getTimeElapsed
         if self.is_done? 
-            return round((end_time - start_time)/60)
+            return (end_time - start_time)/60.ceil
         end
         round(Time.now - start_time)
     end
@@ -37,7 +37,7 @@ class Rental < ApplicationRecord
         self.getTimeElapsed > time_limit
     end
     def minutes_over
-        unless isOverdue?
+        unless is_overdue?
             return 0
         end
         self.getTimeElapsed - time_limit

@@ -12,6 +12,7 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
+    @rental.time_limit = current_user.memberships.order(created_at: :desc).first.time_limit
     if @rental.save
       bike = Bike.find(@rental.bike_id)
       #bike.current_station_id=nil

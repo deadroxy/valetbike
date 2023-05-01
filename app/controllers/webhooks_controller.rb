@@ -2,6 +2,7 @@ class WebhooksController < ApplicationController
     skip_before_action :verify_authenticity_token
 
   def create
+    puts "yeahhh"
     payload = request.body.read
     sig_header = request.env['HTTP_STRIPE_SIGNATURE']
     event = nil

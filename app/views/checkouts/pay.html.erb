@@ -1,12 +1,2 @@
-<script src="https://js.stripe.com/v3/"></script>
-hiiii
-<% puts "hoho" %>
-<script>
-var stripe = Stripe("<%= Rails.configuration.stripe[:publishable_key] %>")
-console.log(stripe);
-stripe.redirectToCheckout({
-    sessionId: '<%= @session.id %>'
-}).then(function (result) {
-    console.log(result.error_message)
-});
-</script>
+Pay at link below:
+<%= link_to "Pay", @session.url %>

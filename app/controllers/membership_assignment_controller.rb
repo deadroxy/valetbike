@@ -16,8 +16,8 @@ class MembershipAssignmentController < ApplicationController
         if @membershipassignment.save
           membership = Membership.find(@membershipassignment.membership_id)
           puts membership_assignment_confirm_path(:membership_assignment_id => @membershipassignment)
-          redirect_to membership_assignment_confirm_path(:membership_assignment_id => @membershipassignment)
-          #redirect_to(checkouts_create_path, params: {:id => @membershipassignment.id, :type => 0}, remote: true, action: :post)
+          #redirect_to membership_assignment_confirm_path(:membership_assignment_id => @membershipassignment)
+          redirect_to(checkouts_create_path, params: {:id => @membershipassignment.id, :type => 0}, remote: true, action: :post)
           #redirect_to(pages_success_path)
         else
           @membershipassignment.get_membership
