@@ -4,9 +4,8 @@ class UsersController < ApplicationController
         @user =User.new
     end
 
-    def create
-        @book = @author.books.create(published_at: Time.now)
-        @user = @
+    def create 
+        @user =User.new(user_params)
         if @user.save
             if @user.email == "bikesia@example.com"
                 @user.admin = true

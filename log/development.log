@@ -25252,3 +25252,3557 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 2271)
 
 
+Started GET "/" for ::1 at 2023-04-30 20:55:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2658)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 6.8ms | Allocations: 18444)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+31:            </div>
+32:        <% else %>
+33:            <div class = "button-div">
+34:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+35:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+36:            </div>
+37:        <% end %>
+38:      
+39:    
+40:      <body>
+41:        <% flash.each do |type, msg| %>
+42:          <div>
+43:            <%= msg %>
+44:          </div>
+45:        <% end %>
+46:        <div id="site-container" class="flexbox vertical stretch flex-1">
+47:          <div class="flexbox vertical center">
+48:            <%= yield %>
+49:          </div>
+50:        </div>
+51:      </body>
+52:    
+53:      
+54:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:18 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 214)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2906)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.9ms | Allocations: 7460)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+31:            </div>
+32:        <% else %>
+33:            <div class = "button-div">
+34:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+35:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+36:            </div>
+37:        <% end %>
+38:      
+39:    
+40:      <body>
+41:        <% flash.each do |type, msg| %>
+42:          <div>
+43:            <%= msg %>
+44:          </div>
+45:        <% end %>
+46:        <div id="site-container" class="flexbox vertical stretch flex-1">
+47:          <div class="flexbox vertical center">
+48:            <%= yield %>
+49:          </div>
+50:        </div>
+51:      </body>
+52:    
+53:      
+54:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:18 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2931)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.0ms | Allocations: 8749)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+31:            </div>
+32:        <% else %>
+33:            <div class = "button-div">
+34:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+35:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+36:            </div>
+37:        <% end %>
+38:      
+39:    
+40:      <body>
+41:        <% flash.each do |type, msg| %>
+42:          <div>
+43:            <%= msg %>
+44:          </div>
+45:        <% end %>
+46:        <div id="site-container" class="flexbox vertical stretch flex-1">
+47:          <div class="flexbox vertical center">
+48:            <%= yield %>
+49:          </div>
+50:        </div>
+51:      </body>
+52:    
+53:      
+54:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:20 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 194)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1628)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 2696)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+31:            </div>
+32:        <% else %>
+33:            <div class = "button-div">
+34:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+35:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+36:            </div>
+37:        <% end %>
+38:      
+39:    
+40:      <body>
+41:        <% flash.each do |type, msg| %>
+42:          <div>
+43:            <%= msg %>
+44:          </div>
+45:        <% end %>
+46:        <div id="site-container" class="flexbox vertical stretch flex-1">
+47:          <div class="flexbox vertical center">
+48:            <%= yield %>
+49:          </div>
+50:        </div>
+51:      </body>
+52:    
+53:      
+54:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:27 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3773)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.3ms | Allocations: 5354)
+
+
+Started GET "/" for ::1 at 2023-04-30 20:55:36 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2006)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3649)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "bar" } %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:41 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2008)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3668)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "delete" } %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "delete" } %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:42 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1602)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 2650)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "delete" } %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), {:action => "delete" } %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:55:48 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2215)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.4ms | Allocations: 3767)
+
+
+Started GET "/" for ::1 at 2023-04-30 20:57:00 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2005)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3636)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), data: {turbo_method: :delete} %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), data: {turbo_method: :delete} %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:57:34 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2004)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 3631)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:57:42 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2004)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms | Allocations: 3631)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete, %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete, %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:33: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:38: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:57: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:57:55 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2004)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3631)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <div class = "button-div">
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <div class = "button-div">
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete %></button>
+31:            
+32:            </div>
+33:        <% else %>
+34:            <div class = "button-div">
+35:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+36:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+37:            </div>
+38:        <% end %>
+39:      
+40:    
+41:      <body>
+42:        <% flash.each do |type, msg| %>
+43:          <div>
+44:            <%= msg %>
+45:          </div>
+46:        <% end %>
+47:        <div id="site-container" class="flexbox vertical stretch flex-1">
+48:          <div class="flexbox vertical center">
+49:            <%= yield %>
+50:          </div>
+51:        </div>
+52:      </body>
+53:    
+54:      
+55:    </html>
+  
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:30: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:58:17 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2004)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 3631)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete %></button>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <div class = "button-div">
+31:            <button class="button-30"><%= link_to("Log Out", logout_path), method: :delete %></button>
+32:            
+33:            </div>
+34:        <% else %>
+35:            <div class = "button-div">
+36:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+37:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+38:            </div>
+39:        <% end %>
+40:      
+41:    
+42:      <body>
+43:        <% flash.each do |type, msg| %>
+44:          <div>
+45:            <%= msg %>
+46:          </div>
+47:        <% end %>
+48:        <div id="site-container" class="flexbox vertical stretch flex-1">
+49:          <div class="flexbox vertical center">
+50:            <%= yield %>
+51:          </div>
+52:        </div>
+53:      </body>
+54:    
+55:      
+56:    </html>
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:58:27 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2006)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3633)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <div class = "button-div">
+        <%= link_to("Log Out", logout_path), method: :delete %>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <div class = "button-div">
+31:            <%= link_to("Log Out", logout_path), method: :delete %>
+32:            
+33:            </div>
+34:        <% else %>
+35:            <div class = "button-div">
+36:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+37:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+38:            </div>
+39:        <% end %>
+40:      
+41:    
+42:      <body>
+43:        <% flash.each do |type, msg| %>
+44:          <div>
+45:            <%= msg %>
+46:          </div>
+47:        <% end %>
+48:        <div id="site-container" class="flexbox vertical stretch flex-1">
+49:          <div class="flexbox vertical center">
+50:            <%= yield %>
+51:          </div>
+52:        </div>
+53:      </body>
+54:    
+55:      
+56:    </html>
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:59:23 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2008)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3635)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <div class = "button-div">
+        <%= link_to("Log Out", logout_path), method: :delete, class: 'button-30' %>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <div class = "button-div">
+31:            <%= link_to("Log Out", logout_path), method: :delete, class: 'button-30' %>
+32:            
+33:            </div>
+34:        <% else %>
+35:            <div class = "button-div">
+36:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+37:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+38:            </div>
+39:        <% end %>
+40:      
+41:    
+42:      <body>
+43:        <% flash.each do |type, msg| %>
+44:          <div>
+45:            <%= msg %>
+46:          </div>
+47:        <% end %>
+48:        <div id="site-container" class="flexbox vertical stretch flex-1">
+49:          <div class="flexbox vertical center">
+50:            <%= yield %>
+51:          </div>
+52:        </div>
+53:      </body>
+54:    
+55:      
+56:    </html>
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:59:29 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2008)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.4ms | Allocations: 3635)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <div class = "button-div">
+        <%= link_to("Log Out", logout_path), class: 'button-30' %>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <div class = "button-div">
+31:            <%= link_to("Log Out", logout_path), class: 'button-30' %>
+32:            
+33:            </div>
+34:        <% else %>
+35:            <div class = "button-div">
+36:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+37:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+38:            </div>
+39:        <% end %>
+40:      
+41:    
+42:      <body>
+43:        <% flash.each do |type, msg| %>
+44:          <div>
+45:            <%= msg %>
+46:          </div>
+47:        <% end %>
+48:        <div id="site-container" class="flexbox vertical stretch flex-1">
+49:          <div class="flexbox vertical center">
+50:            <%= yield %>
+51:          </div>
+52:        </div>
+53:      </body>
+54:    
+55:      
+56:    </html>
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:59:32 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1604)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 2640)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+        <div class = "button-div">
+        <%= link_to("Log Out", logout_path), class: 'button-30' %>
+        
+        </div>
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:            <div class = "button-div">
+31:            <%= link_to("Log Out", logout_path), class: 'button-30' %>
+32:            
+33:            </div>
+34:        <% else %>
+35:            <div class = "button-div">
+36:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+37:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+38:            </div>
+39:        <% end %>
+40:      
+41:    
+42:      <body>
+43:        <% flash.each do |type, msg| %>
+44:          <div>
+45:            <%= msg %>
+46:          </div>
+47:        <% end %>
+48:        <div id="site-container" class="flexbox vertical stretch flex-1">
+49:          <div class="flexbox vertical center">
+50:            <%= yield %>
+51:          </div>
+52:        </div>
+53:      </body>
+54:    
+55:      
+56:    </html>
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 20:59:48 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2006)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3517)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        
+        <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+
+        <%= link_to("Log Out", logout_path), class: 'button-30' %>
+        
+
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            
+29:            <%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  
+30:    
+31:            <%= link_to("Log Out", logout_path), class: 'button-30' %>
+32:            
+33:    
+34:        <% else %>
+35:            <div class = "button-div">
+36:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+37:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+38:            </div>
+39:        <% end %>
+40:      
+41:    
+42:      <body>
+43:        <% flash.each do |type, msg| %>
+44:          <div>
+45:            <%= msg %>
+46:          </div>
+47:        <% end %>
+48:        <div id="site-container" class="flexbox vertical stretch flex-1">
+49:          <div class="flexbox vertical center">
+50:            <%= yield %>
+51:          </div>
+52:        </div>
+53:      </body>
+54:    
+55:      
+56:    </html>
+  
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+app/views/layouts/application.html.erb:31: syntax error, unexpected ',', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 21:00:22 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2215)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.4ms | Allocations: 3871)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:00:45 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2239)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 3914)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:01:12 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2242)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.4ms | Allocations: 3906)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:01:17 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2241)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 3919)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:01:26 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 1973)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 3623)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:01:51 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2235)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.4ms | Allocations: 3883)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:02:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/logout" for ::1 at 2023-04-30 21:02:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:02:28 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2234)
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 3809)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:02:50 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2235)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.4ms | Allocations: 3880)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:02:52 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/logout" for ::1 at 2023-04-30 21:02:52 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:03:00 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1274)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.8ms | Allocations: 2287)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:03:28 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2210)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 3747)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:03:37 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/login" for ::1 at 2023-04-30 21:03:43 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2637)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4346)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.4ms | Allocations: 6001)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:04:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/login" for ::1 at 2023-04-30 21:04:10 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1693)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.4ms | Allocations: 2704)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:04:14 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 553)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1819)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.4ms | Allocations: 3164)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:04:27 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/logout" for ::1 at 2023-04-30 21:06:38 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:06:57 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2235)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 0.5ms | Allocations: 3865)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:06:59 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:07:00 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1274)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 2290)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:07:11 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2234)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 3762)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:07:39 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:07:44 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2399)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 3960)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:08:05 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2002)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 3639)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+
+        <div class = "button-div">
+        <button class="button-30">
+        <%= button_to("Log Out", method: :delete, logout_path) %>
+        </button>
+        </div>
+
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+29:    
+30:            <div class = "button-div">
+31:            <button class="button-30">
+32:            <%= button_to("Log Out", method: :delete, logout_path) %>
+33:            </button>
+34:            </div>
+35:    
+36:        <% else %>
+37:            <div class = "button-div">
+38:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+39:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+40:            </div>
+41:        <% end %>
+42:      
+43:    
+44:      <body>
+45:        <% flash.each do |type, msg| %>
+46:          <div>
+47:            <%= msg %>
+48:          </div>
+49:        <% end %>
+50:        <div id="site-container" class="flexbox vertical stretch flex-1">
+51:          <div class="flexbox vertical center">
+52:            <%= yield %>
+53:          </div>
+54:        </div>
+55:      </body>
+56:    
+57:      
+58:    </html>
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 21:08:11 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2002)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms | Allocations: 3635)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+
+        <div class = "button-div">
+        <button class="button-30">
+        <%= link_to("Log Out", method: :delete, logout_path) %>
+        </button>
+        </div>
+
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+29:    
+30:            <div class = "button-div">
+31:            <button class="button-30">
+32:            <%= link_to("Log Out", method: :delete, logout_path) %>
+33:            </button>
+34:            </div>
+35:    
+36:        <% else %>
+37:            <div class = "button-div">
+38:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+39:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+40:            </div>
+41:        <% end %>
+42:      
+43:    
+44:      <body>
+45:        <% flash.each do |type, msg| %>
+46:          <div>
+47:            <%= msg %>
+48:          </div>
+49:        <% end %>
+50:        <div id="site-container" class="flexbox vertical stretch flex-1">
+51:          <div class="flexbox vertical center">
+52:            <%= yield %>
+53:          </div>
+54:        </div>
+55:      </body>
+56:    
+57:      
+58:    </html>
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 21:08:12 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1596)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 2638)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+
+        <div class = "button-div">
+        <button class="button-30">
+        <%= link_to("Log Out", method: :delete, logout_path) %>
+        </button>
+        </div>
+
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+29:    
+30:            <div class = "button-div">
+31:            <button class="button-30">
+32:            <%= link_to("Log Out", method: :delete, logout_path) %>
+33:            </button>
+34:            </div>
+35:    
+36:        <% else %>
+37:            <div class = "button-div">
+38:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+39:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+40:            </div>
+41:        <% end %>
+42:      
+43:    
+44:      <body>
+45:        <% flash.each do |type, msg| %>
+46:          <div>
+47:            <%= msg %>
+48:          </div>
+49:        <% end %>
+50:        <div id="site-container" class="flexbox vertical stretch flex-1">
+51:          <div class="flexbox vertical center">
+52:            <%= yield %>
+53:          </div>
+54:        </div>
+55:      </body>
+56:    
+57:      
+58:    </html>
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 21:08:17 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2002)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 3519)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>ValetBike</title>
+    
+    <!--leaflett CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!--leaflett java-->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    
+  </head>
+  
+  
+  <% if Current.user %>
+        <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+
+        <div class = "button-div">
+        <button class="button-30">
+        <%= link_to("Log Out", method: :delete, logout_path) %>
+        </button>
+        </div>
+
+    <% else %>
+        <div class = "button-div">
+        <button class="button-30"><%= link_to("Log In", login_path) %></button>
+        <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+        </div>
+    <% end %>
+  
+
+  <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <div id="site-container" class="flexbox vertical stretch flex-1">
+      <div class="flexbox vertical center">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  
+</html>
+):
+1:    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+2:    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
+3:      <head>
+4:        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+5:        <meta name="viewport" content="width=device-width, initial-scale=1" />
+6:        <%= csrf_meta_tags %>
+7:        <%= csp_meta_tag %>
+8:        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+9:        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+10:        <%= javascript_importmap_tags %>
+11:        <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
+12:        <link href="/favicon.ico" rel="icon" type="image/x-icon">
+13:        <title>ValetBike</title>
+14:        
+15:        <!--leaflett CSS-->
+16:        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+17:        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+18:        crossorigin=""/>
+19:        <!--leaflett java-->
+20:        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+21:        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+22:        crossorigin=""></script>
+23:        
+24:      </head>
+25:      
+26:      
+27:      <% if Current.user %>
+28:            <!--<%= button_to "Logout", logout_path, method: :delete, class: 'button-30' %>  -->
+29:    
+30:            <div class = "button-div">
+31:            <button class="button-30">
+32:            <%= link_to("Log Out", method: :delete, logout_path) %>
+33:            </button>
+34:            </div>
+35:    
+36:        <% else %>
+37:            <div class = "button-div">
+38:            <button class="button-30"><%= link_to("Log In", login_path) %></button>
+39:            <button class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
+40:            </div>
+41:        <% end %>
+42:      
+43:    
+44:      <body>
+45:        <% flash.each do |type, msg| %>
+46:          <div>
+47:            <%= msg %>
+48:          </div>
+49:        <% end %>
+50:        <div id="site-container" class="flexbox vertical stretch flex-1">
+51:          <div class="flexbox vertical center">
+52:            <%= yield %>
+53:          </div>
+54:        </div>
+55:      </body>
+56:    
+57:      
+58:    </html>
+  
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:32: syntax error, unexpected ')', expecting =>
+app/views/layouts/application.html.erb:36: syntax error, unexpected `else', expecting ')'
+app/views/layouts/application.html.erb:41: syntax error, unexpected `end', expecting ')'
+app/views/layouts/application.html.erb:60: syntax error, unexpected `end', expecting ')'
+Started GET "/" for ::1 at 2023-04-30 21:08:27 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2234)
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 3896)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:09:43 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2246)
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 0.6ms | Allocations: 3924)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:09:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:09:47 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1284)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 2288)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:09:55 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2247)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.3ms | Allocations: 3775)
+
+
+Started GET "/logout" for ::1 at 2023-04-30 21:09:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/logout" for ::1 at 2023-04-30 21:10:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+Started GET "/" for ::1 at 2023-04-30 21:10:31 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.5ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2491)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 4064)
+
+
+Started DELETE "/logout" for ::1 at 2023-04-30 21:10:33 -0400
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1173)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:10:33 -0400
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 197)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1128)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 1673)
+
+
+Started GET "/login" for ::1 at 2023-04-30 21:10:41 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 988)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2002)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2795)
+
+
+Started POST "/login" for ::1 at 2023-04-30 21:10:44 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"eschumacher@smith.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'eschumacher@smith.edu' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 299ms (ActiveRecord: 1.8ms | Allocations: 3675)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:10:45 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 201)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 1583)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.4ms | Allocations: 2653)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:10:54 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 555)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2490)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 4059)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:10:58 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2488)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 4148)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:11:20 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2534)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.4ms | Allocations: 4197)
+
+
+Started DELETE "/logout" for ::1 at 2023-04-30 21:11:38 -0400
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1000)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:11:38 -0400
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1063)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 1582)
+
+
+Started GET "/login" for ::1 at 2023-04-30 21:11:39 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 988)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2002)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2796)
+
+
+Started POST "/login" for ::1 at 2023-04-30 21:11:43 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"eschumacher@smith.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'eschumacher@smith.edu' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.3ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 294ms (ActiveRecord: 0.7ms | Allocations: 1712)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:11:43 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1549)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 2520)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:11:58 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 2489)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.4ms | Allocations: 4035)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:12:15 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1508)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 2575)
+
+
+Started DELETE "/logout" for ::1 at 2023-04-30 21:12:16 -0400
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 889)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:12:16 -0400
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1063)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 1565)
+
+
+Started GET "/login" for ::1 at 2023-04-30 21:12:17 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 993)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2007)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 2804)
+
+
+Started POST "/login" for ::1 at 2023-04-30 21:12:20 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"eschumacher@smith.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'eschumacher@smith.edu' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 293ms (ActiveRecord: 0.6ms | Allocations: 1733)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:12:20 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1522)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 2493)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:13:13 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2489)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.4ms | Allocations: 4034)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:13:21 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | Allocations: 554)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2490)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 4159)
+
+
+Started DELETE "/logout" for ::1 at 2023-04-30 21:13:33 -0400
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 991)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:13:33 -0400
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1063)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1583)
+
+
+Started GET "/login" for ::1 at 2023-04-30 21:13:34 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2003)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 2788)
+
+
+Started GET "/login" for ::1 at 2023-04-30 21:13:36 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 567)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1452)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 1957)
+
+
+Started POST "/login" for ::1 at 2023-04-30 21:13:39 -0400
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"eschumacher@smith.edu", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'eschumacher@smith.edu' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 294ms (ActiveRecord: 0.6ms | Allocations: 1707)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:13:40 -0400
+Processing by PagesController#home as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1522)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 2485)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:20:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 936)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4517)
+Completed 200 OK in 50ms (Views: 11.1ms | ActiveRecord: 5.4ms | Allocations: 20401)
+
+
+Started DELETE "/logout" for ::1 at 2023-04-30 21:20:20 -0400
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1238)
+
+
+Started GET "/" for ::1 at 2023-04-30 21:20:20 -0400
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 197)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1129)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 1672)
+
+
+Started GET "/stations" for ::1 at 2023-04-30 21:20:32 -0400
+Processing by StationsController#main as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (0.5ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:13
+  Rendered stations/main.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1071)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2147)
+Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 1.7ms | Allocations: 4888)
+
+
+Started GET "/user_home" for ::1 at 2023-04-30 21:20:34 -0400
+  
+SyntaxError (/Users/emmaschumacher/valetbike/app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+        @user = @
+                ^
+):
+  
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+Started GET "/" for ::1 at 2023-04-30 21:20:36 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1140)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 1684)
+
+
+Started GET "/user_home" for ::1 at 2023-04-30 21:20:37 -0400
+  
+SyntaxError (/Users/emmaschumacher/valetbike/app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+        @user = @
+                ^
+):
+  
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+Started GET "/" for ::1 at 2023-04-30 21:21:00 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1056)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 1485)
+
+
+Started GET "/user_home" for ::1 at 2023-04-30 21:21:55 -0400
+  
+SyntaxError (/Users/emmaschumacher/valetbike/app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+        @user = @
+                ^
+):
+  
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+app/controllers/users_controller.rb:9: `@' without identifiers is not allowed as an instance variable name
+Started GET "/user_home" for ::1 at 2023-04-30 21:22:42 -0400
+Processing by UsersController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 559)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3123)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 4235)
+
+
+Started GET "/login" for ::1 at 2023-04-30 21:22:49 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 2745)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3774)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 4731)
+
+
