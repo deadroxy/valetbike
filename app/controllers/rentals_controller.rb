@@ -18,9 +18,12 @@ class RentalsController < ApplicationController
     end
 
     def return
-      @bikes= Bike.find_by_identifier(params[:format])
-      @bikes.update({current_station_id: $s })
-      redirect_to '/bikes/return'
+     if @bikes = Bike.find_by(identifier: params[:format]) != nil
+        @bikes = Bike.find_by(identifier: params[:format])
+        @bikes.update({current_station_id: $s})
+        @bikes.save
+        redirect_to '/bikes/return'
+      end
     end
   
     private
