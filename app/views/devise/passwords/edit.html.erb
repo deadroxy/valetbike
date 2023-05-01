@@ -1,0 +1,6 @@
+<h2>Change your password</h2>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.password_field :password, autofocus: true, required: true, autocomplete: "new-password", placeholder: "New password" %>
+  <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: "Confirm new password" %>
+  <%= f.submit "Change my password" %>
+<% end %>
