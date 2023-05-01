@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   # hsm mods
   get "/bikes/unlock", to: "bikes#unlock"
+  get "add_bikes", to: "bikes#new"
+  post "bikes", to: "bikes#create"
+
   get "password", to: "passwords#edit", as: :edit_password
   post "password", to: "passwords#update"
 

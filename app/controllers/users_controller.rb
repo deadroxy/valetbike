@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
+        @book = @author.books.create(published_at: Time.now)
+        @user = @
         if @user.save
             if @user.email == "bikesia@example.com"
                 @user.admin = true
@@ -18,8 +19,7 @@ class UsersController < ApplicationController
             redirect_to root_path
         else
             render 'new'
-        end
-    
+        end   
     end
 
 
