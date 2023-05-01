@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   get "password", to: "passwords#edit", as: :edit_password
   post "password", to: "passwords#update"
 
-
-
   get "signup", to: "users#new"
   get "login", to: "sessions#new"
   get "user_home", to: "users#show"
@@ -29,9 +27,11 @@ Rails.application.routes.draw do
 
   get "bikes_unlock", to: "bikes#unlock"
 
-  
+
+  #delete "logout", to: "sessions#destroy"
 
   get "/logout", to: "sessions#destroy"
+
 
   get '/users/:id', to: 'users#menu', as: 'user'
   get "user/show"
