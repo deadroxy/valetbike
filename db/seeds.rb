@@ -46,25 +46,27 @@ user.save!
 #Membership.create(identifier: 0, position: 0, name: "Pay As You Go")
 membership = Membership.new(
   :identifier        => 00001,
-  :name              => 'One Time Minute Version',
+  :name              => 'One-hour prepaid pass',
   :category          => 'One Time',
   :position          => 1,
   :payment_frequency => 60,
   :cost              => 5,
   :time_limit        => 60,
-  :time_unit         => 'minute'
+  :time_unit         => 'minutes',
+  :description       => "Save on a longer ride by paying in advance."
 )
 membership.save!
 
 membership = Membership.new(
   :identifier        => 00002,
-  :name              => 'One Time Hour Version',
+  :name              => '24 hour all-access pass',
   :category          => 'One Time',
   :position          => 2,
   :payment_frequency => 24,
   :cost              => 50,
   :time_limit        => 120,
-  :time_unit         => 'hour'
+  :time_unit         => 'hours',
+  :description       => "For one day, access unlimited 2 hour rides."
 )
 membership.save!
 
@@ -76,7 +78,8 @@ membership = Membership.new(
   :payment_frequency => 1,
   :cost              => 18.5,
   :time_limit       => 90,
-  :time_unit         => 'month'
+  :time_unit         => 'month',
+  :description       => "For one month, access unlimited 90 minute rides."
 )
 membership.save!
 
@@ -88,29 +91,32 @@ membership = Membership.new(
   :payment_frequency => 1,
   :cost              => 25,
   :time_limit        => 150,
-  :time_unit         => 'month'
+  :time_unit         => 'month',
+  :description       => "For one month, access unlimited 2.5 hour rides."
 )
 membership.save!
 
 membership = Membership.new(
   :identifier        => 00005,
-  :name              => 'Student',
+  :name              => 'Student Year-Long Plan',
   :category          => 'Special',
   :position          => 5,
   :payment_frequency => 1,
   :cost              => 60,
   :time_limit        => 45,
-  :time_unit         => 'year'
+  :time_unit         => 'year',
+  :description       => "For one year, access unlimited 45 minute rides at a discount student rate."
 )
 membership.save!
 
 membership = Membership.new(
   :identifier => 00006,
-  :name              => 'Basic',
+  :name              => 'Pay as you go plan',
   :position          => 6,
   :payment_frequency => 0,
   :cost              => 0,
   :time_limit        => 0,
-  :time_unit         => 'month'
+  :time_unit         => 'month',
+  :description       => "Free plan; pay $0.10 per minute spent renting."
 )
 membership.save!
