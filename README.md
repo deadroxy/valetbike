@@ -25,10 +25,11 @@ Team Members: Sophia Dai, Priya Dalal-Whelan, Aria Ramanathan, Jannet Martinez ,
   `CREATE DATABASE valetbike_development;`\
   `CREATE DATABASE valetbike_testing;`\
 4. `rake db:migrate`
-5. Open the application in an IDE or text editor. In the Slurp files, replace the file paths with the path on your own machine. 
-6. Rails slurp:stations
-7. Rails slurp2:bikes 
-8. Launch the app using ./bin/dev . View at Localhost.3000: 
+If you are having errors with migration, comment out line 8 and 9 on the /db/migrate/20230411001602_create_rentals.rb
+6. Open the application in an IDE or text editor. In the Slurp files, replace the file paths with the path on your own machine. 
+7. Rails slurp:stations
+8. Rails slurp2:bikes 
+9. Launch the app using ./bin/dev . View at Localhost.3000: 
 
 ##  Changes since prototype 
 
