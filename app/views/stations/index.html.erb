@@ -70,9 +70,10 @@
           school_marker.setMap(map);
         }
       </script>
-      <% api_key = ENV['REACT_APP_API_KEY'] %>
+      <% api_key = ENV['REACT_APP_API_KEY'].to_s %>
+      <% puts api_key %>
       <script src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key.to_s + "&callback=myMap"%> ></script>
-      =<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key.to_s + "&callback=myMap"%>></iframe>
+      <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src=<%="https://maps.googleapis.com/maps/api/js?key=" + api_key.to_s + "&callback=myMap"%>></iframe>
     </div>
   </div>
 </div>
