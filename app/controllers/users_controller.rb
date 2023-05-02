@@ -5,8 +5,10 @@ class UsersController < ApplicationController
     end
 
     def create 
-        @user =User.new(user_params)
-        if @user.save
+        if @user =User.find_by(email: user_params[:email])
+            flash[:danger] = "User exists"
+            redirect_to root_path
+        elsif @user.save
             if @user.email == "bikesia@example.com"
                 @user.admin = true
                 @user.save
