@@ -1,0 +1,27 @@
+<div id="<%= dom_id station_loc %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= station_loc.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= station_loc.address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Longitude:</strong>
+    <%= station_loc.longitude %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Latitude:</strong>
+    <%= station_loc.latitude %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this station loc", station_loc, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this station loc', edit_station_loc_path(station_loc), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

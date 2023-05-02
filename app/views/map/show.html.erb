@@ -39,9 +39,79 @@
             zoom: 13
             });
 
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6443, 42.3289])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>YMCA/Childs Park</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6281, 42.3205])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Main Bridge Street Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6264, 42.3188])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Northampton Train Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6714, 42.3356])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Main Street Court House Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6336, 42.3173])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Pulaski Park Downtown Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6357, 42.3168])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Forbes Library Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.635, 42.3181])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>John M. Greene Hall</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6468, 42.3111])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Village Hill State Hospital Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6525, 42.3239])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Northampton High School Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6677, 42.3359])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>State St. Mass Central Rail Trail Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.654, 42.3321])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Cooley Dickinson Health Care Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6453, 42.3309])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Jackson Street Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.668, 42.335])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Florence Center Station</h6>"))
+                .addTo(map);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([-72.6741, 42.3356])
+                .setPopup(new mapboxgl.Popup().setHTML("<h6>Florence Bank Station</h6>"))
+                .addTo(map);
+
             var directions = new MapboxDirections({
             accessToken: mapboxgl.accessToken,
-            unit: 'metric',
             profile: 'mapbox/driving',
             controls: {
                 inputs: false,

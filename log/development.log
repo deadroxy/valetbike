@@ -31260,3 +31260,621 @@ Processing by UsersController#show as TURBO_STREAM
 Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 0.6ms | Allocations: 13406)
 
 
+Started GET "/map" for ::1 at 2023-05-01 18:58:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 122.3ms | Allocations: 98134)
+Completed 200 OK in 139ms (Views: 124.1ms | ActiveRecord: 3.8ms | Allocations: 114010)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/map" for ::1 at 2023-05-01 19:02:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 133.8ms | Allocations: 103374)
+Completed 200 OK in 153ms (Views: 135.5ms | ActiveRecord: 5.7ms | Allocations: 119270)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mStationLoc Load (0.5ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+  [1m[36mStationLoc Load (1.0ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (6.4ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.33557435, `station_locs`.`longitude` = -72.67414444558189, `station_locs`.`updated_at` = '2023-05-01 23:08:29.047280' WHERE `station_locs`.`id` = 1[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.1ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3350036, `station_locs`.`longitude` = -72.6680437, `station_locs`.`updated_at` = '2023-05-01 23:08:29.591412' WHERE `station_locs`.`id` = 2[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.4ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3309173, `station_locs`.`longitude` = -72.6453446, `station_locs`.`updated_at` = '2023-05-01 23:08:30.209070' WHERE `station_locs`.`id` = 3[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.2ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3320967, `station_locs`.`longitude` = -72.65396088823397, `station_locs`.`updated_at` = '2023-05-01 23:08:30.605811' WHERE `station_locs`.`id` = 4[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.7ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.323889550000004, `station_locs`.`longitude` = -72.65245600758246, `station_locs`.`updated_at` = '2023-05-01 23:08:33.410728' WHERE `station_locs`.`id` = 6[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.316766650000005, `station_locs`.`longitude` = -72.63566900969815, `station_locs`.`updated_at` = '2023-05-01 23:08:35.632790' WHERE `station_locs`.`id` = 9[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.7ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.31729965, `station_locs`.`longitude` = -72.63358122208382, `station_locs`.`updated_at` = '2023-05-01 23:08:36.120985' WHERE `station_locs`.`id` = 10[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3355752, `station_locs`.`longitude` = -72.6713964, `station_locs`.`updated_at` = '2023-05-01 23:08:36.623756' WHERE `station_locs`.`id` = 11[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.1ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.32046735, `station_locs`.`longitude` = -72.62809658478028, `station_locs`.`updated_at` = '2023-05-01 23:08:37.580018' WHERE `station_locs`.`id` = 13[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mStationLoc Load (1.7ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (27.6ms)[0m  [1m[35mDROP TABLE `station_locs`[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE INDEX `index_station_locs_on_longitude` ON `station_locs` (`longitude`)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX `index_station_locs_on_latitude` ON `station_locs` (`latitude`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230501230341')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.9ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Florence Bank Station', '19 Meadow Street, Florence, MA, USA', NULL, NULL, '2023-05-01 23:20:04.599954', '2023-05-01 23:20:04.599954')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.3ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Florence Center Station', '31 Main Street Florence, MA, USA', NULL, NULL, '2023-05-01 23:20:04.603204', '2023-05-01 23:20:04.603204')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Jackson Streetk Station', '7A-7D Jackson Street Northampton MA', NULL, NULL, '2023-05-01 23:20:04.604829', '2023-05-01 23:20:04.604829')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.9ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Cooley Dickinson Health Care Station', '51 Locust Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.606624', '2023-05-01 23:20:04.606624')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('State St/Mass Central Rail Trail Station', '62 Chestnut St, Florence, MA 01062', NULL, NULL, '2023-05-01 23:20:04.608959', '2023-05-01 23:20:04.608959')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (2.4ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Northampton High School Station', '380 Elm Street Northampton MA, USA', NULL, NULL, '2023-05-01 23:20:04.610722', '2023-05-01 23:20:04.610722')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (1.6ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Village Hill/State Hospital Station', '1 Prince St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.615081', '2023-05-01 23:20:04.615081')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('John M Greene Hall/Smith College', '60 Elm St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.618140', '2023-05-01 23:20:04.618140')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Forbes Library Station', '20 West Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.619699', '2023-05-01 23:20:04.619699')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Pulaski Park/Downtown Station', '274 Main Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.621162', '2023-05-01 23:20:04.621162')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Main Street/Court House Station', '99 Main Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.622726', '2023-05-01 23:20:04.622726')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Northampton Train Station', '170 Pleasant St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.624231', '2023-05-01 23:20:04.624231')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Main Street/Bridge Street Station', '1 Bridge Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.625720', '2023-05-01 23:20:04.625720')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('YMCA/Childs Park', '286 Prospect St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.627312', '2023-05-01 23:20:04.627312')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mStationLoc Load (0.7ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.67414444558189, `station_locs`.`latitude` = 42.33557435, `station_locs`.`updated_at` = '2023-05-01 23:20:35.676232' WHERE `station_locs`.`id` = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.0ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6680437, `station_locs`.`latitude` = 42.3350036, `station_locs`.`updated_at` = '2023-05-01 23:20:36.201403' WHERE `station_locs`.`id` = 2[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.5ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6453446, `station_locs`.`latitude` = 42.3309173, `station_locs`.`updated_at` = '2023-05-01 23:20:37.258409' WHERE `station_locs`.`id` = 3[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.65396088823397, `station_locs`.`latitude` = 42.3320967, `station_locs`.`updated_at` = '2023-05-01 23:20:38.296623' WHERE `station_locs`.`id` = 4[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.66768973726414, `station_locs`.`latitude` = 42.335854749999996, `station_locs`.`updated_at` = '2023-05-01 23:20:39.228411' WHERE `station_locs`.`id` = 5[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.65245600758246, `station_locs`.`latitude` = 42.323889550000004, `station_locs`.`updated_at` = '2023-05-01 23:20:39.706621' WHERE `station_locs`.`id` = 6[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.646792, `station_locs`.`latitude` = 42.311056, `station_locs`.`updated_at` = '2023-05-01 23:20:40.242523' WHERE `station_locs`.`id` = 7[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.63496897195743, `station_locs`.`latitude` = 42.31810694995149, `station_locs`.`updated_at` = '2023-05-01 23:20:40.752243' WHERE `station_locs`.`id` = 8[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.0ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.63566900969815, `station_locs`.`latitude` = 42.316766650000005, `station_locs`.`updated_at` = '2023-05-01 23:20:41.251497' WHERE `station_locs`.`id` = 9[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.7ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.63358122208382, `station_locs`.`latitude` = 42.31729965, `station_locs`.`updated_at` = '2023-05-01 23:20:41.813975' WHERE `station_locs`.`id` = 10[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.6ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6713964, `station_locs`.`latitude` = 42.3355752, `station_locs`.`updated_at` = '2023-05-01 23:20:42.296539' WHERE `station_locs`.`id` = 11[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6264014, `station_locs`.`latitude` = 42.3188119, `station_locs`.`updated_at` = '2023-05-01 23:20:42.851588' WHERE `station_locs`.`id` = 12[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.62809658478028, `station_locs`.`latitude` = 42.32046735, `station_locs`.`updated_at` = '2023-05-01 23:20:43.269097' WHERE `station_locs`.`id` = 13[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.64426717995178, `station_locs`.`latitude` = 42.328885150000005, `station_locs`.`updated_at` = '2023-05-01 23:20:43.804335' WHERE `station_locs`.`id` = 14[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mStationLoc Load (1.6ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[36mStationLoc Load (48.2ms)[0m  [1m[34mSELECT station_locs.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((-33.3864655 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(-33.3864655 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((148.0079696 - station_locs.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((station_locs.longitude - 148.0079696) / 57.2957795), ((station_locs.latitude - -33.3864655) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM `station_locs` WHERE (station_locs.latitude BETWEEN -33.6759290662217 AND -33.0970019337783 AND station_locs.longitude BETWEEN 147.66129746083507 AND 148.35464173916492 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((-33.3864655 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(-33.3864655 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((148.0079696 - station_locs.longitude) * PI() / 180 / 2), 2)))) BETWEEN '0.0' AND '20') ORDER BY distance ASC[0m
+  [1m[36mStationLoc Load (10.7ms)[0m  [1m[34mSELECT station_locs.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((42.316766650000005 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(42.316766650000005 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((-72.63566900969815 - station_locs.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((station_locs.longitude - -72.63566900969815) / 57.2957795), ((station_locs.latitude - 42.316766650000005) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM `station_locs` WHERE (station_locs.latitude BETWEEN 41.882571300667465 AND 42.750961999332546 AND station_locs.longitude BETWEEN -73.22286851682256 AND -72.04846950257374 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((42.316766650000005 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(42.316766650000005 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((-72.63566900969815 - station_locs.longitude) * PI() / 180 / 2), 2)))) BETWEEN '0.0' AND '30') ORDER BY distance ASC[0m
+Started GET "/map" for ::1 at 2023-05-01 19:49:57 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 83754)
+Completed 200 OK in 79ms (Views: 64.6ms | ActiveRecord: 3.0ms | Allocations: 99672)
+
+
+Started GET "/map" for ::1 at 2023-05-01 19:50:07 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 11755)
+Completed 200 OK in 43ms (Views: 33.9ms | ActiveRecord: 1.1ms | Allocations: 12883)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:50:07 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 682)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 12506)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 0.4ms | Allocations: 14113)
+
+
+Started GET "/stations" for ::1 at 2023-05-01 19:50:07 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:17
+  [1m[36mBike Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 9[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 3[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 16[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 11[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 4[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 6[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 10[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 12[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 14[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 5[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 13[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 15[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 8[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 1[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 2[0m
+  ↳ app/views/stations/_row.html.erb:4
+  Rendered collection of stations/_row.html.erb [16 times] (Duration: 30.6ms | Allocations: 16677)
+  Rendered stations/main.html.erb within layouts/application (Duration: 37.7ms | Allocations: 20714)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 32517)
+Completed 200 OK in 61ms (Views: 41.3ms | ActiveRecord: 12.0ms | Allocations: 35833)
+
+
+Started GET "/station_loc" for ::1 at 2023-05-01 19:50:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/station_loc"):
+  
+Started GET "/station_locs_path" for ::1 at 2023-05-01 19:50:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/station_locs_path"):
+  
+Started GET "/rails/info/routes?path=station_locs_path" for ::1 at 2023-05-01 19:50:28 -0400
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"station_locs_path"}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3305)
+
+
+Started GET "/rails/info/routes?path=sta" for ::1 at 2023-05-01 19:50:33 -0400
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"sta"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1218)
+
+
+Started GET "/station_locs" for ::1 at 2023-05-01 19:50:43 -0400
+Processing by StationLocsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering station_locs/index.html.erb within layouts/application
+  Rendered station_locs/index.html.erb within layouts/application (Duration: 26.5ms | Allocations: 5464)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 5552)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.9ms | Allocations: 8681)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `locations_path' for #<ActionView::Base:0x0000000000fde8>
+
+  '.freeze;@output_buffer.append=  form_with url: locations_path, method: :get do |form| @output_buffer.safe_append='
+                                                  ^^^^^^^^^^^^^^
+Did you mean?  stations_path):
+     8:     <%= link_to 'New station loc', new_station_loc_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+     9:   </div>
+    10: 
+    11:   <%= form_with url: locations_path, method: :get do |form| %>
+    12:     <%= form.text_field :place, value: params[:place] %>
+    13:     <%= form.select :distance, [5,50] %>
+    14:     <%= form.submit %>
+  
+app/views/station_locs/index.html.erb:11
+Started GET "/map" for ::1 at 2023-05-01 19:51:13 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 378)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 13036)
+Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 1.1ms | Allocations: 14501)
+
+
+Started GET "/" for ::1 at 2023-05-01 20:41:09 -0400
+  
+ActiveRecord::IllegalMigrationNameError (
+
+Illegal name for migration file: db/migrate/20230427010814_create_users 2.rb
+	(only lower case letters, numbers, and '_' allowed).
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:1162:in `block in migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `map'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1156:in `pending_migration_versions'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1152:in `needs_migration?'
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 20:42:06 -0400
+  
+ActiveRecord::IllegalMigrationNameError (
+
+Illegal name for migration file: db/migrate/20230427010909_modify_users 2.rb
+	(only lower case letters, numbers, and '_' allowed).
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:1162:in `block in migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `map'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1156:in `pending_migration_versions'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1152:in `needs_migration?'
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 20:43:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 729)
+  Rendered layout layouts/application.html.erb (Duration: 178.7ms | Allocations: 172232)
+Completed 200 OK in 219ms (Views: 179.8ms | ActiveRecord: 9.6ms | Allocations: 186988)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 20:43:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/map" for ::1 at 2023-05-01 20:43:03 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 386)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 11992)
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.5ms | Allocations: 13610)
+
+
+Started GET "/map" for ::1 at 2023-05-01 20:49:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 56.9ms | Allocations: 83223)
+Completed 200 OK in 76ms (Views: 58.8ms | ActiveRecord: 5.4ms | Allocations: 99135)
+
+
+  [1m[36mStationLoc Load (4.2ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+Started GET "/map" for ::1 at 2023-05-01 20:56:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 655)
+  Rendered layout layouts/application.html.erb (Duration: 59.2ms | Allocations: 83176)
+Completed 200 OK in 81ms (Views: 61.9ms | ActiveRecord: 8.2ms | Allocations: 99096)
+
+
+  [1m[36mStationLoc Load (3.9ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+Started GET "/map" for ::1 at 2023-05-01 21:05:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 707)
+  Rendered layout layouts/application.html.erb (Duration: 55.6ms | Allocations: 82988)
+Completed 200 OK in 77ms (Views: 57.4ms | ActiveRecord: 7.3ms | Allocations: 98914)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:05:42 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 11589)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.4ms | Allocations: 12714)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:06:22 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 442)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 12556)
+Completed 200 OK in 48ms (Views: 36.5ms | ActiveRecord: 1.4ms | Allocations: 14135)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:06:58 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 440)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 12538)
+Completed 200 OK in 28ms (Views: 24.1ms | ActiveRecord: 0.5ms | Allocations: 14209)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:09:19 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (33.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 12537)
+Completed 200 OK in 69ms (Views: 27.9ms | ActiveRecord: 33.5ms | Allocations: 14211)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:09:43 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 438)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 12534)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 1.2ms | Allocations: 14210)
+
+
+  [1m[36mStationLoc Load (7.1ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+Started GET "/map" for ::1 at 2023-05-01 21:23:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 54.8ms | Allocations: 83154)
+Completed 200 OK in 71ms (Views: 56.5ms | ActiveRecord: 4.4ms | Allocations: 99059)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:23:42 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 456)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 12554)
+Completed 200 OK in 40ms (Views: 31.2ms | ActiveRecord: 1.3ms | Allocations: 14275)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:24:44 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 451)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 12618)
+Completed 200 OK in 76ms (Views: 48.8ms | ActiveRecord: 9.3ms | Allocations: 14296)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:24:58 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 451)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 12550)
+Completed 200 OK in 31ms (Views: 22.2ms | ActiveRecord: 1.2ms | Allocations: 14219)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:25:39 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 12541)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 0.9ms | Allocations: 14179)
+
+
