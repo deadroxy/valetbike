@@ -42,6 +42,9 @@ class CheckoutsController < ApplicationController
             #Overdue.destroy(params[:id])
             name = "Overtime charge"
         end
+        if amount < 50
+          amount = 50
+        end
         @session = Stripe::Checkout::Session.create({
           success_url: success_url,
           cancel_url: cancel_url,
