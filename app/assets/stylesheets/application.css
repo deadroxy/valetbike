@@ -26,12 +26,12 @@
 
 /* text */ 
  h1 { 
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 60px;
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-size: 60px !important;
     letter-spacing: -2px;
     text-align: center;
     word-spacing: 0.2px;
-    color: #1b264f;
+    color: #1b264f !important;
     display: block; 
     margin-top: 4px;
     margin-bottom: 4px;
@@ -40,11 +40,11 @@
     font-weight: bold;
 }
 h2 {
-    font-family: 'Rubik', 'Arial';
+    font-family: 'Rubik', 'Arial' !important;
     font-size: 45px;
     letter-spacing: 0px;
     word-spacing: 0.2px;
-    color: #274690;
+    color: #274690  !important;
     display: block; 
     margin-top: 2px;
     margin-bottom: 2px;
@@ -69,7 +69,7 @@ h3 {
 
 h4 { 
     font-family: 'Rubik', 'Arial';
-    color: #0CCAA8; 
+    color: #107160; 
 }
 
 p {

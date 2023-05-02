@@ -31261,6 +31261,223 @@ Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 0.6ms | Allocations: 134
 
 
 <<<<<<< HEAD
+Started GET "/map" for ::1 at 2023-05-01 18:58:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 122.3ms | Allocations: 98134)
+Completed 200 OK in 139ms (Views: 124.1ms | ActiveRecord: 3.8ms | Allocations: 114010)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/map" for ::1 at 2023-05-01 19:02:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 133.8ms | Allocations: 103374)
+Completed 200 OK in 153ms (Views: 135.5ms | ActiveRecord: 5.7ms | Allocations: 119270)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mStationLoc Load (0.5ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+  [1m[36mStationLoc Load (1.0ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (6.4ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.33557435, `station_locs`.`longitude` = -72.67414444558189, `station_locs`.`updated_at` = '2023-05-01 23:08:29.047280' WHERE `station_locs`.`id` = 1[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.1ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3350036, `station_locs`.`longitude` = -72.6680437, `station_locs`.`updated_at` = '2023-05-01 23:08:29.591412' WHERE `station_locs`.`id` = 2[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.4ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3309173, `station_locs`.`longitude` = -72.6453446, `station_locs`.`updated_at` = '2023-05-01 23:08:30.209070' WHERE `station_locs`.`id` = 3[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.2ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3320967, `station_locs`.`longitude` = -72.65396088823397, `station_locs`.`updated_at` = '2023-05-01 23:08:30.605811' WHERE `station_locs`.`id` = 4[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.7ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.323889550000004, `station_locs`.`longitude` = -72.65245600758246, `station_locs`.`updated_at` = '2023-05-01 23:08:33.410728' WHERE `station_locs`.`id` = 6[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.316766650000005, `station_locs`.`longitude` = -72.63566900969815, `station_locs`.`updated_at` = '2023-05-01 23:08:35.632790' WHERE `station_locs`.`id` = 9[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.7ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.31729965, `station_locs`.`longitude` = -72.63358122208382, `station_locs`.`updated_at` = '2023-05-01 23:08:36.120985' WHERE `station_locs`.`id` = 10[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.3355752, `station_locs`.`longitude` = -72.6713964, `station_locs`.`updated_at` = '2023-05-01 23:08:36.623756' WHERE `station_locs`.`id` = 11[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.1ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`latitude` = 42.32046735, `station_locs`.`longitude` = -72.62809658478028, `station_locs`.`updated_at` = '2023-05-01 23:08:37.580018' WHERE `station_locs`.`id` = 13[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mStationLoc Load (1.7ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (27.6ms)[0m  [1m[35mDROP TABLE `station_locs`[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE INDEX `index_station_locs_on_longitude` ON `station_locs` (`longitude`)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX `index_station_locs_on_latitude` ON `station_locs` (`latitude`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230501230341')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.9ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Florence Bank Station', '19 Meadow Street, Florence, MA, USA', NULL, NULL, '2023-05-01 23:20:04.599954', '2023-05-01 23:20:04.599954')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.3ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Florence Center Station', '31 Main Street Florence, MA, USA', NULL, NULL, '2023-05-01 23:20:04.603204', '2023-05-01 23:20:04.603204')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Jackson Streetk Station', '7A-7D Jackson Street Northampton MA', NULL, NULL, '2023-05-01 23:20:04.604829', '2023-05-01 23:20:04.604829')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.9ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Cooley Dickinson Health Care Station', '51 Locust Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.606624', '2023-05-01 23:20:04.606624')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('State St/Mass Central Rail Trail Station', '62 Chestnut St, Florence, MA 01062', NULL, NULL, '2023-05-01 23:20:04.608959', '2023-05-01 23:20:04.608959')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (2.4ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Northampton High School Station', '380 Elm Street Northampton MA, USA', NULL, NULL, '2023-05-01 23:20:04.610722', '2023-05-01 23:20:04.610722')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (1.6ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Village Hill/State Hospital Station', '1 Prince St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.615081', '2023-05-01 23:20:04.615081')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('John M Greene Hall/Smith College', '60 Elm St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.618140', '2023-05-01 23:20:04.618140')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Forbes Library Station', '20 West Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.619699', '2023-05-01 23:20:04.619699')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Pulaski Park/Downtown Station', '274 Main Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.621162', '2023-05-01 23:20:04.621162')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Main Street/Court House Station', '99 Main Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.622726', '2023-05-01 23:20:04.622726')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.1ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Northampton Train Station', '170 Pleasant St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.624231', '2023-05-01 23:20:04.624231')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('Main Street/Bridge Street Station', '1 Bridge Street Northampton, MA, USA', NULL, NULL, '2023-05-01 23:20:04.625720', '2023-05-01 23:20:04.625720')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Create (0.2ms)[0m  [1m[32mINSERT INTO `station_locs` (`name`, `address`, `longitude`, `latitude`, `created_at`, `updated_at`) VALUES ('YMCA/Childs Park', '286 Prospect St, Northampton, MA 01060', NULL, NULL, '2023-05-01 23:20:04.627312', '2023-05-01 23:20:04.627312')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mStationLoc Load (0.7ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.67414444558189, `station_locs`.`latitude` = 42.33557435, `station_locs`.`updated_at` = '2023-05-01 23:20:35.676232' WHERE `station_locs`.`id` = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (2.0ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6680437, `station_locs`.`latitude` = 42.3350036, `station_locs`.`updated_at` = '2023-05-01 23:20:36.201403' WHERE `station_locs`.`id` = 2[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.5ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6453446, `station_locs`.`latitude` = 42.3309173, `station_locs`.`updated_at` = '2023-05-01 23:20:37.258409' WHERE `station_locs`.`id` = 3[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.65396088823397, `station_locs`.`latitude` = 42.3320967, `station_locs`.`updated_at` = '2023-05-01 23:20:38.296623' WHERE `station_locs`.`id` = 4[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.66768973726414, `station_locs`.`latitude` = 42.335854749999996, `station_locs`.`updated_at` = '2023-05-01 23:20:39.228411' WHERE `station_locs`.`id` = 5[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.65245600758246, `station_locs`.`latitude` = 42.323889550000004, `station_locs`.`updated_at` = '2023-05-01 23:20:39.706621' WHERE `station_locs`.`id` = 6[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.646792, `station_locs`.`latitude` = 42.311056, `station_locs`.`updated_at` = '2023-05-01 23:20:40.242523' WHERE `station_locs`.`id` = 7[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.9ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.63496897195743, `station_locs`.`latitude` = 42.31810694995149, `station_locs`.`updated_at` = '2023-05-01 23:20:40.752243' WHERE `station_locs`.`id` = 8[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (1.0ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.63566900969815, `station_locs`.`latitude` = 42.316766650000005, `station_locs`.`updated_at` = '2023-05-01 23:20:41.251497' WHERE `station_locs`.`id` = 9[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.7ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.63358122208382, `station_locs`.`latitude` = 42.31729965, `station_locs`.`updated_at` = '2023-05-01 23:20:41.813975' WHERE `station_locs`.`id` = 10[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.6ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6713964, `station_locs`.`latitude` = 42.3355752, `station_locs`.`updated_at` = '2023-05-01 23:20:42.296539' WHERE `station_locs`.`id` = 11[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.6264014, `station_locs`.`latitude` = 42.3188119, `station_locs`.`updated_at` = '2023-05-01 23:20:42.851588' WHERE `station_locs`.`id` = 12[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.62809658478028, `station_locs`.`latitude` = 42.32046735, `station_locs`.`updated_at` = '2023-05-01 23:20:43.269097' WHERE `station_locs`.`id` = 13[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStationLoc Update (0.8ms)[0m  [1m[33mUPDATE `station_locs` SET `station_locs`.`longitude` = -72.64426717995178, `station_locs`.`latitude` = 42.328885150000005, `station_locs`.`updated_at` = '2023-05-01 23:20:43.804335' WHERE `station_locs`.`id` = 14[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mStationLoc Load (1.6ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs` WHERE (station_locs.latitude IS NULL OR station_locs.longitude IS NULL)[0m
+  [1m[36mStationLoc Load (48.2ms)[0m  [1m[34mSELECT station_locs.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((-33.3864655 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(-33.3864655 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((148.0079696 - station_locs.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((station_locs.longitude - 148.0079696) / 57.2957795), ((station_locs.latitude - -33.3864655) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM `station_locs` WHERE (station_locs.latitude BETWEEN -33.6759290662217 AND -33.0970019337783 AND station_locs.longitude BETWEEN 147.66129746083507 AND 148.35464173916492 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((-33.3864655 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(-33.3864655 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((148.0079696 - station_locs.longitude) * PI() / 180 / 2), 2)))) BETWEEN '0.0' AND '20') ORDER BY distance ASC[0m
+  [1m[36mStationLoc Load (10.7ms)[0m  [1m[34mSELECT station_locs.*, 3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((42.316766650000005 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(42.316766650000005 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((-72.63566900969815 - station_locs.longitude) * PI() / 180 / 2), 2))) AS distance, MOD(CAST((ATAN2( ((station_locs.longitude - -72.63566900969815) / 57.2957795), ((station_locs.latitude - 42.316766650000005) / 57.2957795)) * 57.2957795) + 360 AS decimal), 360) AS bearing FROM `station_locs` WHERE (station_locs.latitude BETWEEN 41.882571300667465 AND 42.750961999332546 AND station_locs.longitude BETWEEN -73.22286851682256 AND -72.04846950257374 AND (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((42.316766650000005 - station_locs.latitude) * PI() / 180 / 2), 2) + COS(42.316766650000005 * PI() / 180) * COS(station_locs.latitude * PI() / 180) * POWER(SIN((-72.63566900969815 - station_locs.longitude) * PI() / 180 / 2), 2)))) BETWEEN '0.0' AND '30') ORDER BY distance ASC[0m
+Started GET "/map" for ::1 at 2023-05-01 19:49:57 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 83754)
+Completed 200 OK in 79ms (Views: 64.6ms | ActiveRecord: 3.0ms | Allocations: 99672)
+
+
+Started GET "/map" for ::1 at 2023-05-01 19:50:07 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 11755)
+Completed 200 OK in 43ms (Views: 33.9ms | ActiveRecord: 1.1ms | Allocations: 12883)
+
+
+Started GET "/" for ::1 at 2023-05-01 19:50:07 -0400
+Processing by PagesController#home as HTML
+=======
+<<<<<<< HEAD
 Started GET "/" for ::1 at 2023-05-01 18:50:26 -0400
   [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
 Processing by PagesController#home as HTML
@@ -31389,10 +31606,22 @@ Completed 302 Found in 256ms (ActiveRecord: 4.0ms | Allocations: 7242)
 
 Started GET "/" for ::1 at 2023-05-01 19:03:59 -0400
 Processing by PagesController#home as TURBO_STREAM
+>>>>>>> master
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
   ↳ app/controllers/application_controller.rb:10:in `set_current_user'
   Rendering layout layouts/application.html.erb
   Rendering pages/home.html.erb within layouts/application
+<<<<<<< HEAD
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.3ms | Allocations: 682)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 12506)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 0.4ms | Allocations: 14113)
+
+
+Started GET "/stations" for ::1 at 2023-05-01 19:50:07 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+=======
   Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 214)
   Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 11905)
 Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.4ms | Allocations: 14225)
@@ -31511,10 +31740,288 @@ Started GET "/stations" for ::1 at 2023-05-01 19:04:37 -0400
 Processing by StationsController#main as HTML
   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
   ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+>>>>>>> master
   Rendering layout layouts/application.html.erb
   Rendering stations/main.html.erb within layouts/application
   [1m[36mStation Load (0.4ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
   ↳ app/views/stations/main.html.erb:17
+<<<<<<< HEAD
+  [1m[36mBike Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 9[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 3[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 16[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 11[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 4[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 6[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 10[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 12[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 14[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 5[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 13[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 15[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 8[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 1[0m
+  ↳ app/views/stations/_row.html.erb:4
+  [1m[36mBike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 2[0m
+  ↳ app/views/stations/_row.html.erb:4
+  Rendered collection of stations/_row.html.erb [16 times] (Duration: 30.6ms | Allocations: 16677)
+  Rendered stations/main.html.erb within layouts/application (Duration: 37.7ms | Allocations: 20714)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 32517)
+Completed 200 OK in 61ms (Views: 41.3ms | ActiveRecord: 12.0ms | Allocations: 35833)
+
+
+Started GET "/station_loc" for ::1 at 2023-05-01 19:50:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/station_loc"):
+  
+Started GET "/station_locs_path" for ::1 at 2023-05-01 19:50:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/station_locs_path"):
+  
+Started GET "/rails/info/routes?path=station_locs_path" for ::1 at 2023-05-01 19:50:28 -0400
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"station_locs_path"}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3305)
+
+
+Started GET "/rails/info/routes?path=sta" for ::1 at 2023-05-01 19:50:33 -0400
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"sta"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1218)
+
+
+Started GET "/station_locs" for ::1 at 2023-05-01 19:50:43 -0400
+Processing by StationLocsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering station_locs/index.html.erb within layouts/application
+  Rendered station_locs/index.html.erb within layouts/application (Duration: 26.5ms | Allocations: 5464)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 5552)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.9ms | Allocations: 8681)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `locations_path' for #<ActionView::Base:0x0000000000fde8>
+
+  '.freeze;@output_buffer.append=  form_with url: locations_path, method: :get do |form| @output_buffer.safe_append='
+                                                  ^^^^^^^^^^^^^^
+Did you mean?  stations_path):
+     8:     <%= link_to 'New station loc', new_station_loc_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+     9:   </div>
+    10: 
+    11:   <%= form_with url: locations_path, method: :get do |form| %>
+    12:     <%= form.text_field :place, value: params[:place] %>
+    13:     <%= form.select :distance, [5,50] %>
+    14:     <%= form.submit %>
+  
+app/views/station_locs/index.html.erb:11
+Started GET "/map" for ::1 at 2023-05-01 19:51:13 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 378)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 13036)
+Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 1.1ms | Allocations: 14501)
+
+
+Started GET "/" for ::1 at 2023-05-01 20:41:09 -0400
+  
+ActiveRecord::IllegalMigrationNameError (
+
+Illegal name for migration file: db/migrate/20230427010814_create_users 2.rb
+	(only lower case letters, numbers, and '_' allowed).
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:1162:in `block in migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `map'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1156:in `pending_migration_versions'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1152:in `needs_migration?'
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 20:42:06 -0400
+  
+ActiveRecord::IllegalMigrationNameError (
+
+Illegal name for migration file: db/migrate/20230427010909_modify_users 2.rb
+	(only lower case letters, numbers, and '_' allowed).
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:1162:in `block in migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `map'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1160:in `migrations'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1156:in `pending_migration_versions'
+activerecord (7.0.4.3) lib/active_record/migration.rb:1152:in `needs_migration?'
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 20:43:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.3ms | Allocations: 729)
+  Rendered layout layouts/application.html.erb (Duration: 178.7ms | Allocations: 172232)
+Completed 200 OK in 219ms (Views: 179.8ms | ActiveRecord: 9.6ms | Allocations: 186988)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 20:43:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/map" for ::1 at 2023-05-01 20:43:03 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 386)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 11992)
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.5ms | Allocations: 13610)
+
+
+Started GET "/map" for ::1 at 2023-05-01 20:49:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 56.9ms | Allocations: 83223)
+Completed 200 OK in 76ms (Views: 58.8ms | ActiveRecord: 5.4ms | Allocations: 99135)
+
+
+  [1m[36mStationLoc Load (4.2ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+Started GET "/map" for ::1 at 2023-05-01 20:56:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 655)
+  Rendered layout layouts/application.html.erb (Duration: 59.2ms | Allocations: 83176)
+Completed 200 OK in 81ms (Views: 61.9ms | ActiveRecord: 8.2ms | Allocations: 99096)
+
+
+  [1m[36mStationLoc Load (3.9ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+Started GET "/map" for ::1 at 2023-05-01 21:05:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 707)
+  Rendered layout layouts/application.html.erb (Duration: 55.6ms | Allocations: 82988)
+Completed 200 OK in 77ms (Views: 57.4ms | ActiveRecord: 7.3ms | Allocations: 98914)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:05:42 -0400
+=======
   [1m[36mBike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 7[0m
   ↳ app/views/stations/_row.html.erb:4
   [1m[36mBike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bikes` WHERE `bikes`.`current_station_id` = 1[0m
@@ -34151,11 +34658,118 @@ Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.4ms | Allocations: 151
 
 
 Started GET "/map" for ::1 at 2023-05-01 19:06:42 -0400
+>>>>>>> master
 Processing by MapController#show as HTML
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
   ↳ app/controllers/application_controller.rb:10:in `set_current_user'
   Rendering layout layouts/application.html.erb
   Rendering map/show.html.erb within layouts/application
+<<<<<<< HEAD
+  Rendered map/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 11589)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.4ms | Allocations: 12714)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:06:22 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 442)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 12556)
+Completed 200 OK in 48ms (Views: 36.5ms | ActiveRecord: 1.4ms | Allocations: 14135)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:06:58 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 440)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 12538)
+Completed 200 OK in 28ms (Views: 24.1ms | ActiveRecord: 0.5ms | Allocations: 14209)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:09:19 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (33.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 439)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 12537)
+Completed 200 OK in 69ms (Views: 27.9ms | ActiveRecord: 33.5ms | Allocations: 14211)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:09:43 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 438)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 12534)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 1.2ms | Allocations: 14210)
+
+
+  [1m[36mStationLoc Load (7.1ms)[0m  [1m[34mSELECT `station_locs`.* FROM `station_locs`[0m
+Started GET "/map" for ::1 at 2023-05-01 21:23:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 54.8ms | Allocations: 83154)
+Completed 200 OK in 71ms (Views: 56.5ms | ActiveRecord: 4.4ms | Allocations: 99059)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:23:42 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 456)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 12554)
+Completed 200 OK in 40ms (Views: 31.2ms | ActiveRecord: 1.3ms | Allocations: 14275)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:24:44 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 451)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 12618)
+Completed 200 OK in 76ms (Views: 48.8ms | ActiveRecord: 9.3ms | Allocations: 14296)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:24:58 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 451)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 12550)
+Completed 200 OK in 31ms (Views: 22.2ms | ActiveRecord: 1.2ms | Allocations: 14219)
+
+
+Started GET "/map" for ::1 at 2023-05-01 21:25:39 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 12541)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 0.9ms | Allocations: 14179)
+=======
   Rendered map/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 379)
   Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 13428)
 Completed 200 OK in 35ms (Views: 31.5ms | ActiveRecord: 0.4ms | Allocations: 15109)
@@ -34294,6 +34908,983 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 15913)
 >>>>>>> master
 >>>>>>> master
+>>>>>>> master
+
+
+Started GET "/" for ::1 at 2023-05-01 22:57:09 -0400
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: root.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:49:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:43:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `mysql2_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 22:57:10 -0400
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: root.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:49:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:43:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `mysql2_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8456441946425932725', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateStationLocs (20230501230341)
+  [1m[35m (19.2ms)[0m  [1m[35mDROP TABLE `station_locs`[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE `station_locs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `address` varchar(255), `longitude` float(24), `latitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE INDEX `index_station_locs_on_longitude` ON `station_locs` (`longitude`)[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE INDEX `index_station_locs_on_latitude` ON `station_locs` (`latitude`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230501230341')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8456441946425932725')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2023-05-01 22:59:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1295)
+  Rendered layout layouts/application.html.erb (Duration: 445.7ms | Allocations: 193111)
+Completed 200 OK in 460ms (Views: 449.5ms | ActiveRecord: 0.0ms | Allocations: 197038)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 22:59:36 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/login" for ::1 at 2023-05-01 22:59:50 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2678)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 15291)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 16252)
+
+
+Started POST "/login" for ::1 at 2023-05-01 22:59:55 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 230ms (ActiveRecord: 4.8ms | Allocations: 14782)
+
+
+Started GET "/" for ::1 at 2023-05-01 22:59:55 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 222)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 12577)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.3ms | Allocations: 14262)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 22:59:55 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/stations" for ::1 at 2023-05-01 22:59:59 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:17
+  Rendered stations/main.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1171)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 13426)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.5ms | Allocations: 15104)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:00:24 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 12372)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.3ms | Allocations: 13419)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:00:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/logout" for ::1 at 2023-05-01 23:00:33 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 880)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:00:33 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 171)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 12814)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 13275)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:00:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:00:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/login" for ::1 at 2023-05-01 23:00:36 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 609)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 13247)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 13676)
+
+
+Started POST "/login" for ::1 at 2023-05-01 23:00:48 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 202ms (ActiveRecord: 0.5ms | Allocations: 1601)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:00:48 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 12115)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.3ms | Allocations: 13076)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:00:48 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:01:41 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 62.5ms | Allocations: 30672)
+Completed 200 OK in 69ms (Views: 63.1ms | ActiveRecord: 2.0ms | Allocations: 31620)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:01:41 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:01:54 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 31182)
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.3ms | Allocations: 32142)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:01:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:01:56 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 12382)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.3ms | Allocations: 13325)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:01:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:02:02 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 45.7ms | Allocations: 31099)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.3ms | Allocations: 32046)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:02:02 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:02:17 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 31097)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.3ms | Allocations: 32042)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:02:17 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:02:21 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 31098)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.3ms | Allocations: 32043)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:02:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:02:48 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 40.2ms | Allocations: 31058)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.3ms | Allocations: 31997)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:02:48 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:02:56 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 39.7ms | Allocations: 31057)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.3ms | Allocations: 32023)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:02:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:03:15 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 31057)
+Completed 200 OK in 42ms (Views: 38.9ms | ActiveRecord: 0.3ms | Allocations: 32014)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:03:15 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:03:24 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | Allocations: 30707)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.2ms | Allocations: 31648)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:03:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:03:27 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 12471)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.3ms | Allocations: 13422)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:03:27 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:03:31 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 40.1ms | Allocations: 30969)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.3ms | Allocations: 31916)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:03:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:04:07 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 31097)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.3ms | Allocations: 32045)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:04:07 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:04:12 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 31089)
+Completed 200 OK in 39ms (Views: 37.2ms | ActiveRecord: 0.3ms | Allocations: 32022)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:04:12 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:04:18 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | Allocations: 31065)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.3ms | Allocations: 32013)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:04:18 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:04:23 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 37.3ms | Allocations: 31065)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.3ms | Allocations: 32013)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:04:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:04:29 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 31068)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.3ms | Allocations: 32019)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:04:29 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/" for ::1 at 2023-05-01 23:04:32 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 31061)
+Completed 200 OK in 41ms (Views: 39.0ms | ActiveRecord: 0.3ms | Allocations: 32006)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:04:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/user_home" for ::1 at 2023-05-01 23:05:06 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 787)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 13763)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.3ms | Allocations: 15579)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:05:13 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 737)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 13374)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.3ms | Allocations: 15035)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:05:15 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 12163)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.3ms | Allocations: 13207)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:05:20 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 737)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 13374)
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 14928)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:05:21 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 12175)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.3ms | Allocations: 13246)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:05:25 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 606)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 13055)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.3ms | Allocations: 14407)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:05:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/user_home" for ::1 at 2023-05-01 23:05:36 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 239)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 12237)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.3ms | Allocations: 13254)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:01 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 13613)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.3ms | Allocations: 15155)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:09 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 753)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 13390)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.3ms | Allocations: 15043)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:16 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 753)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 13390)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.3ms | Allocations: 15070)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:35 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 752)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 13640)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 15309)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:36 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 12441)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.3ms | Allocations: 13526)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:38 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 12164)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.4ms | Allocations: 13106)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:47 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | Allocations: 22289)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.2ms | Allocations: 23225)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:54 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 22098)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.3ms | Allocations: 23046)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:06:56 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 12408)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.3ms | Allocations: 13339)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:07:10 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 758)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 13446)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.3ms | Allocations: 14985)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:07:14 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 753)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 13386)
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.3ms | Allocations: 15042)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:07:29 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 13662)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.3ms | Allocations: 15323)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:07:35 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 230)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 22482)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.2ms | Allocations: 23533)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:07:54 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 607)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 12829)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.3ms | Allocations: 14179)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:07:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/reports/new" for ::1 at 2023-05-01 23:07:55 -0400
+Processing by ReportsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering reports/new.html.erb within layouts/application
+  Rendered reports/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1883)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 14333)
+Completed 200 OK in 28ms (Views: 19.5ms | ActiveRecord: 1.8ms | Allocations: 18622)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:07:56 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 185)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 12183)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.3ms | Allocations: 13284)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:07:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/return" for ::1 at 2023-05-01 23:07:57 -0400
+Processing by RentalsController#return as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mBike Load (0.3ms)[0m  [1m[34mSELECT `bikes`.* FROM `bikes` WHERE `bikes`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/rentals_controller.rb:21:in `return'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/return.html.erb within layouts/application
+  Rendered rentals/return.html.erb within layouts/application (Duration: 0.5ms | Allocations: 196)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 12675)
+Completed 200 OK in 27ms (Views: 17.9ms | ActiveRecord: 1.5ms | Allocations: 16580)
+
+
+Started GET "/return" for ::1 at 2023-05-01 23:09:09 -0400
+Processing by RentalsController#return as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mBike Load (0.1ms)[0m  [1m[34mSELECT `bikes`.* FROM `bikes` WHERE `bikes`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/rentals_controller.rb:21:in `return'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/return.html.erb within layouts/application
+  Rendered rentals/return.html.erb within layouts/application (Duration: 0.4ms | Allocations: 191)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 12846)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.4ms | Allocations: 15224)
+
+
+Started GET "/return" for ::1 at 2023-05-01 23:09:15 -0400
+Processing by RentalsController#return as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mBike Load (0.4ms)[0m  [1m[34mSELECT `bikes`.* FROM `bikes` WHERE `bikes`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/rentals_controller.rb:21:in `return'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/return.html.erb within layouts/application
+  Rendered rentals/return.html.erb within layouts/application (Duration: 0.4ms | Allocations: 191)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 12845)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 0.6ms | Allocations: 15195)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:09:24 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 606)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 13316)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.3ms | Allocations: 14982)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:09:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/map" for ::1 at 2023-05-01 23:09:25 -0400
+Processing by MapController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering map/show.html.erb within layouts/application
+  Rendered map/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 453)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 12945)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.3ms | Allocations: 14569)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:09:28 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 185)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 12389)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.3ms | Allocations: 13452)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:09:28 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/user_home" for ::1 at 2023-05-01 23:09:31 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 751)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 13198)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.3ms | Allocations: 14548)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:09:32 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 12112)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.3ms | Allocations: 13189)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:09:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/stations" for ::1 at 2023-05-01 23:09:33 -0400
+Processing by StationsController#main as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering stations/main.html.erb within layouts/application
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` ORDER BY `stations`.`identifier` ASC[0m
+  ↳ app/views/stations/main.html.erb:17
+  Rendered stations/main.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1146)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 13588)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.5ms | Allocations: 14988)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:09:35 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 185)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 12115)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.3ms | Allocations: 13162)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:09:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/user_home" for ::1 at 2023-05-01 23:09:39 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 241)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 12446)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.2ms | Allocations: 13395)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:09:51 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 13388)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.3ms | Allocations: 14925)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:09:57 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 13487)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.3ms | Allocations: 15149)
 
 
 Started GET "/" for ::1 at 2023-05-01 20:59:07 -0400

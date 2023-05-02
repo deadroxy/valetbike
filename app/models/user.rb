@@ -10,6 +10,6 @@ class User < ApplicationRecord
     validates :phone_num, presence: true, length: { in: 6..20 }, on: :create
 
     validates_uniqueness_of :email, on: :create
-
-    validates_uniqueness_of :phone_num, on: :create
+ 
+    validates_uniqueness_of :phone_num, on: :create 
 end
