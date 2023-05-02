@@ -26,7 +26,7 @@ class PaymentController < ApplicationController
                 @bike.update({current_station_id: nil })
                 Current.user.wallet_point-=@price
                 Current.user.save
-                redirect_to bikes_unlock_path(params[:format]), notice: "Bike rented successfully!"
+                redirect_to bikes_unlock_path(params[:format]), notice: "Paymen† through wallet succeeds!"
             end  
         elsif params[:finamecard] == "Bikesia" && params[:lanamecard] =="Team" && params[:card_num] == "1111111111" && params[:card_date] == "2023-02-01" && params[:cvv] == "111"
             redirect_to bikes_unlock_path(params[:format]), notice: "Payment through Credit Card succeeds"

@@ -6,9 +6,8 @@ class SessionsController < ApplicationController
 
         if user && user.authenticate(params[:session][:password])
           session[:user_id] = user.id
-          session[:username] = user.username
-          #cookies[:username] = params[:username]
-          #flash[:notice] = "Logged in successfully."
+          session[:username] = user.username 
+          #cookies[:username] = params[:username] 
           flash[:success] = "Logged in successfully."
           redirect_to root_path
         else
@@ -19,7 +18,6 @@ class SessionsController < ApplicationController
        
       def destroy
         session[:user_id] = nil
-        #flash[:notice] = "You have been logged out."
         flash[:success] = "You have been logged out."
         redirect_to root_path
       end

@@ -4,8 +4,8 @@
     <div class="section-title flexbox horizontal center">
       <h2> Welcome to bikesia! </h2>
       <% if Current.user.try(:admin?) %>
-        <a class="toggle" href="<%= add_stations_path %>">Add Stations</a> 
-        <a class="toggle" href="<%= add_bikes_path %>">Add Bikes</a> 
+        <button class="unlock-button"><%=link_to("Add Station", add_stations_path) %></button> 
+        <button class="unlock-button"> <%=link_to("Add Bike", add_bikes_path) %></button> 
       <% end %>
       
 
