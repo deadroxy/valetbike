@@ -53,7 +53,7 @@ membership = Membership.new(
   :cost              => 5,
   :time_limit        => 60,
   :time_unit         => 'minutes',
-  :description       => "Save on a longer ride by paying in advance."
+  :description       => "Bike for one hour. Save on a longer ride by paying in advance."
 )
 membership.save!
 
