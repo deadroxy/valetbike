@@ -8,9 +8,11 @@
     Number of scooters avilable: <%= bikes.length%> <br>
     Number of docks available: <%= @station.dock_count - bikes.length%> <br>
 
+    <div>
     <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
         <%bikes.each do |bike| %>
-          <br>
+        <br>
+        <br>
         <%= bike.identifier%>
         <%= link_to("click here to rent this bike", new_rental_path(bike: bike.id, station: @station.id)) %>
         <% end%>
@@ -23,13 +25,13 @@
 
     <%= link_to("return to stations list", "/index")%>
     <%= link_to("view stations map", "map")%>
-
+    </div>
 
 
 
 
 <br><br><br>
- note: the rails id of this station is <%= @station.id %>
+
 
 
       

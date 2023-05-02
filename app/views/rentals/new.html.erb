@@ -1,23 +1,36 @@
-<h1>Rental!!! weeee </h1>
-
+<h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5);"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ValleyScoot Scooter Rental Page &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
+<br/>
 <% @current_user = current_user %>
-current user: <%= @current_user%>
 
 <% @current_bike = params[:bike] %>
-current bike: <%= @current_bike%>
 <% @current_station = params[:station] %>
-current station: <%= @current_station%>
+You are about to rent bike <%= @current_bike %> from station: <%= @current_station%>
 <%= form_for @rental do |f|%>
 
- <%= f.hidden_field :user_id, value: @current_user.id%><br>
+ <%= f.hidden_field :user_id, value: @current_user.id%>
 
- <%= f.hidden_field :start_station_id, value: @current_station%><br>
- <%= f.hidden_field :start_time, value: @rental.created_at%><br>
- <%= f.hidden_field :end_time, value: Time.now()%><br>
- <%= f.hidden_field :bike_id, value: @current_bike%><br>
+ <%= f.hidden_field :start_station_id, value: @current_station%>
+ <%= f.hidden_field :start_time, value: @rental.created_at%>
+ <%= f.hidden_field :end_time, value: Time.now()%>
+ <%= f.hidden_field :bike_id, value: @current_bike%>
+ <strong><%= submit_tag ""%> </strong>
+ <strong><%= f.submit "Confirm Rental",:style => "width:60px;background-color:#93AE90;float:center" %></strong>
 
- <strong><%= submit_tag "Rent"%> </strong>
- <strong><%= f.submit %></strong>
+ <div class="row">
+   <div class="column">
+     <img src = "/logo.jpg" alt = "PAJAS Logo" >
+   </div>
+   <div class="column">
+     <img src = "/logo.jpg" alt = "PAJAS Logo">
+   </div>
+   <div class="column">
+     <img src = "/logo.jpg" alt = "PAJAS Logo">
+   </div>
+ </div>
+   <br/>
+</div>
+
+
 
 
 

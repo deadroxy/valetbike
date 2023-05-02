@@ -1,19 +1,20 @@
+<h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5);"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Return your scooter! &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
+<br/>
 <% @current_station = params[:station] %>
 current station: <%= @current_station%>
-
 
 <% stations = Station.where(is_full: 0) %>
 <%stations.each do |station| %>
 <%= station.identifier%>
     <%= form_for @rental do |f|%>
     <%= f.hidden_field :end_station_id, value: station.identifier %>
-    <%= f.hidden_field :end_time, value: Time.now%><br>
-    <strong><%= f.submit("return my bike here")%></strong>
+    <%= f.hidden_field :end_time, value: Time.now%>
+    <strong><%= f.submit("Teturn my scooter here!")%></strong>
   
 <% end%>
 
 <div>
-  <h1 Return My Bike </h1>
+  <h1 Return My Scooter </h1>
 
 
 
