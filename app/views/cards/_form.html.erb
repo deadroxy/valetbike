@@ -32,5 +32,8 @@
         <th> CVV </th>
         <td> <%= f.text_field :cvv, required: true, class: "round"%> </td>
     </tr>
+    <tr> 
+        <td> <%= f.hidden_field :station_id, value: params[:station_id]%> </td>
+    </tr>
     
 </table>

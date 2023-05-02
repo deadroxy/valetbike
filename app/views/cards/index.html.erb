@@ -137,7 +137,7 @@
       
       <br>
       
-      <button><a href="cards/new">Add New Card</a></button> <br>
+      <button><%= link_to("Add New Card", new_card_path(station_id: params[:station_id]), class: "links") %></button> <br>
       <br>
       
       <p class="text">Your personal data will be used to process your order, support your <br> experience throughout this website, and for other purposes described in <br> our privacy policy. </p>

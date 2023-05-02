@@ -21,7 +21,7 @@ class CardsController < ApplicationController
     @card = current_user.cards.new(card_balance: 1000, **card_params)
 
     if @card.save
-      redirect_to cards_path, notice: "Card was successfully added."
+      redirect_to cards_path(station_id: params[:station_id]), notice: "Card was successfully added."
     else
       puts @card.errors.full_messages
       render ('new')

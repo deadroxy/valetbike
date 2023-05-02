@@ -56,15 +56,18 @@
         <div class="flexbox vertical stretch"><br>
           <b>Travel History</b>
         </div>
-        <% if @rentalHistory.present? %>
-          <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" style="background-color: #FFEEE4; border: 1px solid #FFEEE4; border-radius: 20px; text-align: center;">
-            <%= render(partial: "renting/rental_info",collection: @rentalHistory, as: :renting) %>
-          </div>
-        <%else%>
-          <div class = "flexbox vertical stretch", style = "text-align: center;">You don't have any rental history... <br> Starting your journey today? </div><br>
+        <div display="flex-row">
+          <% if @rentalHistory.present? %>
+            <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch" style="background-color: #FFEEE4; border: 1px solid #FFEEE4; border-radius: 20px; text-align: center;">
+              <%= render(partial: "renting/rental_info",collection: @rentalHistory, as: :renting) %>
+            </div>
+          <%else%>
+            <div class = "flexbox vertical stretch", style = "text-align: center;">You don't have any rental history... <br> Starting your journey today?<br> 
+            </div>
 
-        <%end%>
+          <%end%>
         </div>
+
       </div>
     </div>
 

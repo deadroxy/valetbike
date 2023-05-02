@@ -44,8 +44,7 @@
 
     <% if user_signed_in? %>
 
-        <div class= "button"><%#= link_to 'Rent A bike', {controller: 'cards', action: 'index', station_id: @station[:id]}%>  
-        <%= link_to 'Rent A bike', { action: 'create', station_id: @station[:id]}%>
+        <div class= "button"><%= link_to 'Rent A bike', {controller: 'cards', action: 'index', station_id: @station[:id]}%>  
         </div>
 
 
