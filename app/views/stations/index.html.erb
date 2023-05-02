@@ -7,7 +7,11 @@
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
+        <% if user_signed_in? && current_user.ongoing_rental? %>
+        <%= render(partial: "stations/rental_row", collection: @stations, as: :station) %>
+        <% else %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <% end %> 
       <% else %>
       <div class="empty">
         No stations found.

@@ -49,6 +49,9 @@ class User < ApplicationRecord
         @membership_assignments
     end
 
+    def ongoing_rental?
+        rentals.order(created_at: :desc).present? && rentals.order(created_at: :desc).first.is_ongoing?
+    end
     #(* reference: belows are from the Ruby Training *)#
     def full_name
         [first_name, last_name].join(' ')
