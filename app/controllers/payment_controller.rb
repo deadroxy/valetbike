@@ -28,7 +28,7 @@ class PaymentController < ApplicationController
                 Current.user.save
                 redirect_to bikes_unlock_path(params[:format]), notice: "Paymen† through wallet succeeds!"
             end  
-        elsif params[:finamecard] == "Bikesia" && params[:lanamecard] =="Team" && params[:card_num] == "1111111111" && params[:card_date] == "2023-02-01" && params[:cvv] == "111"
+        elsif params[:finamecard] == "Bikesia" && params[:lanamecard] =="Team" && params[:card_num] == "1111111111" && params[:card_date] == "2025-02-01" && params[:cvv] == "111"
             redirect_to bikes_unlock_path(params[:format]), notice: "Payment through Credit Card succeeds"
         elsif params[:email_paypal] =="test@smith.edu" && params[:password_paypal] =="password"
             redirect_to bikes_unlock_path(params[:format]), notice: "Payment through Paypal succeeds"
