@@ -9,5 +9,12 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def remove_overdue
+    if params[:overdue_paid] && current_user.overdues.present?
+      current_user.overdues.first.destroy
+    end
+    redirect_to account_path
+  end
   
 end

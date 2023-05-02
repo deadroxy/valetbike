@@ -1,25 +1,6 @@
 <div class = "hero-image">
 </div>
 <div class ="page-section">
-
-<form action="/customer_portal_sessions" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <button>Manage Billing</button>
-</form>
-
-
-<% if user_signed_in? && current_user.is_admin? %>
-                <font color="#41513D"> Welcome to ValetBike! </font>
-                <p>Links for developer use (Will delete later)</p>
-                <ul> 
-                    <li><%= link_to "User index page", users_index_path %></li>
-                    <li><%= link_to "User profile/settings", users_show_path %></li>
-                    <li><%= link_to "Rental page", pages_rental_path %></li>
-                    <li><%= link_to "Rental Success Page", pages_success_path %></li>
-
-                </ul>
-            </div>  
-<% end %>
 <div class = "welcome">
     <h1> Welcome to ValetBike!</h1>
 </div>

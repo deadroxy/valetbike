@@ -11,15 +11,26 @@ class RentalsController < ApplicationController
   end
 
   def create
+    if current_user.overdues.present?
+      redirect_to account_path
+      return
+    end
+    if !current_user.has_active_membership?
+      flash[:error] = "Please select a membership before renting a bike."
+      redirect_to add_membership_path
+      return
+    end
     @rental = Rental.new(rental_params)
     if @rental.save
+      @rental.time_limit = current_user.get_membership.time_limit
+      @rental.save
       bike = Bike.find(@rental.bike_id)
       #bike.current_station_id=nil
       bike.update(current_station: nil)
       bike.update(current_station_id: nil)
       bike.update(dock_id: nil)
       bike.save
-      redirect_to(pages_success_path)
+      redirect_to(rental_path(@rental))
     else
       @rental.get_bike
       render('new')
@@ -30,6 +41,10 @@ class RentalsController < ApplicationController
     station_id = params[:station_id]
     @rental = current_user.rentals.order(created_at: :desc).first
     @rental.update(end_time: Time.now)
+    if @rental.is_overdue? && @rental.minutes_over >0
+      overdue = Overdue.new(user_id: current_user.id, time_over: @rental.minutes_over)
+      overdue.save
+    end
     bike = @rental.bike
     bike.update(current_station: Station.find(station_id))
     bike.update(dock_id: params[:dock_id])

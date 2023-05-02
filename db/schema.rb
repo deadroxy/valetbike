@@ -10,30 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_000224) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "dock_id"
-  end
-
-  create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier"
-    t.string "card_holder_name"
-    t.integer "card_number"
-    t.integer "CVC"
-    t.string "billing_address"
-    t.integer "billing_zip"
-    t.string "billing_state"
-    t.datetime "expiration_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "digits"
-    t.integer "month"
-    t.integer "year"
-    t.integer "user_id"
   end
 
   create_table "membership_assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -61,19 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
     t.datetime "updated_at", null: false
     t.integer "position"
     t.string "category"
+    t.integer "time_limit"
+    t.string "description"
   end
 
-  create_table "payments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "identifier"
-    t.string "purpose"
-    t.datetime "date"
+  create_table "overdues", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "amount"
-    t.integer "rental_id"
+    t.integer "time_over"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "membership_id"
-    t.integer "card_id"
   end
 
   create_table "rentals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -84,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
     t.datetime "updated_at", null: false
     t.integer "bike_id"
     t.integer "renter_id"
+    t.integer "time_limit"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -106,15 +86,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_045830) do
     t.boolean "is_admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "card_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.bigint "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
