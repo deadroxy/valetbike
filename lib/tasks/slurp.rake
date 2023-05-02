@@ -3,7 +3,7 @@ namespace :slurp do
   task stations: :environment do
     require 'csv'    
 
-      csv_text = File.read("/Users/jannetmartinez/Desktop/ashleyvaletbike/valetbike/notes/station-data.csv")
+      csv_text = File.read("/Users/priyadalal-whelan/Desktop/ashleyvaletbike/valetbike/notes/station-data.csv")
 
   csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
   csv.each do |row|
@@ -24,7 +24,7 @@ namespace :slurp do
       if s.dock_count == s.docked_bike_count
         s.is_full = true #boolean
       elsif s.docked_bike_count > s.dock_count || s.docked_bike_count < 0
-        puts "ERROR WITH BIKES TOO MANY AHHHHH"
+        #puts "ERROR WITH BIKES TOO MANY AHHHHH"
       else
         s.is_full = false #boolean
       end
