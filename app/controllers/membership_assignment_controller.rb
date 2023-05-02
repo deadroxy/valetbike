@@ -2,7 +2,7 @@ class MembershipAssignmentController < ApplicationController
     def show
         @membershipassignment = MembershipAssignment.find(params[:id])
         @membership = @membershipassignment.membership
-        @member = @membershipassignment.member
+        @member = @membershipassignment.user
       end
     
       def new
