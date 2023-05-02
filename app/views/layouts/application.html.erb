@@ -12,49 +12,48 @@
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <title>ValetBike</title>
     
-    <!--leaflett CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
-    <!--leaflett java-->
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
-    
   </head>
    <link rel="stylesheets" href="/style.css">
+   
   <div class="banner0"> 
   <% if Current.user %>
         <div class = "button-div">
-        <!--<%= link_to("Log Out", "logout_path", method: :delete, class: 'logins-link navbar-link-right') %> -->
-         
+
         <button type="button", class="button-30"><%= link_to("Log Out", logout_path, method: :delete) %></button>
+        </div> 
+        <div style="text-align:center; opacity: 0;">
+        <%= link_to image_tag("logo.png", height: 100, width: 100), root_path %>
         </div> 
         </div> 
 
     <% else %>
-        <div class = "button-div">
+        <div class = "button-div"> 
         <button type="button" class="button-30"><%= link_to("Log In", login_path) %></button>
         <button type="button" class="button-30 "><%= link_to("Sign Up", signup_path) %></button>
         <!--<%= link_to image_tag("logo.png", height: 70, width: 70), root_path %>-->
-        
         </div>
         
+        <div style="text-align:center; opacity: 0;">
+        <%= link_to image_tag("logo.png", height: 100, width: 100), root_path %>
+        </div>
+ 
     <% end %> 
     </div> 
-  
-
   <body>
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
+  
+    <% flash.each do |type, message| %>
+  <div class="alert alert-<%= type %>">
+    <%= message %>
+  </div>
     <% end %>
+    </div> 
+    
     <div id="site-container" class="flexbox vertical stretch flex-1">
       <div class="flexbox vertical center">
         <%= yield %>
       </div>
     </div>
+  
   </body>
 
   

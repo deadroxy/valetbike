@@ -1,5 +1,13 @@
 <h2>Sign up</h2>
 <%= form_with(model: @user, local: true) do |f| %>
+ 
+<% if flash[:notice] %>
+   <div class="container"><%= flash[:notice] %></div>
+ <% end %>
+  
+<% if flash[:notice] %>
+  <div class="container"><%= flash[:notice] %></div>
+<% end %>
 
 <div class="form-group">
   <%= f.label :username %>
