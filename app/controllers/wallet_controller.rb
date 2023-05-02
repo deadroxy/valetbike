@@ -6,7 +6,7 @@ class WalletController < ApplicationController
 
     def update
 
-        if params[:finamecard] == "Bikesia" && params[:lanamecard] =="Team" && params[:card_num] == "1111111111" && params[:card_date] == "2023-02-01" && params[:cvv] == "111"
+        if params[:finamecard] == "Bikesia" && params[:lanamecard] =="Team" && params[:card_num] == "1111111111" && params[:card_date] == "2025-02-01" && params[:cvv] == "111"
             Current.user.wallet_point+=params[:wallet_add_card].to_i
             Current.user.save
             redirect_to user_home_path, notice: "Added through credit card"

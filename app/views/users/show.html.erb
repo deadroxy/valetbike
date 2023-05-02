@@ -1,29 +1,31 @@
 <div  class = "user index"> 
     <h2>User Profile</h2>
 
-    <% if @user %>
-         <% if @user. admin == true%>
+    <% if Current.user %>
+         <% if Current.user.admin == true%>
             <h3> Hi Admin! What do you want to next? </h3>
-            <h3> <%= link_to("Add Blocking list", edit_blocking_path)%> </h3 >
-            <h3> <%= link_to("Add Station", add_stations_path)%> </h3>
-            <h3> <%= link_to("Add Bike", add_bikes_path)%> </h3>
+            <button class="unlock-button"> <%= link_to("Add Blocking list", edit_blocking_path)%> </button >
+            <button class="unlock-button">  <%= link_to("Add Station", add_stations_path)%> </button >
+            <button class="unlock-button">  <%= link_to("Add Bike", add_bikes_path)%> </button >
             <br> <br>
         <%end%>
             <h3> User information </h3>
-            Logged in as: <b><%= @user.username %> </b> <br>
+            Logged in as: <b><%= Current.user.username %> </b> <br>
             <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit username", edit_username_path) %></h4>
 
             <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Change password", edit_password_path) %></h4>
         
-            Email: <b><%= @user.email %></b><br>
+            Phone Number : <b><%= Current.user.phone_num%></b><br>
+
+            Email: <b><%= Current.user.email %></b><br>
             
-            Home address: <b><%= @user.address %></b><br> 
+            Home address: <b><%= Current.user.address %></b><br> 
             <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit address", edit_address_path, class: "link") %></h4>
             
-            Birthday: <b><%= @user.birthday %></b><br>
+            Birthday: <b><%= Current.user.birthday %></b><br>
 
 
-            Wallet points: <b><%= @user.wallet_point%></b><br>
+            Wallet points: <b><%= Current.user.wallet_point%></b><br>
             <h4 style="color:#0CCAA8;text-align:center;"><%= link_to("Edit wallet point", edit_wallet_path) %><br> </h4>
     <%else%>
         You haven't logged in. Please log in to see your user profile. 

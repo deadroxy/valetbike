@@ -13,8 +13,8 @@ class UsersController < ApplicationController
             end
             session[:user_id] = @user.id
             session[:username] = @user.username
-            #session[:email] = @user.email
-            flash[:notice] = "User created."
+            flash[:notice] = "User created"
+            flash[:danger] = @user.errors.full_messages.to_sentence
             redirect_to root_path
         else
             render 'new'
@@ -32,9 +32,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        if session[:user_id]
-            @user = User.find(session[:user_id])
-        end
+        # if session[:email]
+        #     @user = User.find(session[:email])
+        #     puts 112
+        # end
     end
      
     private
