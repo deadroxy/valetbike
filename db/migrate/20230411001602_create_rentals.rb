@@ -5,8 +5,8 @@ class CreateRentals < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true
       t.integer :start_station_id
       t.integer :end_station_id
-      t.datetime :created_at, precision: 6, null: false
-      t.datetime :updated_at, precision: 6, null: false
+      t.datetime :start_time, precision: 6
+      t.datetime :end_time, precision: 6
       t.integer :price
       t.index [:bike_id, :user_id]
       t.index [:user_id, :bike_id]
