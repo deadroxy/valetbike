@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/privacypol'
   get 'pages/terms'
-  get 'pages/userag'
+  #get 'pages/userag'
   get 'pages/rental'
   get 'pages/success'
   get 'pages/paymentdemo'
