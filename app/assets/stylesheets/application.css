@@ -18,6 +18,18 @@
     margin: 0;
     padding: 0;
 } */
+button{
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 12px;
+  background-color: #FFFFFF;
+  color: #41513D;
+  border: 2px solid #41513D;
+}
+
+button :hover{
+  background-color: #c8e6b8;
+}
 
 h1{
     text-align:center;
