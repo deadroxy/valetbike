@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :station_locs
   root to: "pages#home"
 
   # test
