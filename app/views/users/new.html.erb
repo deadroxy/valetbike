@@ -1,20 +1,14 @@
 <h2>Sign up</h2>
 <%= form_with(model: @user, local: true) do |f| %>
-
-<<<<<<< HEAD
-<% if @user.errors.full_messages.any? %>
-  <% @user.errors.full_messages.each do |error_message| %>
-    <%= error_message if @user.errors.full_messages.first == error_message %> <br />
-  <% end %>
-<% end %>
-
-
-=======
+ 
+<% if flash[:notice] %>
+   <div class="container"><%= flash[:notice] %></div>
+ <% end %>
+  
 <% if flash[:notice] %>
   <div class="container"><%= flash[:notice] %></div>
 <% end %>
 
->>>>>>> master
 <div class="form-group">
   <%= f.label :username %>
   <%= f.text_field :username, class: "form-control" %>
