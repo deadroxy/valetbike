@@ -29,7 +29,7 @@
     font-family: 'Helvetica Neue', sans-serif !important;
     font-size: 60px !important;
     letter-spacing: -2px;
-    text-align: center !important;
+    text-align: center;
     word-spacing: 0.2px;
     color: #1b264f !important;
     display: block; 
@@ -44,7 +44,7 @@ h2 {
     font-size: 45px;
     letter-spacing: 0px;
     word-spacing: 0.2px;
-    color: #274690 !important;
+    color: #274690  !important;
     display: block; 
     margin-top: 2px;
     margin-bottom: 2px;
@@ -54,11 +54,11 @@ h2 {
 }
 
 h3 {
-    font-family: 'Rubik', 'Arial' !important;
+    font-family: 'Rubik', 'Arial';
     font-size: 28px;
     letter-spacing: 0px;
     word-spacing: 0.2px;
-    color: #302b27 !important;
+    color: #302b27;
     display: block; 
     margin-top: 2px;
     margin-bottom: 2px;
@@ -68,16 +68,16 @@ h3 {
 }
 
 h4 { 
-    font-family: 'Rubik', 'Arial' !important;
-    color: #0CCAA8; 
+    font-family: 'Rubik', 'Arial';
+    color: #107160; 
 }
 
 p {
-    font-family: 'Helvetica Neue', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
     word-spacing: 0.2px;
-    color: #302b27 !important;
+    color: #302b27;
     display: block; 
     margin-top: 0.83em;
     margin-bottom: 0.83em;
@@ -89,14 +89,14 @@ p {
 /* button */ 
 
 .button-30 {
-    align-items: center ;
+    align-items: center;
     appearance: none;
-    background-color: #FCFCFD ;
+    background-color: #FCFCFD;
     border-radius: 4px;
     border-width: 0;
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
     box-sizing: border-box;
-    color: #36395A ;
+    color: #36395A;
     cursor: pointer;
     display: inline-block;
     font-family: "JetBrains Mono",monospace;
@@ -127,7 +127,6 @@ p {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   }
   
-
   .button-30:hover {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     transform: translateY(-2px);
@@ -137,42 +136,3 @@ p {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
   }
-
-
-  .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-  }
-  
-  .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-  }
-  
-  .alert-success {
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-  }
-  
-  .alert-info {
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-  }
-  
-  .alert-warning {
-    color: #856404;
-    background-color: #fff3cd;
-    border-color: #ffeeba;
-  }
-  
-  .alert-primary {
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
-  }
-  

@@ -58,9 +58,14 @@
 .navbar{
     width: 85%;
     margin: auto;
-    padding: 35px 0;
+    padding-left: 70px;
+    padding-right: 60px;
+    padding-top: 30px;
     display: flex;
+    background-position: center;
     align-items: center;
+    text-align:center; 
+    font-size: larger;
     justify-content: space-between;
 }
 
