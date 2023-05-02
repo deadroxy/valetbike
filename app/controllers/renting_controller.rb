@@ -14,8 +14,7 @@ class RentingController < ApplicationController
 
 
     @station = Station.find(params[:station_id])
-    @bike = @station.docked_bikes.first
-    @station.docked_bikes.first.delete
+
 
     # start create new renting
     @renting = Renting.new(
