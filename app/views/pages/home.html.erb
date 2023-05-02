@@ -11,7 +11,7 @@
       </h3> 
 
       <% if Current.user.try(:admin?) %>
-        <h3>Helllllo! Admin. What do you want to do next? </h3>
+        <p>Hello Admin <%= Current.user.username %> </p>
       <% end %>
       
     </div> 
