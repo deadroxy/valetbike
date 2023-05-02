@@ -117,6 +117,6 @@ membership = Membership.new(
   :cost              => 0,
   :time_limit        => 0,
   :time_unit         => 'month',
-  :description       => "Free plan; pay $0.10 per minute spent renting."
+  :description       => "Free plan; pay $0.10 per minute spent biking."
 )
 membership.save!

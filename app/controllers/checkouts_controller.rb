@@ -12,12 +12,11 @@ class CheckoutsController < ApplicationController
                 redirect_to add_membership_path and return
                 #render('membership_assignment/new') and return
             end
-            puts(@membershipassignment.membership.cost == 0)
             if @membershipassignment.membership.cost == 0
-                redirect_to pages_home_path and return
+                redirect_to account_path and return
             end
-            cancel_url = membership_new_url
-            success_url = pages_home_url
+            cancel_url = add_membership_url
+            success_url = account_url
             #success_url = membership_assignment_create_url(:membership_assignment=>{:user_id=>current_user.id, :membership_id=>params[:id]})
             puts success_url
             #success_url = {:controller => "membership_assignment", :action => "create", :membershipassignment=>{:user_id=>current_user.id, :membership_id=>params[:id]}}
