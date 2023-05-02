@@ -31,7 +31,7 @@ class MembershipAssignmentController < ApplicationController
         end
       end
       def cancel
-        @membershipassignment = MembershipAssignment.find(params[:id])
+        @membershipassignment = MembershipAssignment.find(params[:membership_assignment_id])
       end
       def confirm
         @membership_assignment = MembershipAssignment.find(params[:membership_assignment_id])
