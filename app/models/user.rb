@@ -15,16 +15,11 @@ class User < ApplicationRecord
                       length: { maximum: 50 },
                       uniqueness: true,
                       confirmation: true
-    #validates :membership_id, presence: true
-    #validates :user_id, presence: true
-    #validates :card_id, presence: true
     validate :validate_optional_phone_number
 
     has_many :rentals, class_name: :Rental, foreign_key: :renter_id
-    has_many :payments, class_name: :Payment, foreign_key: :user_id
     has_many :membership_assignments, class_name: :MembershipAssignment, foreign_key: :user_id
     has_many :memberships, through: :membership_assignments
-    has_many :cards, dependent: :destroy #new
     has_many :overdues
     def get_name
     end
@@ -40,9 +35,6 @@ class User < ApplicationRecord
 
     def is_admin?
         is_admin
-    end
-
-    def has_payment_info
     end
 
     def get_membership
