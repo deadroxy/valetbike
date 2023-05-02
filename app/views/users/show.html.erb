@@ -2,7 +2,7 @@
 <div>
   <h1>Hi, <%=current_user.full_name %> </h1>
   <p> Registration Date: <%=current_user.created_at %> </p>
-  <p> Email </p>
+  <p> Email: <%= current_user.email %></p>
   <h3> Your Membership Status: <%=current_user.get_membership.name%> </h3>
   <button type="button"><%= link_to "Membership Plans", membership_assignment_new_path %></button>
 </div>
