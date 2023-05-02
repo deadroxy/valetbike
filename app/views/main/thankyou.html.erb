@@ -5,5 +5,5 @@
 user: <%=@current_user.username %>
 <% if (current_user.credit < 0)%>
 <strong>Credits:</strong><%=current_user.credit%><br>
-<%=link_to("Deposit more credits?", '/users/edit') %>
+<%=link_to("Deposit more credits?", '/users/profile') %>
 <%end%>

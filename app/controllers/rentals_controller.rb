@@ -28,6 +28,7 @@ class RentalsController < ApplicationController
             @current_bike.update(current_station_identifier: 0, status: 1) 
             @rental.save
             puts "saved"
+            #  set user to on ride 
 
             #puts params[:bike_id]
             #bikes = Bike.where(current_station_identifier: @station.identifier )

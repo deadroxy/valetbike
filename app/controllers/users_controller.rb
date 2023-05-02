@@ -8,14 +8,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user
-      session[:user_id] = @user.id
+    @user = User.create(user_params)
+    session[:user_id] = @user.id
+    if (logged_in?)
       redirect_to '/welcome'
     else
-      flash[:danger] = "Invalid info"
-      redirect_to '/users/new'
-   end
+      if @user.errors.any?
+          # puts @user.errors.full_messages.class
+          flash[:danger] = @user.errors.full_messages
+          redirect_to '/users/new'
+      end
+
+    end
   end
 
   def profile
@@ -29,7 +33,12 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to '/users/profile'
     else
-      render ('edit')
+      if @user.errors.any?
+        # puts @user.errors.full_messages.class
+        flash[:danger] = @user.errors.full_messages
+        render ('edit')
+    end
+      
     end
   end
 
