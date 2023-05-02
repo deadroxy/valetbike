@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/privacypol'
   get 'pages/terms'
-  get 'pages/success'
 
   get 'membership_assignment/index'
   get 'membership_assignment/new'
