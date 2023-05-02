@@ -4,6 +4,7 @@
     <% if Current.user %>
          <% if Current.user.admin == true%>
             <h3> Welcome back Admin <%= Current.user.username %>! </h3>
+            <button class="unlock-button"> <%= link_to("Show Users", show_users_path)%> </button >
             <button class="unlock-button"> <%= link_to("Add Blocking list", edit_blocking_path)%> </button >
             <button class="unlock-button">  <%= link_to("Add Station", add_stations_path)%> </button >
             <button class="unlock-button">  <%= link_to("Add Bike", add_bikes_path)%> </button >
