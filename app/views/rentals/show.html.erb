@@ -1,19 +1,14 @@
 <h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5);"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Enjoy Your Ride! &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
 
-<% @current_user = current_user %>
-
+ <% @current_user = current_user %>
 <% @current_bike = Bike.where(id: @rental.bike_id ) %> 
-
 <% @rental %>
-
 <% @rental.bike_id %>
-user: <%= @current_user.username %> <br>
-bike: <%= @rental.bike_id %> <br>
-start station:  <%= @rental.start_station_id%> <br>
-start time: <%= @rental.created_at %> <br>
-current time: <%= Time.now %> <br>
-length of ride: <%= Time.now - @rental.created_at%> second(s)
-Please refresh the page to see you're updated ride length!
+
+<p> You are riding scooter number: <%= @rental.bike_id %> <p>
+<p> start station:  <%= @rental.start_station_id%> <p>
+<p> length of ride: <%= Time.now - @rental.created_at%> second(s) <p>
+<p>Please refresh the page to see you're updated ride length! <p>
 
  <%=link_to('ready to return? click here!', edit_rental_path(@rental.id)) %>
 

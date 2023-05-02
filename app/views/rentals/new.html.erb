@@ -4,7 +4,7 @@
 
 <% @current_bike = params[:bike] %>
 <% @current_station = params[:station] %>
-You are about to rent bike <%= @current_bike %> from station: <%= @current_station%>
+You are about to rent scooter <%= @current_bike %> from station: <%= @current_station%>
 <%= form_for @rental do |f|%>
 
  <%= f.hidden_field :user_id, value: @current_user.id%>

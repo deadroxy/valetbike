@@ -24,7 +24,7 @@ namespace :slurp do
       if s.dock_count == s.docked_bike_count
         s.is_full = true #boolean
       elsif s.docked_bike_count > s.dock_count || s.docked_bike_count < 0
-        puts "ERROR WITH BIKES TOO MANY AHHHHH"
+        #puts "ERROR WITH BIKES TOO MANY AHHHHH"
       else
         s.is_full = false #boolean
       end
