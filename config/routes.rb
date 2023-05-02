@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "bikes", to: "bikes#create"
 
   get "password", to: "passwords#edit", as: :edit_password
-  post "password", to: "passwords#update"
+  patch "password", to: "passwords#update"
 
   get "signup", to: "users#new"
   get "login", to: "sessions#new"
@@ -44,8 +44,8 @@ Rails.application.routes.draw do
   post "password/reset", to: "password_resets#create"
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
- get '/reports/success', to: "reports#success"
- get '/reports/empty', to: "reports#empty"
+  get '/reports/success', to: "reports#success"
+  get '/reports/empty', to: "reports#empty"
   get 'return', to: 'rentals#return'
   match'ride',to:"bikes#index", via: :get
   get '/bikes/return', to: "bikes#return"
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   #resources :payment, only: [:new, :edit]
 
   get "rename", to: "username#edit", as: :edit_username
-  patch "rename", to: "username#update"
+  post "rename", to: "username#update"
 
   get "change_address", to: "address#edit", as: :edit_address
   patch "change_address", to: "address#update"
@@ -73,6 +73,9 @@ Rails.application.routes.draw do
 
   get "change_blocking", to: "blocking#edit", as: :edit_blocking
   post "change_blocking", to: "blocking#update"
+  
+  get "change_phonenum", to: "phonenum#edit", as: :edit_phone
+  patch "change_phonenum", to: "phonenum#update"
 
 
 

@@ -8,6 +8,7 @@ class AddressController < ApplicationController
         if Current.user.update(address_params)
             redirect_to user_home_path, notice: "Address changed"
         else
+            puts 123
             render :edit
         end
     end

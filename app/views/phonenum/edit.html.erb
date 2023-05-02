@@ -1,6 +1,6 @@
-<h1>Edit Address</h1>
+<h1>Edit Phone Number</h1>
 
-<%= form_with model: Current.user, url: edit_address_path do |form| %>
+<%= form_with model: Current.user, url: edit_phone_path do |form| %>
     <% if Current.user.errors.any? %>
         <div class="alert alert-danger">
             <% Current.user.errors.full_messages.each do |message| %>
@@ -10,13 +10,14 @@
     <% end %>
 
     <div class="mb-3" >
-        <%= form.label :address %>
-        <%= form.text_field :address, class: "form-control" %>
+        <%= form.label :phone_num %>
+        <%= form.telephone_field :phone_num, class: "form-control" %>
+
     </div>
 
 
     <div class="mb-3">
-        <%= form.submit "Update Address", class: "btn btn-primary" %>
+        <%= form.submit "Update Phone Number", class: "btn btn-primary" %>
     </div>
 
 <% end %>
