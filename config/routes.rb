@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "map", to: "map#show"
   #root "rentals#new"
   
+  get "show_users", to: "users#show_all"
   
   #get "/stations/:identification", to: "stations#main"
   get "stations", to: "stations#main", as:"stations"
