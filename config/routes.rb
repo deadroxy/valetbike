@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   get 'membership_assignment/index'
   get 'membership_assignment/new'
+  patch 'membership_assignment/update'
 
   resources :stations do
     member do
@@ -47,8 +48,8 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'account', to: 'users#show', as: 'account'
   get 'remove_overdue', to: 'users#remove_overdue', as: 'remove_overdue'
-  get 'add_membership', to: 'membership_assignment#new', as: 'add_membership'
-
+  get 'user/add_membership', to: 'membership_assignment#new', as: 'add_membership'
+  get 'user/cancel_membership', to: 'membership_assignment#cancel', as: 'cancel_membership'
   root to: "pages#home"
 
   resources :charges

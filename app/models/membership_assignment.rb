@@ -3,15 +3,30 @@ class MembershipAssignment < ApplicationRecord
   belongs_to :membership
   has_one :payment, class_name: :Payment, foreign_key: :membership_id
   validates_presence_of :start
-  after_validation :add_end
+  validate :no_other_paid_active
+
+  after_validation :add_end, if: Proc.new {|t| t.end.blank?}
   scope :nil_end, -> {where(end: nil)}
   scope :end_before, -> (end_time) {where("end > ?", end_time)}
   scope :un_expired, -> (now = Time.now) {nil_end.or(end_before(now)).order(created_at: :desc)}
-
+  def end_to_string
+    if self.membership.cost == 0
+      "the end of eternity"
+    else
+      self.end.strftime("%B %-d, %Y at %I:%M %P")
+    end
+  end
+  def is_expired?
+    if self.membership.cost == 0
+      return false
+    end
+    self.end > Time.now
+  end
   private
   def add_end
     membership = Membership.find(membership_id)
-    if membership.cost == 0
+    if membership.cost == 0 || self.end.present?
+      puts "hoho"
       return
     end
     time_unit = membership.time_unit
@@ -30,18 +45,11 @@ class MembershipAssignment < ApplicationRecord
       self.end = start + frequency
     end
   end
-  def end_to_string
-    if self.membership.cost == 0
-      "the end of eternity"
-    else
-      self.end.strftime("%B %-d, %Y at %I:%M %P")
+  def no_other_paid_active
+    if user.has_active_membership? && user.get_membership.cost != 0 && user.get_membership_assignment != self
+      puts "problem child"
+      errors.add(:membership_id, "must not have current paid membership. Cancel membership before adding new one.")
     end
-  end
-  def is_expired?
-    if self.membership.cost == 0
-      return false
-    end
-    self.end > Time.now
   end
 end
 # MembershipAssignment.where(end: nil).or(MemberhsipAssignment.where.not("end > ?", Time.now)).order(created_at: :desc)

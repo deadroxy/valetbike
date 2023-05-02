@@ -48,6 +48,9 @@ class User < ApplicationRecord
     def get_membership
         membership_assignments.un_expired.order(created_at: :desc).first.membership
     end
+    def get_membership_assignment
+        membership_assignments.un_expired.order(created_at: :desc).first
+    end
     def has_active_membership?
         membership_assignments.un_expired(Time.now).present?
     end

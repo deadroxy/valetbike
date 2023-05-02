@@ -9,13 +9,12 @@ class CheckoutsController < ApplicationController
             @membershipassignment = MembershipAssignment.new(user_id: current_user.id, membership_id: params[:id])
             @membershipassignment.start = Time.now
             unless @membershipassignment.save 
-                @membershipassignment.get_membership
-                render('membership_assignment/new')
+                redirect_to add_membership_path and return
+                #render('membership_assignment/new') and return
             end
             puts(@membershipassignment.membership.cost == 0)
             if @membershipassignment.membership.cost == 0
-                redirect_to pages_home_path
-                return
+                redirect_to pages_home_path and return
             end
             cancel_url = membership_new_url
             success_url = pages_home_url
