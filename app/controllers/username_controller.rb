@@ -10,7 +10,8 @@ class UsernameController < ApplicationController
             Current.user.update(username: params[:username])
             Current.user.save
             puts Current.user.username
-            redirect_to user_home_path, notice: "Username Changed"
+            flash[:success]= "Username Changed"
+            redirect_to user_home_path
         # end
         # if Current.user.update(username_params)
         #      redirect_to user_home_path, notice: "Username"

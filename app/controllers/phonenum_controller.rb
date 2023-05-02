@@ -6,7 +6,8 @@ class PhonenumController < ApplicationController
 
     def update
         if Current.user.update(phonenum_params)
-            redirect_to user_home_path, notice: "Phone Number changed"
+            flash[:success]= "Phone Number changed"
+            redirect_to user_home_path
         else
             render :edit
         end

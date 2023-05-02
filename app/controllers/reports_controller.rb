@@ -4,20 +4,16 @@ class ReportsController < ApplicationController
     end
 
     def create
-
-       if report_params= " "
-        redirect_to '/reports/empty'
-      
-      else
         @report = Report.new(report_params)
-    
-        if @report.save
-        
-          redirect_to '/reports/success', notice: "Issue reported successfully."
+        if @report.description.blank?
+          flash[:danger]= "Description can't be blank."
+          redirect_to '/reports/empty'
+        elsif @report.save
+          flash[:success]= "Report submitted successfully."
+          redirect_to '/reports/success'
         else
           render :new
         end
-      end
     end
     
     private

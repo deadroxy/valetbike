@@ -10,7 +10,7 @@ def create
      #@bike = @station.docked_bikes.create(bike_params)    
      @bike = Bike.new(bike_params)
      if @bike.save!
-          flash[:notice] = "Bike added."
+          flash[:success]= "Bike added."
           redirect_to stations_path
      else
           render 'new'

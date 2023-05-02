@@ -6,7 +6,8 @@ class PasswordsController < ApplicationController
 
     def update
         if Current.user.update(password_params)
-            redirect_to user_home_path, notice: "Password Changed"
+            flash[:success]= "Password Changed"
+            redirect_to user_home_path
         else
             render :edit
         end

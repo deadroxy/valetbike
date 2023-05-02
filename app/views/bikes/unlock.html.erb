@@ -1,6 +1,6 @@
 <h1>Your bike has successfully been unlocked</h1>
-<h1> Now ride like you can fly!!!<h1>
-<h3><%=link_to('Go back to Homepage', root_path)%><h3>
+<h2> Now ride like you can fly!!!<h2>
 <h3> Your remaining wallet point is <%= @user.wallet_point %><h3>
 <% $bike= params[:format] %>
-<%=link_to('Return Bike', return_path($bike))%>
+  <a class="toggle" href="<%= root_path %>">&emsp;Back to Homepage</a>
+<button class="unlock-button"><%=link_to('Return Bike', return_path($bike))%></button>

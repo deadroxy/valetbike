@@ -11,7 +11,8 @@ class RentalsController < ApplicationController
         @bike= Bike.find_by_identifier(params[:format])
         $s= @bike.current_station_id
         session[:payment_id] = @rental.id
-        redirect_to payment_path(params[:format]), notice: "Plase select your payment mehtod!"
+        flash[:info]= "Plase select your payment mehtod!"
+        redirect_to payment_path(params[:format])
       else
         render :new
       end

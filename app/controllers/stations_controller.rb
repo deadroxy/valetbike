@@ -7,7 +7,8 @@ class StationsController < ApplicationController
   def create
     @station = Station.new(sta_params)
     if @station.save
-        flash[:notice] = "Station added."
+
+      flash[:success] = "Station added."
         redirect_to stations_path
     else
         render 'new'
