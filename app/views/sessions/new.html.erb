@@ -1,0 +1,32 @@
+<div>
+  <h1 class="font-bold text-4xl" style="background-color:rgba(147, 174, 144, 0.5);" >⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Log In &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰</h1>
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+
+  <h1>Login</h1>
+    <%= form_tag '/login' do %>
+    <%= label_tag :username%>
+    <%= text_field_tag :username %><br>
+    <%= label_tag :password%>
+    <%= password_field_tag :password%><br>
+    <strong><%= submit_tag("Login", :style => "width:50px;background-color:#93AE90;")%></strong>
+    
+<%end%>
+<br/><br/><br/><br/><br/>
+    <div class="row">
+      <div class="column">
+        <img src = "/logo.jpg" alt = "PAJAS Logo" >
+      </div>
+      <div class="column">
+        <img src = "/logo.jpg" alt = "PAJAS Logo">
+      </div>
+      <div class="column">
+        <img src = "/logo.jpg" alt = "PAJAS Logo">
+      </div>
+    </div>
+      <br/>
+</div>
+  <!--<p><p>Find me in app/views/sessions/new.html.erb</p>

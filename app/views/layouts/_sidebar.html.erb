@@ -1,0 +1,30 @@
+<div class="sidebarMySidebar" style="width:0%" id="mySidebar">
+<a href="javascript:void(0)" class="closebtn" onclick="hide()" style = "width:50px;background-color:#b4a9da;">ⲭ</a> </p>
+  <div class="sidebar">
+  <a href="javascript:void(0)" class="openbtn" onclick="show()">☰</a>
+  </div>
+    <ul >
+      <%if !logged_in?%>
+        <li> <%=link_to_unless_current("Create Account", "/users/new")%> </li>
+        <li> <%=link_to_unless_current("Log In", "/login")%> </li>
+      <%else%>
+        <li> <%=link_to_unless_current("Profile", "/users/profile")%></li>
+        <li> <%=link_to_unless_current("Rent a Scooter", "/stations/index")%> </li>
+        <li><%=link_to_unless_current("See Map", "/stations/map")%></li>
+        <li>  <%=link_to('Log Out', controller: "sessions", action: "destroy") %> </li>
+      <%end%>
+      <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
+      <div id = "sidebarLogo">
+        <img src = "/logo.jpg" alt = "PAJAS Logo">
+      </div>
+</div>
+<script>
+  function show() {
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("content").style.marginleft = "200px";
+  }
+  function hide() {
+    document.getElementById("mySidebar").style.width = "0%";
+    document.getElementById("sidebar").style.marginLeft = "0%";
+  }
+</script>

@@ -1,7 +1,7 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
+      Scoot scoot!! With ValetScoot, you can rent and return scooters to any of the following stations!
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
@@ -12,5 +12,27 @@
       </div>
       <% end %>
     </div>
-	</div>
+
+     <div class="section-title"  style="background-color:rgba(147, 174, 144, 0.5);" id="buttons">
+      Ready to scoot? 
+      <%if !logged_in?%>
+        <%=link_to("Click here to create an account", "/users/new")=%>
+      <%else%>
+        <%=link_to("Click here to view the map!", "/stations/map")=%>
+        <% end%>
+    </div>  
+    <br/><br/><br/><br/><br/>
+  <div class="row">
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo" >
+    </div>
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo">
+    </div>
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo">
+    </div>
+  </div>
+    <br/>
+  </div>
 </div>

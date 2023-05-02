@@ -1,0 +1,42 @@
+<div>
+  <h1 class="font-bold text-4xl" style="background-color:rgba(147, 174, 144, 0.5);">Welcome to ValleyScoot!</h1>
+  </br>
+  <h2 class="font-bold text-2xl" style="border:2px solid #93AE90"> Would you like a tutorial before you get started? </h2>
+  </br>
+  <h2> <%= link_to("‧ Yes, please show me around! ‧", "main/tutorial")%>  <h2> <br/>
+  <%if !logged_in?%>
+    <h2><%= link_to("‧ No, I'm ready to scoot! ‧", "/sessions/new")%></h2>
+  <%else%>
+    <h2><%= link_to("‧ No, I'm ready to scoot! ‧", "/stations/map")%></h2></br>
+  <%end%>
+  <h2> <%= link_to("‧ I have some questions. I would like some help! ‧", "main/help")%> </h2>
+  <br/>
+  <h2 class="font-bold text-2xl"><b> About us:</b></h2>
+  <h2 style="border:2px solid #B4A9DA;" ><p style="text-indent: 25px;">Hi there! Our name is <b>ValleyScoot</b>! I am a scooter rental company based in Northampton, MA.
+  At ValleyScoot, our mission is to provide a convenient, eco-friendly and affordable way for people to explore and enjoy the scenic views of Northampton.</p></br>
+  <p style="text-indent: 25px;">Our fleet of high-quality and well-maintained scooters are perfect for people ranging from ages 14 to 85 who want to explore the Valley region at their own pace.
+  Whether you're a local looking for a fun day out or a visitor to the area, we have the perfect scooter for you. We take pride in offering a hassle-free and seamless rental experience. Our friendly and knowledgeable team will provide you with all the information you need to make
+  the most out of your rental, and we are always available to answer any questions you may have. </p><br/>
+  <p style="text-indent: 25px;"> At ValleyScoot, safety and accessibility are our top priorities. All of our scooters are regularly inspected and serviced to ensure that they are in top condition.
+  We also provide safety instructions and alternative payment methods to all of our renters. We love being a part of the Valley community and are committed to preserving its natural beauty. That's why we choose to operate a fleet of electric scooters,
+  which are a clean and green alternative to traditional gas-powered vehicles.</p><br/>
+  <p style="text-indent: 25px;">Thank you for considering ValleyScoot for your scooter rental needs. We can't wait to help you discover the beauty of the Valley region!</p><br/></h2>
+  <br/><br/><br/><br/><br/>
+  <div class="row">
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo" >
+    </div>
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo">
+    </div>
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo">
+    </div>
+  </div>
+    <br/>
+</div>
+
+
+
+
+

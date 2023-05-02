@@ -1,0 +1,38 @@
+<div>
+<% flash.each do |type, msg| %>
+  <div>
+    <ul>
+      <% m = msg.to_s.delete(msg.to_s[0]) %>
+      <% m = m.delete(msg.to_s[-1]) %> 
+      <% m = m.delete(m[0]) %> 
+
+      <%= m %> <br>
+    </ul>
+  </div>
+<% end %>
+  <h1 Edit My Profile </h1>
+
+<%= form_for @user do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.label :email%><br>
+  <%= f.email_field :email%><br>
+  <%= f.label :address%><br>
+  <%= f.text_field :address%><br>
+  <%= f.label :date_birth%><br>
+  <%= f.date_field :date_birth%><br>
+  <%= f.label :phone_number%><br>
+  <%= f.telephone_field :phone_number%><br>
+  <%= f.label :credit  %> <br>
+  <%= f.number_field :credit %> <br>
+  <strong><%= f.submit %></strong>
+
+
+<%end%>
+
+
+</div>
+
+ <!--<p> <p>Find me in app/views/users/update.html.erb</p><br>

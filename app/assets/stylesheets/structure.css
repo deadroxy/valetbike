@@ -1,0 +1,44 @@
+header {
+    padding:.82em;
+    line-height: 1.9;
+    background: #b4a9da;
+    font-size: 35px;
+    margin-left: 3%;
+    font-family: palatino, monospace;
+}
+
+#slogan {
+    top:0%;
+    font-size:20px;
+}
+
+
+#logo{
+    width: 155px;
+    right:0%;
+    top: 0%;
+    position: absolute;
+}
+
+header span .button_to{
+    display: inline;
+    padding: 40px;
+}
+
+div#container {
+   float:left;
+
+}
+
+footer {
+    padding: 1em;
+    margin-top: 1em;
+    background: #b4a9da;
+    letter-spacing: .2rem;
+    text-align:center;
+}
+
+
+footer span{
+    float:center;
+}
