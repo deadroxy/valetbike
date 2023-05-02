@@ -5,7 +5,7 @@
     <% if !current_user.ongoing_rental? %>
       You do not have an ongoing rental.
     <% else %>
-      Renting bike <%= @rental.bike.identifier %>
+      Renting bike <%= @rental.bike.identifier %><br>
     <% end %>
     <% if current_user.ongoing_rental? %>
         This rental started at <%= @rental.start_time.localtime.strftime("%I:%M %P ") %> 
@@ -15,8 +15,7 @@
         on <%= @rental.start_time.strftime("%B %-d, %Y") %>.
         <% end %>
         <br>
-        You will be charged 50 cents for every minute after <%= (Time.now + @rental.time_limit.minute).strftime("%I:%M %P ") %><br>
-        Return your rental
+        You will be charged 10 cents for every minute after <%= (@rental.start_time.localtime + @rental.time_limit.minute).strftime("%I:%M %P ") %><br>
     <% end %>
     </div>
 	</div>
