@@ -14,7 +14,8 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             session[:username] = @user.username
             #session[:email] = @user.email
-            flash[:notice] = "User created."
+            #flash[:notice] = "User created."
+            flash[:success] = "User created"
             redirect_to root_path
         else
             render 'new'

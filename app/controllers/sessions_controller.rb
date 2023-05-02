@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
           session[:user_id] = user.id
           session[:username] = user.username
           #cookies[:username] = params[:username]
-          flash[:notice] = "Logged in successfully."
+          #flash[:notice] = "Logged in successfully."
+          flash[:success] = "Logged in successfully."
           redirect_to root_path
         else
           flash.now[:alert] = "There was something wrong with your login details."
@@ -18,7 +19,8 @@ class SessionsController < ApplicationController
        
       def destroy
         session[:user_id] = nil
-        flash[:notice] = "You have been logged out."
+        #flash[:notice] = "You have been logged out."
+        flash[:success] = "You have been logged out."
         redirect_to root_path
       end
 
