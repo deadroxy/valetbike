@@ -10,10 +10,10 @@ class BlockingController < ApplicationController
                 @blocking_user = User.find_by(email: params[:email])
                 @blocking_user.update(block: !@blocking_user.block)
                 @blocking_user.save
-                flash[:info]= "Add to block"
+                flash[:success]= "User blocked sucessfully"
                 redirect_to user_home_path
             else
-                flash[:danger]= "Did not find the email"
+                flash[:danger]= "User doesn't exist. Email not found"
                 redirect_to edit_blocking_path
             end
         else
