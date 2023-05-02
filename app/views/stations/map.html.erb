@@ -9,7 +9,17 @@
 </body>
    <div>
    <h1 class="font-bold text-4xl" style="border:2px solid #93AE90"> Map & Scooter Stations </h1>
-   <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1cZGFi3zHKDw9N5ECdefKjZAeM8YJXqQ&ehbc=2E312F" width="640" height="480"></iframe>   <div>
+   <iframe src="https://www.google.com/maps/d/embed?mid=18krZCgeDe9tme4TRpVS3naP60SeHpno&ehbc=2E312F" width="640" height="480"></iframe>   <div>
+   <br/>
+   <div class="flexbox vertical stretch">
+   <% if @stations.present? %>
+     <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+   <% else %>
+   <div class="empty">
+   <ul> <%=link_to("Select Station!", "/stations/index")%> </ul>
+   </div>
+   <% end %>
+ </div>
    <br/><br/><br/><br/><br/>
   <div class="row">
     <div class="column">

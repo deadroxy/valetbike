@@ -1,9 +1,11 @@
 <div class = "content">
   <h1 class="font-bold text-4xl"> ♡♡♡ Thank you for choosing us ♡♡♡ </h1>
-
+  <%= puts "_____________THANK YOU________________"%>
+  <%active_ride?%>
 <% @current_user = current_user %>
-user: <%=@current_user.username %>
+We home you scoot with us again soon, <%=@current_user.username %> !1
 <% if (current_user.credit < 0)%>
 <strong>Credits:</strong><%=current_user.credit%><br>
 <%=link_to("Deposit more credits?", '/users/profile') %>
+
 <%end%>

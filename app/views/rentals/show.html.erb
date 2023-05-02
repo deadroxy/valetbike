@@ -4,7 +4,9 @@
 <% @current_bike = Bike.where(id: @rental.bike_id ) %> 
 <% @rental %>
 <% @rental.bike_id %>
-
+<% puts "____________RENTAL/SHOW_________________"%>
+<% puts active_ride?%>
+        
 <p> You are riding scooter number: <%= @rental.bike_id %> <p>
 <p> start station:  <%= @rental.start_station_id%> <p>
 <p> length of ride: <%= Time.now - @rental.created_at%> second(s) <p>

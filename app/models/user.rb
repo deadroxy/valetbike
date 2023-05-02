@@ -16,6 +16,9 @@ class User < ApplicationRecord
     validates_presence_of :credit
     validates_numericality_of :credit, greater_than_or_equal_to: 0
     validates_presence_of :date_birth
+    validate :block_list
+
+    
 
     validate :user_age 
 
@@ -27,7 +30,18 @@ class User < ApplicationRecord
      end 
     end
 
-   
+    def block_list
+        if username == "Hannah" || "Harrison" || "Jesus"
+        errors.add( :username, 'We have blocked this username. Please to not use our app. If you think this is a mistake, contact the development team. ')
+     end
+    end
+
+
+
+
+
+
+
 
 
 

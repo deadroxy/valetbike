@@ -2,9 +2,9 @@
   <%= station.identifier %>: <%= station.name %> (<%= station.address %>)  
   <% bikes = Bike.where(current_station_identifier: station.identifier) %>
   <% if (bikes.length == 0)%>
-    <%= link_to("No scooters here #{station.name}", station_path(station.id)) %>
+    <%= link_to("No scooters available at #{station.name}", station_path(station.id)) %>
   <%else%>
-    <%= link_to("rent a scooter from #{station.name}", station_path(station.id)) %>
+    <%= link_to("Rent a scooter from #{station.name}", station_path(station.id)) %>
   <%end%>
 </div>
 

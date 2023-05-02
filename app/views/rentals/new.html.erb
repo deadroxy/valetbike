@@ -1,10 +1,11 @@
-<h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5);"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ValleyScoot Scooter Rental Page &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
+<h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5); text-align:center;"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ValleyScoot Scooter Rental Page &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
 <br/>
 <% @current_user = current_user %>
-
+<%= puts "______________RENTALS/NEW TOP_______________"%>
+<%= puts active_ride?%>
 <% @current_bike = params[:bike] %>
 <% @current_station = params[:station] %>
-You are about to rent scooter <%= @current_bike %> from station: <%= @current_station%>
+You are about to rent scooter <%= @current_bike %> from station number <%= @current_station%>
 <%= form_for @rental do |f|%>
 
  <%= f.hidden_field :user_id, value: @current_user.id%>
@@ -14,7 +15,9 @@ You are about to rent scooter <%= @current_bike %> from station: <%= @current_st
  <%= f.hidden_field :end_time, value: Time.now()%>
  <%= f.hidden_field :bike_id, value: @current_bike%>
  <strong><%= submit_tag ""%> </strong>
- <strong><%= f.submit "Confirm Rental",:style => "width:60px;background-color:#93AE90;float:center" %></strong>
+ <strong><%= f.submit "Confirm Rental",:style => "width:60px;background-color:#93AE90;float:center" %></strong> <br/>
+ <br/> <ul> <%=link_to("I change my mind! Take me back!", "/stations/index")%> </ul>
+ 
 
  <div class="row">
    <div class="column">

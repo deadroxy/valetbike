@@ -14,17 +14,20 @@
         <br>
         <br>
         <%= bike.identifier%>
-        <%= link_to("click here to rent this scooter", new_rental_path(bike: bike.id, station: @station.id)) %>
+        <%= link_to("click here to rent this scooter", new_rental_path(bike: bike.id, station: @station.id, user: current_user.id)) %> 
+        <% puts active_ride?%>
+        <% puts "_____________STATIONS/SHOW________________"%>
         <% end%>
+
     <% else %>
-    all out of scooters here! please leave  
+    No scooters available at this station! <br>
     <% end  %>
 
     <br>
     <br>
-
-    <%= link_to("return to stations list", "/index")%>
-    <%= link_to("view stations map", "map")%>
+    
+    <%= link_to("return to stations list", "/stations/index")%> <br/>
+    <br/><%= link_to("view stations map", "map")%>
     </div>
 
 

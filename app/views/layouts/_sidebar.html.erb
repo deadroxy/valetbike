@@ -4,16 +4,22 @@
   <a href="javascript:void(0)" class="openbtn" onclick="show()">☰</a>
   </div>
     <ul >
+    
       <%if !logged_in?%>
         <li> <%=link_to_unless_current("Create Account", "/users/new")%> </li>
         <li> <%=link_to_unless_current("Log In", "/login")%> </li>
+        <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
+      <%elsif active_ride?%>
+      <li> <%=link_to_unless_current("Return Your Scooter!", edit_rental_path(@rental.id))%> </li>
+
       <%else%>
         <li> <%=link_to_unless_current("Profile", "/users/profile")%></li>
         <li> <%=link_to_unless_current("Rent a Scooter", "/stations/index")%> </li>
         <li><%=link_to_unless_current("See Map", "/stations/map")%></li>
         <li>  <%=link_to('Log Out', controller: "sessions", action: "destroy") %> </li>
+        <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
       <%end%>
-      <li> <%=link_to_unless_current("Help", "/main/help")%> </li>
+      
       <div id = "sidebarLogo">
         <img src = "/logo.jpg" alt = "PAJAS Logo">
       </div>

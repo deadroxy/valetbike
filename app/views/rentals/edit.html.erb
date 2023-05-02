@@ -1,21 +1,37 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
 <h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5);"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Return your scooter! &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
 <br/>
+
+These stations have empty docks! Please select one to return your scooter to:
+
 <% @current_station = params[:station] %>
 current station: <%= @current_station%>
-
-<% stations = Station.where(is_full: 0) %>
+<% @rental = Rental.find(params[:id])%>
+<%puts "__________RETNAL EDIT__________"%>
+<%puts active_ride?%>
+<% stations = Station.all %>
+<div class="flexbox vertical stretch">
 <%stations.each do |station| %>
-<%= station.identifier%>
-    <%= form_for @rental do |f|%>
-    <%= f.hidden_field :end_station_id, value: station.identifier %>
-    <%= f.hidden_field :end_time, value: Time.now%>
-    <strong><%= f.submit("Teturn my scooter here!")%></strong>
-  
-<% end%>
-
+  <% if station.num_docks_available > 0 %>
+  <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">>
+      <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
+      <%= form_for @rental do |f|%>
+      <%= f.hidden_field :end_station_id, value: station.identifier %>
+      <%= f.hidden_field :end_time, value: Time.now%>
+    <strong><%= f.submit "Return my scooter here!", :style => "width:700px;background-color:#93AE90;"%></strong>
+  <% end%>
+  <% end%>
+<%@rental.update(user_id: @rental.user_id, bike_id: @rental.bike_id, start_station_id: @rental.start_station_id, start_time: @rental.start_time)%>
+</div>
+</div>
 <div>
   <h1 Return My Scooter </h1>
 
 
 
 <%end%>
+
+
+</div>
+</div>
