@@ -15,13 +15,15 @@ class CardsController < ApplicationController
 
   def new
     @card = current_user.cards.new(card_balance: 1000)
+    cookies[:station] = params[:station_id]
   end
 
   def create
     @card = current_user.cards.new(card_balance: 1000, **card_params)
+    @station_id = cookies[:station]
 
     if @card.save
-      redirect_to cards_path(station_id: params[:station_id]), notice: "Card was successfully added."
+      redirect_to cards_path(station_id: @station_id), notice: "Card was successfully added."
     else
       puts @card.errors.full_messages
       render ('new')
