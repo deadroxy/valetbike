@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   get 'membership/index'
   get 'membership/show'
   get 'membership/new'
-  get 'membership/edit'
-  get 'membership/delete'
 
   get 'pages/about'
   get 'pages/contact'
@@ -29,9 +27,7 @@ Rails.application.routes.draw do
   get 'pages/privacypol'
   get 'pages/terms'
   get 'pages/userag'
-  get 'pages/rental'
   get 'pages/success'
-  get 'pages/paymentdemo'
 
   get 'membership_assignment/index'
   get 'membership_assignment/new'
@@ -56,8 +52,6 @@ Rails.application.routes.draw do
   resources :membership
   resources :membership_assignment
 
-  get 'thanks', to: 'charges#thanks', as: 'thanks'
-
   default_url_options :host => "127.0.0.1:3000"
 
   post 'checkouts/create' => 'checkouts#create', as: "checkouts_create"
@@ -66,12 +60,5 @@ Rails.application.routes.draw do
   
   get 'membership_assignments/confirm' => 'membership_assignment#confirm', as: "membership_assignment_confirm"
   get 'membership_assignment/show' => 'membership_assignment#show', as: "membership_assignment_show"
-  # get '/checkout-session' do
-  #   content_type 'application/json'
-  #   session_id = params[:sessionId]
   
-  #   session = Stripe::Checkout::Session.retrieve(session_id)
-  #   session.to_json
-  # end
-  resources :webhooks, only: [:create]
 end
