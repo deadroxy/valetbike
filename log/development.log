@@ -41196,3 +41196,590 @@ Processing by ReportsController#new as HTML
 Completed 200 OK in 30ms (Views: 19.5ms | ActiveRecord: 2.2ms | Allocations: 18557)
 
 
+Started GET "/" for ::1 at 2023-05-01 23:15:50 -0400
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: root.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:49:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:43:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `mysql2_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 23:15:52 -0400
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: root.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:49:in `rescue in new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:43:in `new_client'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `mysql2_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4.3) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4.3) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4.3) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4.3) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2023-05-01 23:16:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.4ms | Allocations: 988)
+  Rendered layout layouts/application.html.erb (Duration: 339.2ms | Allocations: 84040)
+Completed 200 OK in 423ms (Views: 348.1ms | ActiveRecord: 9.8ms | Allocations: 100414)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:16:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/reports/new" for ::1 at 2023-05-01 23:16:31 -0400
+Processing by ReportsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering reports/new.html.erb within layouts/application
+  Rendered reports/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 3196)
+  Rendered layout layouts/application.html.erb (Duration: 109.3ms | Allocations: 15511)
+Completed 200 OK in 137ms (Views: 113.6ms | ActiveRecord: 5.5ms | Allocations: 19809)
+
+
+Started POST "/reports" for ::1 at 2023-05-01 23:16:40 -0400
+Processing by ReportsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "report"=>{"title"=>"I", "description"=>"efhgrg"}, "commit"=>"Create Report"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/reports/empty
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 1140)
+
+
+Started GET "/reports/empty" for ::1 at 2023-05-01 23:16:40 -0400
+Processing by ReportsController#empty as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering reports/empty.html.erb within layouts/application
+  Rendered reports/empty.html.erb within layouts/application (Duration: 1.2ms | Allocations: 200)
+  Rendered layout layouts/application.html.erb (Duration: 39.7ms | Allocations: 12387)
+Completed 200 OK in 46ms (Views: 40.6ms | ActiveRecord: 0.7ms | Allocations: 13370)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:16:45 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 854)
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 13056)
+Completed 200 OK in 66ms (Views: 57.7ms | ActiveRecord: 2.5ms | Allocations: 14709)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:16:46 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 257)
+  Rendered layout layouts/application.html.erb (Duration: 64.8ms | Allocations: 12200)
+Completed 200 OK in 72ms (Views: 65.8ms | ActiveRecord: 0.8ms | Allocations: 13258)
+
+
+Started GET "/rename" for ::1 at 2023-05-01 23:16:48 -0400
+Processing by UsernameController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering username/edit.html.erb within layouts/application
+  Rendered username/edit.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1752)
+  Rendered layout layouts/application.html.erb (Duration: 62.6ms | Allocations: 13965)
+Completed 200 OK in 80ms (Views: 69.7ms | ActiveRecord: 0.9ms | Allocations: 15645)
+
+
+Started POST "/rename" for ::1 at 2023-05-01 23:16:53 -0400
+Processing by UsernameController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "username"=>"bike", "commit"=>"Update Username"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/username_controller.rb:10:in `update'
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE `users` SET `users`.`username` = 'bike', `users`.`updated_at` = '2023-05-02 03:16:53.751274' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/username_controller.rb:10:in `update'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/username_controller.rb:10:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 28ms (ActiveRecord: 6.7ms | Allocations: 4486)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:16:53 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | Allocations: 12201)
+Completed 200 OK in 55ms (Views: 50.3ms | ActiveRecord: 0.8ms | Allocations: 13189)
+
+
+Started GET "/change_phonenum" for ::1 at 2023-05-01 23:16:56 -0400
+Processing by PhonenumController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering phonenum/edit.html.erb within layouts/application
+  Rendered phonenum/edit.html.erb within layouts/application (Duration: 24.0ms | Allocations: 1249)
+  Rendered layout layouts/application.html.erb (Duration: 74.8ms | Allocations: 13822)
+Completed 200 OK in 89ms (Views: 81.0ms | ActiveRecord: 0.9ms | Allocations: 15506)
+
+
+Started PATCH "/change_phonenum" for ::1 at 2023-05-01 23:17:00 -0400
+Processing by PhonenumController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"phone_num"=>"9999999998"}, "commit"=>"Update Phone Number"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/phonenum_controller.rb:8:in `update'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE `users` SET `users`.`phone_num` = '9999999998', `users`.`updated_at` = '2023-05-02 03:17:00.396045' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/phonenum_controller.rb:8:in `update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/phonenum_controller.rb:8:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 21ms (ActiveRecord: 4.2ms | Allocations: 3163)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:17:00 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 12311)
+Completed 200 OK in 58ms (Views: 51.9ms | ActiveRecord: 0.8ms | Allocations: 13301)
+
+
+Started GET "/change_address" for ::1 at 2023-05-01 23:17:02 -0400
+Processing by AddressController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering address/edit.html.erb within layouts/application
+  Rendered address/edit.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1059)
+  Rendered layout layouts/application.html.erb (Duration: 71.0ms | Allocations: 13241)
+Completed 200 OK in 85ms (Views: 77.1ms | ActiveRecord: 0.8ms | Allocations: 14916)
+
+
+Started PATCH "/change_address" for ::1 at 2023-05-01 23:17:08 -0400
+Processing by AddressController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"address"=>"try12"}, "commit"=>"Update Address"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/address_controller.rb:8:in `update'
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE `users` SET `users`.`address` = 'try12', `users`.`updated_at` = '2023-05-02 03:17:08.525651' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/address_controller.rb:8:in `update'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/address_controller.rb:8:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 23ms (ActiveRecord: 5.6ms | Allocations: 3113)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:17:08 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 12294)
+Completed 200 OK in 59ms (Views: 53.0ms | ActiveRecord: 0.9ms | Allocations: 13264)
+
+
+Started GET "/change_wallet" for ::1 at 2023-05-01 23:17:10 -0400
+Processing by WalletController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering wallet/edit.html.erb within layouts/application
+  Rendered wallet/edit.html.erb within layouts/application (Duration: 29.8ms | Allocations: 12691)
+  Rendered layout layouts/application.html.erb (Duration: 92.8ms | Allocations: 25173)
+Completed 200 OK in 107ms (Views: 98.6ms | ActiveRecord: 0.8ms | Allocations: 26848)
+
+
+Started POST "/change_wallet" for ::1 at 2023-05-01 23:17:25 -0400
+Processing by WalletController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "coupon_number"=>"CYBER", "coupon_sc"=>"2023", "commit"=>"Submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/wallet_controller.rb:20:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`wallet_point` = 22, `users`.`updated_at` = '2023-05-02 03:17:25.329843' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/wallet_controller.rb:20:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/wallet_controller.rb:20:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms | Allocations: 3004)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:17:25 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 12587)
+Completed 200 OK in 27ms (Views: 21.7ms | ActiveRecord: 1.2ms | Allocations: 13569)
+
+
+Started GET "/password" for ::1 at 2023-05-01 23:17:27 -0400
+Processing by PasswordsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/edit.html.erb within layouts/application
+  Rendered passwords/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1563)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 13854)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.3ms | Allocations: 15558)
+
+
+Started PATCH "/password" for ::1 at 2023-05-01 23:17:36 -0400
+Processing by PasswordsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update Password"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/passwords_controller.rb:8:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`password_digest` = '$2a$12$B81sIIOOwfVhFzeMCKfW9urRAC29EtZGgXVOHbp2yQJerD04U/PiO', `users`.`updated_at` = '2023-05-02 03:17:36.827168' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/passwords_controller.rb:8:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/passwords_controller.rb:8:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 202ms (ActiveRecord: 1.7ms | Allocations: 3234)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:17:36 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 12217)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.3ms | Allocations: 13204)
+
+
+Started GET "/logout" for ::1 at 2023-05-01 23:17:40 -0400
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1063)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:17:40 -0400
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 197)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 12775)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 13254)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:17:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/login" for ::1 at 2023-05-01 23:17:42 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1057)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 14018)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 14842)
+
+
+Started POST "/login" for ::1 at 2023-05-01 23:17:48 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (1.0ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 653)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 13178)
+Completed 200 OK in 209ms (Views: 13.2ms | ActiveRecord: 2.2ms | Allocations: 16970)
+
+
+Started POST "/login" for ::1 at 2023-05-01 23:17:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 571)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 13291)
+Completed 200 OK in 208ms (Views: 18.9ms | ActiveRecord: 0.4ms | Allocations: 15005)
+
+
+Started POST "/login" for ::1 at 2023-05-01 23:18:06 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"bikesia@example.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'bikesia@example.com' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+  [1m[36mStation Load (0.2ms)[0m  [1m[34mSELECT `stations`.* FROM `stations` WHERE `stations`.`identifier` IS NULL LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 188ms (ActiveRecord: 0.4ms | Allocations: 1531)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:18:06 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 12117)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 13094)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:18:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/user_home" for ::1 at 2023-05-01 23:18:08 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 268)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 12585)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 13526)
+
+
+Started GET "/password" for ::1 at 2023-05-01 23:18:10 -0400
+Processing by PasswordsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/edit.html.erb within layouts/application
+  Rendered passwords/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 797)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 12727)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.4ms | Allocations: 13659)
+
+
+Started PATCH "/password" for ::1 at 2023-05-01 23:18:16 -0400
+Processing by PasswordsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update Password"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/passwords_controller.rb:8:in `update'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE `users` SET `users`.`password_digest` = '$2a$12$VJRtg/wtenAMovZKNpd7euK6m01i/PIleRMxXeT1viCw0aIKNwiRi', `users`.`updated_at` = '2023-05-02 03:18:16.892202' WHERE `users`.`id` = 1[0m
+  ↳ app/controllers/passwords_controller.rb:8:in `update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/passwords_controller.rb:8:in `update'
+Redirected to http://localhost:3000/user_home
+Completed 302 Found in 192ms (ActiveRecord: 2.5ms | Allocations: 2985)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:18:16 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 257)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 12189)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.2ms | Allocations: 13133)
+
+
+Started GET "/user_home" for ::1 at 2023-05-01 23:18:47 -0400
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 801)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 13434)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.3ms | Allocations: 14981)
+
+
+Started GET "/" for ::1 at 2023-05-01 23:18:55 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.9ms | Allocations: 605)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 13258)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 0.4ms | Allocations: 14898)
+
+
+Started GET "/bike.jpg" for ::1 at 2023-05-01 23:18:55 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/bike.jpg"):
+  
+Started GET "/reports/new" for ::1 at 2023-05-01 23:18:58 -0400
+Processing by ReportsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering reports/new.html.erb within layouts/application
+  Rendered reports/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1325)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 13580)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.3ms | Allocations: 15007)
+
+
+Started POST "/reports" for ::1 at 2023-05-01 23:19:04 -0400
+Processing by ReportsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "report"=>{"title"=>"ierw", "description"=>"nkrejgnjka"}, "commit"=>"Create Report"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/reports/empty
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 967)
+
+
+Started GET "/reports/empty" for ::1 at 2023-05-01 23:19:04 -0400
+Processing by ReportsController#empty as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering reports/empty.html.erb within layouts/application
+  Rendered reports/empty.html.erb within layouts/application (Duration: 0.5ms | Allocations: 160)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 12487)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.3ms | Allocations: 13437)
+
+
+Started POST "/reports" for ::1 at 2023-05-01 23:19:12 -0400
+Processing by ReportsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "report"=>{"title"=>"ierw", "description"=>"nkrejgnjka"}, "commit"=>"Create Report"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+Redirected to http://localhost:3000/reports/empty
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 870)
+
+
+Started GET "/reports/empty" for ::1 at 2023-05-01 23:19:12 -0400
+Processing by ReportsController#empty as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering reports/empty.html.erb within layouts/application
+  Rendered reports/empty.html.erb within layouts/application (Duration: 0.1ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 12117)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 13048)
+
+
