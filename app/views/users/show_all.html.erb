@@ -1,0 +1,14 @@
+<h2> Regsitered Users </h2>
+
+<% @user_all = User.all %>
+    <%= @user_all.count %>
+
+    <div class="flexbox vertical stretch">
+        <% if @user_all.present? %>
+            <%= render(partial: "users/row", collection: @user_all, as: :user) %> 
+    <% else %>
+        <div class="empty">
+      No user found.
+    </div>
+    <% end %>
+    </div>
