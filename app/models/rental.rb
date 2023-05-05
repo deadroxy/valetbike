@@ -25,10 +25,7 @@ class Rental < ApplicationRecord
   def pay
       ## if enough credits to pay:
       u = user.credit 
-      puts "__________________SHOW U IN MODEL RENTAL PAY METHOD_____________________" 
-      puts u 
-      puts "______________ COST IS:________" 
-      puts cost 
+
       user.update_attribute(:credit, u - cost)
       # else 
         #option to add more credits 

@@ -9,7 +9,6 @@ You are about to rent scooter <%= @current_bike %> from station number <%= @curr
 <%= form_for @rental do |f|%>
 
  <%= f.hidden_field :user_id, value: @current_user.id%>
-
  <%= f.hidden_field :start_station_id, value: @current_station%>
  <%= f.hidden_field :start_time, value: @rental.created_at%>
  <%= f.hidden_field :end_time, value: Time.now()%>
