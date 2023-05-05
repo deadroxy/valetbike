@@ -1,16 +1,49 @@
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
-      Welcome to ValetBike!
+      Hi! This is Glory's ValetBike. Welcome!
     </div>  
-    <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-      <% else %>
-      <div class="empty">
-        No stations found.
+    <script>
+      function changeView(view){
+        if view == "stations"{
+          params[:view] = "bikes"
+        } else {
+          params
+        }
+
+      }
+    </script>
+    <button>
+     <% if @view == "stations"%>
+     <% to_change = "bikes"%>
+     <% else %>
+     <% to_change = "stations"%>
+     <% end %>
+     <%= link_to "Click to View Stations/Bikes", { action: 'index', view: to_change}%>
+    </button>
+    <% if @view == "stations"%>
+      <h2>Stations</h2>
+      <div class="flexbox vertical stretch">
+        <% if @stations.present? %>
+          <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <% else %>
+        <div class="empty">
+          No stations found.
+        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
+    <% else %>
+      <% to_change = "stations"%>
+      <h2>Bikes</h2>
+      <div class="flexbox vertical stretch">
+        <% if @bikes.present? %>
+          <%= render(partial: "stations/bike_row", collection: @bikes, as: :bike) %>
+        <% else %>
+        <div class="empty">
+          No bikes found.
+        </div>
+        <% end %>
+      </div>
+    <% end %>
 	</div>
 </div>
