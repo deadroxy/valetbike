@@ -14,14 +14,13 @@ current station: <%= @current_station%>
 <div class="flexbox vertical stretch">
 <%stations.each do |station| %>
 <% bikes = Bike.where(current_station_identifier: station.identifier ) %>
-
-  <% if station.dock_count - bikes.length > 0 %>
-  <%puts "__________START___________" %>
+<%puts "__________START___________" %>
   <%puts "station.identifier" %>
   <%puts station.identifier %>
-  <%puts "station.dock_count - bikes.length" %>
+  <%puts "avail docks" %>
   <%puts station.dock_count - bikes.length %>
   <%puts "__________END___________" %>
+  <% if station.dock_count - bikes.length > 0 %>
 
   <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">>
       <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
