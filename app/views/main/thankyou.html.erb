@@ -3,7 +3,7 @@
   <%= puts "_____________THANK YOU________________"%>
   <%active_ride?%>
 <% @current_user = current_user %>
-We home you scoot with us again soon, <%=@current_user.username %> !1
+We hope you scoot with us again soon, <%=@current_user.username %> !!
 <% if (current_user.credit < 0)%>
 <strong>Credits:</strong><%=current_user.credit%><br>
 <%=link_to("Deposit more credits?", '/users/profile') %>

@@ -8,11 +8,11 @@
 <% puts active_ride?%>
         
 <p> You are riding scooter number: <%= @rental.bike_id %> <p>
-<p> start station:  <%= @rental.start_station_id%> <p>
-<p> length of ride: <%= Time.now - @rental.created_at%> second(s) <p>
+<p> Start station:  <%= @rental.start_station_id%> <p>
+<p> Length of ride: <%= Time.now - @rental.created_at%> second(s) <p>
 <p>Please refresh the page to see you're updated ride length! <p>
 
- <%=link_to('ready to return? click here!', edit_rental_path(@rental.id)) %>
+ <%=link_to('Ready to return? Click here!', edit_rental_path(@rental.id)) %>
 
 
 

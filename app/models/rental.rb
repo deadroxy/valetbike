@@ -5,19 +5,31 @@ class Rental < ApplicationRecord
 
 
   def length_of_ride 
-    end_time - created_at
+    Time.now - created_at
+    
   end 
 
 
   before_update :pay
 
   def cost 
-    length_of_ride.to_int * 0.5
+    # puts ((length_of_ride.to_int)/60)/60* 1
+    # puts length_of_ride.to_int
+    # length_of_ride.to_int
+    #this below is the code to recmmment int
+    puts length_of_ride.to_int
+    ((length_of_ride.to_int)/60) 
+
   end 
 
   def pay
       ## if enough credits to pay:
-      user.update_attribute(:credit, user.credit - cost)
+      u = user.credit 
+      puts "__________________SHOW U IN MODEL RENTAL PAY METHOD_____________________" 
+      puts u 
+      puts "______________ COST IS:________" 
+      puts cost 
+      user.update_attribute(:credit, u - cost)
       # else 
         #option to add more credits 
       #end 

@@ -71,7 +71,8 @@ class RentalsController < ApplicationController
             # @user.update(credit: 1.000000000) 
             # puts @user.credit
             puts @rental.user.credit
-            @rental.user.update(credit: 10.0) 
+            puts '----------WEEEEE---------'
+
             puts @rental.user.credit
             @rental.end_time=Time.now()
 
