@@ -31,7 +31,7 @@ class User < ApplicationRecord
     end
 
     def block_list
-        if username == "Hannah" || "Harrison" || "Jesus"
+        if username == ("Hannah" || "Harrison" || "Jesus")
         errors.add( :username, 'We have blocked this username. Please to not use our app. If you think this is a mistake, contact the development team. ')
      end
     end

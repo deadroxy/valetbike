@@ -13,26 +13,50 @@
   <h1 Edit My Profile </h1>
 
 <%= form_for @user do |f|%>
-  <%= f.label :username%><br>
-  <%= f.text_field :username%><br>
-  <%= f.label :password%><br>
-  <%= f.password_field :password%><br>
-  <%= f.label :email%><br>
-  <%= f.email_field :email%><br>
-  <%= f.label :address%><br>
-  <%= f.text_field :address%><br>
-  <%= f.label :date_birth%><br>
-  <%= f.date_field :date_birth%><br>
-  <%= f.label :phone_number%><br>
-  <%= f.telephone_field :phone_number%><br>
-  <%= f.label :credit  %> <br>
-  <%= f.number_field :credit %> <br>
+  
+  <div class="row">
+  <div class="column left" style="background-color:rgba(147, 174, 144, 0.1); border:1px double #B4A9DA;">
+    <%= f.label :username%></br>
+    <%= f.text_field :username%></br>
+    <%= f.label :address%></br>
+    <%= f.text_field :address%></br>
+  </div>
+  <div class="column middle" style="background-color:rgba(147, 174, 144, 0.1); border:1px double #B4A9DA;">
+    <%= f.label :password%></br>
+    <%= f.password_field :password%></br>
+    <%= f.label :date_birth%></br>
+    <%= f.date_field :date_birth%></br>
+    <%= f.label :credit  %> </br>
+  <%= f.number_field :credit %> </br>
+  </div>
+  <div class="column right" style="background-color:rgba(147, 174, 144, 0.1); border:1px double #B4A9DA;">
+    <%= f.label :email%></br>
+    <%= f.email_field :email%></br>
+    <%= f.label :phone_number%></br>
+    <%= f.telephone_field :phone_number%></br>
+  </div> 
+  </br></br></br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
   <strong><%= f.submit %></strong>
-
+  
+</div>
 
 <%end%>
 
 
 </div>
 
- <!--<p> <p>Find me in app/views/users/update.html.erb</p><br>
+<br/><br/>
+  <div class="row">
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo" >
+    </div>
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo">
+    </div>
+    <div class="column">
+      <img src = "/logo.jpg" alt = "PAJAS Logo">
+    </div>
+  </div>
+    <br/>
+
+<%# <p>Find me in app/views/users/update.html.erb</p></br>%>

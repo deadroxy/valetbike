@@ -5,18 +5,23 @@
    <meta name="viewport" content="width=device=-width, initial-scale=1.0">
    <title>MAP</title>
    <link rel="stylesheet" href="pages.css">
+   <style>
+      .menu { text-align: center; }
+      .menu ul { display:inline-table; }
+      .menu li { display:inline; }
+    </style>
 </head>
 </body>
    <div>
-   <h1 class="font-bold text-4xl" style="border:2px solid #93AE90"> Map & Scooter Stations </h1>
-   <iframe src="https://www.google.com/maps/d/embed?mid=18krZCgeDe9tme4TRpVS3naP60SeHpno&ehbc=2E312F" width="640" height="480"></iframe>   <div>
+   <h1 class="font-bold text-4xl" style="border:2px solid #93AE90">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Map & Scooter Stations &emsp;&emsp;&emsp;</h1>
+   <p align="center"><iframe src="https://www.google.com/maps/d/embed?mid=18krZCgeDe9tme4TRpVS3naP60SeHpno&ehbc=2E312F" width="640" height="480"></iframe></p>   <div>
    <br/>
    <div class="flexbox vertical stretch">
    <% if @stations.present? %>
      <%= render(partial: "stations/row", collection: @stations, as: :station) %>
    <% else %>
    <div class="empty">
-   <ul> <%=link_to("Select Station!", "/stations/index")%> </ul>
+    <ul class="menu"> <%=link_to("Select Station!", "/stations/index")%> </ul>
    </div>
    <% end %>
  </div>
