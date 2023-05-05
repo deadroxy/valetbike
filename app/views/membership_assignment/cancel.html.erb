@@ -1,1 +1,1 @@
-<%= button_to 'Cancel Membership', {:controller => "membership_assignment", :action => "update", :id => @membershipassignment.id, :end => Time.now}, method: :patch %>
+<%= button_to 'Cancel Membership', {:controller => "membership_assignment", :action => "update", :id => @membershipassignment.id, :membership_assignment=>{:end => Time.now}, :end => Time.now}, method: :patch %>

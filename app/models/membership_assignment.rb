@@ -46,7 +46,7 @@ class MembershipAssignment < ApplicationRecord
   end
   def no_other_paid_active
     if user.has_active_membership? && user.get_membership.cost != 0 && user.get_membership_assignment != self
-      puts "problem child"
+      #puts "problem child"
       errors.add(:membership_id, "must not have current paid membership. Cancel membership before adding new one.")
     end
   end

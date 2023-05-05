@@ -3,8 +3,8 @@
   <h1>Hi, <%=current_user.full_name %> </h1>
   <p> Registration Date: <%=current_user.created_at %> </p>
   <p> Email: <%= current_user.email %></p>
-  <h3> Your Membership Status: <%=current_user.get_membership.name%> </h3>
-  <button type="button"><%= link_to "Membership Plans", membership_assignment_new_path %></button>
+  <h3> Your current membership: <%=current_user.get_membership.name%> </h3>
+  <button type="button"><%= link_to "View Membership", membership_assignment_path(current_user.get_membership_assignment) %></button>
 </div>
 <% if current_user.overdues.present? %>
   You need to pay for the extra <%= current_user.overdues.first.time_over %> minutes you spent on your bike before you can rent again. Pay below. 

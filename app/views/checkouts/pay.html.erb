@@ -1,2 +1,9 @@
-Pay at link below:
-<%= link_to "Pay", @session.url %>
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+    Continue to payment with Stripe at link below:
+    </div>
+    <%= button_to "Pay securely with Stripe", @session.url, method: :get %>
+
+    </div>
+	</div>

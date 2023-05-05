@@ -1,23 +1,20 @@
-<p id="notice"><%= notice %></p>
- 
-<p>
-  <strong>Plan Name:</strong>
-  <%= @membership.name %>
-</p>
-
-<p>
-  <strong>Plan Category:</strong>
-  <%= @membership.category %>
-</p>
- 
-<p>
-  <strong>Plan Price:</strong>
-  <%= number_to_currency(@membership.cost) %>
-</p>
-
-<p>
-  <strong>Plan Duration:</strong>
-  <%= @membership.payment_frequency %> <%= @membership.time_unit %>
-</p>
- 
-<%= render 'shared/card_and_charge_form', membership: @membership %>
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      <%= @membership.name %>
+    </div>
+        <% if @membership.description.present? %>
+    <p><b>Description:</b> <%= @membership.description %><br></p>
+    <% else %>
+      <%= @membership.cost %>$ for <%= @membership.payment_frequency %> <%= @membership.time_unit %><br></p>
+      <% end %>
+      <p><b>Cost:</b> <%= @membership.cost %>$<br></p>
+      <p><b>Membership started:</b> <%= @membershipassignment.start.localtime.strftime("%B %-d, %Y at %I:%M %P") %><br></p>
+     <p><b>Membership end:</b> <%=@membershipassignment.end_to_string %></p>
+     <% if @membership.cost > 0 %>
+      <%= button_to("Cancel existing membership", cancel_membership_path, params: {:membership_assignment_id => current_user.get_membership_assignment.id}, method: :get) %>
+     <% else %>
+        <%= button_to("Upgrade membership", add_membership_path, method: :get) %>
+     <% end %>
+    </div>
+	</div>
