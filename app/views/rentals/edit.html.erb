@@ -4,7 +4,6 @@
 <br/>
 
 These stations have empty docks! Please select one to return your scooter to:
-@station.dock_count - bikes.length
 <% @current_station = params[:station] %>
 current station: <%= @current_station%>
 <% @rental = Rental.find(params[:id])%>
@@ -14,15 +13,9 @@ current station: <%= @current_station%>
 <div class="flexbox vertical stretch">
 <%stations.each do |station| %>
 <% bikes = Bike.where(current_station_identifier: station.identifier ) %>
-<%puts "__________START___________" %>
-  <%puts "station.identifier" %>
-  <%puts station.identifier %>
-  <%puts "avail docks" %>
-  <%puts station.dock_count - bikes.length %>
-  <%puts "__________END___________" %>
   <% if station.dock_count - bikes.length > 0 %>
 
-  <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">>
+  <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
       <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
       <%= form_for @rental do |f|%>
       <%= f.hidden_field :end_station_id, value: station.identifier %>

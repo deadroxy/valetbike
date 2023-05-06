@@ -1,32 +1,31 @@
- <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
- Station identifer: <%= @station.identifier %> <br>
- 
- Station name: <%= @station.name %> <br>
+<h1 style="font-size:2em; background-color:rgba(147, 174, 144, 0.5);"> ⊱⊰ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Rent a scooter from <%= @station.name  %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; ⊱⊰ </h1>
+<% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
+<br>
+
+
+<div class="flexbox vertical stretch">
+
+ Station address: <%= @station.address%> <br>
+ Station ID: <%= @station.identifier %> <br>
  
  <% if (bikes.length > 0)%>
-
     Number of scooters avilable: <%= bikes.length%> <br>
-    <%puts "_________________________VIEWS/STATIONS________"%>
-    <%puts "dock_count:"%>
-    <%puts @station.dock_count%>
-    <%puts "bikes.length:"%>
-    <%puts bikes.length%>
     Number of docks available: <%= @station.dock_count - bikes.length%> <br>
+    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
 
-    <div>
     <% bikes = Bike.where(current_station_identifier: @station.identifier ) %>
         <%bikes.each do |bike| %>
-        <br>
-        <br>
-        <%= bike.id%>
-        <%= link_to("click here to rent this scooter", new_rental_path(bike: bike.id, station: @station.id, user: current_user.id)) %> 
+        Scooter id: <%= bike.id%>
+        <%= link_to("Click here to rent this scooter", new_rental_path(bike: bike.id, station: @station.id, user: current_user.id)) %> 
         <% puts active_ride?%>
         <% puts "_____________STATIONS/SHOW________________"%>
         <% end%>
-
+    <div class="empty">
     <% else %>
     No scooters available at this station! <br>
     <% end  %>
+    </div>
+    </div>
 
     <br>
     <br>
