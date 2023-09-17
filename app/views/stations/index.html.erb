@@ -5,12 +5,24 @@
     </div>  
     <div class="flexbox vertical stretch">
       <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <ul>
+          <% @stations.each do |station| %>
+            <li>
+                <%= station.name%>
+            </li>
+            <% end %>
+        </ul>
+        
       <% else %>
-      <div class="empty">
-        No stations found, yet. We are working on it.
-      </div>
+        <div class="empty">
+          No stations found, yet. We are working on it.
+        </div>
       <% end %>
+
     </div>
+
 	</div>
+
+
 </div>
+
