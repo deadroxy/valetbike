@@ -4,14 +4,14 @@
       Welcome to ValetBike, your source for cycles in Nipmuc Notch!
     </div>  
     <div class="section-subtitle">
-      Below are the stations, shown from views/stations/index.html.erb
+      Below are the bikes, shown from views/bikes/index.html.erb
     </div> 
     <div class="flexbox vertical stretch">
-      <% if @stations.present? %>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
       <% else %>
       <div class="empty">
-        No stations found.
+        No bikes found.
       </div>
       <% end %>
     </div>
