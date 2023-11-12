@@ -33,3 +33,74 @@ body {
   color: var(--black-color);
   background: var(--white-color);
 }
+
+/* Apply styles to the header element */
+header {
+  background-color: #9698fc; /* Background color for the header */
+  color: #fff; /* Text color for the header */
+  padding: 10px; /* Padding around the header content */
+  width: 100%; /* Make the header take up the whole width */
+  margin: 0; /* Remove default margin */
+}
+
+/* Style the navigation links */
+header nav ul {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+  text-align: right; /* Align the links to the right */
+}
+
+header nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Style for the header links on hover */
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Apply styles to the footer element */
+footer {
+  background-color: #9698fc; /* Background color for the footer */
+  color: #fff; /* Text color for the footer */
+  padding: 10px; /* Padding around the footer content */
+  width: 100%; /* Make the footer take up the whole width */
+  margin: 0; /* Remove default margin */
+  position: fixed; /* Position the footer as fixed */
+  bottom: 0; /* Stick it to the bottom of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  right: 0; /* Align to the right of the viewport */
+}
+
+/* Style the footer links */
+footer ul {
+  list-style: none; /* Remove bullet points from the list */
+  padding: 20px 0;
+  margin: 0;
+  text-align: right; /* Align the links to the right */
+}
+
+footer li {
+  display: inline; /* Display the list items horizontally */
+  margin-right: 20px; /* Add space between list items */
+}
+
+footer a {
+  text-decoration: none; /* Remove underlines from the links */
+  color: #fff; /* Text color for the links */
+}
+
+/* Style for the footer links on hover */
+footer a:hover {
+  text-decoration: underline; /* Underline the links on hover */
+}
+
+
+
