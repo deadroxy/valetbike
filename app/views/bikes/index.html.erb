@@ -1,0 +1,8 @@
+<h1>Bikes</h1>
+<ul>
+  <% @bikes.each do |bike| %>
+    <li>
+      <%= link_to bike.identifier, bike %>
+    </li>
+  <% end %>
+</ul>
