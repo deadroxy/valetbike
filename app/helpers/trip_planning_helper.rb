@@ -1,0 +1,2 @@
+module TripPlanningHelper
+end

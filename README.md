@@ -1,4 +1,6 @@
 # ValetBike
+Calicoders
+local version testing
 
 Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
@@ -155,3 +157,5 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see https://www.gnu.org/licenses.
 
+
+Sami Aiyathurai
