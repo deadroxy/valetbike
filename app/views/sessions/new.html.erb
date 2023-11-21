@@ -1,0 +1,32 @@
+<div class="page-section stretch"> 
+  <div class="section-inner stretch">
+    <div class = "section-title flexbox horizontal justify-content-center">
+      Login 
+    </div>
+    <div class="flexbox horizontal justify-content-center text-right">
+      <%= form_tag(sessions_path) do %>
+      <table summary="login">
+        <br> 
+        <tr>
+          <th><%= label_tag(:email_address) %></th>
+          <td><%= text_field_tag(:email_address, params[:email_address]) %></td>
+        </tr>
+        <tr>
+          <th><%= label_tag(:password) %></th>
+          <td><%= password_field_tag(:password) %></td>
+        </tr>
+        <br> 
+      </table>
+      <div class="text-center form-buttons">
+        <br>
+        <%= submit_tag "Login", class: 'btn button btn-primary', style: 'color: black;' %>
+      </div>
+      <% end %>
+    </div>
+    <div class="text-center">
+      <br>
+      <p> Don't have an account? </p>
+      <p> <%= link_to "Create Account", sign_up_path, class: 'btn button btn-primary' %></p>
+    </div>
+  </div>
+</div>
