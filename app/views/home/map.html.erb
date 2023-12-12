@@ -1,0 +1,69 @@
+
+
+<div class= "map-container">
+<div id= "desc">
+  <div class="page-section flexbox vertical stretch">
+    <div class="section-inner flexbox vertical stretch">
+      <div class="section-title flexbox horizontal center">
+        <h2 style= "margin-top: 2em">Check Out Our Stations Around the Pioneer Valley!</h2>
+      </div>
+        <% if user_signed_in? && !current_user.rentals.where(return: nil).empty? %>
+          <p style= "margin-bottom: 3em;"> Done riding? Select a station from the sidebar to return your bike!</p>
+        <% else %>
+          <p style= "margin-bottom: 3em;"> Ready to ride? View the station locations in the map below, and select a station from the sidebar to rent a bike!</p>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to "Past Rentals", rentals_path, class: 'button' %>
+        <% end %>
+    </div>
+  </div>
+  
+</div>
+
+<div id="mapSidebar" class="sidebar">
+<% if @stations.present? %>
+  <%= render(partial: "home/row", collection: @stations, as: :station) %>
+<% else %>
+  <div class="empty">
+    No stations found.
+  </div>
+<% end %>
+</div>
+
+
+
+<div id="map"></div>
+
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1IjoieWxvbzEyMyIsImEiOiJjbG9sdDJxYjAwdHR2Mmxxb2FsaG9nN2lvIn0.OZGWalV5uPOOaCrC7TwbWg';
+var map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/mapbox/streets-v12', // style URL
+  center: [-72.64, 42.325], // starting position [lng, lat]
+  zoom: 11.5 // starting zoom
+});
+
+// Iterates all stations, creating new location marker for each using longitude and latitude attributes
+<% @stations.each do |station| %>
+  new mapboxgl.Marker({ color: 'orange' })
+    .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
+    .setPopup(
+      new mapboxgl.Popup({ offset: 25 })
+        .setHTML("<h3><%= station.name %></h3><p>Docked Bike Count: <%= station.docked_bikes.count %></p>")
+    )
+    .addTo(map);
+<% end %>
+
+</script>
+
+
+
+</div>
+
+
+
+
+
+
+

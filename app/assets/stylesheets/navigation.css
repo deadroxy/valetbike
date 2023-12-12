@@ -1,0 +1,173 @@
+.button{
+    border-radius: 25px;
+    display: block;
+    color: white;
+    background-color: #557735;
+    text-align: center;
+    padding: 8px;
+}
+
+.button:hover {
+    background-color: #2a3f17;
+    transition: background-color 0.3s;
+}
+
+.rent-button{
+    display: block;
+    color: white;
+    border-radius: 10%;
+    background-color: #78a350;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    width: 70%;
+}
+
+.rent-button:hover {
+    background-color: #d39510;
+    border-radius: 10%;
+    transition: background-color 0.3s;
+}
+
+.profile-button{
+    display: block;
+    color: white;
+    border-radius: 10%;
+    background-color: #78a350;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.profile-button:hover {
+    background-color: #426521;
+    border-radius: 10%;
+    transition: background-color 0.3s;
+}
+
+.back-button{
+    display: block;
+    color: white;
+    border-radius: 5%;
+    background-color: #476d24;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.back-button:hover {
+    border-radius: 20%;
+    transition: background-color 0.3s;
+}
+
+.pricing-button{
+    display: block;
+    color: white;
+    border-radius: 10%;
+    background-color: #baad3c;
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.pricing-button:hover {
+    background-color: #655a21;
+    border-radius: 10%;
+    transition: background-color 0.3s;
+}
+
+
+
+nav{
+    float:right
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ff873c;
+}
+  
+nav ul li {
+    float: left;
+    margin: 0;
+}
+  
+nav ul li a {
+    display: block;
+    color: white;
+    float: right;
+    text-align: center;
+    padding: 40px 45px;
+    text-decoration: none;
+}
+
+
+nav ul li a:push{
+    margin-left: auto;
+}
+  
+nav ul li a:hover {
+    background-color: #f67f25;
+}
+ 
+nav ul li form {
+    display: block;
+    color: white;
+    float: right;
+    text-align: center;
+    padding: 40px 45px;
+    text-decoration: none;
+}
+
+nav ul form:hover {
+    background-color: #f67f25;
+}
+ 
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color:  #557735;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #557735;
+  }
+
+  .form-label {
+    font-size: 13px;
+  }

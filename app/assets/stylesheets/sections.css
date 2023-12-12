@@ -1,0 +1,157 @@
+#welcome {
+    background-color: #ffffff;
+    color: #2a5c25;
+    left: 0;
+    grid-area: welcome;
+  }
+  
+#bikeimg {
+    right: 0;
+    background-color: #ffffff;
+    grid-area: bikeimg;
+}
+
+#howto {
+  background-color: #ffcd91;
+  color: #2a5c25;
+  grid-area: howto;
+}
+
+#desc{
+  color: #2a5c25;
+  grid-area: desc;
+}
+
+#rdesc{
+  color: #2a5c25;
+  grid-area: rdesc;
+}
+
+
+#text {
+  background-color: #5c803c;
+  color: #ffffff;
+  top: 15%;
+  grid-area: text;
+}
+
+#img {
+  background-color: #5c803c;
+  top: 50%;
+  grid-area: img;
+}
+
+#faq {
+  grid-area: faq;
+  position:absolute ; 
+  top: 38%;
+  left: 6%;
+}
+  
+#stationview{
+  grid-area: stationview;
+}
+
+#newrental{
+  color: #2a5c25;
+}
+
+#reglog{
+  background-color: #b1e695;
+  color: #2a5c25;
+  grid-area: reglog;
+}
+
+#general{
+  color: #2a5c25;
+  grid-area: gen;
+}
+
+#photo {
+  position: relative;
+  z-index: 2;
+}
+
+#background-photo {
+  position: absolute;
+  z-index: 1;
+}
+
+#name {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+  font-size: 24px; /* Adjust the font size as needed */
+  font-family: sans-serif; /* Replace 'YourFont' with the desired font-family */
+  color: #075c11; /* Set your desired text color */
+  left: 50px;
+  padding-top: 0px;
+}
+
+.profile-picture img {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  border-radius: 50%;
+  width: 90px; 
+  height: 90px; 
+  border: 4px solid #fff; 
+  z-index: 2;
+  left: 50px;
+}
+
+.back-picture img {
+  align-items: center;
+  justify-content: center;
+  width: 230vh; 
+  height: 100vh; 
+  z-index: 1;
+}
+
+.profile-info h2 {
+  margin: 0;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.profile-centered {
+  position: absolute;
+  top: 65%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img{
+  max-width: 750px;
+  max-height: 500px;
+  position: static;
+  margin: auto;
+}
+
+.bold-brown{
+  font-weight: bold;
+  color: #134213;
+}
+
+#reg{
+  color: #2a5c25;
+  grid-area: reg;
+}
+
+#pay{
+  color: #2a5c25;
+  grid-area: pay;
+}
+
+#code{
+  color: #2a5c25;
+  grid-area: gen;
+}

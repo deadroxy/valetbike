@@ -76,10 +76,13 @@ end
 
 # Developer Added Gems
 gem 'dotenv-rails'
+gem 'mapbox-gl-rails'
 
 # Suggested Potentially Useful Gems
-# gem 'devise'
+gem 'devise'
 # gem 'httparty'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+gem "geocoder", "~> 1.8"

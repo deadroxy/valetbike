@@ -1,0 +1,45 @@
+<div id="background-photo">
+  <div class="back-picture">
+    <%= image_tag('backg_2.png') %>
+  </div> 
+</div>
+
+<div class= "code-container">
+    <div id= "code">
+      <div class="page-section flexbox vertical stretch">
+          <div class="section-inner flexbox vertical stretch">
+                <% if @rental.return == nil %>
+                <div class= "row" style= "margin-top: 2em;">
+                  <div class= "column">
+                  <h1 class="font-bold text-4xl"> It's Clementime to ride!  This is your access Code:<br/> <br/></h1>
+                  <h1 style = "color: brown; font-weight: bold;"><%= @rental.number %> </h1>
+                </div>
+                </div>
+                <div class= "row" >
+                <div class= "column">
+                  <h2> *Go to the station you requested a bike from and enter this code at the kiosk* </h2>
+                </div>
+                </div>
+                <div class= "row" >
+                <div class= "column">
+                <h2 style= "text-align: center; margin: 2em;" class="font-bold text-2xl"> Below are the details of your rental, please click return bike when you have completed your ride!</h2>
+                </div>
+                </div>
+              <% else %>
+              <div class="section-title flexbox horizontal center" style = "text-align: center; margin-top: 2em">
+                <h1 class="font-bold text-4xl"> Hope you had a fruitful ride! <br /> Here are the full details of your rental</h1>
+
+              <% end %>   
+            </div>
+            <%= render(partial: "rentals/row", object: @rental) %>
+            <div class="button" style= "margin:3em;">
+            <%= link_to("Show all rentals", rentals_path) %>
+            </div>
+            
+ </div>
+</div>
+
+
+
+</div>
+</div>

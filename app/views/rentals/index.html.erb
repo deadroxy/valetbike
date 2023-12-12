@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#rent_table {
+  width: 100%;
+}
+
+#rent_table td, #rent_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#rent_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #78a350;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<div class= "gen-container">
+  <div id= "general">
+    <div class="page-section flexbox vertical stretch">
+      <div class="section-inner flexbox vertical stretch">
+        <div class="section-title flexbox horizontal center" style = "text-align: center">
+          <h1 class="font-bold text-4xl" style= "margin-top: 2em;">Your Rental History</h1>
+        </div>
+        </div>
+        </div>
+
+    <table id = "rent_table">
+    <tr>
+    <th>Rented from</th>
+    <th>Returned to</th>
+    <th>Bike ID</th>
+    <th>Checkout time</th>
+    <th>Return time</th>
+    <th>Duration</th>
+    <th>Cost of rental</th>
+
+       <% @rentals.each do |rental| %>
+        </tr>
+        <tr>
+            
+            <%if rental.return != nil %>
+              <td><%= rental.checkout_station.name %></td>
+              <td><%= rental.return_station.name %></td>
+              <td><%= rental.bike_id %></td>
+              <td><%= (rental.checkout).strftime("%A %m/%d/%Y %I:%M %p")%></td> 
+              <td><%= (rental.return).strftime("%A %m/%d/%Y %I:%M %p")%></td>
+              <td><%= pluralize(rental.duration, 'minute')%></td>
+              <td>$<%= number_with_precision(rental.cost, precision: 2) %></td>
+            <% end %>
+        </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+</div>
+</body>
+</html>
