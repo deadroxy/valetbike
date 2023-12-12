@@ -1,0 +1,36 @@
+<head>
+
+  <%= stylesheet_link_tag "rent" %>
+  <style>
+    .accordion{
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<div class="rentHeader">
+<h2>Available Bikes</h2>
+</div>
+<div class="two-column">
+  <ul style="columns: 3; -webkit-columns: 3; -moz-columns: 3;">
+    <% @curr_bikes.each do |bike| %>
+      <li>
+      <div class="accordion">
+      <div class="bikes">
+      <img src="https://thumbs.dreamstime.com/b/park-bike-lock-icon-vector-flat-outline-sport-safety-secure-protection-color-289348914.jpg">
+      </div>
+      <div class="button">
+      Bike Number: <%= link_to bike.identifier, bike %>
+      </div>
+      </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

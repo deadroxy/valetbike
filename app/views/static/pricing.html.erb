@@ -1,0 +1,76 @@
+<head>
+<%= stylesheet_link_tag "rent" %>
+  <style>
+    .button{
+      color: white;
+      
+    }
+    .accordion{
+      max-width: 800px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+      text-align: center;
+    }
+  </style>
+</head>
+
+
+<div>
+  <div>
+    <h2>Start at $10/day </h2>
+      <h3 style="font-weight: normal">
+          Whether you are a student or a full-time worker, there is a plan for you.
+      </h3>
+  </div>
+  <div class="grid grid-cols-3 gap-4">
+      <% if user_signed_in? && !current_user.subscribed? %>
+      <div class = "accordion">
+          <h3>Weekly pass </h3>
+        <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
+        <input type="hidden" name="price_id" value="price_1OLfSREDz95u98gmvSG2WJ9K" />
+        <input type="submit" value="Subscribe for $30/week" class="button"/>
+        <% end %>
+      </div>
+
+      <div class = "accordion">
+          <h3>Monthly pass </h3>
+      <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
+      <input type="hidden" name="price_id" value="price_1OLfSREDz95u98gm5yA5tzjh" />
+      <input type="submit" value="Subscribe for $50/month" class="button"/>
+      <% end %>
+      </div>
+
+      <div class = "accordion">
+          <h3>Daily pass </h3>
+      <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
+      <input type="hidden" name="price_id" value="price_1OLfSREDz95u98gmxOLO5Rb1" />
+      <input type="submit" value="Subscribe for $10/day" class="button"/>
+      <% end %>
+      </div>
+
+      <% elsif user_signed_in? && current_user.subscribed? %>
+      <div class="bg-yellow-100 p-6 rounded-lg text-center text-yellow-900 col-span-2">
+          <p>You are already subscribed.</p>
+          <%= button_to "Manage your subscription", billings_path, data: { turbo: false }, class: "underline" %>
+        </div>
+
+      <% else %>
+      <div class = "accordion">
+          <h3>Weekly pass </h3>
+      <%= link_to "Subscribe for $30/week", new_user_session_path, class: "button" %>
+      </div>
+      
+      <div class = "accordion">
+          <h3>Monthly pass </h3>
+          <%= link_to "Subscribe for $50/month", new_user_session_path, class: "button" %>
+      </div>
+      <div class = "accordion">
+          <h3>Daily pass </h3>
+      <%= link_to "Subscribe for $10/day", new_user_session_path, class: "button" %>
+      </div>
+
+      <% end %>
+
+  </div>
+</div>
+

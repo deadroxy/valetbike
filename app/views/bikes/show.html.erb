@@ -1,0 +1,30 @@
+<head>
+    <%= stylesheet_link_tag "rent" %>
+    <style>
+    .accordion{
+      max-width: 800px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+      padding-bottom: 2%;
+      padding-top: 2%;
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+    .rentHeader{
+        max-width: 100px;
+    }
+  </style>
+</head>
+
+
+
+<h2>Are you sure you want to rent this bike?</h2>
+<div class="accordion">
+<h3><b>Bike Number: </b> <%= @bike.identifier %></h3>
+<h3><b>Current Station: </b> <%= @bike.avail? ? "Docked at #{@bike.current_station.address}" : "In use" %></h3>
+<% if @bike.avail %>
+<div class="button">
+<%= button_to 'Rent', rental_path(bike_id: @bike.id), method: :get %>
+</div>
+<% end %>
+</div>

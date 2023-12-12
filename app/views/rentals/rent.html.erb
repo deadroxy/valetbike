@@ -1,0 +1,21 @@
+<head>
+  <%= stylesheet_link_tag "rent" %>
+  <style>
+    .accordion{
+      max-width: 600px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<div class="accordion">
+<h2>You have rented bike <%= @bike.identifier %></h2>
+<p>Input the following code in the docking station to unlock your bike</p>
+</div>
+<div class="rentHeader">
+<h3><b><%=@code%></h3>
+</div>
+

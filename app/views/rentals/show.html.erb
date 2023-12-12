@@ -1,0 +1,4 @@
+<h1>Current renting</h1>
+<p>Bike: <%= @bike.identifier %> </p>
+<p><%= current_user.active_bike %> </p>
+<%= button_to 'Return', 'stations/return/:id', method: :get %>

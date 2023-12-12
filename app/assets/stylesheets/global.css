@@ -33,3 +33,153 @@ body {
   color: var(--black-color);
   background: var(--white-color);
 }
+
+header {
+  background-color: #9698fc; 
+  color: #fff; 
+  padding: 10px; 
+  width: 100%; 
+  margin: 0; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+  text-align: right; 
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav ul li {
+  display: inline;
+  margin-right: 20px;
+  z-index: 10;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  z-index: 10;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+  z-index: 10;
+}
+
+footer {
+  background-color: #9698fc; 
+  color: #fff; 
+  padding: 10px; 
+  width: 100%; 
+  margin: 0; 
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+}
+
+footer ul {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+  text-align: right;
+}
+
+footer li {
+  display: inline; 
+  margin-right: 20px; 
+}
+
+footer a {
+  text-decoration: none; 
+  color: #fff; 
+}
+
+footer a:hover {
+  text-decoration: underline; 
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center
+}
+
+h3 {
+  font-size: 35px;
+  font-weight: bold
+}
+
+.about-us {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 40px
+ }
+
+ .four-column {
+  float: left;
+  width: 25%;
+  padding: 100px;
+ }
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.budget-friendly{
+  padding-bottom: 20px
+}
+
+.button {
+  background-color: #9698fc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  padding: 14px 40px;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.text_on_image {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(39, 37, 37);
+}
+
+a .pretty_button {
+  background-color: #9698fc; 
+  color: white; 
+  border-radius: 5px; 
+  padding: 10px 20px; 
+  align-items: center; 
+  justify-content: center;
+}
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Display a map on a webpage</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans"rel="stylesheet"/>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+
+        <%= stylesheet_link_tag "map" %>
+        
+    </head>
+    <body>
+
+    <div id="map"></div>
+
+    <script>
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
+    var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-72.64, 42.325], // starting position [lng, lat]
+    zoom: 13.5 // starting zoom
+    });
+
+    </script>
+
+        <div id="sidebar">
+            <div id="leftmenuinnerinner">
+            <h2>Stations</h2>
+            <div class="accordion">
+            <% if @stations.present? %>
+                <ul >
+                    <% @stations.each do |station| %>
+                        <% if station.docked_bikes.count != 0%>
+                        <li>
+                            <div>
+                                <input type="checkbox" id=<%= station.id%> class="accordion__input">
+                                <label for=<%= station.id%> class="accordion__label" onclick= "yolo('<%=station.name%>', '<%= station.longitude%>', '<%= station.latitude %>', '<%=station.address%>')"><%= station.name%></label>
+                                <div class="accordion__content">
+                                    <h4><%=station.name%></h4>
+                                    <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
+                                    <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
+                                    <%= link_to "Rent a Bike", station_path(station), class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px;" %>
+                                </div>
+                            </div>
+                        </li>
+
+                            <script>
+                                new mapboxgl.Marker({color: '#9698fc'})
+                                .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
+                                .setPopup(
+                                new mapboxgl.Popup({ offset: 25 }) 
+                                .setHTML("<h4><%=station.name%></h4>")
+                                )   
+                                .addTo(map); 
+
+                                var popup = new mapboxgl.Popup({offset: 25 });
+
+                                function yolo(name, lat, long, address) {
+                                    popup.setLngLat([lat, long])
+                                    .setText([name])  
+                                    .addTo(map);
+                                }
+                            </script>
+
+                        <% end %>
+                    <% end %>
+                </ul>
+        
+            <% else %>
+                <a target="_top" href="#">No Stations right now</a>
+             <% end %>
+            </div>
+            </div>
+        </div>
+
+    
+    </body>
+</html>

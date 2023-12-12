@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
   <head>
@@ -8,15 +9,135 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'https://js.stripe.com/v3/', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <style>
+      .dropbtn {
+        background-color: #9698fc;
+        color: white;
+        padding: 0px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        z-index: 10;
+
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        padding: 0px;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 10;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 0px;
+        text-decoration: none;
+        font-size: 10pt;
+        display: block;
+        z-index: 10;
+
+      }
+
+      .dropdown-content .word {
+        color: black;
+        padding: 0px;
+        text-decoration: none;
+        font-size: 10pt;
+        display: block;
+        z-index: 10;
+
+      }
+
+      .dropdown-content a:hover {background-color: #f1f1f1;}
+      .dropdown:hover .dropdown-content {display: block;}
+      .dropdown:hover .dropbtn {background-color: #a9abf2;}
+    </style>
     <title>ValetBike</title>
   </head>
   <body>
     <div id="site-container" class="flexbox vertical stretch flex-1">
+
+    <!-- Common header -->
+    <header class="flex justify-between items-center header" style = "height: 110px;">
+
+      <!-- Logo Placeholder Button -->
+      <div>
+        <%= link_to "/", class: "logo-btn" do %>
+          <%= image_tag("logo.png", alt: "ValetBike Logo", class: "logo-img", style: "width: 200px; height: auto; margin-top: 0px;") %>
+        <% end %>
+      </div>
+    
+      <!-- Navigation Links -->
+      <nav>
+        <ul>
+        
+          <li><%= link_to "Home", "/", class: "btn btn-primary", style: "font-size: 14pt"%></li>
+          <li><%= link_to "About", "/about", class: "btn btn-primary", style: "font-size: 14pt"%></li>
+          <li><%= link_to "How it Works", "/howitworks", class: "btn btn-primary", style: "font-size: 14pt"%></li>
+          <li>
+            <% if user_signed_in? %> 
+              <% if current_user.active_bike.nil? %> 
+                <%= link_to "Rent A Bike", "/rent_map", class: "btn btn-primary", style: "font-size: 14pt"%>
+              <% else %>
+                <%= link_to "Return Bike", "/return_map", class: "btn btn-primary", style: "font-size: 14pt"%>
+              <% end %>
+            <% else %>
+              <%= link_to "Map", "/base_map", class: "btn btn-primary", style: "font-size: 14pt"%>
+            <% end %>
+          </li>
+          <li><%= link_to "Plans", pricing_path, class: "btn btn-primary", style: "font-size: 14pt"%></li>
+            
+          
+
+          <li id="signin-signout-btn">
+            <% if user_signed_in? %>
+              <!-- Dropdown content for signed-in users -->
+              <div class="dropdown">
+                <button class="dropbtn" style= "font-size: 14pt">Account</button>
+                <div class="dropdown-content">
+                  <%= link_to "Manage Account", "/account", style: "text-align: center;" "font-size:9pt" 
+%>
+                  <%= button_to "Sign out", destroy_user_session_path, method: :delete , class: "dropdown-content", style: "font-size: 9pt;" "color: black"%>
+                </div>
+              </div>
+            <% else %>
+              <%= button_to "Sign in", new_user_session_path, class: "btn btn-success", id: "signin-btn" %>
+
+            <% end %>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+    
+
       <div class="flexbox vertical center">
+      <p class="notice"><%= notice %></p> 
+      <p class="alert"><%= alert %></p> 
         <%= yield %>
       </div>
+
+      <!-- Common footer -->
+      <footer>
+        <ul>
+          <li><%= link_to "Contact Us", "/contactus", :class =>"btn btn-primary"%></li>
+        </ul>
+      </footer>
+
     </div>
   </body>
 </html>

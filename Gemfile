@@ -77,9 +77,16 @@ end
 # Developer Added Gems
 gem 'dotenv-rails'
 
+gem 'mapbox-gl-rails'
+gem "mapkick-rb"
+
 # Suggested Potentially Useful Gems
-# gem 'devise'
+ gem 'devise'
 # gem 'httparty'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+
+
+gem "stripe", "~> 10.1"

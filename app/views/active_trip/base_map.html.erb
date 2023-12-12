@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Display a map on a webpage</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans"rel="stylesheet"/>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+
+        <%= stylesheet_link_tag "map" %>
+
+    </head>
+    <body>
+        <div class="flexbox horizontal">
+            <div id="sidebar">
+                <div id="leftmenuinnerinner" style="padding-top: 0px;">
+                    <div class="accordion" style="height: 95%; padding: 3%;">
+                        <h3 class="accordion__label" style="font-size: 30px;">We have <%= @stations.count %> stations around the pioneer valley 
+                        with <%= @num_bikes%> bikes available for rental</h3>
+                        <%= button_to "Rent One Now", new_user_session_path, class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 10px 20px; align-items: center; justify-content: center; margin-left: 20%; margin-right: 20%;" %>
+                    
+                
+                    </div>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v12', 
+        center: [-72.64, 42.325], 
+        zoom: 13.5
+    });
+    
+    <% @stations.each do |station| %>
+        new mapboxgl.Marker({color: '#9698fc'})
+                        .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
+                        .setPopup(
+                        new mapboxgl.Popup({ offset: 25 }) 
+                        .setHTML("<h4><%=station.name%></h4>")
+                        )   
+                        .addTo(map); 
+    <%end%> 
+    </script>
+    </body>
+</html>
