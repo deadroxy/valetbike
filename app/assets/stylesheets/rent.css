@@ -1,0 +1,35 @@
+.bikes{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.two-column {
+  float: left;
+  padding: 20px;
+  margin: 5%;
+  width: 60%;
+ }
+
+ .rentHeader{
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #9698fc;
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.button {
+  background-color: #9698fc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  padding: 14px 40px;
+  color: white;
+}

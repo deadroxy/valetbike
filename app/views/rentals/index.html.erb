@@ -1,0 +1,10 @@
+<h1> Past trips </h1>
+<ul>
+  <% @past_rentals.each do |rent| %>
+    <li>
+        <%= rent.started_time %>
+        <%= rent.end_time %>
+        <%= rent.bike_id %>
+    </li>
+  <% end %>
+</ul>

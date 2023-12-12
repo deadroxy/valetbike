@@ -1,0 +1,15 @@
+StationID,Capacity,StationAddress,StationName,Latitude,Longitude
+21,7,19 Meadow Street Florence MA @ Lilly Library,Florence Bank Station,42.326020,-72.633760
+24,10,31 Main Street Florence MA,Florence Center,42.335860,-72.673750
+30,16,7A-7D Jackson Street Northampton MA,Jackson Street,42.334600,-72.645400,,,
+25,14,51 Locust Street Northampton MA,Cooley Dickinson Health Care,42.330109,-72.652748
+29,10,"62 Chestnut St, Northampton, MA 01062",State St/Mass Central Rail Trail,42.335820,-72.667710
+33,15,380 Elm Street Northampton MA,Northampton High School,42.323889,-72.652456
+20,14,"1 Prince St, Northampton, MA 01060",Village Hill/State Hospital,42.312646,-72.647501
+26,16,1 Chapin Way Northampton MA @ John M. Greene Hall,John M Greene Hall/Smith College,42.318106,-72.634969
+23,13,20 West Street Northampton MA,Forbes Library,42.316766,-72.635669
+27,11,274 Main Street Northampton MA at Pulaski Park,Pulaski Park/Downtown,42.317868,-72.632754
+31,10,99 Main Street Northampton MA,Main Street/Court House,42.319833,-72.631120
+28,13,"170 Pleasant St, Northampton, MA 01060",Northampton Train Station,42.318380,-72.627970
+32,15,1 Bridge Street Northampton MA,Main Street/Bridge Street,42.323250,-72.626584
+22,17,"286 Prospect St, Northampton, MA 01060",YMCA/Childs Park,42.328550,-72.644590

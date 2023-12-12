@@ -1,0 +1,68 @@
+#map { 
+  position: absolute; 
+  height: 80%;
+  width: 75%; 
+  right: 0;
+  }
+  .mapboxgl-popup {
+  max-width: 200px;
+  }
+  .mapboxgl-popup-content {
+  text-align: center; 
+  font-family: 'Open Sans', 
+  sans-serif;
+  }
+  #sidebar{ 
+  position: absolute; 
+  height: 80%;
+  width: 25%; 
+  left: 0;
+  background-color: #ffffff;
+  }
+  #leftmenuinnerinner {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.accordion{
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #a9abf2;
+}
+
+.accordion__label, .accordion__content{
+  padding: 14px 20px;
+}
+
+.accordion__label{
+  display: block;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.1s;
+}
+
+.accordion__label:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.accordion__content{
+  background: white;
+  line-height: 1.6;
+  font-size: 0.85em;
+  display: none;
+}
+
+.accordion__input{
+  display: none;
+}
+
+.accordion__input:checked ~ .accordion__content{
+  display: block;
+}
