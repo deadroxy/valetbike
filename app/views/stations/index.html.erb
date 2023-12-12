@@ -1,9 +1,52 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Welcome to ValetBike!
-    </div>  
-    <div class="flexbox vertical stretch">
+<nav class="bg-blue-300">
+ <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap ">bicibike</span>
+    </a>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-300 rounded-lg bg-blue-300 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+            <li>
+              <a href="/index.html" class="block py-2 px-3 text-gray-900 hover:bg-gray-100 rounded" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/pages/about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100" >About</a>
+            </li>
+            <li>
+              <a href="<%=categories_path%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Adventures</a>
+            </li>
+            <li>
+            <a href="/pages/pricing.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Pricing</a>
+          </li>
+            <li>
+              <a href="/pages/map.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 ">Map</a>
+            </li>
+            <% if logged_in?%>
+            <li>
+              <a href= "/members/<%=current_member.id%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"> My Account </a>
+            </li>
+             <%end%>
+          </ul>
+        </div>
+      </div>
+</nav>
+<div style="z-index: 0; width:100%; margin-top:84px;">
+    <div style="width:100%; display:flex; justify-content:space-around; background-color:#FAFAFA;">
+      <div style="width:40%;">
+        <h1 style="margin-top:25%; margin-left:20%; font-size:50px;">BiciBike</h1>
+        <p style="font-size:25px; margin-left:20%;">Use Bici because you're busy</p> <br>
+        <% if !logged_in? %>
+          <a class="button-style" style="margin-left:20%; border:2px solid #05014a;" href="<%=signup_path %>">Register</a>
+          <a class="button-style" style="border:2px solid #05014a; background-color:white; color:#05014a;" href="<%=login_path %>">Log in</a>
+        <%end%>
+      </div>
+      <div style="width:60%;">
+        <img src="https://i0.wp.com/trainsinthevalley.org/wp-content/uploads/2018/09/nht-20180901_124759.jpg?ssl=1"/>
+      </div>
+    </div>
+
+    <div class="flexbox vertical stretch" style="margin-left:8%; margin-right:8%; margin-bottom: 100px;">
+      <br>
+      <h1> Our Stations </h1> <br>
       <% if @stations.present? %>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
       <% else %>
@@ -11,6 +54,5 @@
         No stations found.
       </div>
       <% end %>
-    </div>
-	</div>
+  </div>
 </div>

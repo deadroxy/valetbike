@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  startLocation: MyString
+  endLocation: MyString
+  instructions: MyText
+  totalTime: 1
+
+two:
+  name: MyString
+  startLocation: MyString
+  endLocation: MyString
+  instructions: MyText
+  totalTime: 1

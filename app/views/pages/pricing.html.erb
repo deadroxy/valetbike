@@ -1,0 +1,312 @@
+<nav class="bg-blue-300">
+ <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap ">bicibike</span>
+    </a>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-300 rounded-lg bg-blue-300 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+            <li>
+              <a href="/index.html" class="block py-2 px-3 text-gray-900 hover:bg-gray-100 rounded" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/pages/about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100" >About</a>
+            </li>
+            <li>
+              <a href="<%=categories_path%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Adventures</a>
+            </li>
+            <li>
+            <a href="/pages/pricing.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Pricing</a>
+          </li>
+            <li>
+              <a href="/pages/map.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 ">Map</a>
+            </li>
+            <% if logged_in?%>
+            <li>
+              <a href= "/members/<%=current_member.id%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"> My Account </a>
+            </li>
+             <%end%>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Pricing</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    var stripe = Stripe('pk_test_51OHeAKJg0jV0uG9HFob6ddEw6UmDY1dEM80lWeO93jIx5GKD5XnKFWPQlVkCp3Xno7nq8FFSAq0ftN7p8x3fLBc100gLoVMuXR');
+  </script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .pricing-container {
+      display: flex;
+      justify-content: space-around;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .pricing-card {
+      width: 100%;
+      max-width: 600px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      margin: 20px;
+    }
+
+    .pricing-card:hover {
+      transform: scale(1.05);
+    }
+
+    .pricing-card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .pricing-card h2 {
+      color: #333;
+    }
+
+    .pricing-card p {
+      color: #777;
+    }
+
+    .pricing-details {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .pricing-card.expanded {
+      transform: scale(1.05);
+    }
+
+    .pricing-card.expanded .pricing-details {
+      display: block;
+    }
+
+    .join-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .join-button:hover {
+    background-color: #45a049;
+  }
+
+  #payment-form {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1;
+  }
+
+  #payment-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  #payment-form input,
+  #payment-form select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+  }
+
+  #stripe-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  }
+
+#card-element {
+  margin-bottom: 20px;
+  }
+
+#card-errors {
+  color: #ff0000;
+  margin-top: 10px;
+  }
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  }
+button[type="cancel"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  }
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+  }
+
+
+
+  .plan-details {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="pricing-container" style="margin-top:120px;">
+    <div class="pricing-card" onclick="toggleDetails(this)">
+      <div class="pricing-card-content">
+        <h2>Student/Senior Plan</h2>
+        <p>$10/month</p>
+        <button class="join-button" onclick="redirectToCheckout('Student/Senior Plan')">Join</button>
+      </div>
+      <div class="pricing-details">
+        <p>Features of the Student and Senior Plan:</p>
+        <ul>
+          <li>For seniors 50 and up</li>
+          <li>For students pariticipating the eligible colleges:
+            Smith,
+            UMASS,
+            Hampshire College,
+            Amherst,
+            Mount Holyoke
+          </li>
+          <li>Unlimited hour rides</li>
+          <li>Every hour more is $3 more</li>
+          <li>Perfect for a quick trip</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-card" onclick="toggleDetails(this)">
+      <div class="pricing-card-content">
+        <h2>Busy-Persons Plan</h2>
+        <p>$30/month</p>
+        <button class="join-button" onclick="redirectToCheckout('Busy-Persons Plan')">Join</button>
+      </div>
+      <div class="pricing-details">
+        <p>Features of the Busy-Persons Plan:</p>
+        <ul>
+          <li>Unlimited 24 hour rides</li>
+          <li>for every half and hour more its $10</li>
+          <li>Access to all adventures</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="payment-form">
+    <h2>Payment Details</h2>
+    <button class="cancel-button" onclick="hidePaymentForm()">Cancel</button>
+    <form id="stripe-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="payment-method">Payment Method:</label>
+        <select id="payment-method" name="payment-method">
+            <option value="card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+        </select>
+
+        <label for="card-element">Card Details:</label>
+        <div id="card-element"></div>
+
+        <div id="card-errors" role="alert"></div>
+        <button type="submit">Submit Payment</button>
+    </form>
+  </div>
+
+
+
+
+
+  <script>
+    function redirectToCheckout(planId) {
+        showPaymentForm();
+
+        var elements = stripe.elements();
+        var card = elements.create('card');
+        card.mount('#card-element');
+
+        card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        var form = document.getElementById('stripe-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.querySelector('button').disabled = true;
+            console.log('Payment submitted!');
+        });
+    }
+    function toggleDetails(card) {
+      card.classList.toggle('expanded');
+    }
+    function showPaymentForm(){
+      var paymentForm = document.getElementById('payment-form');
+      paymentForm.style.display = 'block';
+    }
+    function hidePaymentForm(){
+      var paymentForm = document.getElementById('payment-form');
+      paymentForm.style.display = 'none';
+    }
+  </script>
+
+
+</body>
+</html>

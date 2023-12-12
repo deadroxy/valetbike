@@ -1,0 +1,3 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+  <p><%=link_to(route.name, route_path(route.id)) %> - <%=route.totalTime%> minutes</p>
+</div>

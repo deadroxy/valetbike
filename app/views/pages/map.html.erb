@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Your custom scripts or additional dependencies -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Map initialization code here
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYmljaWJpa2UiLCJhIjoiY2xwcm5vd3Q3MDFvbTJrbXpucWlqNGlsMCJ9.aaw1PJPd897Xnz2bX-Yltw'; // Replace with your Mapbox access token
+
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/satellite-streets-v11',
+                center: [-72.6403, 42.3163], // Northampton coordinates
+                zoom: 15
+            });
+
+        });
+    </script>
+    <!-- # Include Leaflet library
+    # <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    # <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
+
+    <style>
+
+       body {
+            height: 125vh;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            /* box-sizing: border-box; */
+        }
+        #map {
+            width: 100%; /* Adjust to your preferred width */
+            height: calc(100vh - 40px); /* Adjust to your preferred height */
+            margin-top: 70px ; /* Center the map horizontally */
+            position: relative;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Your HTML content goes here -->
+    <nav class="bg-blue-300">
+     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap ">bicibike</span>
+        </a>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-300 rounded-lg bg-blue-300 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                <li>
+                  <a href="/index.html" class="block py-2 px-3 text-gray-900 hover:bg-gray-100 rounded" aria-current="page">Home</a>
+                </li>
+                <li>
+                  <a href="/pages/about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100" >About</a>
+                </li>
+                <li>
+                  <a href="<%=categories_path%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Adventures</a>
+                </li>
+                <li>
+                <a href="/pages/pricing.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Pricing</a>
+              </li>
+                <li>
+                  <a href="/pages/map.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 ">Map</a>
+                </li>
+                <% if logged_in?%>
+                <li>
+                  <a href= "/members/<%=current_member.id%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"> My Account </a>
+                </li>
+                 <%end%>
+              </ul>
+            </div>
+          </div>
+    </nav>
+
+    <!-- Your Mapbox map container -->
+     <div id='map' style="z-index:0;"></div>
+
+
+
+
+</body>
+
+</html>
+<!-- sk.eyJ1IjoiYmljaWJpa2UiLCJhIjoiY2xwcnhncXpnMGNmeTJpbzJlaGFlMXFyOSJ9.Wh6qU65NRsbm-3jIF1aqSA -->

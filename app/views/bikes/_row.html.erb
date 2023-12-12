@@ -1,0 +1,6 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+  <table>
+    <td><p style="float:left;"> Bike <%= bike.identifier %></td>
+    <td><a class="button-style" style="float:right; margin-top:0px; margin-bottom:0px;" href="<%=new_ride_path({bike_id: bike.identifier})%>">Rent</a></td>
+  </table>
+</div>

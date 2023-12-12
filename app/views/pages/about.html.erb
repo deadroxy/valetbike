@@ -1,0 +1,105 @@
+<nav class="bg-blue-300">
+ <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap ">bicibike</span>
+    </a>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-300 rounded-lg bg-blue-300 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+            <li>
+              <a href="/index.html" class="block py-2 px-3 text-gray-900 hover:bg-gray-100 rounded" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/pages/about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100" >About</a>
+            </li>
+            <li>
+              <a href="<%=categories_path%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Adventures</a>
+            </li>
+            <li>
+            <a href="/pages/pricing.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Pricing</a>
+          </li>
+            <li>
+              <a href="/pages/map.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 ">Map</a>
+            </li>
+            <% if logged_in?%>
+            <li>
+              <a href= "/members/<%=current_member.id%>" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"> My Account </a>
+            </li>
+             <%end%>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+<body>
+    <div class=" page-section flexbox vertical stretch" style="margin-top: 50px">
+      <div class="section-inner flexbox vertical stretch bg-blue-200" style="margin-top: 50px">
+        <div class="mb-2 mt-0 text-3xl font-medium leading-tight text-center">
+          About Us
+        </div>
+        <div class="section-inner flexbox vertical stretch">
+          <p> Bicibike is a student project made by Jillian Lehosky, Laisha Koon-Perez, Kika Kovaleski, and Rachel Tolentino.
+            Embrace the environment, use bici because you're busy!
+             Personal autmobiles are expensive, bad for the environment, and inconvenient for the 35,000 students who call Nipmuc Notch home for 9 months of the year. With Bicibike, you gain instant access to the world arounf you, all at an <a href="pages/pricing.html"> affordable price </a>
+           </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-section flexbox vertical stretch">
+      <div class="section-inner flexbox vertical stretch">
+        <div class="mb-2 mt-0 text-3xl font-medium leading-tight text-center">
+          Meet Our Founders
+        </div>
+
+        <div class="section-inner flexbox vertical stretch">
+          <div class="mb-2 mt-0 text-xl font-medium leading-tight text-left">
+            Jillian Lehosky
+          </div>
+          <div class="section-inner flexbox horizontal stretch">
+            <p>Jillian is a senior at Smith College majoring in Physics and minoring in Computer Science from Pittsburgh, Pennsylvania.
+              Despite doing advanced physics research in chiral magnets and quantum chaos, Jillian is a trained dancer and was pursuing a professional career in musical theater before starting college.
+            </p>
+          </div>
+          <div class="section-inner flexbox horizontal stretch">
+            <img src = "photos/jillian.jpg" alt = "Founder Jillian After Being Hit By A Car">
+          </div>
+        </div>
+
+        <div class="section-inner flexbox vertical stretch bg-blue-200">
+          <div class="mb-2 mt-0 text-xl font-medium leading-tight text-right">
+            Laisha Koon-Perez
+          </div>
+          <div class="section-inner flexbox vertical stretch">
+            <p class = "text-right">Laisha is a sophomore at Smith College majoring in Computer Science and minoring in Economics. She grew up with her twin brother in New York City and like to both watch and play sports, her favorite being basketball.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-inner flexbox vertical stretch">
+          <div class="mb-2 mt-0 text-xl font-medium leading-tight text-left">
+            Kika Kovaleski
+          </div>
+          <div class="section-inner flexbox vertical stretch ">
+            <p class = "text-left"> Kika is a Smith College junior double majoring in computer science and history from New York. She has a crusty white dog named Toby and likes to watch women's soccer. </p>
+            </div>
+        </div>
+
+        <div class="section-inner flexbox vertical stretch bg-blue-200">
+          <div class="mb-2 mt-0 text-xl font-medium leading-tight text-right ">
+            Rachel Tolentino
+          </div>
+          <div class="section-inner flexbox vertical stretch">
+            <p class = "text-right" >Rachel is a junior from L.A., now at Smith College. She is a Computer Science major and Economics minor. Rachel can be found zooming to class on her very beloved scooter, RayRay. </p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+
+
+
+
+<div class="footer">
+  <p>Made by Jillian, Laisha, Kika, and Rachel for CSC 223 Fall 2023.</p>
+</div>

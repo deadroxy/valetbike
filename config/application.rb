@@ -18,5 +18,12 @@ module Valetbike
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    Rails.configuration.stripe = {
+      secret_key: 'sk_test_51OHeAKJg0jV0uG9HUAjcIWLdc8o3wI9JhquxRKLBuAXqpUmbixPPY56GClzTbdRGF5NbHdxj3lnpCtn0SV0TL6cR00VSZ0Jf5h',
+    publishable_key: 'pk_test_51OHeAKJg0jV0uG9HFob6ddEw6UmDY1dEM80lWeO93jIx5GKD5XnKFWPQlVkCp3Xno7nq8FFSAq0ftN7p8x3fLBc100gLoVMuXR',
+    }
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
   end
 end
+
+
