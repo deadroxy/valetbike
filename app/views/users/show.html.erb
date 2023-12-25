@@ -1,0 +1,110 @@
+<section class="page-section">
+  <div class="section-inner flexbox horizontal justify-content-center">
+    <div>
+      <!-- Welcome Message -->
+      <h1 class="section-title"><%= current_user.first_name.capitalize %>'s Account</h1>
+    
+
+      <!-- Membership Information Card -->
+      <div class="card mt-6">
+        <h2 class="text-2xl font-semibold">Membership Information</h2>
+
+        <% @membership = Membership.find_by(user_id: current_user.id) %>
+
+        <% if @membership %>
+          <p class="mt-2">You have been a member since: 
+            <span class="font-medium">
+              <%= @membership.created_at.strftime("%B %d, %Y") %>
+            </span>
+          </p>
+          <p>Your membership will expire on: 
+            <span class="font-medium">
+              <%= @membership.expiration_date.strftime("%B %d, %Y") %>
+            </span>
+          </p>
+        <% else %>
+          <p class="mt-2">No membership information found.</p>
+          <br>
+          <%= link_to "Create Membership", new_membership_path, class: 'btn button btn-primary' %>
+          
+        <% end %>
+      </div>
+
+      <div class="card mt-6">
+        <h2 class="text-2xl font-semibold">Current Rental</h2>
+        <% @current_rentals = Rental.where(user_id: current_user.id, is_complete: false) %>
+        <% @current_rental = @current_rentals.first%>
+        <% if current_user.has_payment? %>
+          <span class="font-medium"> Please make a payment.</span>
+        <% elsif !@current_rental.nil?%>
+
+          <p class="mt-2">Your current rental is due: 
+            <span class="font-medium">
+              <%= @current_rental.return_by.strftime("%I:%M %p on %B, %d, %Y") %>
+            </span>
+          </p>
+          <p>The rental began at: 
+            <span class="font-medium">
+              <%= @current_rental.created_at.strftime("%I:%M %p on %B, %d, %Y") %>
+            </span>
+          </p>
+          <div class="flexbox justify-space-between" style="padding-top: 1em;">
+            <p>
+              <%= link_to "Show Rental QR Code", rental_path(@current_rental), class: 'btn button btn-primary' %>
+            </p>
+            <div data-controller="dialog" data-action="click->dialog#clickOutside" class="center">
+              <button data-action="dialog#open" class='btn button btn-primary'>Return Bike</button>
+              <dialog data-dialog-target="modal" id="returnModal">
+                <div class="p-8">
+                  <%= render partial: "rentals/return", object: @current_rental, as: :rental %>
+                  <form method="dialog">
+                    <button type="submit" class='btn button btn-primary' autofocus>Cancel</button>
+                  </form>
+                </div>
+              </dialog>
+            </div>
+          </div>
+        <% else %>
+
+          <p class="mt-2">You have no active rental.</p>
+          <br>
+          <%= link_to "Create New Rental", stations_path, class: 'btn button btn-primary' %>
+
+        <% end %>
+        
+      </div>
+
+      <!-- edit profile -->
+
+      <div class="card mt-6">
+        <h2 class="text-2xl font-semibold">Edit Profile</h2>
+
+        <br>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn button btn-primary' %>
+        
+      </div>
+
+      <!-- submited feedback -->
+      <% @reviews = [Review.where(user_id: current_user.id).last] %>
+
+      <div class="card mt-6">
+        <% if Review.where(user_id: current_user.id).exists? %>
+          <h2 class="text-2xl font-semibold">Last Review Submitted:</h2>
+          <% puts = "review not nil" %>
+          <section class="section-inner flexbox vertical stretch" style="padding: 10px;">
+            <div class="record-row header flexbox horizontal justify-space-between" >
+              <h4 class="h4">Reviews</h4>
+            </div>
+            <div style="color: black;">
+                <%= render(partial: "reviews/row", collection: @reviews, as: :review) %>
+            </div>
+          </section>
+        <% else %>
+          <p class="mt-2">No reviews found.</p>
+          <br>
+        <% end %>
+        <%= link_to "Submit a Station Review", review_path, class: 'btn button btn-primary' %>
+      </div>
+    </div>
+  </div>
+</section>

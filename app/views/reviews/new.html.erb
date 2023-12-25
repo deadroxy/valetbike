@@ -1,0 +1,47 @@
+<head>
+  <title>Review Station - ValetBike</title>
+</head>
+
+
+<section class="page-section">
+  <h1 class="section-title">Review Station</h1>
+
+  <div class="section-inner flexbox horizontal justify-content-center">
+    <%= form_with url: review_path, method: :post, local: true do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :station_id, 'Select Station' %>
+        <%= f.collection_select :station_id, Station.all, :id, :address, prompt: true %>
+      </div>
+
+      <div class="container">
+        <div class="star-group">
+          <h1> RATE THE STATION</h1>
+          <input type="radio" class="star" id="star1" name="rating" value=1>
+          <label for="star1" title="1 star"><span>1</span></label>
+      
+          <input type="radio" class="star" id="star2" name="rating" value=2>
+          <label for="star2" title="2 stars"><span>2</span></label>
+      
+          <input type="radio" class="star" id="star3" name="rating" value=3>
+          <label for="star3" title="3 stars"><span>3</span></label>
+      
+          <input type="radio" class="star" id="star4" name="rating" value=3>
+          <label for="star4" title="4 stars"><span>4</span></label>
+      
+          <input type="radio" class="star" id="star5" name="rating" value=5>
+          <label for="star5" title="5 stars"><span>5</span></label>
+        </div>
+      </div>
+
+      <tr>
+      <th><f.label for :message><b>Review </b></label></th>
+      <td><textarea style="height:250px;width:500px" type="string" name="message"class="form-control" id=:message placeholder="Leave review here!"></textarea></td>
+        <%= puts :message %>
+      </tr>
+      <br>
+      <br>
+      <%= f.submit "Submit", class: "btn button btn-primary" %>
+      <% end %>
+  </div>
+</section>

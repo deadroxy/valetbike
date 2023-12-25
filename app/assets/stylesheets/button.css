@@ -1,0 +1,14 @@
+.button{
+    background-color: var(--valetbike-blue-color);
+    border-width: 0;
+}
+
+.button:hover {
+    background-color:var(--valetbike-blue-dark-color);
+    transition: 0.7s;
+}
+
+.button:focus {
+    outline-color: transparent;
+    outline-style: solid;
+}

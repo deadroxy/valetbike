@@ -1,0 +1,43 @@
+<head>
+  <title>New Rental - ValetBike</title>
+</head>
+<body>
+
+
+
+  <section class="page-section">
+    <div class="back-container">
+
+      <a href="/bikes?selected_station_id=<%= params[:selected_station_id] %>" class="back-link">
+        <svg viewBox="0 0 24 24" class="icon" style="width: 70px; height: 70px;">
+          <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.28 10.28a.75.75 0 010-1.06l3-3a.75.75 0 011.06 1.06l-1.72 1.72h5.69a.75.75 0 010 1.5h-5.69l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3z" fill-rule="evenodd"></path>
+        </svg>
+      </a>
+        
+    </div>
+    <h1 class="section-title">Create New Rental</h1>
+    <div class="section-inner flexbox horizontal justify-content-center">
+      <%= form_with url: rentals_path, method: :post, local:true do |f| %>
+
+        <tr>
+
+        <th><b><%= f.label (:bike_id) %></b></th>
+        <td><%= text_field_tag :selected_bike_id, params[:selected_bike_id], class: "search-control", readonly: true %></td>
+
+        <br>
+
+
+        <th><label for "rental_hours">Hours</label></th>
+        <td><input type="number" name="rental_hours" min="0" max="9" step="1" class="form-control" id="rental_hours"></td>
+
+        <th><label for "rental_minutes">Minutes</label></th>
+        <td><input type="number" name="rental_minutes" min="0" max="45" step="15" class="form-control" id="rental_minutes"></td>
+
+        </tr>
+        <br>
+        <br>
+        <%= f.submit class: "btn button btn-primary"%>
+      <% end %>
+    </div>
+  </section>
+</body>

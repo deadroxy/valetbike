@@ -1,0 +1,68 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+.form-group {
+  margin-bottom: 15px;
+}
+  
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--light-black-color);
+  font-weight: bold;
+}
+
+input[type="text"], input[type="password"] {
+  /* Inherits styles from previous CSS */
+  width: 100%; /* Adjust as necessary */
+  color: black;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+  
+input#search_by_address {
+  color: black;
+}
+
+
+/* LOGIN, SIGNUP, AND OTHER FROM START OF SESSION */
+
+.form-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  animation: slideInFadeIn 0.7s ease-out forwards; 
+  width: 400px; 
+  margin: 20px auto;
+}
+
+@keyframes slideInFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.field {
+  width: 100%; /* Ensures all fields take full width of their container */
+  margin-bottom: 10px;
+}
+
+/* .field input, .field .remember-me-checkbox {
+  width: calc(100% - 20px); 
+  padding: 10px;
+} */

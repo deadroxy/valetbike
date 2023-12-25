@@ -1,0 +1,35 @@
+<head>
+  <title>Bikes - ValetBike</title>
+</head>
+<body>
+  <section class="page-section">
+  
+    <div class="back-container">
+
+      <a href="/stations" class="back-link">
+        <svg viewBox="0 0 24 24" class="icon" style="width: 70px; height: 70px;">
+          <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.28 10.28a.75.75 0 010-1.06l3-3a.75.75 0 011.06 1.06l-1.72 1.72h5.69a.75.75 0 010 1.5h-5.69l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3z" fill-rule="evenodd"></path>
+        </svg>
+      </a>
+
+    </div>
+
+    <h1 class="section-title">ValetBikes at <%= Station.find_by(id: params[:selected_station_id]).name %> Station</h1>
+    <section class="section-inner flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <div class="record-row header flexbox horizontal justify-space-between">
+          <% if params[:reverse].blank? || params[:reverse] == "0" %>
+            <a href="<%= bikes_path(params: {reverse: 1})%>">Sort ⬇</a>
+          <% else %>
+            <a href="<%= bikes_path%>">Sort ⬆</a>
+          <% end %>
+        </div>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+      <% else %>
+        <section class="section-inner">
+          No bikes found.
+        </section>
+      <% end %>
+    </section>
+  </section>
+</body>
