@@ -1,0 +1,18 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      All bikes
+    </div>  
+    <a class="toggle-btn" href="/">View all stations</a>
+  <div class="flexbox vertical stretch">
+      <% if @bikes.present? %>
+        <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+      <% else %>
+      <div class="empty">
+        No bikes found.
+      </div>
+      <% end %>
+    </div>
+	</div>
+</div>
+</div>

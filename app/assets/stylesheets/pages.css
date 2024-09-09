@@ -20,6 +20,18 @@
   margin-bottom: 1em;
 }
 
+.page-section .section-inner a.toggle-btn {
+    display: block;
+    border-radius: 3px;
+    background-color: var(--light-gray-color);
+    margin-bottom: 1em;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    width: calc(120px + 2em);
+    text-align: center;
+    font-size: 0.9em;
+}
+
 .record-row {
   padding: 0.5em 1.25em 0.5em 1.25em;
   font-size: 0.85em;
