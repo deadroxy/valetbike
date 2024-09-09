@@ -1,0 +1,4 @@
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox vertical stretch">
+  <% @station = Station.find_by(identifier: bike.current_station.identifier)%>
+  Bike <%=  bike.identifier %> is docked at <%=@station.name %> on <%= @station.address %> 
+</div>
