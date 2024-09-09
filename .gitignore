@@ -38,3 +38,6 @@
 
 # Ignore ENV variable file
 .env
+
+#ignore VS Code workspace
+valetbike.code-workspace
