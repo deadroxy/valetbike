@@ -1,0 +1,14 @@
+insert into stations (identifier, name, address, created_at, updated_at) values (21,'Florence Bank Station','19 Meadow Street Florence MA @ Lilly Library',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (24,'Florence Center','31 Main Street Florence MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (30,'Jackson Street','7A-7D Jackson Street Northampton MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (25,'Cooley Dickinson Health Care','51 Locust Street Northampton MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (29,'State St/Mass Central Rail Trail','State Street/Mass Central Rail Trail',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (33,'Northampton High School','380 Elm Street Northampton MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (20,'Village Hill/State Hospital','Village Hill/State Hospital',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (26,'John M Greene Hall/Smith College','1 Chapin Way Northampton MA @ John M. Greene Hall',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (23,'Forbes Library','20 West Street Northampton MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (27,'Pulaski Park/Downtown','274 Main Street Northampton MA at Pulaski Park',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (31,'Main Street/Court House','99 Main Street Northampton MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (28,'Northampton Train Station','Northampton Train Station',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (32,'Main Street/Bridge Street','1 Bridge Street Northampton MA',now(),now());
+insert into stations (identifier, name, address, created_at, updated_at) values (22,'YMCA/Childs Park','YMCA/Childs Park',now(),now());
