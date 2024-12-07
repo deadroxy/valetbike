@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+<h1> This page will intake credit card information; it will be processed by payments - create </h1>
+
+
+<%= form_tag payments_path do %>
+  <label class="amount">
+      <span>Amount: $5.00</span>
+  </label>
+
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="A month's subscription"
+    data-amount="500"
+    data-locale="auto">
+  </script>
+<% end %>
+=======
+<div>
+  <h1 class="font-bold text-4xl">Payments#new</h1>
+  <p> This page will intake the credit card info </p>
+</div>
+>>>>>>> ca346d1 (created payments controller, new and edit placeholder views, and edited routes file)

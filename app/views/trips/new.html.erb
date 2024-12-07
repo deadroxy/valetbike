@@ -1,0 +1,45 @@
+
+<div class = "pink-header"> BOOK YOUR BIKE
+  <div class="header-bike-image">
+    <img src="<%= asset_path('bikeLogo.png') %>" alt="Hot Pink play-dough bike"> 
+  </div>
+  <div class="dropdown-image">
+    <img src="<%= asset_path('dropdown-image.png') %>" alt="Three hot pink lines"> 
+  </div>
+</div>
+
+<div class="bookRide-container">
+
+  <h1 class="bookRide-title">Book Your Ride</h1>
+  <p>Booking from <span class="bookRide-station-name">123 Street Way</span> Station</p>
+  <button class="bookRide-btn bookRide-change-station">Change Station</button>
+
+  <h2 class="bookRide-step">1. Choose a bike</h2>
+  <p class="bookRide-instructions">Please enter the bike ID code of the bike you would like to ride. This can be found between the handlebars.</p>
+
+  <%= form_for @trip do |f| %>
+    <div class="bookRide-form-group">
+      <%= f.label "Bike ID", class: "bookRide-form-label" %>
+      <%= f.text_field :bike_used, class: "bookRide-form-input" %>
+    </div>
+
+    
+
+    <div class="bookRide-button-group">
+      <%= f.submit "Book My Bike", class: "bookRide-btn bookRide-primary" %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
