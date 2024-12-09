@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    bcrypt (3.1.20)
     bindex (0.8.1)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
@@ -132,8 +133,10 @@ GEM
       digest
       net-protocol
       timeout
-    nio4r (2.5.8)
+    nio4r (2.7.4)
     nokogiri (1.13.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
@@ -191,8 +194,11 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
+    stripe (13.2.0)
     strscan (3.0.4)
     tailwindcss-rails (2.0.12-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.12-x86_64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.12-x86_64-linux)
       railties (>= 6.0.0)
@@ -223,9 +229,12 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  arm64-darwin-23
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   capybara
   debug
@@ -239,6 +248,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  stripe
   tailwindcss-rails
   turbo-rails
   tzinfo-data
