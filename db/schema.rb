@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_090719) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_07_035648) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_available", default: true
+  end
+
+  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "desc"
+    t.string "stripe_price_id"
+    t.string "stripe_product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "meter_event"
+    t.string "meter_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -24,6 +37,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_090719) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude", limit: 53
+    t.float "longitude", limit: 53
+  end
+
+  create_table "trips", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "bike_id"
+    t.integer "user_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "end_station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "start_station_is"
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "string"
+    t.string "phone_number"
+    t.integer "current_trip_id"
+    t.string "avatar"
+    t.string "stripe_customer_id"
+    t.string "subscription_id"
   end
 
 end

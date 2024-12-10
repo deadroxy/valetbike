@@ -5,7 +5,6 @@
 * {
   margin: 0;
   padding: 0;
-  z-index: 1;
 }
 
 html, body {
@@ -22,6 +21,30 @@ body {
   -ms-text-size-adjust:100%;
 }
 
+caption{
+  font-size:15pt;
+  -webkit-text-size-adjust:100%;
+  -moz-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+  text-align: center;
+}
+
+sub-caption{
+  font-size:12pt;
+  -webkit-text-size-adjust:100%;
+  -moz-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+  text-align: center;
+}
+
+a.link-regular {
+    color: var(--theme-color);
+}
+
+a.link-black {
+    color: var(--black-color);
+}
+
 #site-container{
   position: relative;
   width: 100%;
@@ -29,7 +52,165 @@ body {
   height: auto !important;
   min-height: 100%;
   font-family: var(--body-font);
-  font-weight: 400;
+  font-weight: 100;
   color: var(--black-color);
   background: var(--white-color);
+}
+
+input[type=submit]:disabled {
+    background-color: var(--gray-color);
+    color: var(--white-color);
+    border-color: var(--gray-color);
+}
+
+.bg-fill {
+    background-color: var(--theme-color);
+    position: absolute;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 3rem;
+}
+
+.title_popup {
+    font-family: var(--title-font);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: var(--theme-color);
+}
+
+.section-heading {
+    font-size: 1.3em;
+    font-family: var(--title-font);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.section-heading-h2 {
+    font-size: 1em;
+    font-family: var(--title-font);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.custom-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--btn-radius);
+    transition: 0.1s ease;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Optional: adds some space between the button and the link */
+}
+
+.btn-fill {
+    background: var(--theme-color) !important;
+    color: var(--white-color) !important;
+    border: var(--btn-thickness) solid var(--theme-color) !important;
+}
+
+.btn-fill:hover {
+    background: var(--white-color) !important;
+    color: var(--black-color) !important;
+}
+
+.btn-outline {
+    background: var(--white-color) !important;
+    border: var(--btn-thickness) solid var(--theme-color) !important;
+}
+
+.togglestuff .btn-toggle {
+    font-family: var(--body-font) !important;
+    font-weight: 200;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--btn-radius);
+    transition: 0.1s ease;
+}
+
+.togglestuff .btn-toggle-outline {
+    background: var(--white-color) !important;
+    border: var(--btn-thickness) solid var(--theme-color) !important;
+}
+
+.togglestuff .btn-toggle-outline:hover {
+    background: var(--theme-color) !important;
+    color: var(--white-color) !important;
+    border: var(--btn-thickness) solid var(--theme-color) !important;
+}
+
+input[type="radio"]:checked + label {
+    background: var(--theme-color) !important;
+    color: var(--white-color) !important;
+    border: var(--btn-thickness) solid var(--theme-color) !important;
+}
+
+.shrikhand-regular {
+    font-family: var(--logo-font) !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    color: var(--theme-color) !important;
+}
+
+
+.btn-outline:hover {
+    background: var(--theme-color) !important;
+    color: var(--white-color) !important;
+}
+
+.btn-fill-danger {
+    background: var(--danger-color);
+    color: var(--white-color);
+    border: var(--btn-thickness) solid var(--danger-color);
+}
+
+.btn-fill-danger:hover {
+    background-color: var(--white-color);
+    color: var(--danger-color);
+}
+
+.btn-invalid, button:disabled, button[disabled] {
+    background: var(--invalid_fill-color);
+    color: var(--invalid_text-color);
+    border: var(--btn-thickness) solid var(--invalid_fill-color);
+}
+
+.btn-underline {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-underline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1.5px;
+    width: 100%;
+}
+
+.btn-underline.regular::before {
+    background-color: var(--black-color);
+}
+
+.btn-underline.danger::before {
+    background-color: var(--danger-color);
+}
+
+.btn-underline:hover {
+    opacity: 0.7;
+}
+
+.highlighter {
+    color: var(--theme-color);
+}
+
+.danger {
+    color: var(--danger-color);
 }
