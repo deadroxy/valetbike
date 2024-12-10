@@ -1,0 +1,220 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+
+<!-- Main Page -->
+
+<% if user_signed_in? %>
+
+  <!-- Welcome Section -->
+
+  <div class="mapsearch-container">
+  <!-- Left Section: Map -->
+  <div class="mapsearch-map">
+    <div id="map" style="width: 100%; height: 100%;"></div>
+  </div>
+
+  <!-- Right Section: Search Form -->
+  <div class="mapsearch-form-container">
+    <div class="mainpage-welcome">
+      <h1><b>Welcome to ValetBike, <%= current_user.firstName %>!</b></h1>
+    </div>
+    <div class="mainpage-search-title">
+      <h3>FIND A STATION NEAR YOU</h3>
+    </div>
+    <div class="mapsearch-form">
+      <form action="<%= map_test_path %>" method="get">
+        <label for="location" class="sr-only">Enter Your Address:</label>
+        <div class="mapsearch-input-wrapper">
+          <input
+            type="text"
+            name="location"
+            id="location"
+            placeholder="e.g., 123 Main Street"
+            required
+          />
+          <button type="submit">
+            <i class="fa fa-search"></i> Search
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Show nearby stations only if a search has been performed -->
+    <% if params[:location].present? && @stations.present? %>
+      <h2>Nearby Stations</h2>
+      <ul>
+        <% @stations.each do |station| %>
+          <li>
+            <strong><%= station.name %></strong><br>
+            Address: <%= station.address %><br>
+            Distance: <%= station.distance_to(params[:location]).round(2) %> km
+          </li>
+        <% end %>
+      </ul>
+    <% elsif params[:location].present? && @stations.empty? %>
+      <p>No nearby stations found.</p>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+  function initMap() {
+    // Initialize the map with a default center and zoom
+    const map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 42.3197, lng: -72.6319 }, // Replace with your default location
+      zoom: 12,
+    });
+
+    // Load stations only if a search has been performed
+    const stations = <%= @stations.present? ? raw(@stations.to_json) : '[]' %>;
+
+    // Add markers dynamically for nearby stations if available
+    stations.forEach((station) => {
+      new google.maps.Marker({
+        map: map,
+        position: { lat: station.latitude, lng: station.longitude },
+        title: station.name,
+      });
+    });
+  }
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCljDteMix-QtDCZQkYX-IKIYVHUam4Dus&callback=initMap"
+  async
+  defer
+></script>
+
+</div>
+ 
+<!-- Welcome Page -->
+
+  <% else %>
+    <div class="landing-page" style= "padding-top: 0px">
+    <!-- Top Section -->
+    <div class="top-section">
+    
+      <header class="header">
+        <h1 class="title">VALET BIKE.</h1>
+        <button class="login-button"><%= link_to("Log In", {controller: '/devise/sessions', action: 'new'}) %> </button>
+      </header>
+  
+      <div class="main-content">
+        <h2 class="tagline">SO LET'S RIDE!</h2>
+        <p class="description">
+          Ready to ride? We've got you covered. <br>
+          Whether you're exploring for the weekend or commuting daily,
+          we've got the perfect ride to fit your needs!
+        </p>
+        <button class="get-started-button"><%= link_to("Get Started", {controller: '/devise/registrations', action: 'new'}) %> </button>
+      </div>
+
+          <div class="right-image">
+            <img src="<%= asset_path('girl-bike.gif') %>" alt="Girl on a bike">
+          </div>
+
+        </div>
+
+        <!-- Lower Section -->
+        <div class="lower-section">
+        
+          <!-- Call to Action -->
+          <div class="call-to-action">
+            <h2>Join Us in What Matters Most: Our Community, Our Environment, and YOU.</h2>
+            <div class="cta-content">
+              <img src="<%= asset_path('placeholder-image.jpg') %>" alt="Placeholder Image">
+              <p>Hop on and join our mission to build stronger communities, protect the environment, and help riders make a positive impact with every trip. <br>
+                Together, we can make every journey count!</p>
+            </div>
+          </div>
+
+          <!-- How To Ride -->
+          <div class="how-to-ride">
+            <h2>How to Ride 101</h2>
+            <div class="ride-steps">
+              <div class="step">
+                <%= image_tag "icon-join.jpg", alt: "Join Icon", class: "step-icon" %>
+                <h3>JOIN</h3>
+                <p>Download the app or visit the website to sign up. <br>
+                Choose a membership or pay-as-you-go plan.<br>
+                Verify your details and activate your account.</p>
+              </div>
+              <div class="step">
+                <%= image_tag "icon-rent.jpg", alt: "Rent Icon", class: "step-icon" %>
+                <h3>RENT</h3>
+                <p>Unlock your bike with the app. <br> Give the bike a quick inspection to ensure it is ready to ride.<br> Take a moment to read through bike safety guidelines before you start your journey.</p>
+              </div>
+              <div class="step">
+                <%= image_tag "icon-ride.jpg", alt: "Ride Icon", class: "step-icon" %>
+                <h3>RIDE</h3>
+                <p><b>Enjoy the Ride! </b> <br> Make the most of your trip by keeping it within the allowed time limit to avoid any extra fees. <br>
+                  Remember: The timer continues running even when you stop, so plan accordingly!
+                </p>
+              </div>
+              <div class="step">
+                <%= image_tag "icon-park.JPG", alt: "Park Icon", class: "step-icon" %>
+                <h3>PARK</h3>
+                <p>End your trip by parking at a designated hub. <br>
+                Confirm the bike is securely parked in the app to complete your ride.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lower-section">
+        
+          <!-- FAQ Section -->
+          <div class="call-to-action">
+            <h2>Frequenly Asked Questions</h2>
+            
+            <div class="faq-content">
+
+            <button class="accordion">Why Use ValetBike?</button>
+            <div class="panel">
+              <p>It’s the fastest, most affordable, and eco-friendly way to get around. Skip the traffic, save money, stay active, and help create a greener future—all with just one ride.</p>
+            </div>
+
+            <button class="accordion">How much does it cost to use ValetBike?</button>
+            <div class="panel">
+              <p>Valet Bike offers various pricing options to suit your needs, including pay-per-ride and monthly or annual memberships. <br>
+              Pay-per-ride rates start at $2.50 for the first 30 minutes. Additional charges apply for extended rides. </p>
+            </div>
+            
+            <button class="accordion">How can I end my trip?</button>
+            <div class="panel">
+              <p>
+              Properly ending your trip helps maintain the system's efficiency and prevents additional charges.<br>
+              <b>Park at a Designated Hub: </b> Locate and return the bike to an official Valet Bike station. <br>
+              <b>Secure the Bike: </b> Wrap the tether around the bike rack and insert it into the closed wheel lock to ensure it's properly locked.<br>
+              <b>End the Trip in the App: </b> Follow the app's instructions to finalize your trip. This may include taking a photo to confirm the bike is correctly secured.<br>
+              </p>
+            </div>
+            
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                  panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+            </script>
+            <!-- Code from https://www.w3schools.com/howto/howto_js_accordion.asp -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+

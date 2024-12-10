@@ -48,6 +48,9 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+#Added gem devise to set up users
+gem "devise"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -75,7 +78,7 @@ group :test do
 end
 
 # Developer Added Gems
-gem 'dotenv-rails'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Suggested Potentially Useful Gems
 # gem 'devise'
@@ -83,3 +86,6 @@ gem 'dotenv-rails'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+gem "stripe"
+
+gem 'geocoder'

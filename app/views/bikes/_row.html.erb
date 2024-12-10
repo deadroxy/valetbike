@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <div class="record-row flexbox vertical stretch">
+     <p> Bike  <%=bike.identifier%> </p>
+     <div class="button-container" style="display: flex; gap: 10px;">
+        <%= link_to trips_new_path(identifier: bike.identifier) do %>
+            <button id="rent-bike-btn" class="record-row2">Rent Bike</button>
+        <% end %>
+
+    </div>
+
+    </div>
+    <!-- lists the bikes -->
+   
+        
+</html>
